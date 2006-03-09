@@ -155,7 +155,7 @@ module UI
                     end
     
                     # Display matches
-                    buf.insert(iter, _("No match found. "), "header")
+                    buf.insert(iter, _("No match found.") + " ", "header")
                     buf.insert(iter, _("Suggested results:"), "header") \
                         if matches.length > 0
                     buf.insert(iter, "\n", "header")
