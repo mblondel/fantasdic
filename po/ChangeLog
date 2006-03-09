@@ -1,0 +1,15 @@
+2006-03-10  Hendrik Brandt  <heb@gnome-de.org>
+
+	* de.po: Added German translation.
+	* ChangeLog: Rename Changelog to ChangeLog to match GNOME standards
+	* POTFILES.in: Added for a working intltool-update
+	* Makefile: Please remove this file
+	* Changelog: Please remove this file
+
+2006-03-09 Daniel Nylander <po@danielnylander.se>
+
+    * sv.po: Swedish translation added
+
+2006-03-09 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * fr.po: first translation

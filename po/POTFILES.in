@@ -1,0 +1,29 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+[encoding: UTF-8]
+fantasdic.desktop
+lib/fantasdic.rb
+lib/fantasdic/dict.rb
+lib/fantasdic/gettext.rb
+lib/fantasdic/preferences.rb
+lib/fantasdic/pre-setup.rb
+lib/fantasdic/ui.rb
+lib/fantasdic/utils.rb
+lib/fantasdic/ui/about_dialog.rb
+lib/fantasdic/ui/alert_dialog.rb
+lib/fantasdic/ui/glade_base.rb
+lib/fantasdic/ui/ipc.rb
+lib/fantasdic/ui/preferences_dialog.rb
+lib/fantasdic/ui/utils.rb
+lib/fantasdic/ui/add_dictionary_dialog.rb
+lib/fantasdic/ui/history_list_view.rb
+lib/fantasdic/ui/main_app.rb
+lib/fantasdic/ui/result_text_view.rb
+data/fantasdic/glade/add_dictionary_dialog.glade
+data/fantasdic/glade/main_app.glade
+data/fantasdic/glade/preferences_dialog.glade
+data/fantasdic/ui/menus.xml
+data/fantasdic/ui/popups.xml
+data/fantasdic/ui/toolbar.xml
+
+
