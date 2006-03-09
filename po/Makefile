@@ -9,10 +9,15 @@ HEADERS=$(shell find .. -name '*.h')
 
 PO=$(wildcard *.po)
 
+RGETTEXT="`which rgettext`"
+
+RUBY_INTERPRETER="/opt/ruby/bin/ruby"
+#RUBY_INTERPRETER="`which ruby`"
+
 $(POT): $(RUBY) $(GLADE) $(HEADERS)
 	rm -f $(POT)
 	@echo Updating PO template from Ruby files
-	@rgettext --output=$(POT) $(RUBY)
+	$(RUBY_INTERPRETER) $(RGETTEXT) --output=$(POT) $(RUBY)
 	@echo Updating PO template from Glade files
 	@xgettext --output=$(POT) --join-existing $(GLADE)
 	@echo Updating PO template from header files
