@@ -1,0 +1,157 @@
+# Fantasdic.
+# Copyright (C) 2006 Mathieu Blondel
+# This file is distributed under the same license as Fantasdic.
+# Mathieu Blondel <mblondel@cvs.gnome.org>, 2006.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Fantasdic 1.0-beta\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-03-09 19:45+0100\n"
+"PO-Revision-Date: 2006-03-09 19:45+0100\n"
+"Last-Translator: Mathieu Blondel <mblondel@cvs.gnome.org>\n"
+"Language-Team: French\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:58
+msgid "Fields missing"
+msgstr "Champs manquants"
+
+#: ../lib/fantasdic/ui/main_app.rb:64
+msgid "No dictionary configured"
+msgstr "Il n'y a pas encore de dictionnaire configuré"
+
+#: ../lib/fantasdic/ui/main_app.rb:82
+msgid "Transferring data from %s ..."
+msgstr "Transfert des données depuis %s..."
+
+#: ../lib/fantasdic/ui/main_app.rb:109
+msgid "Can't connect to server"
+msgstr "Échec lors de la connexion au serveur"
+
+#: ../lib/fantasdic/ui/main_app.rb:132
+msgid "No match found."
+msgstr "Pas de résultat."
+
+#: ../lib/fantasdic/ui/main_app.rb:134
+msgid "Matches found for \"%s\": %d."
+msgstr "Résultats trouvés pour \"%s\" : %d."
+
+#: ../lib/fantasdic/ui/main_app.rb:159
+msgid "Suggested results:"
+msgstr "Résultats possibles :"
+
+#: ../lib/fantasdic/ui/main_app.rb:315
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "Le dictionnaire \"%s\" n'existe plus"
+
+#: ../lib/fantasdic/ui/main_app.rb:321
+msgid "Waiting for %s..."
+msgstr "En attente de %s..."
+
+#: ../lib/fantasdic/ui/main_app.rb:342
+msgid "Search %s"
+msgstr "Rechercher dans %s"
+
+#: ../lib/fantasdic/ui/main_app.rb:445
+msgid "_Look Up"
+msgstr "_Rechercher"
+
+#: ../lib/fantasdic/ui/main_app.rb:448
+msgid "_Edit"
+msgstr "_Édition"
+
+#: ../lib/fantasdic/ui/main_app.rb:449
+msgid "Clear history"
+msgstr "Effacer l'historique"
+
+#: ../lib/fantasdic/ui/main_app.rb:453
+msgid "_View"
+msgstr "_Affichage"
+
+#: ../lib/fantasdic/ui/main_app.rb:454
+msgid "_Go"
+msgstr "Aller à"
+
+#: ../lib/fantasdic/ui/main_app.rb:459
+msgid "_Help"
+msgstr "Aide"
+
+#: ../lib/fantasdic/ui/main_app.rb:460
+msgid "About"
+msgstr "À propos"
+
+#: ../lib/fantasdic/ui/main_app.rb:489
+msgid "Scan clipboard"
+msgstr "Scanner le presse-papier"
+
+#: ../lib/fantasdic/ui/main_app.rb:491
+msgid "_History"
+msgstr "_Historique"
+
+#: ../lib/fantasdic/ui/main_app.rb:493
+msgid "_Statusbar"
+msgstr "Barre d'é_tat"
+
+#: ../lib/fantasdic/ui/main_app.rb:495
+msgid "_Toolbar"
+msgstr "Barre d'_outils"
+
+#: ../lib/fantasdic.rb:24
+msgid "A client for the DICT protocol."
+msgstr "Un client pour le protocole DICT."
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:10
+msgid "Add dictionary"
+msgstr "Ajouter un dictionnaire"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:149
+msgid "_Port:"
+msgstr "_Port :"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:178
+msgid "_Server:"
+msgstr "_Serveur :"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:228
+msgid "_Name:"
+msgstr "_Nom :"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:271
+msgid "Search _all databases"
+msgstr "Rechercher dans _toutes les bases"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:291
+msgid "Search _databases selected below"
+msgstr "Rechercher dans les _bases sélectionnées"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:359
+msgid "S_earch strategy:"
+msgstr "Stratégie de r_echerche"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:416
+msgid "Server _requires authentication"
+msgstr "Le serveur _requiert une authentification"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:445
+msgid "_Username:"
+msgstr "Nom d'_utilisateur"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:474
+msgid "Pass_word"
+msgstr "Mot de _passe"
+
+#: ../data/fantasdic/glade/main_app.glade:10
+msgid "Fantasdic"
+msgstr ""
+
+#: ../data/fantasdic/glade/preferences_dialog.glade:10
+msgid "Preferences"
+msgstr "Préférences"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade:198
+msgid "Dictionaries"
+msgstr "Dictionnaires"
