@@ -1,0 +1,46 @@
+Fantasdic
+=========
+
+    Fantasdic is a client for the DICT protocol (RFC 2229).
+
+    Fantasdic:
+
+      * Works under Windows, Linux and other Unix operating systems.
+      * Can use multiple servers at the same time and filter databases.
+      * Scans clipboard.
+      * Keeps an history of searched words.
+      * Supports i18n.
+
+
+Requirements
+------------
+
+    Ruby >= 1.8.0:              http://www.ruby-lang.org
+    GTK+ >= 2.6:                http://www.gnome.org
+    Ruby-GNOME2 >= 0.14.1 [*]:  http://ruby-gnome2.sourceforge.jp
+    Ruby-GetText >= 0.6.1 [**]: http://ponx.s5.xrea.com/hiki/ruby-gettext.html
+    Intltool [**]:              http://freedesktop.org/wiki/Software_2fintltool
+
+    [*]: Required libraries are: Ruby/Libglade2, Ruby/Gtk2 and Ruby/GdkPixbuf2.
+         Other optional library is: Ruby/Gtktrayicon.
+
+    [**]: Optional.
+
+Install 
+-------
+
+    $ ruby setup.rb config
+    $ ruby setup.rb setup
+    ($ su)
+    # ruby setup.rb install
+
+Usage
+-----
+
+    $ fantasdic
+
+License
+-------
+
+    Fantasdic is distributed under the terms of the GNU General Public
+    License. See the COPYING file for more information.

@@ -1,0 +1,18 @@
+String-freeze (1 week before the release)
+ - Mail translators (see AUTHORS for e-mail addresses) with the latest .pot
+   file merged with their latest translation work.
+
+Release
+ - Update NEWS with the announcement and commit ;
+ - Update README with the list of features) ;
+ - Tag the ChangeLog (=== Fantasdic X.Y.Z ===) and commit ;
+ - Create the tarball release (make_release.sh "X.Y.Z") ;
+ - Check if the tarball is OK ;
+ - Tag the CVS repository ;
+ - Upload the tarball in the ftp ;
+ - Update the web site (features list, download link, eventually
+   screenshots..) ;
+ - Mail the announcement to the list,
+   ruby-talk@ruby-lang.org and gnome-announce-list@gnome.org ;
+ - Update related pages at RAA, Freshmeat and GnomeFiles ;
+ - Open a beer.

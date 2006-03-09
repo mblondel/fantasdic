@@ -1,0 +1,58 @@
+---
+dictionaries:
+  - English
+  - Wikipedia EN
+  - English <-> French
+dictionaries_infos:
+  English:
+    :selected: 1
+    :server: dict.org
+    :sel_strat: soundex
+    :all_dbs: false
+    :login: ''
+    :password: ''
+    :sel_dbs:
+      - foldoc
+      - gcide
+      - jargon
+      - wn
+    :auth: false
+    :port: "2628"
+  English <-> French:
+    :selected: 1
+    :server: dict.org
+    :sel_strat: soundex
+    :all_dbs: false
+    :login: ''
+    :password: ''
+    :sel_dbs:
+      - eng-fra
+      - fra-eng
+    :auth: false
+    :port: "2628"
+  Wikipedia EN:
+    :selected: 1
+    :server: dict.aioe.org
+    :sel_strat: lev
+    :all_dbs: false
+    :login: ''
+    :password: ''
+    :sel_dbs:
+      - Wikipedia_EN
+    :auth: false
+    :port: "2628"
+last_searches: []
+last_search:
+watched_words: []
+window_maximized: false
+window_position: 
+  - 0
+  - 0
+window_size:
+  - 655
+  - 575
+view_toolbar: true
+view_statusbar: true
+view_history: true
+sidepane_position: 160
+history_nb_rows: 15
