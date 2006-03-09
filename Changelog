@@ -1,6 +1,7 @@
 2006-03-09 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * po/Makefile: choose the ruby interpreter to run rgettext
+    * lib/fantasdic/ui/main_app.rb: fixed a string
 
 2006-03-05 Mathieu Blondel <mblondel@cvs.gnome.org>
 

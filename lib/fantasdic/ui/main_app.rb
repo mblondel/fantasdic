@@ -129,9 +129,9 @@ module UI
 
                 # Status bar
                 if definitions.empty?
-                    self.status_bar_msg = _("No match found")
+                    self.status_bar_msg = _("No match found.")
                 else
-                    self.status_bar_msg = _("Matches found for \"%s\": %d") %
+                    self.status_bar_msg = _("Matches found for \"%s\": %d.") %
                                 [p[:word], definitions.length]
                 end
 
