@@ -2,6 +2,7 @@
 
     * po/Makefile: choose the ruby interpreter to run rgettext
     * lib/fantasdic/ui/main_app.rb: fixed a string
+    * data/fantasdic/glade/main_app.glade: "look up" was not translatable
 
 2006-03-05 Mathieu Blondel <mblondel@cvs.gnome.org>
 
