@@ -1,0 +1,164 @@
+# Serbian translation of fantasdic
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2006.
+#
+# This file is distributed under the same license as the fantastic package.
+#
+# Maintainer: Danilo Šegan <danilo@gnome.org>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fantasdic\n"
+"PO-Revision-Date: 2006-03-10 00:12+0100\n"
+"Last-Translator: Danilo Šegan <danilo@gnome.org>\n"
+"Language-Team: Serbian (sr) <gnom@prevod.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3;    plural=n%10==1 && n%100!=11 ? 0 :    n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:58
+msgid "Fields missing"
+msgstr "Nedostaju polja"
+
+#: ../lib/fantasdic/ui/main_app.rb:64
+msgid "No dictionary configured"
+msgstr "Rečnik nije podešen"
+
+#: ../lib/fantasdic/ui/main_app.rb:82
+#, python-format
+msgid "Transferring data from %s ..."
+msgstr "Prenosi podatke sa %s ..."
+
+#: ../lib/fantasdic/ui/main_app.rb:109
+msgid "Can't connect to server"
+msgstr "Ne mogu da se povežem na server"
+
+#: ../lib/fantasdic/ui/main_app.rb:132 ../lib/fantasdic/ui/main_app.rb:158
+msgid "No match found."
+msgstr "Izraz nije nađen."
+
+#: ../lib/fantasdic/ui/main_app.rb:134
+#, python-format
+msgid "Matches found for \"%s\": %d."
+msgstr "Nađeni izrazi za „%s“: %d."
+
+#: ../lib/fantasdic/ui/main_app.rb:159
+msgid "Suggested results:"
+msgstr "Predloženi rezultati:"
+
+#: ../lib/fantasdic/ui/main_app.rb:315
+#, python-format
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "Rečnik „%s“ više ne postoji"
+
+#: ../lib/fantasdic/ui/main_app.rb:321
+#, python-format
+msgid "Waiting for %s..."
+msgstr "Čekam na %s..."
+
+#: ../lib/fantasdic/ui/main_app.rb:342
+#, python-format
+msgid "Search %s"
+msgstr "Traži %s"
+
+#: ../lib/fantasdic/ui/main_app.rb:445
+#: ../data/fantasdic/glade/main_app.glade:40
+msgid "_Look Up"
+msgstr "_Pogledaj"
+
+#: ../lib/fantasdic/ui/main_app.rb:448
+msgid "_Edit"
+msgstr "_Uređivanje"
+
+#: ../lib/fantasdic/ui/main_app.rb:449
+msgid "Clear history"
+msgstr "Očisti istorijat"
+
+#: ../lib/fantasdic/ui/main_app.rb:453
+msgid "_View"
+msgstr "P_regled"
+
+#: ../lib/fantasdic/ui/main_app.rb:454
+msgid "_Go"
+msgstr "_Idi"
+
+#: ../lib/fantasdic/ui/main_app.rb:459
+msgid "_Help"
+msgstr "_Pomoć"
+
+#: ../lib/fantasdic/ui/main_app.rb:460
+msgid "About"
+msgstr "O programu"
+
+#: ../lib/fantasdic/ui/main_app.rb:489
+msgid "Scan clipboard"
+msgstr "Pretraži isečke"
+
+#: ../lib/fantasdic/ui/main_app.rb:491
+msgid "_History"
+msgstr "_Istorijat"
+
+#: ../lib/fantasdic/ui/main_app.rb:493
+msgid "_Statusbar"
+msgstr "Traka sa _stanjem"
+
+#: ../lib/fantasdic/ui/main_app.rb:495
+msgid "_Toolbar"
+msgstr "_Alatke"
+
+#: ../lib/fantasdic.rb:24
+msgid "A client for the DICT protocol."
+msgstr "Program za DICT protokol."
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:10
+msgid "Add dictionary"
+msgstr "Dodaj rečnik"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:149
+msgid "_Port:"
+msgstr "_Port:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:178
+msgid "_Server:"
+msgstr "_Server:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:228
+msgid "_Name:"
+msgstr "_Ime:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:271
+msgid "Search _all databases"
+msgstr "Pretraži _sve baze"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:291
+msgid "Search _databases selected below"
+msgstr "Pretraži ispod izabrane _baze"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:359
+msgid "S_earch strategy:"
+msgstr "St_rategija traženja:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:416
+msgid "Server _requires authentication"
+msgstr "Server _zahteva autentifikaciju"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:445
+msgid "_Username:"
+msgstr "_Korisnik:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:474
+msgid "Pass_word"
+msgstr "_Lozinka"
+
+#: ../data/fantasdic/glade/main_app.glade:10
+msgid "Fantasdic"
+msgstr "Fantasdik"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade:10
+msgid "Preferences"
+msgstr "Postavke"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade:198
+msgid "Dictionaries"
+msgstr "Rečnici"
