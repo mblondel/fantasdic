@@ -1,0 +1,157 @@
+# Swedish translation of fantasdic.
+# Copyright (C) 2006 Mathieu Blondel
+# This file is distributed under the same license as Fantasdic.
+# Daniel Nylander <po@danielnylander.se>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fantasdic\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-03-09 19:45+0100\n"
+"PO-Revision-Date: 2006-03-09 22:16+0100\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:58
+msgid "Fields missing"
+msgstr "Fält saknas"
+
+#: ../lib/fantasdic/ui/main_app.rb:64
+msgid "No dictionary configured"
+msgstr "Ingen ordbok konfigurerad"
+
+#: ../lib/fantasdic/ui/main_app.rb:82
+msgid "Transferring data from %s ..."
+msgstr "Överför data från %s ..."
+
+#: ../lib/fantasdic/ui/main_app.rb:109
+msgid "Can't connect to server"
+msgstr "Kan inte ansluta till server"
+
+#: ../lib/fantasdic/ui/main_app.rb:132
+msgid "No match found."
+msgstr "Ingen träff hittades."
+
+#: ../lib/fantasdic/ui/main_app.rb:134
+msgid "Matches found for \"%s\": %d."
+msgstr "Träffar hittades för \"%s\": %d."
+
+#: ../lib/fantasdic/ui/main_app.rb:159
+msgid "Suggested results:"
+msgstr "Föreslagna resultat:"
+
+#: ../lib/fantasdic/ui/main_app.rb:315
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "Ordboken \"%s\" existerar inte längre"
+
+#: ../lib/fantasdic/ui/main_app.rb:321
+msgid "Waiting for %s..."
+msgstr "Väntar på %s..."
+
+#: ../lib/fantasdic/ui/main_app.rb:342
+msgid "Search %s"
+msgstr "Sök %s"
+
+#: ../lib/fantasdic/ui/main_app.rb:445
+msgid "_Look Up"
+msgstr "_Slå upp"
+
+#: ../lib/fantasdic/ui/main_app.rb:448
+msgid "_Edit"
+msgstr "R_edigera"
+
+#: ../lib/fantasdic/ui/main_app.rb:449
+msgid "Clear history"
+msgstr "Töm historik"
+
+#: ../lib/fantasdic/ui/main_app.rb:453
+msgid "_View"
+msgstr "_Visa"
+
+#: ../lib/fantasdic/ui/main_app.rb:454
+msgid "_Go"
+msgstr "_Gå"
+
+#: ../lib/fantasdic/ui/main_app.rb:459
+msgid "_Help"
+msgstr "_Hjälp"
+
+#: ../lib/fantasdic/ui/main_app.rb:460
+msgid "About"
+msgstr "Om"
+
+#: ../lib/fantasdic/ui/main_app.rb:489
+msgid "Scan clipboard"
+msgstr "Sök av urklipp"
+
+#: ../lib/fantasdic/ui/main_app.rb:491
+msgid "_History"
+msgstr "_Historik"
+
+#: ../lib/fantasdic/ui/main_app.rb:493
+msgid "_Statusbar"
+msgstr "_Statusrad"
+
+#: ../lib/fantasdic/ui/main_app.rb:495
+msgid "_Toolbar"
+msgstr "_Verktygsrad"
+
+#: ../lib/fantasdic.rb:24
+msgid "A client for the DICT protocol."
+msgstr "En klient för DICT-protokollet."
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:10
+msgid "Add dictionary"
+msgstr "Lägg till ordbok"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:149
+msgid "_Port:"
+msgstr "_Port:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:178
+msgid "_Server:"
+msgstr "_Server:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:228
+msgid "_Name:"
+msgstr "_Namn:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:271
+msgid "Search _all databases"
+msgstr "Sök i _alla databaser"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:291
+msgid "Search _databases selected below"
+msgstr "Sök i markerade _databaser"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:359
+msgid "S_earch strategy:"
+msgstr "Sö_kstrategi:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:416
+msgid "Server _requires authentication"
+msgstr "Servern _kräver autentisering"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:445
+msgid "_Username:"
+msgstr "_Användarnamn:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade:474
+msgid "Pass_word"
+msgstr "Lösen_ord"
+
+#: ../data/fantasdic/glade/main_app.glade:10
+msgid "Fantasdic"
+msgstr "Fantasdic"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade:10
+msgid "Preferences"
+msgstr "Inställningar"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade:198
+msgid "Dictionaries"
+msgstr "Ordböcker"
+
