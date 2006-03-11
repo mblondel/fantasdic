@@ -1,0 +1,158 @@
+# Breton translation of sound-juicer
+# Copyright (C) 2006 Free Software Foundation, Inc.
+# This file is distributed under the GNU General Public License Version 2.
+# Jérémy Ar Floc'h <jeremy.lefloch@gmail.com>, 2006
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Fantasdic 2.14\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-03-11 22:59+0100\n"
+"PO-Revision-Date: 2006-03-44 22:59+0100\n"
+"Last-Translator: Jérémy Ar Floc'h <jeremy.lefloch@gmail.com>\n"
+"Language-Team: GNOME Breton team <jeremy.lefloch@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:58
+msgid "Fields missing"
+msgstr "Tachennoù diank"
+
+#: ../lib/fantasdic/ui/main_app.rb:64
+msgid "No dictionary configured"
+msgstr "N'eus ket geriadur kefluniet"
+
+#: ../lib/fantasdic/ui/main_app.rb:82
+#, c-format
+msgid "Transferring data from %s ..."
+msgstr "O treuzkas titouroù diwar %s ..."
+
+#: ../lib/fantasdic/ui/main_app.rb:109
+msgid "Can't connect to server"
+msgstr "N'eus ket tu da gennaskañ war ar servijer"
+
+#: ../lib/fantasdic/ui/main_app.rb:132 ../lib/fantasdic/ui/main_app.rb:158
+msgid "No match found."
+msgstr "N'eus ket disoc'h."
+
+#: ../lib/fantasdic/ui/main_app.rb:134
+#, c-format
+msgid "Matches found for \"%s\": %d."
+msgstr "Disoc'hoù kavet evit \"%s\": %d."
+
+#: ../lib/fantasdic/ui/main_app.rb:159
+msgid "Suggested results:"
+msgstr "Disoc'hoù gallus :"
+
+#: ../lib/fantasdic/ui/main_app.rb:315
+#, c-format
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "Geriadur \"%s\" n'eo ket anezhañ ken"
+
+#: ../lib/fantasdic/ui/main_app.rb:321
+#, c-format
+msgid "Waiting for %s..."
+msgstr "O c'hortoz %s..."
+
+#: ../lib/fantasdic/ui/main_app.rb:342
+#, c-format
+msgid "Search %s"
+msgstr "Klask %s"
+
+#: ../lib/fantasdic/ui/main_app.rb:445
+#: ../data/fantasdic/glade/main_app.glade.h:2
+msgid "_Look Up"
+msgstr "_Klask"
+
+#: ../lib/fantasdic/ui/main_app.rb:448
+msgid "_Edit"
+msgstr "_Aozañ"
+
+#: ../lib/fantasdic/ui/main_app.rb:449
+msgid "Clear history"
+msgstr "Goullonderiñ an istorig"
+
+#: ../lib/fantasdic/ui/main_app.rb:453
+msgid "_View"
+msgstr "_Gwelout"
+
+#: ../lib/fantasdic/ui/main_app.rb:454
+msgid "_Go"
+msgstr "_Mont"
+
+#: ../lib/fantasdic/ui/main_app.rb:459
+msgid "_Help"
+msgstr "_Skoazell"
+
+#: ../lib/fantasdic/ui/main_app.rb:460
+msgid "About"
+msgstr "A-zivout"
+
+#: ../lib/fantasdic/ui/main_app.rb:489
+msgid "Scan clipboard"
+msgstr "Klask e-barzh ar pouez paperioù"
+
+#: ../lib/fantasdic/ui/main_app.rb:491
+msgid "_History"
+msgstr "_Istor"
+
+#: ../lib/fantasdic/ui/main_app.rb:493
+msgid "_Statusbar"
+msgstr "_Barrenn a stad"
+
+#: ../lib/fantasdic/ui/main_app.rb:495
+msgid "_Toolbar"
+msgstr "_Barrenn an ostilhoù"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
+msgid "Add dictionary"
+msgstr "Ouzhpennañ ur geriadur"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:2
+msgid "Pass_word"
+msgstr "Ger tremen"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:3
+msgid "S_earch strategy:"
+msgstr "Belladur klaskerezh :"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:4
+msgid "Search _all databases"
+msgstr "Klask holl stlennvonoù (databases)"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
+msgid "Search _databases selected below"
+msgstr "Klask e-barzh stlennvonoù (databases) diuzet"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
+msgid "Server _requires authentication"
+msgstr "Ar servijer a c'houlenn dilesadur"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
+msgid "_Name:"
+msgstr "_Anv an ostiz :"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
+msgid "_Port:"
+msgstr "_Porzh :"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
+msgid "_Server:"
+msgstr "_Servijer :"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
+msgid "_Username:"
+msgstr "_Anv implijer :"
+
+#: ../data/fantasdic/glade/main_app.glade.h:1
+msgid "Fantasdic"
+msgstr "Fantasdic"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:1
+msgid "Dictionaries"
+msgstr "Geriadurioù"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:2
+msgid "Preferences"
+msgstr "Dibaboù gwellañ"
