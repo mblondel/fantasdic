@@ -4,25 +4,16 @@ This directory
 
 This directory (po/) contains the translations for Fantasdic.
 
-How to use the Makefile in this directory
------------------------------------------
+How to contribute a translation ?
+---------------------------------
 
-You should be inside this directory in order to use the Makefile.
+You should be inside this directory in order to use the following commands.
 
-make:
-        Updates the POT file (fantasdic.pot).
+$ intltool-update --pot
 
-make xx.po:
-        (Where xx is a language code.)
+Is used the first time to generate a .pot file. Rename this file to xx.po where xx is your 
+language's code and edit it.
 
-        Merge a single PO file with the template. The template is updated if
-        necessary.
+$ intltool-update xx
 
-make po:
-        Merges all of the PO files with the template. The template is updated
-        if necessary. This command is suitable for generating the PO files to
-        send to translators prior to a release.
-
-make check:
-        Prints the status of all of the PO files, i.e. how complete each
-        translation is. Any problems with the PO files will also be reported.
+Is used to update xx.po with potential new strings that need to be translated.

@@ -1,3 +1,8 @@
+2006-03-11  Mathieu Blondel  <mblondel@cvs.gnome.org>
+
+	* Makefile: file removed
+	* README: updated for intltool-update
+
 2006-03-10  Hendrik Brandt  <heb@gnome-de.org>
 
 	* de.po: Added German translation.
