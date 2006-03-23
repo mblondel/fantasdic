@@ -201,7 +201,7 @@ class DICTClient
 
             if word_def_response? line
                 df.word, df.database, df.description = \
-                /^\d\d\d\s"(.+?)"\s(\S+)\s"(.+)"\r$/.match(line)[1..3]
+                /^\d\d\d\s"(.+?)"\s(\S+)\s"(.+)"(.*)\r$/.match(line)[1..3]
             elsif end_of_msg? line
                 definitions << df
                 df = Definition.new
