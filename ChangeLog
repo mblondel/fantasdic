@@ -1,3 +1,8 @@
+2006-06-20 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb: split lookup() into several functions and
+    added support for "match:" prefix
+
 2006-03-23 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/dict.rb: fixed bug which made Fantasdic crash 

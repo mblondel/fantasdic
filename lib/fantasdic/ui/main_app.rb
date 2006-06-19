@@ -49,12 +49,116 @@ module UI
    
         private
 
+        def define(dict, p)
+            infos = @prefs.dictionaries_infos[p[:dictionary]]
+
+            self.status_bar_msg = _("Transferring data from %s ...") %
+                                        dict.host
+
+            if @cache_data.has_key? p
+                @cache_data[p][:definitions]
+            elsif !p[:database].nil?
+                dict.define(p[:database], p[:word])
+            elsif infos[:all_dbs] == true
+                dict.define(DICTClient::ALL_DATABASES, p[:word])
+            else
+                definitions = []
+                infos[:sel_dbs].each do |db|
+                    definitions += dict.define(db, p[:word])
+                end
+                definitions
+            end
+        end
+
+        def print_definitions(definitions)
+            last_db = ""
+            definitions.each do |d|
+                if last_db != d.database
+                    @buf.insert(@iter, "%s [%s]\n" %
+                                    [d.description, d.database],
+                            "header")
+                    last_db = d.database
+                else
+                    @buf.insert(@iter, "__________\n", "header")
+                end
+                @buf.insert_with_links(@iter, d.database, d.body)
+            end
+
+            # Status bar
+            if definitions.empty?
+                self.status_bar_msg = _("No match found.")
+            else
+                self.status_bar_msg = _("Matches found: %d.") %
+                            definitions.length
+            end
+        end
+
+        def match(dict, p)
+            infos = @prefs.dictionaries_infos[p[:dictionary]]
+
+            if p[:word] =~ /^match:/
+                s_word = p[:word][6..-1].strip
+            else
+                s_word = p[:word]
+            end
+
+            if @cache_data.has_key? p
+                @cache_data[p][:matches]
+            elsif infos[:all_dbs] == true
+                dict.match(DICTClient::ALL_DATABASES,
+                        infos[:sel_strat],
+                        s_word)
+            else
+                matches = {}
+                infos[:sel_dbs].each do |db|
+                    m = dict.match(db,
+                                infos[:sel_strat],
+                                s_word)
+                    matches[db] = m[db] unless m[db].nil?
+                end
+                matches
+            end
+        end
+      
+        def print_matches(matches)
+            # Display matches
+            
+            if matches.length > 0
+                @buf.insert(@iter, _("Suggested results:"), "header")
+                self.status_bar_msg = _("Suggested results.")
+            else
+                @buf.insert(@iter, _("No match found."), "header")
+                self.status_bar_msg = _("No match found.")
+            end
+                
+            @buf.insert(@iter, "\n", "header")
+
+            matches.each do |db, word|
+                s = word.collect { |v| "{" + v + "}" }.join(", ")
+                @buf.insert_with_links(@iter, db, db + ": " + s + "\n")
+            end
+        end
+
+        def update_cache(p, definitions, matches)
+            unless @cache_data.has_key? p
+                @cache_data[p] = {}
+                @cache_data[p][:definitions] = definitions
+                @cache_data[p][:matches] = matches
+                @cache_queue.push(p)
+
+                if @cache_queue.length > MAX_CACHE
+                    last = @cache_queue.pop
+                    @cache_data.delete(last)
+                end
+            end
+        end
+
         def lookup(p)
             @current_search = p
             @search_entry.text = p[:word]
-            buf = @result_text_view.buffer
-            buf.text = ""
-            iter = buf.get_iter_at_offset(0)
+            @buf = @result_text_view.buffer
+            @buf.text = ""
+            @iter = @buf.get_iter_at_offset(0)
 
             # Make the scroll go up
             @result_sw.vadjustment.value = @result_sw.vadjustment.lower
@@ -63,7 +167,7 @@ module UI
             if @prefs.dictionaries.length == 0
                 msg = _("No dictionary configured")
                 self.status_bar_msg = msg
-                buf.insert(iter, msg + "\n", "header")
+                @buf.insert(@iter, msg + "\n", "header")
                 return false
             end
 
@@ -76,94 +180,34 @@ module UI
             Thread.new do
                 begin
                     dict = get_connection(p[:dictionary])
-    
-                    infos = @prefs.dictionaries_infos[p[:dictionary]]
-    
-                    self.status_bar_msg = _("Transferring data from %s ...") %
-                                              dict.host
-    
-                    # Lookup definitions
-                    definitions = if @cache_data.has_key? p
-                        @cache_data[p][:definitions]
-                    elsif !p[:database].nil?
-                        dict.define(p[:database], p[:word])
-                    elsif infos[:all_dbs] == true
-                        dict.define(DICTClient::ALL_DATABASES, p[:word])
-                    else
-                        definitions = []
-                        infos[:sel_dbs].each do |db|
-                            definitions += dict.define(db, p[:word])
-                        end
-                        definitions
-                    end
 
                 rescue DICTClient::ConnectionLost
                     first_attempt ||= true
                     if first_attempt
                         first_attempt = false
+                        # Unset connection and retry if first attempt
                         unset_connection(p[:dictionary])
                         retry
                     end
 
                 rescue DICTClient::ConnectionError => e
                     error = _("Can't connect to server")
-                    buf.insert(iter, error + "\n", "header")
-                    buf.insert(iter, e.to_s)
+                    @buf.insert(@iter, error + "\n", "header")
+                    @buf.insert(@iter, e.to_s)
                     self.status_bar_msg = error
                     Thread.current.kill
                 end
 
                 # Display definitions
-                last_db = ""
-                definitions.each do |d|
-                    if last_db != d.database
-                        buf.insert(iter, "%s [%s]\n" %
-                                        [d.description, d.database],
-                                "header")
-                        last_db = d.database
-                    else
-                        buf.insert(iter, "**********\n", "header")
-                    end
-                    buf.insert_with_links(iter, d.database, d.body)
+                unless p[:word] =~ /^match:/
+                    definitions = define(dict, p)
+                    print_definitions(definitions)
                 end
 
-                # Status bar
-                if definitions.empty?
-                    self.status_bar_msg = _("No match found.")
-                else
-                    self.status_bar_msg = _("Matches found for \"%s\": %d.") %
-                                [p[:word], definitions.length]
-                end
-
-                # Search with match strategy if no definition found
-                matches = {}
-                if definitions.empty?
-                    matches = if @cache_data.has_key? p
-                        @cache_data[p][:matches]
-                    elsif infos[:all_dbs] == true
-                        dict.match(DICTClient::ALL_DATABASES,
-                                infos[:sel_strat],
-                                p[:word])
-                    else
-                        infos[:sel_dbs].each do |db|
-                            m = dict.match(db,
-                                        infos[:sel_strat],
-                                        p[:word])
-                            matches[db] = m[db] unless m[db].nil?
-                        end
-                        matches                    
-                    end
-    
-                    # Display matches
-                    buf.insert(iter, _("No match found.") + " ", "header")
-                    buf.insert(iter, _("Suggested results:"), "header") \
-                        if matches.length > 0
-                    buf.insert(iter, "\n", "header")
-                
-                    matches.each do |db, word|
-                        s = word.collect { |v| "{" + v + "}" }.join(", ")
-                        buf.insert_with_links(iter, db, db + ": " + s + "\n")
-                    end
+                # Search with match strategy
+                if p[:word] =~ /^match:/ or definitions.empty?
+                    matches = match(dict, p)
+                    print_matches(matches)
                 end
     
                 # Update history and pages seen
@@ -171,17 +215,8 @@ module UI
                 @history_listview.update(p)
     
                 # Update cache
-                unless @cache_data.has_key? p
-                    @cache_data[p] = {}
-                    @cache_data[p][:definitions] = definitions
-                    @cache_data[p][:matches] = matches
-                    @cache_queue.push(p)
+                update_cache(p, definitions, matches)
 
-                    if @cache_queue.length > MAX_CACHE
-                        last = @cache_queue.pop
-                        @cache_data.delete(last)
-                    end
-                end
             end # Thread
         end
 
