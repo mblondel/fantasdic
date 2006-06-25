@@ -1,0 +1,84 @@
+
+This directory
+--------------
+
+This directory (tools/) contains useful tools for the DICT protocol.
+
+For all those programs, you can get informations about their usage by running
+"ruby program-name.rb --help".
+
+
+Servers
+=======
+
+
+dict-proxy.rb
+-------------
+
+dict-proxy.rb is a DICT, over HTTP, proxy. In many companies, only few ports
+such as HTTP (80) and FTP (21) are open. This prevents from using DICT clients
+inside the company. dict-proxy.rb solves this problem.
+
+"ruby dict-proxy.rb --server" must be run on the local machine and
+dict-proxy.rb must be put on an HTTP server for which the DICT server is
+accessible. Here is the scenario:
+
+Query:
+Client => ruby dict-proxy.rb --server (2628) => dict-proxy.rb on Apache (80)
+
+Response:
+Client <= ruby dict-proxy.rb --server (2628) <= dict-proxy.rb on Apache (80)
+
+
+If dict-proxy.rb itself needs an HTTP proxy to connect to HTTP, use the
+$http_proxy environment variable.
+
+dict-server.rb
+--------------
+
+dict-server.rb is a basic extendable DICT server. It provides all the bricks so
+someone who wants to add support for a new file format only has to write a
+simple class.
+
+
+Format converters
+=================
+
+
+The programs below can be used together with dictfmt, a tool that creates
+databases for the dictd server. Lots of dictionaries become thus usable with
+the dictd server and so with your favourite DICT client Fantasdic!
+
+edict2dictd.rb
+--------------
+
+edict2dictd.rb converts a dictionary in EDICT format (e.g. EDICT [1],
+ENAMDICT [2], CEDICT [3]) to a format usable by dictfmt.
+
+kanjidic22dictd.rb
+------------------
+
+kanjidic22dictd.rb converts Kanjidic2 [4] to a format usable by dictfmt.
+
+stardict2dictd.rb
+----------------
+
+stardict2dictd.rb converts stardict [5] very numerous dictionaries to a format
+usable by dictfmt.
+
+tanakacorpus2dictd.rb
+---------------------
+
+tanakacorpus2dictd.rb convert the Tanaka Corpus (a set of Japanese-English
+sentences) to a format usable by dictfmt.
+
+
+Links
+=====
+
+[1] http://www.csse.monash.edu.au/~jwb/edict.html
+[2] http://www.csse.monash.edu.au/~jwb/enamdict_doc.html
+[3] http://www.mandarintools.com/cedict.html
+[4] http://www.csse.monash.edu.au/~jwb/kanjidic2/index.html
+[5] http://stardict.sourceforge.net/
+[6] http://www.csse.monash.edu.au/~jwb/tanakacorpus.html

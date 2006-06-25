@@ -1,3 +1,8 @@
+2006-06-25 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * tools/: added dict-proxy.rb, dict-server.rb, edict2dictd.rb,
+kanjidic22dictd.rb, README, stardict2dictd.rb, tanakacorpus2dictd.rb
+
 2006-06-22 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * data/fantasdic/glade/add_dictionary_dialog.glade: made the treeview
