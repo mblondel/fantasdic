@@ -29,14 +29,18 @@ module UI
         GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
         MAX_CACHE = 15
+        KEEP_CONNECTION_OPEN_MAX_TIME = 60
 
         def initialize
             super("main_app.glade")
             @prefs = Preferences.instance
 
             @connections = {}
+            @connections_time = {}
+
             @pages_seen = []
             @current_page = 0
+
             @cache_data = {}
             @cache_queue = []
 
@@ -154,6 +158,8 @@ module UI
         end
 
         def lookup(p)
+            close_long_connections
+
             @current_search = p
             @search_entry.text = p[:word]
             @buf = @result_text_view.buffer
@@ -180,15 +186,6 @@ module UI
             Thread.new do
                 begin
                     dict = get_connection(p[:dictionary])
-
-                rescue DICTClient::ConnectionLost
-                    first_attempt ||= true
-                    if first_attempt
-                        first_attempt = false
-                        # Unset connection and retry if first attempt
-                        unset_connection(p[:dictionary])
-                        retry
-                    end
 
                 rescue DICTClient::ConnectionError => e
                     error = _("Can't connect to server")
@@ -358,15 +355,27 @@ module UI
             unless @connections.has_key? server
                 @connections[server] = DICTClient.new(server, port, $DEBUG)
                 @connections[server].client(Fantasdic::TITLE)
+                @connections_time[server] = Time.now
             end
             @connections[server]
         end
 
-        def unset_connection(dicname)
-            infos = @prefs.dictionaries_infos[dicname]
-            unless infos.nil?
-                server = infos[:server]
-                @connections.delete(server)
+        def close_connection(server)
+            begin
+                @connections[server].disconnect
+            rescue DICTClient::ConnectionLost
+                # connection closed by server
+            end
+            @connections.delete(server)
+            @connections_time.delete(server)
+        end
+
+        def close_long_connections
+            @connections.each do |server, connection|
+                if Time.now - @connections_time[server] \
+                   > KEEP_CONNECTION_OPEN_MAX_TIME
+                    close_connection(server)
+                end
             end
         end
 
@@ -384,6 +393,11 @@ module UI
             item = Gtk::ImageMenuItem.new(Gtk::Stock::COPY)
             item.signal_connect("activate") do |mitem|
                 Gtk::Clipboard.get(Gdk::Selection::CLIPBOARD).set_text(word)
+            end
+            menu.append(item)
+            item = Gtk::ImageMenuItem.new(_("Select _All"))
+            item.signal_connect("activate") do |mitem|
+                @global_actions["SelectAll"].activate
             end
             menu.append(item)
             menu.show_all
@@ -408,6 +422,18 @@ module UI
                 (@current_page == @pages_seen.length - 1) ? false : true
         end
 
+        def check_if_find_pane_unused
+            @check_if_find_pane_unused_thread = Thread.new do
+                while true
+                    if !@last_find_activity.nil? and \
+                    Time.now - @last_find_activity > 6
+                    @find_pane_close_button.clicked
+                    end
+                    sleep 1
+                end
+            end
+        end
+
         # Initialize
 
         def initialize_ui
@@ -420,6 +446,10 @@ module UI
                 tray.add(@tray_event_box)
                 tray.show_all
             end
+
+            # Find pane
+            @find_pane.visible = false
+            @not_found_label.visible = false
 
             # Icon
             @main_app.icon = Icon::LOGO_SMALL
@@ -439,6 +469,25 @@ module UI
                 @search_entry.grab_focus
             end
 
+            on_save = Proc.new do
+                dialog = Gtk::FileChooserDialog.new(
+                            _("Save definition"),
+                            @main_app,
+                            Gtk::FileChooser::ACTION_SAVE,
+                            nil,
+                            [Gtk::Stock::CANCEL, Gtk::Dialog::RESPONSE_CANCEL],
+                            [Gtk::Stock::SAVE, Gtk::Dialog::RESPONSE_ACCEPT])
+
+
+                if dialog.run == Gtk::Dialog::RESPONSE_ACCEPT
+                    File.open(dialog.filename, File::CREAT|File::RDWR) do |f|
+                        f.write(@result_text_view.buffer.text)
+                    end
+                end
+
+                dialog.destroy
+            end
+
             on_quit = Proc.new do
                 save_preferences
                 @connections.each do |server, connection|
@@ -452,6 +501,37 @@ module UI
 
             on_clear_history = Proc.new do
                 @history_listview.model.clear
+            end
+
+            on_copy = Proc.new do
+               clipboard = Gtk::Clipboard.get(Gdk::Selection::CLIPBOARD)
+               sel = @result_text_view.buffer.selected_text
+               clipboard.set_text(sel) unless sel.nil?
+            end
+
+            on_select_all = Proc.new do
+                @result_text_view.select_all(true)
+            end
+
+            on_find = Proc.new do
+                @last_find_activity = Time.now
+                check_if_find_pane_unused
+                @find_pane.visible = true
+                @find_entry.text = ""
+                @find_entry.grab_focus
+                
+            end
+
+            on_find_next = Proc.new do
+                @find_next_button.clicked
+            end
+
+            on_find_prev = Proc.new do
+                @find_prev_button.clicked
+            end
+
+            on_close_find = Proc.new do
+                @find_pane_close_button.clicked
             end
 
             on_preferences = Proc.new do
@@ -477,10 +557,21 @@ module UI
             # [[name, stock_id, label, accelerator, tooltip, proc], ... ]
             standard_actions = [
                 ["FantasdicMenu", nil, "_Fantasdic"],
-                ["Search", Gtk::Stock::FIND, _("_Look Up"), nil, nil,
+                ["Search", Gtk::Stock::NEW, _("_Look Up"), nil, nil,
                  on_search],
+                ["Save", Gtk::Stock::SAVE, nil, nil, nil, on_save],
                 ["Quit", Gtk::Stock::QUIT, nil, nil, nil, on_quit],
                 ["EditMenu", nil, _("_Edit")],
+                ["ClearHistory", Gtk::Stock::CLEAR, _("Clear history"), nil,
+                 nil, on_clear_history],
+                ["Copy", Gtk::Stock::COPY, nil, nil, nil, on_copy],
+                ["SelectAll", nil, _("Select _All"), "<ctrl>A", nil,
+                 on_select_all],
+                ["Find", Gtk::Stock::FIND, nil, nil, nil, on_find],
+                ["FindNext", nil, _("Find N_ext"), "<ctrl>G", nil,
+                 on_find_next],
+                ["FindPrevious", nil, _("Find Pre_vious"), "<ctrl><shift>G",
+                 nil, on_find_prev],
                 ["ClearHistory", Gtk::Stock::CLEAR, _("Clear history"), nil,
                  nil, on_clear_history],
                 ["Preferences", Gtk::Stock::PREFERENCES, nil, nil, nil,
@@ -492,7 +583,14 @@ module UI
                 ["GoForward", Gtk::Stock::GO_FORWARD, nil, "<alt>Right", nil,
                  on_go_forward],
                 ["HelpMenu", nil, _("_Help")],
-                ["About", Gtk::Stock::ABOUT, _("About"), nil, nil, on_about]
+                ["About", Gtk::Stock::ABOUT, _("About"), nil, nil, on_about],
+
+                ["Slash", Gtk::Stock::FIND, nil, "slash", nil, on_find],
+                ["Escape", Gtk::Stock::CLOSE, nil, "Escape", nil,
+                 on_close_find],
+                ["F3", Gtk::Stock::FIND, nil, "F3", nil, on_find_next],
+                ["ShiftF3", Gtk::Stock::FIND, nil, "<shift>F3", nil,
+                 on_find_prev]
             ]
 
             # Toggle actions
@@ -634,6 +732,30 @@ module UI
                                                    ev.time)
                     end
                 end
+            end
+
+            @find_entry.signal_connect("changed") do |w, ev|
+                ret = @result_text_view.find_forward(@find_entry.text, true)    
+                @not_found_label.visible = !ret
+                @last_find_activity = Time.now
+            end
+
+            @find_prev_button.signal_connect("clicked") do
+                ret = @result_text_view.find_backward(@find_entry.text)
+                @not_found_label.visible = !ret
+                @last_find_activity = Time.now
+            end
+
+            @find_next_button.signal_connect("clicked") do
+                ret = @result_text_view.find_forward(@find_entry.text)
+                @not_found_label.visible = !ret
+                @last_find_activity = Time.now
+            end
+
+            @find_pane_close_button.signal_connect("clicked") do
+                @find_pane.visible = false
+                @check_if_find_pane_unused_thread.kill \
+                    if @check_if_find_pane_unused_thread.alive?
             end
 
             @history_listview.signal_connect("button_press_event") do |w, ev|

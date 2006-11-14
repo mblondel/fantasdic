@@ -21,11 +21,19 @@
     <menubar name="MainMenubar">
         <menu action="FantasdicMenu">
             <menuitem action="Search"/>
+            <menuitem action="Save"/>
             <separator/>
             <menuitem action="Quit"/>
         </menu>
         <menu action="EditMenu">
             <menuitem action="ScanClipboard"/>
+            <separator/>
+            <menuitem action="Copy"/>
+            <menuitem action="SelectAll"/>
+            <separator/>
+            <menuitem action="Find"/>
+            <menuitem action="FindNext"/>
+            <menuitem action="FindPrevious"/>
             <separator/>
             <menuitem action="Preferences"/>
         </menu>
@@ -42,4 +50,9 @@
             <menuitem action="About"/>
         </menu>
     </menubar>
+    
+    <accelerator name="SlashAccel" action="Slash"/>
+    <accelerator name="EscapeAccel" action="Escape"/>    
+    <accelerator name="F3Accel" action="F3"/>
+    <accelerator name="ShiftF3Accel" action="ShiftF3"/>
 </ui>

@@ -175,6 +175,72 @@ module UI
                                              :size_points => 11,
                                              :foreground => '#005500')
         end
+
+        def find_backward(str)
+            return false if str.empty?
+
+            last_search = self.buffer.get_mark("last-search-prev")
+
+            start_iter, end_iter = self.buffer.bounds
+
+            if last_search.nil?
+                iter = end_iter
+            else
+                iter = self.buffer.get_iter_at_mark(last_search)
+            end
+
+            match_start, match_end = iter.backward_search(
+                                       str, 
+                                       Gtk::TextIter::SEARCH_TEXT_ONLY |
+                                       Gtk::TextIter::SEARCH_VISIBLE_ONLY,
+                                       nil)
+
+            unless match_start.nil?
+                scroll_to_iter(match_start, 0.0, true, 0.0, 0.0)
+                self.buffer.place_cursor(match_end)
+                self.buffer.move_mark(self.buffer.selection_bound, match_start)
+                self.buffer.create_mark("last-search-prev", match_start, false)
+                self.buffer.create_mark("last-search-next", match_end, false)
+                return true
+            end
+
+            return false
+        end
+
+        def find_forward(str, is_typing=false)
+            return false if str.empty? 
+
+            start_iter, end_iter = self.buffer.bounds
+
+            if !is_typing
+                last_search = self.buffer.get_mark("last-search-next")
+            else
+                last_search = self.buffer.get_mark("last-search-prev")
+            end
+
+            if last_search.nil?
+                iter = start_iter
+            else
+                iter = self.buffer.get_iter_at_mark(last_search)
+            end
+
+            match_start, match_end = iter.forward_search(
+                                       str, 
+                                       Gtk::TextIter::SEARCH_TEXT_ONLY |
+                                       Gtk::TextIter::SEARCH_VISIBLE_ONLY,
+                                       nil)
+
+            unless match_start.nil?
+                scroll_to_iter(match_start, 0.0, true, 0.0, 0.0)
+                self.buffer.place_cursor(match_end)
+                self.buffer.move_mark(self.buffer.selection_bound, match_start)
+                self.buffer.create_mark("last-search-prev", match_start, false)
+                self.buffer.create_mark("last-search-next", match_end, false)
+                return true
+            end
+            
+            return false
+        end
         
     end
 end

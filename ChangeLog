@@ -1,7 +1,19 @@
+2006-11-14 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb: hold connections for some time and close
+      too long connections.
+
+    * lib/fantasdic/ui/main_app.rb:
+    * lib/fantasdic/ui/result_text_view.rb:
+    * data/fantasdic/ui/menus.xml:
+    * data/fantasdic/glade/main_app.glade: a new find pane to find words inside
+    the text view, a new save definition dialog, Edit > Copy, and 
+    Edit > Select All.             
+
 2006-06-25 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * tools/: added dict-proxy.rb, dict-server.rb, edict2dictd.rb,
-kanjidic22dictd.rb, README, stardict2dictd.rb, tanakacorpus2dictd.rb
+    kanjidic22dictd.rb, README, stardict2dictd.rb, tanakacorpus2dictd.rb
 
 2006-06-22 Mathieu Blondel <mblondel@cvs.gnome.org>
 
