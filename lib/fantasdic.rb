@@ -39,7 +39,7 @@ module Fantasdic
     def self.main
         options = CommandLineOptions.instance
 
-        if ARGV.length == 1    
+        if ARGV.length == 1 or ARGV.length > 2
             options.show_help!
         elsif options[:dict_list]
             dict_list

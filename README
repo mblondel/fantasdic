@@ -37,7 +37,7 @@ Install
 Usage
 -----
 
-    $ fantasdic
+    $ fantasdic --help
 
 License
 -------

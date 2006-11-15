@@ -5,6 +5,7 @@
     * lib/fantasdic/ui/preferences_dialog.rb: new option so user can choose
      whether he or she wants Fantasdic to look up the last word at start up
 
+    * README:
     * lib/fantasdic.rb:
     * lib/fantasdic/ui.rb:
     * lib/fantasdic/ui/main_app.rb: new command line options. Fantasdic can be
