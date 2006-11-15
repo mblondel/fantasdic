@@ -360,6 +360,11 @@ module UI
             unless @connections.has_key? server
                 @connections[server] = DICTClient.new(server, port, $DEBUG)
                 @connections[server].client(Fantasdic::TITLE)
+                
+                unless infos[:login].empty? or infos[:password].empty?
+                    @connections[server].auth(infos[:login], infos[:password]) 
+                end
+
                 @connections_time[server] = Time.now
             end
             @connections[server]

@@ -84,6 +84,11 @@ def self.connect(dict)
     begin
         dict = DICTClient.new(infos[:server], infos[:port], $DEBUG)
         dict.client(Fantasdic::TITLE)
+
+        unless infos[:login].empty? or infos[:password].empty?
+            dict.auth(infos[:login], infos[:password]) 
+        end
+
     rescue DICTClient::ConnectionError
         puts "Error: Could not connect to %s" % infos[:server]
         return

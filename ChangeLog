@@ -7,6 +7,7 @@
 
     * README:
     * lib/fantasdic.rb:
+    * lib/fantasdic/command_line.rb:
     * lib/fantasdic/ui.rb:
     * lib/fantasdic/ui/main_app.rb: new command line options. Fantasdic can be
     started with a dictionary and a word as parameters, if an instance of
@@ -14,6 +15,9 @@
     stdout (which makes Fantasdic a command-line dictionary too), the list of
     dictionaries in the settings as well as the strategies for a dictionary
     can now be listed.
+
+    * lib/fantasdic/command_line.rb:
+    * lib/fantasdic/ui/main_app.rb: basic authentication support (not tested)
 
 2006-11-14 Mathieu Blondel <mblondel@cvs.gnome.org>
 
