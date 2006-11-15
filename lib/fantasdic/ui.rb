@@ -39,6 +39,8 @@ module Fantasdic
 module UI
     
     def self.main
+        options = CommandLineOptions.instance
+
         Gtk.init
 
         # Start Fantasdic normally
@@ -49,11 +51,18 @@ module UI
             win = nil
         end
 
-        if win
-            IPC.send(win, IPC::REMOTE, "present")
-            Gtk.main_iteration while Gtk.events_pending?
+        if ARGV.length == 2
+            params = {:dictionary => ARGV[0], :strategy => options[:match],
+                      :word => ARGV[1]}
         else
-            MainApp.new
+            params = {}
+        end
+
+        if win
+            IPC.send(win, IPC::REMOTE, params)
+            Gtk.main_iteration while Gtk.events_pending?
+        else             
+            MainApp.new(params)
             Gtk.main
         end
     end

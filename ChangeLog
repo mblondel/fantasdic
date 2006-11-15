@@ -5,6 +5,15 @@
     * lib/fantasdic/ui/preferences_dialog.rb: new option so user can choose
      whether he or she wants Fantasdic to look up the last word at start up
 
+    * lib/fantasdic.rb:
+    * lib/fantasdic/ui.rb:
+    * lib/fantasdic/ui/main_app.rb: new command line options. Fantasdic can be
+    started with a dictionary and a word as parameters, if an instance of
+    Fantasdic exists already, we use it, an option exists to print results to
+    stdout (which makes Fantasdic a command-line dictionary too), the list of
+    dictionaries in the settings as well as the strategies for a dictionary
+    can now be listed.
+
 2006-11-14 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb: hold connections for some time and close

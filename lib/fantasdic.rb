@@ -37,6 +37,25 @@ module Fantasdic
     WEBSITE_URL = ''
 
     def self.main
+        options = CommandLineOptions.instance
+
+        if ARGV.length == 1    
+            options.show_help!
+        elsif options[:dict_list]
+            dict_list
+            exit!
+        elsif options[:strat_list]
+            strat_list(options[:strat_list])
+            exit!
+        elsif ARGV.length == 2 and options[:stdout]
+            if options[:match]
+                match(ARGV[0], options[:match], ARGV[1])
+            else
+                define(ARGV[0], ARGV[1])
+            end
+            exit!
+        end
+
         Fantasdic::UI.main
     end
 end
@@ -48,4 +67,5 @@ require 'fantasdic/version'
 require 'fantasdic/preferences'
 require 'fantasdic/dict'
 require 'fantasdic/utils'
+require 'fantasdic/command_line'
 require 'fantasdic/ui'

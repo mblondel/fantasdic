@@ -31,7 +31,7 @@ module UI
         MAX_CACHE = 15
         KEEP_CONNECTION_OPEN_MAX_TIME = 60
 
-        def initialize
+        def initialize(start_p={})
             super("main_app.glade")
             @prefs = Preferences.instance
 
@@ -44,11 +44,78 @@ module UI
             @cache_data = {}
             @cache_queue = []
 
+            @start_p = start_p
+
             @main_app.hide
             initialize_ui
             initialize_signals
             load_preferences
             @main_app.show
+
+            lookup(@start_p) unless @start_p.empty?
+        end
+
+        def lookup(p)
+            close_long_connections
+
+            @current_search = p
+            @search_entry.text = p[:word]
+            @buf = @result_text_view.buffer
+            @buf.text = ""
+            @iter = @buf.get_iter_at_offset(0)
+
+            # Make the scroll go up
+            @result_sw.vadjustment.value = @result_sw.vadjustment.lower
+            @result_sw.hadjustment.value = @result_sw.hadjustment.lower
+
+            if @prefs.dictionaries.length == 0
+                msg = _("No dictionary configured")
+                self.status_bar_msg = msg
+                @buf.insert(@iter, msg + "\n", "header")
+                return false
+            end
+
+            if p[:dictionary] != nil
+                self.selected_dictionary = p[:dictionary]
+            else 
+                p[:dictionary] = selected_dictionary
+            end
+
+            infos = @prefs.dictionaries_infos[p[:dictionary]]
+
+            Thread.new do
+                begin
+                    dict = get_connection(p[:dictionary])
+
+                rescue DICTClient::ConnectionError => e
+                    error = _("Can't connect to server")
+                    @buf.insert(@iter, error + "\n", "header")
+                    @buf.insert(@iter, e.to_s)
+                    self.status_bar_msg = error
+                    Thread.current.kill
+                end
+
+                # Display definitions
+                unless p[:strategy]
+                    definitions = define(dict, p)
+                    print_definitions(definitions)
+                end
+
+                # Search with match strategy
+                if p[:strategy] or definitions.empty?
+                    p[:strategy] = infos[:sel_strat] unless p.has_key? :strategy
+                    matches = match(dict, p)
+                    print_matches(matches)
+                end
+    
+                # Update history and pages seen
+                update_pages_seen(p)
+                @history_listview.update(p)
+    
+                # Update cache
+                update_cache(p, definitions, matches)
+
+            end # Thread
         end
    
         private
@@ -97,27 +164,21 @@ module UI
             end
         end
 
-        def match(dict, p)
-            infos = @prefs.dictionaries_infos[p[:dictionary]]
-
-            if p[:word] =~ /^match:/
-                s_word = p[:word][6..-1].strip
-            else
-                s_word = p[:word]
-            end
+        def match(dict, p)  
+            infos = @prefs.dictionaries_infos[p[:dictionary]]         
 
             if @cache_data.has_key? p
                 @cache_data[p][:matches]
             elsif infos[:all_dbs] == true
                 dict.match(DICTClient::ALL_DATABASES,
-                        infos[:sel_strat],
-                        s_word)
+                        p[:strategy],
+                        p[:word])
             else
                 matches = {}
                 infos[:sel_dbs].each do |db|
                     m = dict.match(db,
-                                infos[:sel_strat],
-                                s_word)
+                                p[:strategy],
+                                p[:word])
                     matches[db] = m[db] unless m[db].nil?
                 end
                 matches
@@ -155,66 +216,6 @@ module UI
                     @cache_data.delete(last)
                 end
             end
-        end
-
-        def lookup(p)
-            close_long_connections
-
-            @current_search = p
-            @search_entry.text = p[:word]
-            @buf = @result_text_view.buffer
-            @buf.text = ""
-            @iter = @buf.get_iter_at_offset(0)
-
-            # Make the scroll go up
-            @result_sw.vadjustment.value = @result_sw.vadjustment.lower
-            @result_sw.hadjustment.value = @result_sw.hadjustment.lower
-
-            if @prefs.dictionaries.length == 0
-                msg = _("No dictionary configured")
-                self.status_bar_msg = msg
-                @buf.insert(@iter, msg + "\n", "header")
-                return false
-            end
-
-            if p[:dictionary] != nil
-                self.selected_dictionary = p[:dictionary]
-            else 
-                p[:dictionary] = selected_dictionary
-            end
-
-            Thread.new do
-                begin
-                    dict = get_connection(p[:dictionary])
-
-                rescue DICTClient::ConnectionError => e
-                    error = _("Can't connect to server")
-                    @buf.insert(@iter, error + "\n", "header")
-                    @buf.insert(@iter, e.to_s)
-                    self.status_bar_msg = error
-                    Thread.current.kill
-                end
-
-                # Display definitions
-                unless p[:word] =~ /^match:/
-                    definitions = define(dict, p)
-                    print_definitions(definitions)
-                end
-
-                # Search with match strategy
-                if p[:word] =~ /^match:/ or definitions.empty?
-                    matches = match(dict, p)
-                    print_matches(matches)
-                end
-    
-                # Update history and pages seen
-                update_pages_seen(p)
-                @history_listview.update(p)
-    
-                # Update cache
-                update_cache(p, definitions, matches)
-
-            end # Thread
         end
 
         def status_bar_msg=(message)
@@ -272,7 +273,7 @@ module UI
             end
             
             unless @prefs.last_search.nil? or @prefs.lookup_at_start.nil? or \
-                @prefs.lookup_at_start == false
+                @prefs.lookup_at_start == false or !@start_p.empty?
                 lookup(@prefs.last_search) 
             end
         end
@@ -713,11 +714,14 @@ module UI
                 end
             end if defined? Gtk::TrayIcon
 
-            IPC::Window.new(IPC::REMOTE) do |cmd|
-                if cmd == "present"
-                    @main_app.show
-                    load_window_preferences
-                    @main_app.present
+            IPC::Window.new(IPC::REMOTE) do |p|                    
+                @main_app.show
+                load_window_preferences              
+
+                @main_app.present
+
+                unless p.empty?
+                    lookup(p)
                 end
             end if defined? Gtk::TrayIcon
 
