@@ -1,3 +1,10 @@
+2006-11-15 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * data/fantasdic/glade/preferences_dialog.glade:
+    * lib/fantasdic/ui/main_app.rb:
+    * lib/fantasdic/ui/preferences_dialog.rb: new option so user can choose
+     whether he or she wants Fantasdic to look up the last word at start up
+
 2006-11-14 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb: hold connections for some time and close

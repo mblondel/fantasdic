@@ -270,7 +270,11 @@ module UI
             @prefs.last_searches.each do |search|
                 @history_listview.append_search(search)
             end
-            lookup(@prefs.last_search) unless @prefs.last_search.nil?
+            
+            unless @prefs.last_search.nil? or @prefs.lookup_at_start.nil? or \
+                @prefs.lookup_at_start == false
+                lookup(@prefs.last_search) 
+            end
         end
 
         def load_preferences

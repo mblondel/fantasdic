@@ -112,10 +112,16 @@ module UI
             row[SELECTION] = sel
             row[NAME] = name
         end
+
+        def on_lookup_at_start_checkbutton_toggled
+            @prefs.lookup_at_start = @lookup_at_start_checkbutton.active?
+        end
         
         private
                
         def initialize_ui
+            @lookup_at_start_checkbutton.active = @prefs.lookup_at_start
+
             @list_store = Gtk::ListStore.new(Fixnum,String)
                         
             @dictionary_treeview.model = @list_store
