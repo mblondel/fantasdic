@@ -409,9 +409,9 @@ module UI
                 col = Gtk::TreeViewColumn.new("Database", renderer)
                 
                 col.set_cell_data_func(renderer) do |col, renderer, model, iter|
-                    str = "%s (%s)" % [iter[DESC], iter[NAME]]
+                    str = "%s (%s)" % [iter[NAME], iter[DESC]]
                     str = str.utf8_slice(0..40) + "..." \
-                            if str.utf8_length > 40
+                            if str.utf8_length > 50
                     renderer.text = str
                 end
                 tv.append_column(col)
