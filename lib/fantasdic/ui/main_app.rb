@@ -75,15 +75,20 @@ module UI
                 return false
             end
 
-            if p[:dictionary] != nil
+            if p[:dictionary]
                 self.selected_dictionary = p[:dictionary]
             else 
                 p[:dictionary] = selected_dictionary
             end
 
+            self.selected_strategy = p[:strategy]
+            p.delete(:strategy) if ["define", "exact"].include? p[:strategy]
+
             infos = @prefs.dictionaries_infos[p[:dictionary]]
 
-            Thread.new do
+            @lookup_thread = Thread.new do
+                @global_actions["Stop"].visible = true
+
                 begin
                     dict = get_connection(p[:dictionary])
 
@@ -99,9 +104,11 @@ module UI
                 unless p[:strategy]
                     definitions = define(dict, p)
                     print_definitions(definitions)
+                    @show_suggested_results = true
                 end
-
-                # Search with match strategy
+                
+                # Search with match strategy. 
+                # Use default strategy if define did not give results
                 if p[:strategy] or definitions.empty?
                     p[:strategy] = infos[:sel_strat] unless p.has_key? :strategy
                     matches = match(dict, p)
@@ -114,6 +121,8 @@ module UI
     
                 # Update cache
                 update_cache(p, definitions, matches)
+
+                @global_actions["Stop"].visible = false
 
             end # Thread
         end
@@ -142,6 +151,8 @@ module UI
         end
 
         def print_definitions(definitions)
+            @buf.text = ""
+            @iter = @buf.get_iter_at_offset(0)
             last_db = ""
             definitions.each do |d|
                 if last_db != d.database
@@ -157,14 +168,15 @@ module UI
 
             # Status bar
             if definitions.empty?
-                self.status_bar_msg = _("No match found.")
+                self.status_bar_msg = _("No match found.") + " " + \
+                                      _("Looking for close results...")
             else
                 self.status_bar_msg = _("Matches found: %d.") %
                             definitions.length
             end
         end
 
-        def match(dict, p)  
+        def match(dict, p, no_definition=false)  
             infos = @prefs.dictionaries_infos[p[:dictionary]]         
 
             if @cache_data.has_key? p
@@ -187,20 +199,29 @@ module UI
       
         def print_matches(matches)
             # Display matches
-            
-            if matches.length > 0
-                @buf.insert(@iter, _("Suggested results:"), "header")
+            @buf.text = ""
+            @iter = @buf.get_iter_at_offset(0)
+
+            if @show_suggested_results
                 self.status_bar_msg = _("Suggested results.")
+            elsif matches.length > 0
+                self.status_bar_msg = _("Matches found.")
             else
                 @buf.insert(@iter, _("No match found."), "header")
                 self.status_bar_msg = _("No match found.")
-            end
-                
-            @buf.insert(@iter, "\n", "header")
+            end              
 
-            matches.each do |db, word|
-                s = word.collect { |v| "{" + v + "}" }.join(", ")
-                @buf.insert_with_links(@iter, db, db + ": " + s + "\n")
+            matches.each do |db, words|
+                @buf.insert(@iter, db + "\n", "header")  
+                @buf.insert(@iter, words.join(", "))
+                # Print matches with links (but slow)    
+                # i = 0
+                # words.each do |w|
+                #     @buf.insert_link(@iter, db, w)
+                #     @buf.insert(@iter, ", ") unless i == words.length
+                #     i += 1
+                # end
+                @buf.insert(@iter, "\n", "header")
             end
         end
 
@@ -308,8 +329,41 @@ module UI
             @prefs.save!
         end
 
-        # Dictionary menu
+        # Strategy menu
 
+        def update_strategy_cb
+            @strategy_cb.model.clear
+            infos = @prefs.dictionaries_infos[selected_dictionary]
+            
+            strats = ["define"]
+            strats += infos[:avail_strats] unless infos[:avail_strats].nil?
+            
+            strats.each do |strat|
+                row = @strategy_cb.model.append
+                row[0] = strat
+            end
+
+            @strategy_cb.active = 0
+        end
+
+        def selected_strategy
+            n = @strategy_cb.active
+            @strategy_cb.model.get_iter(n.to_s)[0]
+        end
+
+        def selected_strategy=(strat)
+            strat = "define" if strat.nil?
+            n = 0
+            @strategy_cb.model.each do |model, path, iter|
+                if iter[0] == strat
+                    @strategy_cb.active = n
+                    break
+                end
+                n += 1
+            end
+        end
+
+        # Dictionary menu
         def update_dictionary_cb
             @dictionary_cb.model.clear
 
@@ -471,12 +525,23 @@ module UI
             @dictionary_cb.model = Gtk::ListStore.new(String)
             update_dictionary_cb
 
+            # Strategy comboxbox
+            @strategy_cb.model = Gtk::ListStore.new(String)
+            update_strategy_cb
 
             # Global actions
 
             on_search = Proc.new do
                 @search_entry.text = ""
                 @search_entry.grab_focus
+            end
+
+            on_stop = Proc.new do
+                @lookup_thread.kill if @lookup_thread.alive?
+                @global_actions["Stop"].visible = false
+                @buf.text = ""
+                @iter = @buf.get_iter_at_offset(0)
+                self.status_bar_msg = ""
             end
 
             on_save = Proc.new do
@@ -571,9 +636,8 @@ module UI
                  on_search],
                 ["Save", Gtk::Stock::SAVE, nil, nil, nil, on_save],
                 ["Quit", Gtk::Stock::QUIT, nil, nil, nil, on_quit],
+
                 ["EditMenu", nil, _("_Edit")],
-                ["ClearHistory", Gtk::Stock::CLEAR, _("Clear history"), nil,
-                 nil, on_clear_history],
                 ["Copy", Gtk::Stock::COPY, nil, nil, nil, on_copy],
                 ["SelectAll", nil, _("Select _All"), "<ctrl>A", nil,
                  on_select_all],
@@ -586,12 +650,16 @@ module UI
                  nil, on_clear_history],
                 ["Preferences", Gtk::Stock::PREFERENCES, nil, nil, nil,
                  on_preferences],
+
                 ["ViewMenu", nil, _("_View")],
                 ["GoMenu", nil, _("_Go")],
                 ["GoBack", Gtk::Stock::GO_BACK, nil, "<alt>Left", nil,
                  on_go_back],
                 ["GoForward", Gtk::Stock::GO_FORWARD, nil, "<alt>Right", nil,
                  on_go_forward],
+
+                ["Stop", Gtk::Stock::STOP, nil, nil, nil, on_stop],
+
                 ["HelpMenu", nil, _("_Help")],
                 ["About", Gtk::Stock::ABOUT, _("About"), nil, nil, on_about],
 
@@ -600,7 +668,7 @@ module UI
                  on_close_find],
                 ["F3", Gtk::Stock::FIND, nil, "F3", nil, on_find_next],
                 ["ShiftF3", Gtk::Stock::FIND, nil, "<shift>F3", nil,
-                 on_find_prev]
+                 on_find_prev]                
             ]
 
             # Toggle actions
@@ -646,6 +714,8 @@ module UI
             @global_actions["GoBack"].sensitive = false
             @global_actions["GoForward"].sensitive = false
 
+            @global_actions["Stop"].visible = false
+
             # UI Manager
             
             @uimanager = Gtk::UIManager.new
@@ -675,6 +745,7 @@ module UI
                 # Perform a search when the user pushes "Enter"
                 @search_entry.text = @search_entry.text.strip
                 lookup(:dictionary => selected_dictionary,
+                       :strategy => selected_strategy,
                        :word => @search_entry.text)
             end
 
@@ -688,10 +759,6 @@ module UI
                         lookup(search)
                     end
                 end    
-            end
-
-            @search_button.signal_connect("clicked") do
-                @global_actions["Search"].activate    
             end
 
             @main_app.signal_connect("delete-event") do
@@ -729,6 +796,10 @@ module UI
                     lookup(p)
                 end
             end if defined? Gtk::TrayIcon
+
+            @dictionary_cb.signal_connect("changed") do
+                update_strategy_cb
+            end
 
             @result_text_view.signal_connect("link_clicked") do
                 |w, db, word, event|

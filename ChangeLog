@@ -13,6 +13,13 @@
     the user informations about what is happening. New "server informations"
     button. Double-click on a database row to get informations about it.
 
+    * data/fantasdic/glade/main_app.glade:
+    * data/fantasdic/ui/toolbar.xml:
+    * lib/fantasdic/ui/add_dictionary_dialog.rb:
+    * lib/fantasdic/ui/main_app.rb: removed the lookup button and put a combobox
+    with available strategies instead. Again, give better indications to user
+    as to what Fantasdic is doing. New stop button.
+
 2006-11-15 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * data/fantasdic/glade/preferences_dialog.glade:

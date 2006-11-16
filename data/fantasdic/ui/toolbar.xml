@@ -23,5 +23,6 @@
         <toolitem action="GoForward"/>
         <separator/>
         <toolitem action="Search"/>
+        <toolitem action="Stop"/>
     </toolbar>
 </ui>

@@ -92,7 +92,7 @@ module UI
                 end
             end
 
-            if @prefs.dictionary_exists? @name_entry.text
+            if @prefs.dictionary_exists? @name_entry.text and !@update_dialog
                 ErrorDialog.new(@dialog, _("Dictionary %s exists already!") \
                                          % @name_entry.text) 
                 return false    
@@ -418,6 +418,7 @@ module UI
             end
 
             if !@hash.nil? and !@dicname.nil?
+                @update_dialog = true
                 set_initial_data
             end
 
