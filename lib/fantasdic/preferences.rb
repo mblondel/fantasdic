@@ -63,8 +63,8 @@ module Fantasdic
         end
 
         # dictionaries_infos, a hash with:
-        # :server, :port, :all_dbs, :sel_dbs,
-        # :sel_strats, :auth, :login, :password, :selected
+        # :server, :port, :all_dbs, :sel_dbs, :avail_strats,
+        # :sel_strat, :auth, :login, :password, :selected
         # dictionaries: an array of dictionary names (ordered)
 
         def update_dictionary(name, hash)
@@ -98,6 +98,10 @@ module Fantasdic
             self.dictionaries[index] = new
             self.dictionaries_infos[new] = self.dictionaries_infos[old]
             self.dictionaries_infos.delete(old)
+        end
+
+        def dictionary_exists?(dictionary)
+            self.dictionaries.include? dictionary
         end
         
         def method_missing(id, *args)

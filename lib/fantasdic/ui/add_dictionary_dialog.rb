@@ -18,6 +18,35 @@
 module Fantasdic
 module UI
 
+    class ServerInfosDialog < GladeBase 
+        include GetText
+        GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
+
+        def initialize
+            super("server_infos_dialog.glade")
+        end
+
+        def on_close
+            @server_infos_dialog.destroy
+        end
+
+        def text
+            @server_infos_textview.buffer.text
+        end
+
+        def text=(txt)
+            @server_infos_textview.buffer.text = txt
+        end
+
+        def title
+            @server_infos_dialog.title
+        end
+
+        def title=(str)
+            @server_infos_dialog.title = str
+        end
+    end
+
     class AddDictionaryDialog < GladeBase 
         include GetText
         GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
@@ -27,6 +56,9 @@ module UI
 
         NAME = 0
         DESC = 1
+
+        PAGE_GENERAL_INFORMATIONS = 0
+        PAGE_DATABASES = 1
 
         def initialize(parent, dicname=nil, hash=nil, &callback_proc)
             super("add_dictionary_dialog.glade")
@@ -46,7 +78,7 @@ module UI
                 @port_entry.text.empty?,
 
                 (@sel_db_radiobutton.active? and
-                !@sel_db_treeview.has_row_selected?),
+                @sel_db_treeview.model.empty?),
 
                 (@serv_auth_checkbutton.active? and
                 @password_entry.text.empty? and
@@ -60,15 +92,27 @@ module UI
                 end
             end
 
+            if @prefs.dictionary_exists? @name_entry.text
+                ErrorDialog.new(@dialog, _("Dictionary %s exists already!") \
+                                         % @name_entry.text) 
+                return false    
+            end
+
             hash = {}
 
             hash[:server] = @server_entry.text
             hash[:port] = @port_entry.text
             hash[:all_dbs] = @all_db_radiobutton.active?
 
-            hash[:sel_dbs] = @sel_db_treeview.selected_iters.collect do |iter|
-                iter[NAME]    
+            hash[:sel_dbs] = []
+            @sel_db_treeview.model.each do |model, path, iter|
+                hash[:sel_dbs] << iter[NAME]    
             end
+
+            hash[:avail_strats] = []
+            @sel_strat_combobox.model.each do |model, path, iter|
+                hash[:avail_strats] << iter[NAME]    
+            end            
 
             active_strat = @sel_strat_combobox.active.to_s
             active_iter = @sel_strat_combobox.model.get_iter(active_strat)
@@ -88,7 +132,6 @@ module UI
         end
 
         def on_radiobutton_group_changed
-            @sel_db_sw.sensitive = @sel_db_radiobutton.active?
         end
 
         def on_serv_auth_toggled
@@ -96,17 +139,95 @@ module UI
         end
 
         def on_server_activate
-            update_lists
+            Thread.new do
+                update_lists
+            end
+        end
+
+        def on_server_infos_button_clicked
+            if @server_entry.text.empty?
+                ErrorDialog.new(@dialog, _("Server missing"))
+                return false
+            end
+                
+            if @server_entry.text.empty?
+                ErrorDialog.new(@dialog, _("Port missing"))
+                return false
+            end                
+
+            begin
+                dict = DICTClient.new(@server_entry.text, @port_entry.text,     
+                                     $DEBUG)
+
+                ServerInfosDialog.new.text = dict.show_server
+
+                dict.disconnect
+            rescue DICTClient::ConnectionError
+                self.status_bar_msg = _("Could not connect to %s") \
+                                      % @server_entry.text
+            end
+        end
+
+        def sel_dbs_have?(name)
+            ret = false
+            @sel_db_treeview.model.each do |model, path, iter|
+                ret = true if iter[NAME] == name
+            end
+            ret
+        end
+
+        def on_move_up_button_clicked
+            iters = []
+            @sel_db_treeview.selection.selected_each do |model, path, iter|
+                iters << iter
+            end
+            iters.each { |iter| @sel_db_treeview.model.remove(iter) }
+            @avail_db_treeview.selection.unselect_all
+
+            @all_db_radiobutton.activate if @sel_db_treeview.model.empty?
+        end
+
+        def on_move_down_button_clicked
+            @avail_db_treeview.selection.selected_each do |model, path, iter|
+                unless sel_dbs_have? iter[NAME]
+                    row = @sel_db_treeview.model.append
+    
+                    row[NAME] = iter[NAME]
+                    row[DESC] = iter[DESC]
+                end
+            end
+            @avail_db_treeview.selection.unselect_all
+
+            @sel_db_radiobutton.activate
         end
 
         private
+
+        def status_bar_msg=(message)
+            @statusbar.push(0, message)
+        end
 
         def close!
             @thread.kill if @thread.alive?
             @dialog.destroy unless @dialog.destroyed?
         end
 
+        def sensitize_move_up
+            @move_up_button.sensitive = @sel_db_treeview.has_row_selected?     
+        end
+
+        def sensitize_move_down
+            @move_down_button.sensitive = \
+                @avail_db_treeview.has_row_selected?
+        end
+
         def update_lists
+            @general_infos_vbox.sensitive = false
+            @databases_vbox.sensitive = false
+
+            self.status_bar_msg = _("Fetching informations from %s...") \
+                                  % @server_entry.text
+
             @sel_db_treeview.model.clear
             @sel_strat_combobox.model.clear
 
@@ -117,21 +238,37 @@ module UI
                 dict = DICTClient.new(@server_entry.text, @port_entry.text,
                                       $DEBUG)
 
+                sel_db_desc = {}
+
                 dbs = dict.show_db
+
+                # Add available databases
                 dbs.keys.sort.each do |name|
-                    row = @sel_db_treeview.model.append
+                    row = @avail_db_treeview.model.append
 
                     row[NAME] = name
                     row[DESC] = dbs[name]
+
+                    if !@hash.nil? and !@hash[:sel_dbs].nil? and \
+                        @hash[:sel_dbs].include? name
+                        sel_db_desc[name] = row[DESC]
+                    end
                 end
 
+                # Add selected databases
+                if !@hash.nil? and !@hash[:sel_dbs].nil? and \
+                    @hash[:server] == @server_entry.text
+                    @hash[:sel_dbs].each do |name|
+                        row = @sel_db_treeview.model.append
+    
+                        row[NAME] = name
+                        row[DESC] = sel_db_desc[name]
+                    end
+                end
+
+                # Add strats
                 dict.show_strat.each do |name, desc|
                     row = @sel_strat_combobox.model.append
-
-                    name = name.utf8_slice(0..MAX_CB) + "..." \
-                        if name.utf8_length > MAX_CB
-                    desc = desc.utf8_slice(0..MAX_CB) + "..." \
-                        if desc.utf8_length > MAX_CB
 
                     row[NAME] = name
                     row[DESC] = desc
@@ -139,9 +276,16 @@ module UI
                 @sel_strat_combobox.active = 0
 
                 dict.disconnect
-            rescue => e
-                $stderr.puts e
+                self.status_bar_msg = ""
+                @add_button.sensitive = true
+            rescue DICTClient::ConnectionError
+                self.status_bar_msg = _("Could not connect to %s") \
+                                      % @server_entry.text
+                @add_button.sensitive = false
             end
+
+            @general_infos_vbox.sensitive = true
+            @databases_vbox.sensitive = true
         end
 
         def start_update_lists_thread
@@ -178,10 +322,6 @@ module UI
                 # Selected dbs
                 if !@hash[:all_dbs]
                     @sel_db_radiobutton.active = true
-                    @sel_db_treeview.model.each do |model, path, iter|
-                        @sel_db_treeview.selection.select_iter(iter) \
-                            if @hash[:sel_dbs].include? iter[NAME]
-                    end
                 end
 
                 # Selected strategy
@@ -203,30 +343,79 @@ module UI
             end
         end
 
+        def show_db_infos(dbname)
+            if @server_entry.text.empty?
+                ErrorDialog.new(@dialog, _("Server missing"))
+                return false
+            end
+                
+            if @server_entry.text.empty?
+                ErrorDialog.new(@dialog, _("Port missing"))
+                return false
+            end                
+
+            begin
+                dict = DICTClient.new(@server_entry.text, @port_entry.text,     
+                                     $DEBUG)
+
+                window = ServerInfosDialog.new
+                window.title = _("About database %s") % dbname
+                window.text = dict.show_info(dbname)
+
+                dict.disconnect
+            rescue DICTClient::ConnectionError
+                self.status_bar_msg = _("Could not connect to %s") \
+                                      % @server_entry.text
+            end
+        end
+
         def initialize_ui
             @dialog.signal_connect("delete-event") do
                 close!
             end
 
+            @avail_db_treeview.model = Gtk::ListStore.new(String, String)
+            @avail_db_treeview.selection.mode = Gtk::SELECTION_MULTIPLE
+
+            @avail_db_treeview.selection.signal_connect("changed") do
+                sensitize_move_down
+            end
+
             @sel_db_treeview.model = Gtk::ListStore.new(String, String)
             @sel_db_treeview.selection.mode = Gtk::SELECTION_MULTIPLE
+
+            @sel_db_treeview.selection.signal_connect("changed") do
+                sensitize_move_up
+            end
 
             @sel_strat_combobox.model = Gtk::ListStore.new(String, String)
             renderer = Gtk::CellRendererText.new
             @sel_strat_combobox.pack_start(renderer, true)
-            @sel_strat_combobox.set_attributes(renderer, :text => NAME)
+            @sel_strat_combobox.set_attributes(renderer, :text => DESC)
 
             @server_entry.text = "dict.org"
             @port_entry.text = DICTClient::DEFAULT_PORT.to_s
 
-            renderer = Gtk::CellRendererText.new
-            col = Gtk::TreeViewColumn.new("Name", renderer, :text => NAME)
-            @sel_db_treeview.append_column(col)
+            [@avail_db_treeview, @sel_db_treeview].each do |tv|
+                # Double click on row: show db infos
+                tv.signal_connect("row-activated") do |view, path, column|
+                    iter = tv.model.get_iter(path)
+                    dbname = iter[NAME]
+                    show_db_infos(dbname)
+                end
 
-            renderer = Gtk::CellRendererText.new
-            col = Gtk::TreeViewColumn.new("Description", renderer,
-                                          :text => DESC)
-            @sel_db_treeview.append_column(col)
+                # Renderer which slice too long names
+                renderer = Gtk::CellRendererText.new
+                col = Gtk::TreeViewColumn.new("Database", renderer)
+                
+                col.set_cell_data_func(renderer) do |col, renderer, model, iter|
+                    str = "%s (%s)" % [iter[DESC], iter[NAME]]
+                    str = str.utf8_slice(0..40) + "..." \
+                            if str.utf8_length > 40
+                    renderer.text = str
+                end
+                tv.append_column(col)
+            end
 
             if !@hash.nil? and !@dicname.nil?
                 set_initial_data

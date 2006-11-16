@@ -40,6 +40,10 @@ module Gtk::TreeModel
         count = 0
         self.each { count += 1 }
         count
+    end
+
+    def empty?
+        nb_rows == 0
     end    
 end
 

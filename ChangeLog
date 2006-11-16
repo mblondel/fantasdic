@@ -1,3 +1,18 @@
+2006-11-16 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * data/fantasdic/glade/add_dictionary_dialog.glade:
+    * data/fantasdic/glade/server_infos_dialog.glade:
+    * lib/fantasdic/command_line.rb:
+    * lib/fantasdic/preferences.rb:
+    * lib/fantasdic/ui/add_dictionary_dialog.rb:
+    * lib/fantasdic/ui/result_text_view.rb:
+    * lib/fantasdic/ui/utils.rb: revamped add dictionary dialog. Split into two
+    tabs, one for general informations, one for database selection.
+    Database selection is now clearer since available databases and
+    selected databases are separated. New status bar and greyed  window to give
+    the user informations about what is happening. New "server informations"
+    button. Double-click on a database row to get informations about it.
+
 2006-11-15 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * data/fantasdic/glade/preferences_dialog.glade:

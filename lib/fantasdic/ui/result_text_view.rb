@@ -69,12 +69,13 @@ module UI
         
         type_register
 
-        self.signal_new("link_clicked", GLib::Signal::ACTION,
-            nil,
-            GLib::Type["void"],
-            GLib::Type["VALUE"],
-            GLib::Type["VALUE"],
-            GLib::Type["VALUE"])
+        self.signal_new("link_clicked", 
+                        GLib::Signal::ACTION,
+                        nil,
+                        GLib::Type["void"],
+                        GLib::Type["VALUE"],
+                        GLib::Type["VALUE"],
+                        GLib::Type["VALUE"])
         
         def initialize
             super()

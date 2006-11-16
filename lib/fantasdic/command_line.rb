@@ -19,41 +19,46 @@ require 'optparse'
 require 'singleton'
 
 module Fantasdic
+    include GetText
+    GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
 class CommandLineOptions < Hash
     include Singleton
+    include GetText
+    GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
     def initialize
         begin
             @options = OptionParser.new do |opts|
-                opts.banner = "Usage: fantasdic [options] [dictionary] [word]"
+                opts.banner = \
+                    _("Usage: fantasdic [options] [dictionary] [word]")
     
                 opts.on("-o", "--stdout", 
-                        "Print results to stdout") do |b|
+                        _("Print results to stdout")) do |b|
                     self[:stdout] = b
                 end
     
                 opts.on("-l", "--dict-list", 
-                        "List dictionaries in settings") do |b|
+                        _("List dictionaries in settings")) do |b|
                     self[:dict_list] = b
                 end
     
                 opts.on("-s", "--strat-list dictionary", String, 
-                        "List strategies available for dictionary") do |dict|
+                        _("List strategies available for dictionary")) do |dict|
                     self[:strat_list] = dict
                 end
     
                 opts.on("-m", "--match strategy", String, 
-                        "Use strategy to match words") do |strat|
+                        _("Use strategy to match words")) do |strat|
                     self[:match] = strat
                 end
 
-                opts.on_tail("-h", "--help", "Show this message") do
+                opts.on_tail("-h", "--help", _("Show this message")) do
                     puts opts
                     exit!
                 end
        
-                opts.on_tail("-v", "--version", "Show version") do
+                opts.on_tail("-v", "--version", _("Show version")) do
                     puts "Fantasdic %s" % Fantasdic::VERSION
                     exit!
                 end
@@ -77,7 +82,7 @@ def self.connect(dict)
     infos = prefs.dictionaries_infos[dict]
 
     if infos.nil?
-        puts "Error: Dictionary does not exist in the settings"
+        puts _("Error: Dictionary does not exist in the settings")
         return
     end
 
@@ -90,7 +95,7 @@ def self.connect(dict)
         end
 
     rescue DICTClient::ConnectionError
-        puts "Error: Could not connect to %s" % infos[:server]
+        puts _("Error: Could not connect to %s") % infos[:server]
         return
     end
 
@@ -99,9 +104,9 @@ end
 
 def self.print_definitions(definitions)
     if definitions.empty?
-        puts "No match found."
+        puts _("No match found.")
     else
-        puts "Matches found: %d." % definitions.length
+        puts _("Matches found: %d.") % definitions.length
     end
 
     last_db = ""
@@ -136,7 +141,7 @@ end
 
 def self.print_matches(matches)
     if matches.length == 0
-        puts "No match found."
+        puts _("No match found.")
         return
     end
         
