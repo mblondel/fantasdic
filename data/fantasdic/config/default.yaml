@@ -1,58 +1,68 @@
 ---
-dictionaries:
-  - English
-  - Wikipedia EN
-  - English <-> French
+sidepane_position: 160
+window_position:
+- 196
+- 110
+window_maximized: false
+watched_words: []
+
+last_searches: []
+
+history_nb_rows: 15
 dictionaries_infos:
   English:
-    :selected: 1
-    :server: dict.org
-    :sel_strat: soundex
-    :all_dbs: false
-    :login: ''
-    :password: ''
-    :sel_dbs:
-      - foldoc
-      - gcide
-      - jargon
-      - wn
     :auth: false
     :port: "2628"
-  English <-> French:
-    :selected: 1
-    :server: dict.org
-    :sel_strat: soundex
-    :all_dbs: false
-    :login: ''
-    :password: ''
-    :sel_dbs:
-      - eng-fra
-      - fra-eng
-    :auth: false
-    :port: "2628"
-  Wikipedia EN:
-    :selected: 1
-    :server: dict.aioe.org
     :sel_strat: lev
     :all_dbs: false
-    :login: ''
-    :password: ''
+    :server: dict.org
+    :selected: 1
     :sel_dbs:
-      - Wikipedia_EN
+    - foldoc
+    - gcide
+    - wn
+    - jargon
+    :login: ""
+    :avail_strats:
+    - prefix
+    - soundex
+    - regexp
+    - exact
+    - word
+    - substring
+    - lev
+    - re
+    - suffix
+    :password: ""
+  English <-> French:
     :auth: false
     :port: "2628"
-last_searches: []
-last_search:
-watched_words: []
-window_maximized: false
-window_position: 
-  - 0
-  - 0
-window_size:
-  - 655
-  - 575
+    :sel_strat: lev
+    :all_dbs: false
+    :server: dict.org
+    :selected: 1
+    :sel_dbs:
+    - eng-fra
+    - fra-eng
+    :login: ""
+    :avail_strats:
+    - prefix
+    - soundex
+    - regexp
+    - exact
+    - word
+    - substring
+    - lev
+    - re
+    - suffix
+    :password: ""
 view_toolbar: true
+window_size:
+- 655
+- 575
+last_search:
 view_statusbar: true
 view_history: true
-sidepane_position: 160
-history_nb_rows: 15
+dictionaries:
+- English
+- English <-> French
