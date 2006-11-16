@@ -145,15 +145,15 @@ module UI
             end
 
             renderer = Gtk::CellRendererText.new
-            renderer.editable = true
+            renderer.editable = false # to true if lines below commented out
             col = Gtk::TreeViewColumn.new("Dictionary", renderer, :text => 1)
             @dictionary_treeview.append_column(col)
             
-            renderer.signal_connect("edited") do |entry,row_iter,new|
-                old = @list_store.get_iter(row_iter)[NAME]
-                @list_store.get_iter(row_iter)[NAME] = new
-                @prefs.dictionary_replace_name(old, new)
-            end
+            # renderer.signal_connect("edited") do |entry,row_iter,new|
+            #     old = @list_store.get_iter(row_iter)[NAME]
+            #     @list_store.get_iter(row_iter)[NAME] = new
+            #     @prefs.dictionary_replace_name(old, new)
+            # end
        
             sensitize_buttons
             

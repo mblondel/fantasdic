@@ -66,6 +66,7 @@ module UI
             @prefs = Preferences.instance
             @dicname = dicname
             @hash = hash
+            @threads = []
             @callback_proc = callback_proc
             initialize_ui
         end
@@ -139,7 +140,7 @@ module UI
         end
 
         def on_server_activate
-            Thread.new do
+            @threads << Thread.new do
                 update_lists
             end
         end
@@ -208,7 +209,7 @@ module UI
         end
 
         def close!
-            @thread.kill if @thread.alive?
+            @threads.each { |t| t.kill if t.alive? }
             @dialog.destroy unless @dialog.destroyed?
         end
 
@@ -292,7 +293,7 @@ module UI
             @last_server ||= ""
             @last_port ||= ""
 
-            @thread = Thread.new do
+            @threads << Thread.new do
                 while true
                     if !@server_entry.has_focus?
                         if @last_server != @server_entry.text
@@ -316,7 +317,7 @@ module UI
             @port_entry.text = @hash[:port]
 
             
-            Thread.new do
+            @threads << Thread.new do
                 update_lists
 
                 # Selected dbs
