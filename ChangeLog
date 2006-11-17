@@ -1,3 +1,11 @@
+2006-11-17 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * NEWS: preparing upcoming release 1.0-beta2
+    * make_release.sh: upload packages
+
+    * bin/pre-setup.rb: added bugzilla
+    * lib/fantasdic.rb: added bugzilla and translators
+
 2006-11-16 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * data/fantasdic/glade/add_dictionary_dialog.glade:

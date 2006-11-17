@@ -48,7 +48,7 @@ Backtrace:
 Release: \#{Fantasdic::VERSION}
 Uname -a: \#{`uname -a`.chomp}
 --
-Please report this dump to '\#{Fantasdic::LIST}' with some additional
+Please report this dump to '\#{Fantasdic::BUGZILLA}' with some additional
 information, such as the description of the crash and the steps to reproduce it
 (if it's possible).
 EOS

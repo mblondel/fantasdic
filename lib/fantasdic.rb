@@ -31,10 +31,17 @@ module Fantasdic
 
     ]
     TRANSLATORS = [
+        'Mathieu Blondel <mblondel@cvs.gnome.org> (French)',
+        'Jérémy Ar Floc\'h <jeremy.lefloch@gmail.com> (Breton)',
+        'Hendrik Brandt <heb@gnome-de.org> (German)',
+        'Raphael Higino <raphaelh@uai.com.br> (Brazilian Portuguese)',
+        'Danilo Šegan <danilo@gnome.org> (Serbian)',
+        'Daniel Nylander <po@danielnylander.se> (Swedish)'
     ]
 
     LIST = ''
-    WEBSITE_URL = ''
+    BUGZILLA = 'http://bugzilla.gnome.org/ (product fantasdic)'
+    WEBSITE_URL = 'http://www.gnome.org/projects/fantasdic/'
 
     def self.main
         options = CommandLineOptions.instance

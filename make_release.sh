@@ -43,4 +43,9 @@ echo "Generated archives:"
 du -h "`dirname $TMP_DIR`/$TAR_PKG"
 du -h "`dirname $TMP_DIR`/$ZIP_PKG"
 
+echo "Uploading to site"
+echo $1 > LATEST
+scp "`dirname $TMP_DIR`/$TAR_PKG" "`dirname $TMP_DIR`/$ZIP_PKG" LATEST \
+matt@ffworld.com:~/www/files/fantasdic/
+
 exit 0

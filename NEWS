@@ -1,5 +1,23 @@
 NEWS
 
+=== Fantasdic 1.0 beta2 ===
+
+2006/11/17
+
+A lot of love with this release:
+
+- Revamped add dictionary dialog. 
+- New strategy drop down menu on the main window.
+- New stop button in the toolbar.
+- New option to choose whether Fantasdic should lookup last word at startup.
+- New command-line options.
+- Now hold connections form some time and close too old connections.
+- New find pane.
+- New command-line tools: a basic server, a proxy and some format conversion
+  tools.
+
+- Updated translation: french.
+
 === Fantasdic 1.0 beta1.1 ===
 
 2006/02/19
