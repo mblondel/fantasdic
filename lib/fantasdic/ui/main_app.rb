@@ -56,37 +56,38 @@ module UI
         end
 
         def lookup(p)
-            close_long_connections
-
-            @current_search = p
-            @search_entry.text = p[:word]
-            @buf = @result_text_view.buffer
-            @buf.text = ""
-            @iter = @buf.get_iter_at_offset(0)
-
-            # Make the scroll go up
-            @result_sw.vadjustment.value = @result_sw.vadjustment.lower
-            @result_sw.hadjustment.value = @result_sw.hadjustment.lower
-
-            if @prefs.dictionaries.length == 0
-                msg = _("No dictionary configured")
-                self.status_bar_msg = msg
-                @buf.insert(@iter, msg + "\n", "header")
-                return false
-            end
-
-            if p[:dictionary]
-                self.selected_dictionary = p[:dictionary]
-            else 
-                p[:dictionary] = selected_dictionary
-            end
-
-            self.selected_strategy = p[:strategy]
-            p.delete(:strategy) if ["define", "exact"].include? p[:strategy]
-
-            infos = @prefs.dictionaries_infos[p[:dictionary]]
+            @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
 
             @lookup_thread = Thread.new do
+                close_long_connections
+    
+                @current_search = p
+                @search_entry.text = p[:word]
+                @buf = @result_text_view.buffer
+                @buf.text = ""
+                @iter = @buf.get_iter_at_offset(0)
+    
+                # Make the scroll go up
+                @result_sw.vadjustment.value = @result_sw.vadjustment.lower
+                @result_sw.hadjustment.value = @result_sw.hadjustment.lower
+    
+                if @prefs.dictionaries.length == 0
+                    msg = _("No dictionary configured")
+                    self.status_bar_msg = msg
+                    @buf.insert(@iter, msg + "\n", "header")
+                    Thread.current.kill
+                end
+    
+                if p[:dictionary]
+                    self.selected_dictionary = p[:dictionary]
+                else 
+                    p[:dictionary] = selected_dictionary
+                end
+    
+                self.selected_strategy = p[:strategy]
+                p.delete(:strategy) if ["define", "exact"].include? p[:strategy]
+    
+                infos = @prefs.dictionaries_infos[p[:dictionary]]
                 @global_actions["Stop"].visible = true
 
                 begin
@@ -99,6 +100,8 @@ module UI
                     self.status_bar_msg = error
                     Thread.current.kill
                 end
+
+                @show_suggested_results = false
 
                 # Display definitions
                 unless p[:strategy]
@@ -205,7 +208,9 @@ module UI
             if @show_suggested_results
                 self.status_bar_msg = _("Suggested results.")
             elsif matches.length > 0
-                self.status_bar_msg = _("Matches found.")
+                nb_match = 0
+                matches.each { |db, w| nb_match += w.length }
+                self.status_bar_msg = _("Matches found: %d.") % nb_match
             else
                 @buf.insert(@iter, _("No match found."), "header")
                 self.status_bar_msg = _("No match found.")
@@ -537,7 +542,7 @@ module UI
             end
 
             on_stop = Proc.new do
-                @lookup_thread.kill if @lookup_thread.alive?
+                @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
                 @global_actions["Stop"].visible = false
                 @buf.text = ""
                 @iter = @buf.get_iter_at_offset(0)
@@ -564,6 +569,7 @@ module UI
             end
 
             on_quit = Proc.new do
+                @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
                 save_preferences
                 @connections.each do |server, connection|
                     begin

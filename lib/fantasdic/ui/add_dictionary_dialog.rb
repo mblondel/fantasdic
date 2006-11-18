@@ -140,9 +140,7 @@ module UI
         end
 
         def on_server_activate
-            @threads << Thread.new do
-                update_lists
-            end
+            @port_entry.grab_focus
         end
 
         def on_server_infos_button_clicked
@@ -225,10 +223,12 @@ module UI
         def update_lists
             @general_infos_vbox.sensitive = false
             @databases_vbox.sensitive = false
+            @add_button.sensitive = false
 
             self.status_bar_msg = _("Fetching informations from %s...") \
                                   % @server_entry.text
 
+            @avail_db_treeview.model.clear
             @sel_db_treeview.model.clear
             @sel_strat_combobox.model.clear
 
@@ -289,27 +289,6 @@ module UI
             @databases_vbox.sensitive = true
         end
 
-        def start_update_lists_thread
-            @last_server ||= ""
-            @last_port ||= ""
-
-            @threads << Thread.new do
-                while true
-                    if !@server_entry.has_focus?
-                        if @last_server != @server_entry.text
-                            update_lists
-                        end
-                    elsif !@port_entry.has_focus?
-                        if @last_port != @port_entry.text
-                            update_lists
-                        end
-                    end
-
-                    sleep 0.8
-                end
-            end
-        end
-
         def set_initial_data
             # Main fields
             @name_entry.text = @dicname
@@ -334,13 +313,14 @@ module UI
                     end
                     n += 1
                 end
-            end
 
-            # Auth
-            if @hash[:auth]
-                @serv_auth_checkbutton.active = true
-                @login_entry.text = @hash[:login]
-                @password_entry.text = @hash[:password]
+                # Auth
+                if @hash[:auth]
+                    @serv_auth_checkbutton.active = true
+                    @login_entry.text = @hash[:login]
+                    @password_entry.text = @hash[:password]
+                end
+
             end
         end
 
@@ -397,6 +377,23 @@ module UI
             @server_entry.text = "dict.org"
             @port_entry.text = DICTClient::DEFAULT_PORT.to_s
 
+            @last_server = @server_entry.text
+            @last_port = @port_entry.text
+            
+            [[@server_entry, @last_server], 
+             [@port_entry, @last_port]].each do |entry, last|
+                entry.signal_connect("focus-out-event") do |w, event|
+                    if last != entry.text
+                        last = entry.text
+                        @threads << Thread.new do
+                            update_lists
+                        end
+                    end
+                    false
+                end
+            end
+
+
             [@avail_db_treeview, @sel_db_treeview].each do |tv|
                 # Double click on row: show db infos
                 tv.signal_connect("row-activated") do |view, path, column|
@@ -421,9 +418,12 @@ module UI
             if !@hash.nil? and !@dicname.nil?
                 @update_dialog = true
                 set_initial_data
+            else
+                @threads << Thread.new do
+                    update_lists
+                end
             end
 
-            start_update_lists_thread
         end
     end
         

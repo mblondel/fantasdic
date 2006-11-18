@@ -1,3 +1,9 @@
+2006-11-18 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: use focus-out-event
+    * lib/fantasdic/ui/main_app.rb: close look up thread before quitting or
+    when looking up a word while a thread is still alive
+
 2006-11-17 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * NEWS: preparing upcoming release 1.0-beta2
