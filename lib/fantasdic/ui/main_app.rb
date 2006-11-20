@@ -64,7 +64,7 @@ module UI
                 @current_search = p
                 @search_entry.text = p[:word]
                 @buf = @result_text_view.buffer
-                @buf.text = ""
+                @buf.clear
                 @iter = @buf.get_iter_at_offset(0)
     
                 # Make the scroll go up
@@ -154,7 +154,7 @@ module UI
         end
 
         def print_definitions(definitions)
-            @buf.text = ""
+            @buf.clear
             @iter = @buf.get_iter_at_offset(0)
             last_db = ""
             definitions.each do |d|
@@ -202,7 +202,7 @@ module UI
       
         def print_matches(matches)
             # Display matches
-            @buf.text = ""
+            @buf.clear
             @iter = @buf.get_iter_at_offset(0)
 
             if @show_suggested_results
@@ -544,7 +544,7 @@ module UI
             on_stop = Proc.new do
                 @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
                 @global_actions["Stop"].visible = false
-                @buf.text = ""
+                @buf.clear
                 @iter = @buf.get_iter_at_offset(0)
                 self.status_bar_msg = ""
             end
@@ -570,6 +570,7 @@ module UI
 
             on_quit = Proc.new do
                 @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
+                @scan_thread.kill if @scan_thread and @scan_thread.alive?
                 save_preferences
                 @connections.each do |server, connection|
                     begin

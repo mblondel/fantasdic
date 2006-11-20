@@ -61,6 +61,13 @@ module UI
                     unless idx == non_links.length - 1
             end
         end
+
+        def clear
+            self.text = ""
+            ["last-search-prev", "last-search-next"].each do |mark|
+                delete_mark(mark) unless get_mark(mark).nil?
+            end
+        end
     end
     
     class ResultTextView < Gtk::TextView
