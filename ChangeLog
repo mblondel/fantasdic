@@ -4,6 +4,9 @@
     * lib/fantasdic/ui/result_text_view.rb: remove marks when text buffer is
     cleared
 
+    * fantasdic.sgml: docbook man page
+    * make_release.sh: man page
+
 2006-11-18 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/add_dictionary_dialog.rb: use focus-out-event

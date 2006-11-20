@@ -1,0 +1,94 @@
+<!doctype refentry PUBLIC "-//OASIS//DTD DocBook V4.1//EN" [
+
+<!-- Process this file with docbook-to-man to generate an nroff manual
+     page: `docbook-to-man manpage.sgml > manpage.1'.  You may view
+     the manual page with: `docbook-to-man manpage.sgml | nroff -man |
+     less'.  A typical entry in a Makefile or Makefile.am is:
+
+manpage.1: manpage.sgml
+	docbook-to-man $< > $@
+  -->
+
+  <!-- Fill in the various UPPER CASE things here. -->
+  <!ENTITY manfirstname "<firstname>Mathieu</firstname>">
+  <!ENTITY mansurname   "<surname>Blondel</surname>">
+  <!-- Please adjust the date whenever revising the manpage. -->
+  <!ENTITY mandate      "<date>Thu, 20 Jun 2006 13:16:17 -0700</date>">
+  <!-- SECTION should be 1-8, maybe with subsection. Other parameters are
+       allowed: see man(7), man(1). -->
+  <!ENTITY mansection   "<manvolnum>8</manvolnum>">
+  <!ENTITY manemail     "<email>mblondel@rubyforge.org</email>">
+  <!ENTITY manusername  "sdffsd">
+  <!ENTITY manucpackage "<refentrytitle>FANTASDIC</refentrytitle>">
+  <!ENTITY manpackage   "fantasdic">
+]>
+
+<refentry>
+  <refentryinfo>
+    <address>
+      &manemail;
+    </address>
+    <author>
+      &manfirstname;
+      &mansurname;
+    </author>
+    <copyright>
+      <year>2006</year>
+      <holder>&manusername;</holder>
+    </copyright>
+    &mandate;
+  </refentryinfo>
+  <refmeta>
+    &manucpackage;
+
+    &mansection;
+  </refmeta>
+  <refnamediv>
+    <refname>&manpackage;</refname>
+
+    <refpurpose>Dictionary application (client for the DICT
+protocol)</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      <command>&manpackage; </command>
+      [options] [dictionary] [word]
+    </cmdsynopsis>
+  </refsynopsisdiv>
+  <refsect1>
+    <title>DESCRIPTION</title>    
+    <para>Fantasdic is a dictionary application primarily targetting the GNOME
+        desktop but which should work with other platforms, including Windows.
+Fantasdic is Free Software.</para>
+
+<para>More precisely, Fantasdic is a DICT client. DICT is to dictionaries what
+HTTP is to web sites: Fantasdic connects to a server to look up words in
+dictionaries provided by that server. So you might think of Fantasdic as a
+"dictionary browser".
+    </para>
+    
+    <para>See <command>&manpackage; --help</command> for command-line
+options.</para>
+    
+    
+  </refsect1>
+
+   
+</refentry>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-default-dtd-file:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

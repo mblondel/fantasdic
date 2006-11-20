@@ -29,6 +29,11 @@ $RM po/fantasdic
 echo "Updating version number..."
 echo $1 > VERSION
 
+echo "Creating man page"
+mkdir -p data/man/man1/
+docbook-to-man fantasdic.sgml > data/man/man1/fantasdic.1
+gzip data/man/man1/fantasdic.1
+
 cd ..
 
 echo "Generating tarball..."
