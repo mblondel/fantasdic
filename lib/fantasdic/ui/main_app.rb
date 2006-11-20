@@ -56,7 +56,8 @@ module UI
         end
 
         def lookup(p)
-            @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
+            @global_actions["Stop"].activate \
+                if @lookup_thread and @lookup_thread.alive?
 
             @lookup_thread = Thread.new do
                 close_long_connections
@@ -107,7 +108,10 @@ module UI
                 unless p[:strategy]
                     definitions = define(dict, p)
                     print_definitions(definitions)
-                    @show_suggested_results = true
+
+                    if definitions.empty?  
+                        @show_suggested_results = true 
+                    end
                 end
                 
                 # Search with match strategy. 
@@ -115,6 +119,7 @@ module UI
                 if p[:strategy] or definitions.empty?
                     p[:strategy] = infos[:sel_strat] unless p.has_key? :strategy
                     matches = match(dict, p)
+
                     print_matches(matches)
                 end
     
@@ -179,7 +184,7 @@ module UI
             end
         end
 
-        def match(dict, p, no_definition=false)  
+        def match(dict, p)  
             infos = @prefs.dictionaries_infos[p[:dictionary]]         
 
             if @cache_data.has_key? p
@@ -205,12 +210,17 @@ module UI
             @buf.clear
             @iter = @buf.get_iter_at_offset(0)
 
-            if @show_suggested_results
-                self.status_bar_msg = _("Suggested results.")
-            elsif matches.length > 0
+           if matches.length > 0
                 nb_match = 0
                 matches.each { |db, w| nb_match += w.length }
-                self.status_bar_msg = _("Matches found: %d.") % nb_match
+
+                if @show_suggested_results
+                    msg = _("Suggested results.") + " "
+                else
+                    msg = ""
+                end
+                msg += _("Matches found: %d.") % nb_match
+                self.status_bar_msg = msg
             else
                 @buf.insert(@iter, _("No match found."), "header")
                 self.status_bar_msg = _("No match found.")
@@ -401,7 +411,7 @@ module UI
             end
         end
 
-        def get_connection(dicname)
+        def get_connection(dicname)     
             infos = @prefs.dictionaries_infos[dicname]
 
             # This error is raised when a word is searched
@@ -413,6 +423,8 @@ module UI
 
             server = infos[:server]
             port = infos[:port]
+
+            @current_server = server
 
             self.status_bar_msg = _("Waiting for %s...") % server
 
@@ -431,7 +443,7 @@ module UI
 
         def close_connection(server)
             begin
-                @connections[server].disconnect
+                @connections[server].disconnect if @connections[server]
             rescue DICTClient::ConnectionLost
                 # connection closed by server
             end
@@ -441,7 +453,8 @@ module UI
 
         def close_long_connections
             @connections.each do |server, connection|
-                if Time.now - @connections_time[server] \
+                if @connections_time[server].nil? or \
+                   Time.now - @connections_time[server] \
                    > KEEP_CONNECTION_OPEN_MAX_TIME
                     close_connection(server)
                 end
@@ -543,6 +556,8 @@ module UI
 
             on_stop = Proc.new do
                 @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
+                close_connection(@current_server) if @current_server          
+     
                 @global_actions["Stop"].visible = false
                 @buf.clear
                 @iter = @buf.get_iter_at_offset(0)

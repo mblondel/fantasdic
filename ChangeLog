@@ -9,6 +9,9 @@
 
     * fantasdic.desktop: fixed category and icon
 
+    * lib/fantasdic/ui/main_app.rb: was displaying wrong message in status bar
+    and close connection when a thread is killed.
+
 2006-11-18 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/add_dictionary_dialog.rb: use focus-out-event
