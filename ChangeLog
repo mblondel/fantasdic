@@ -7,6 +7,8 @@
     * fantasdic.sgml: docbook man page
     * make_release.sh: man page
 
+    * fantasdic.desktop: fixed category and icon
+
 2006-11-18 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/add_dictionary_dialog.rb: use focus-out-event
