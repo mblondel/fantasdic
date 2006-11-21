@@ -520,7 +520,7 @@ module UI
 
         def initialize_ui
             # Tray icon
-            if defined? Gtk::TrayIcon
+            if defined? Gtk::TrayIcon and @prefs.show_in_tray
                 @main_app.destroy_with_parent = false
                 image = Gtk::Image.new(Icon::LOGO_SMALL)
                 @tray_event_box = Gtk::EventBox.new.add(image)
@@ -528,7 +528,7 @@ module UI
                 tray.add(@tray_event_box)
                 tray.show_all
             end
-
+            
             # Find pane
             @find_pane.visible = false
             @not_found_label.visible = false
@@ -784,7 +784,7 @@ module UI
             end
 
             @main_app.signal_connect("delete-event") do
-                if defined? Gtk::TrayIcon
+                if defined? Gtk::TrayIcon and @prefs.dont_quit
                     @main_app.hide
                     save_window_preferences
                     true # needed to not destroy the window
@@ -806,7 +806,7 @@ module UI
                         load_window_preferences
                     end
                 end
-            end if defined? Gtk::TrayIcon
+            end if defined? Gtk::TrayIcon and @prefs.show_in_tray
 
             IPC::Window.new(IPC::REMOTE) do |p|                    
                 @main_app.show
@@ -817,7 +817,7 @@ module UI
                 unless p.empty?
                     lookup(p)
                 end
-            end if defined? Gtk::TrayIcon
+            end if defined? IPC
 
             @dictionary_cb.signal_connect("changed") do
                 update_strategy_cb

@@ -1,3 +1,12 @@
+2006-11-21 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * data/fantasdic/config/default.yaml:
+    * data/fantasdic/glade/preferences_dialog.glade:
+    * lib/fantasdic/ui.rb:
+    * lib/fantasdic/ui/main_app.rb:
+    * lib/fantasdic/ui/preferences_dialog.rb: new options "show fantasdic in
+    tray" and "do not quit when main window is closed"
+
 2006-11-20 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb: also close scan_clipboard thread if needed

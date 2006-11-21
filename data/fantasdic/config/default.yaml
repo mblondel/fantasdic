@@ -63,6 +63,8 @@ window_size:
 last_search:
 view_statusbar: true
 view_history: true
+show_in_tray: true
+dont_quit: true
 dictionaries:
 - English
 - English <-> French

@@ -20,7 +20,6 @@ require 'gtk2'
 
 begin
     require 'gtktrayicon'
-    require 'fantasdic/ui/ipc'
 rescue LoadError
     $stderr.puts 'WARNING : Ruby/GtkTrayIcon was not found.'
 end
@@ -33,6 +32,7 @@ require 'fantasdic/ui/preferences_dialog'
 require 'fantasdic/ui/add_dictionary_dialog'
 require 'fantasdic/ui/history_list_view'
 require 'fantasdic/ui/result_text_view'
+require 'fantasdic/ui/ipc' unless RUBY_PLATFORM =~ /win32/
 require 'fantasdic/ui/main_app'
 
 module Fantasdic
@@ -45,7 +45,7 @@ module UI
 
         # Start Fantasdic normally
         # Or ask the first process to pop up the window if it exists
-        if defined? Gtk::TrayIcon
+        if defined? IPC
             win = IPC.find(IPC::REMOTE)
         else
             win = nil

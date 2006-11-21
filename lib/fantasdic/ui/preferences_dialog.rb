@@ -31,9 +31,10 @@ module UI
 
         def initialize(parent, &callback_proc)
             super("preferences_dialog.glade")
+            @main_app = parent
             @preferences_dialog.transient_for = parent
             @prefs = Preferences.instance
-
+            
             @callback_proc = callback_proc
             initialize_ui
         end
@@ -116,10 +117,35 @@ module UI
         def on_lookup_at_start_checkbutton_toggled
             @prefs.lookup_at_start = @lookup_at_start_checkbutton.active?
         end
+
+        def on_show_in_tray_checkbutton_toggled
+            @dont_quit_checkbutton.sensitive = \
+                @show_in_tray_checkbutton.active?
+
+            if !@show_in_tray_checkbutton.active?
+                @dont_quit_checkbutton.active = false
+            end
+
+            @prefs.show_in_tray = @show_in_tray_checkbutton.active?
+
+            if @show_in_tray_first_value != @show_in_tray_checkbutton.active?
+                InfoDialog.new(@preferences_dialog, 
+                    _("A restart is required so that change takes effect"))
+            end
+        end
+
+        def on_dont_quit_checkbutton_toggled
+            @prefs.dont_quit = @dont_quit_checkbutton.active?
+        end
         
         private
                
         def initialize_ui
+            @tray_vbox.visible = defined? Gtk::TrayIcon
+            @dont_quit_checkbutton.active = @prefs.dont_quit        
+            @show_in_tray_first_value = @prefs.show_in_tray
+            @show_in_tray_checkbutton.active = @prefs.show_in_tray   
+
             @lookup_at_start_checkbutton.active = @prefs.lookup_at_start
 
             @list_store = Gtk::ListStore.new(Fixnum,String)
