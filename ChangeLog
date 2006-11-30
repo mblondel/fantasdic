@@ -1,3 +1,7 @@
+2006-11-30 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb: pressing "escape" made Fantasdic crash
+
 2006-11-21 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * data/fantasdic/config/default.yaml:
@@ -6,6 +10,9 @@
     * lib/fantasdic/ui/main_app.rb:
     * lib/fantasdic/ui/preferences_dialog.rb: new options "show fantasdic in
     tray" and "do not quit when main window is closed"
+
+    * release 1.0-beta2
+
 
 2006-11-20 Mathieu Blondel <mblondel@cvs.gnome.org>
 

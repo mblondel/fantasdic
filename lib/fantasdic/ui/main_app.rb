@@ -94,7 +94,7 @@ module UI
                 begin
                     dict = get_connection(p[:dictionary])
 
-                rescue DICTClient::ConnectionError => e
+                rescue DICTClient::ConnectionError, Errno::ECONNRESET => e
                     error = _("Can't connect to server")
                     @buf.insert(@iter, error + "\n", "header")
                     @buf.insert(@iter, e.to_s)
@@ -504,18 +504,6 @@ module UI
                 (@current_page == @pages_seen.length - 1) ? false : true
         end
 
-        def check_if_find_pane_unused
-            @check_if_find_pane_unused_thread = Thread.new do
-                while true
-                    if !@last_find_activity.nil? and \
-                    Time.now - @last_find_activity > 6
-                    @find_pane_close_button.clicked
-                    end
-                    sleep 1
-                end
-            end
-        end
-
         # Initialize
 
         def initialize_ui
@@ -611,8 +599,7 @@ module UI
             end
 
             on_find = Proc.new do
-                @last_find_activity = Time.now
-                check_if_find_pane_unused
+                @not_found_label.visible = false
                 @find_pane.visible = true
                 @find_entry.text = ""
                 @find_entry.grab_focus
@@ -843,25 +830,20 @@ module UI
             @find_entry.signal_connect("changed") do |w, ev|
                 ret = @result_text_view.find_forward(@find_entry.text, true)    
                 @not_found_label.visible = !ret
-                @last_find_activity = Time.now
             end
 
             @find_prev_button.signal_connect("clicked") do
                 ret = @result_text_view.find_backward(@find_entry.text)
                 @not_found_label.visible = !ret
-                @last_find_activity = Time.now
             end
 
             @find_next_button.signal_connect("clicked") do
                 ret = @result_text_view.find_forward(@find_entry.text)
                 @not_found_label.visible = !ret
-                @last_find_activity = Time.now
             end
 
             @find_pane_close_button.signal_connect("clicked") do
                 @find_pane.visible = false
-                @check_if_find_pane_unused_thread.kill \
-                    if @check_if_find_pane_unused_thread.alive?
             end
 
             @history_listview.signal_connect("button_press_event") do |w, ev|
