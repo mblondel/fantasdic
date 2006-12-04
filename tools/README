@@ -45,40 +45,50 @@ Format converters
 =================
 
 
-The programs below can be used together with dictfmt, a tool that creates
-databases for the dictd server. Lots of dictionaries become thus usable with
-the dictd server and so with your favourite DICT client Fantasdic!
+The programs below can be used together with the dictfmt utility, a tool that
+creates databases for the dictd server. Lots of dictionaries become thus usable
+with the dictd server and so with your favourite DICT client Fantasdic!
+
+stardict2dictd.rb
+-----------------
+
+stardict2dictd.rb converts stardict [1] very numerous dictionaries to a format
+usable by the dictfmt utility.
+
+epwing2dictd.rb
+---------------
+
+epwing2dictd.rb converts EPWING [2] (popular format in Japan) dictionaries to a
+a format usable by the dictfmt utility. This tool requires rubyeb (libeb for
+ruby). It also requires a modified version of libeb in order to generate an
+index of dictionaries. See --help.
 
 edict2dictd.rb
 --------------
 
-edict2dictd.rb converts a dictionary in EDICT format (e.g. EDICT [1],
-ENAMDICT [2], CEDICT [3]) to a format usable by dictfmt.
+edict2dictd.rb converts a dictionary in EDICT format (e.g. EDICT [3],
+ENAMDICT [4], CEDICT [5]) to a format usable by the dictfmt utility.
 
 kanjidic22dictd.rb
 ------------------
 
-kanjidic22dictd.rb converts Kanjidic2 [4] to a format usable by dictfmt.
-
-stardict2dictd.rb
-----------------
-
-stardict2dictd.rb converts stardict [5] very numerous dictionaries to a format
-usable by dictfmt.
+kanjidic22dictd.rb converts Kanjidic2 [6] to a format usable by the dictfmt
+utility.
 
 tanakacorpus2dictd.rb
 ---------------------
 
-tanakacorpus2dictd.rb convert the Tanaka Corpus (a set of Japanese-English
-sentences) to a format usable by dictfmt.
+tanakacorpus2dictd.rb convert the Tanaka Corpus [7] (a set of Japanese-English
+sentences) to a format usable by by the dictfmt utility.
 
 
 Links
 =====
 
-[1] http://www.csse.monash.edu.au/~jwb/edict.html
-[2] http://www.csse.monash.edu.au/~jwb/enamdict_doc.html
-[3] http://www.mandarintools.com/cedict.html
-[4] http://www.csse.monash.edu.au/~jwb/kanjidic2/index.html
-[5] http://stardict.sourceforge.net/
-[6] http://www.csse.monash.edu.au/~jwb/tanakacorpus.html
+[1] http://stardict.sourceforge.net/
+[2] http://www.epwing.or.jp/
+[3] http://www.csse.monash.edu.au/~jwb/edict.html
+[4] http://www.csse.monash.edu.au/~jwb/enamdict_doc.html
+[5] http://www.mandarintools.com/cedict.html
+[6] http://www.csse.monash.edu.au/~jwb/kanjidic2/index.html
+[7] http://www.csse.monash.edu.au/~jwb/tanakacorpus.html
