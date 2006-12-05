@@ -59,10 +59,11 @@ module UI
             @global_actions["Stop"].activate \
                 if @lookup_thread and @lookup_thread.alive?
 
+            return false if p[:word].empty?            
+
             @lookup_thread = Thread.new do
                 close_long_connections
-    
-                @current_search = p
+   
                 @search_entry.text = p[:word]
                 @buf = @result_text_view.buffer
                 @buf.clear

@@ -1,3 +1,7 @@
+2006-12-05 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb: looking up an empty string crashed Fantasdic
+
 2006-12-04 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * tools/epwing2dictd.rb: added EPWING to dictd format converter
