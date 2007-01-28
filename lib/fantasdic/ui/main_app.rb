@@ -621,6 +621,8 @@ module UI
 
             on_preferences = Proc.new do
                 PreferencesDialog.new(@main_app) do
+                    # This block is called when the dialog is closed
+                    @prefs.save!
                     update_dictionary_cb
                 end
             end
