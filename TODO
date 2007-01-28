@@ -1,5 +1,9 @@
 TODO
 
-[ ] Gtk::Print* support
-[ ] Clever integration with nihongobenkyo.org
+Matches side pane
+Gtk::Print* support
+Drag and drop available databases and selected databases
+Switch from gtk-trayicon to Gtk::StatusIcon
+Word desinflection with Mecab for Japanese (plugin?)
+Free japanese DICT server at nihongobenkyo.org
 
