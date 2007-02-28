@@ -15,38 +15,18 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-# Usage :
-#
-# cat edict.gz | gunzip -c | iconv -f EUCJP -t UTF8 | ruby edict2dictd.rb \ |
-# dictfmt -c5 --utf8 -s "Dict name" dictname
+require "dictfmt"
 
 def puts_def(word, reading, meanings)
-    puts "_____\n\n#{word}"
-    puts " "
-    puts reading unless reading.nil?
-    puts meanings.join(', ')
-    puts " "
+    txt = "#{word} \n\n"
+    txt += "Reading: #{reading}\n" if reading
+    txt += "Meanings: #{meanings.join(', ')} \n\n"
 
-    unless reading.nil?
-        puts "_____\n\n#{reading}"
-        puts " "
-        puts word
-        puts meanings.join(', ')
-        puts " "
-    end
+    kw = [word]
+    kw << reading if reading
+    kw += meanings
 
-    meanings.each do |meaning|
-        meaning.split(', ').each do |sense|
-            #sense.split(' ').each do |sense_word|
-                puts "_____\n\n#{sense}"
-                puts " "
-                puts word
-                puts reading unless reading.nil?
-                puts meanings.join(', ')
-                puts " "
-            #end
-        end
-    end
+    $dictfmt.add_entry(kw, txt)
 end
 
 def parse
@@ -65,27 +45,30 @@ def parse
 end
 
 def usage
-    puts ""
-    puts "Usage"
-    puts ""
-    puts "ruby edict2dictd.rb"
-    puts ""
-    puts "\tTakes content in EDICT format on STDIN and outputs "
-    puts "\tword definitons in a dictfmt compatible format."
-    puts ""
-    puts "\tThe produced output can be piped into the dictfmt utility. Ex:"
-    puts ""
-    puts "\tcat edict.gz | gunzip -c | iconv -f EUCJP -t UTF8 | ruby " + \
-         "edict2dictd.rb | dictfmt -c5 --utf8 -s \"Dict name\" dictname"
-    puts ""
+puts <<EOL
+Usage: ruby edict2dictd.rb dicname
 
+Takes content in EDICT format on STDIN.
+
+You may have to convert EDICT from EUCJP to UTF8. ex:
+
+gunzip -c edict.gz | iconv -f EUCJP -t UTF8 | ruby edict2dictd.rb dicname
+EOL
 end
 
 if $0 == __FILE__
 
-    if ARGV.length > 0
+    if ARGV.length != 1
         usage
     else
+        $dictfmt = Dictfmt.new("#{ARGV[0]}.index", "#{ARGV[0]}.dict", false)
+
+        $dictfmt.set_utf8
+        $dictfmt.set_shortname(ARGV[0].capitalize)
+        $dictfmt.set_info("See http://www.csse.monash.edu.au/~jwb/j_edict.html")
+
         parse
+
+        $dictfmt.dictzip
     end
 end

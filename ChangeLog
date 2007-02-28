@@ -8,6 +8,8 @@
 
     * tools/kanjidic22dictd.rb: improved this converter using dictfmt.rb.
 
+    * tools/edict2dictd.rb: use dictfmt.rb.
+
 2006-01-28 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb: save preferences when preferences dialog is
