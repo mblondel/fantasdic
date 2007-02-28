@@ -15,32 +15,62 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-def puts_def(character)
-    puts "_____\n\n#{character[:literal]}"
-    puts " "
-    puts "On-yomi : #{character[:readings][:ja_on].join(', ')}" \
+require "dictfmt"
+
+def add_entry(character)
+    txt = "#{character[:literal]}\n\n"
+    txt += "On-yomi : #{character[:readings][:ja_on].join(', ')}\n" \
         unless character[:readings].nil? or character[:readings][:ja_on].nil?
 
-    puts "Kun-yomi : #{character[:readings][:ja_kun].join(', ')}" \
+    txt += "Kun-yomi : #{character[:readings][:ja_kun].join(', ')}\n" \
         unless character[:readings].nil? or character[:readings][:ja_kun].nil?
 
-    puts "Pinyin: #{character[:readings][:pinyin].join(', ')}" \
+    txt += "Pinyin: #{character[:readings][:pinyin].join(', ')}\n" \
         unless character[:readings].nil? or character[:readings][:pinyin].nil?
 
-    puts "Meanings: #{character[:meanings].join(', ')}" \
+    txt += "Meanings: #{character[:meanings].join(', ')}\n\n" \
         unless character[:meanings].nil?
 
-    puts ""
-    puts "Stroke count: #{character[:stroke_count]}" \
+    txt += ""
+    txt += "Stroke count: #{character[:stroke_count].join(', ')}\n" \
         unless character[:stroke_count].nil?
 
-    puts "Frequence: #{character[:freq]}" \
+    txt += "Frequence: #{character[:freq].join(', ')}\n" \
         unless character[:freq].nil?
 
-    puts "Grade: #{character[:grade]}" \
+    txt += "Grade: #{character[:grade].join(', ')}\n" \
         unless character[:grade].nil?
 
-    puts ""
+    kw = character[:literal]
+    if character[:readings]
+        kw += character[:readings][:ja_on] if character[:readings][:ja_on]
+        kw += character[:readings][:ja_kun].collect do |j|
+            m = j.match(/(.+)\.(.+)/)
+            if m
+                m[1]
+            else
+                j
+            end
+        end if character[:readings][:ja_kun]
+        kw += character[:readings][:pinyin].collect do |p|
+            p.gsub(/[1-5]*$/, "")
+        end if character[:readings][:pinyin]
+    end
+    kw += character[:meanings] if character[:meanings]
+
+    kw += character[:stroke_count].collect do |s|
+        "stroke count: #{s}"
+    end if character[:stroke_count]
+
+    kw += character[:freq].collect do |f|
+        "frequence: #{f}"
+    end if character[:freq]
+
+    kw += character[:grade].collect do |g|
+        "grade: #{g}"
+    end if character[:grade]
+
+    $dictfmt.add_entry(kw, txt)
 end
 
 begin
@@ -58,17 +88,20 @@ rescue LoadError
 end
 
 class Listener < ListenerAbstract
-    
+
     def tag_start(name, attrs)
         @curr_tag = name
         @curr_attrs = attrs
 
         if name == "character"
             @character = {}
-
+        elsif name == "strokes"
+            
         elsif name == "rmgroup"
             @readings = {}
             @meanings = []
+        elsif ["literal", "grade", "stroke_count", "freq"].include? @curr_tag
+            @character[@curr_tag.to_sym] = []
         end
     end
     alias :startElement :tag_start
@@ -78,7 +111,7 @@ class Listener < ListenerAbstract
         @curr_tag = nil
 
         if name == "character"
-            puts_def(@character)
+            add_entry(@character)
 
         elsif name == "rmgroup"
             @character[:meanings] = @meanings
@@ -89,7 +122,7 @@ class Listener < ListenerAbstract
 
     def text(txt)
         if ["literal", "grade", "stroke_count", "freq"].include? @curr_tag
-            @character[@curr_tag.to_sym] = txt
+            @character[@curr_tag.to_sym] << txt
         
         elsif @curr_tag == "reading"
             @readings[@curr_attrs['r_type'].to_sym] ||= []
@@ -104,7 +137,7 @@ class Listener < ListenerAbstract
 end
 
 def parse(file)
-    list = Listener.new 
+    list = Listener.new
     
     if defined? XML::Parser
         list.parse(file.read)
@@ -114,29 +147,25 @@ def parse(file)
 end
 
 def usage
-    puts ""
-    puts "Usage"
-    puts ""
-    puts "ruby kanjidic22dictd.rb"
-    puts ""
-    puts "\tTakes Kanjidic2 as firt argument or on STDIN and outputs "
-    puts "\tword definitons in a dictfmt compatible format."
-    puts ""
-    puts "\tThe produced output can be piped into the dictfmt utility. Ex:"
-    puts ""
-    puts "\tcat kanjidic2.gz | gunzip -c | ruby " + \
-         "kanjidic22dictd.rb | dictfmt -c5 --utf8 -s \"Kanjidic2\" " + \
-         "kanjidic2"
-    puts ""
+puts <<EOL
+Usage: ruby kanjidic22dictd.rb dicname
+
+The xml content is passed by STDIN.
+EOL
 end
 
 if $0 == __FILE__
-
-    if ARGV.length == 1 and not ["-h", "--help"].include? ARGV[0]
-        parse(File.new(ARGV[0]))
-    elsif ARGV.length == 0
-        parse($stdin)
-    else
+    if ARGV.length != 1
         usage
+    else
+        $dictfmt = Dictfmt.new("#{ARGV[0]}.index", "#{ARGV[0]}.dict", false)
+
+        $dictfmt.set_utf8
+        $dictfmt.set_shortname("Kanjidic2")
+        $dictfmt.set_info("Blabla...")
+
+        parse($stdin)
+
+        $dictfmt.dictzip
     end
 end
