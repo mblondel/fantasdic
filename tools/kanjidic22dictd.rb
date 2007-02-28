@@ -162,7 +162,7 @@ if $0 == __FILE__
 
         $dictfmt.set_utf8
         $dictfmt.set_shortname("Kanjidic2")
-        $dictfmt.set_info("Blabla...")
+        $dictfmt.set_info("See http://www.csse.monash.edu.au/~jwb/kanjidic2/")
 
         parse($stdin)
 
