@@ -2,6 +2,10 @@
 
     * tools/jmnedict2dictd.rb: Added JMnedict to dictd converter.
 
+    * tools/jmdict2dictd.rb: Added JMdict to dictd converter.
+
+    * tools/dictfmt.rb: Small fixes.
+
 2006-02-28 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * tools/dictfmt.rb: This class will be used instead of the dictfmt

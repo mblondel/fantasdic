@@ -58,6 +58,11 @@ class Dictfmt
         retval
     end
 
+    def format_kw(kw)
+        kw.gsub!(/(\"|\(|\)|\'|\,|\.|^\-)/, "")
+        kw = kw.chomp.strip.downcase        
+    end
+
     def initialize(index_path, dic_path, quiet=true)
         @current_offset = 0
         @index_path = index_path
@@ -91,7 +96,7 @@ class Dictfmt
         len = text.length
 
         keywords.each do |k|
-            k = k.chomp.strip.downcase
+            k = format_kw(k)
             next if k.empty?
             @index.write "%s\t%s\t" % [k, Dictfmt::b64_encode(@current_offset)]
             @index.write "%s\n" % Dictfmt::b64_encode(len)
