@@ -95,13 +95,11 @@ class Listener < ListenerAbstract
 
         if name == "character"
             @character = {}
-        elsif name == "strokes"
-            
         elsif name == "rmgroup"
             @readings = {}
             @meanings = []
         elsif ["literal", "grade", "stroke_count", "freq"].include? @curr_tag
-            @character[@curr_tag.to_sym] = []
+            @character[@curr_tag.to_sym] ||= []
         end
     end
     alias :startElement :tag_start
@@ -121,6 +119,7 @@ class Listener < ListenerAbstract
     alias :endElement :tag_end
 
     def text(txt)
+        txt = txt.chomp.strip
         if ["literal", "grade", "stroke_count", "freq"].include? @curr_tag
             @character[@curr_tag.to_sym] << txt
         
