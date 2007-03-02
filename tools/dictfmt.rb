@@ -59,7 +59,7 @@ class Dictfmt
     end
 
     def format_kw(kw)
-        kw.gsub!(/(\"|\(|\)|\'|\,|\.|^\-)/, "")
+        kw.gsub!(/(\"|\(|\)|\'|\,|^\-)/, "")
         kw = kw.chomp.strip.downcase        
     end
 
