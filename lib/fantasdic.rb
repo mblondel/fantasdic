@@ -36,7 +36,8 @@ module Fantasdic
         'Hendrik Brandt <heb@gnome-de.org> (German)',
         'Raphael Higino <raphaelh@uai.com.br> (Brazilian Portuguese)',
         'Danilo Šegan <danilo@gnome.org> (Serbian)',
-        'Daniel Nylander <po@danielnylander.se> (Swedish)'
+        'Daniel Nylander <po@danielnylander.se> (Swedish)',
+        'Emilio Anzon <pan@linux.it> (Italian)'
     ]
 
     LIST = ''
