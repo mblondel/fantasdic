@@ -2,7 +2,9 @@
 This directory
 --------------
 
-This directory (po/) contains the translations for Fantasdic.
+This directory (po/) contains the translations for Fantasdic. Members from the
+GNOME i18n team can commit translations in this directory without the
+maintainer's permission.
 
 How to contribute a translation ?
 ---------------------------------
