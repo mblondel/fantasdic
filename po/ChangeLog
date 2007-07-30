@@ -1,11 +1,15 @@
+2007-07-30 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+   	 * ja.po: by Takuto MATSUU <matsuu@gmail.com>
+
 2007-03-18 Mathieu Blondel <mblondel@cvs.gnome.org>
 
-    * it.po: by Emilio Anzon <pan@linux.it>
+    	* it.po: by Emilio Anzon <pan@linux.it>
 
 2006-11-17  Mathieu Blondel  <mblondel@cvs.gnome.org>
 
-    * POTFILES.in: Updated with new translatable files.
-    * fr.po: Updated french translation.
+    	* POTFILES.in: Updated with new translatable files.
+    	* fr.po: Updated french translation.
 
 2006-03-12  Raphael Higino  <raphaelh@cvs.gnome.org>
 
@@ -34,4 +38,4 @@
 
 2006-03-09 Mathieu Blondel <mblondel@cvs.gnome.org>
 
-    * fr.po: first translation
+    	* fr.po: first translation
