@@ -509,13 +509,11 @@ module UI
 
         def initialize_ui
             # Tray icon
-            if defined? Gtk::TrayIcon and @prefs.show_in_tray
-                @main_app.destroy_with_parent = false
-                image = Gtk::Image.new(Icon::LOGO_SMALL)
-                @tray_event_box = Gtk::EventBox.new.add(image)
-                tray = Gtk::TrayIcon.new(Fantasdic::TITLE)
-                tray.add(@tray_event_box)
-                tray.show_all
+            if defined? Gtk::StatusIcon
+                @main_app.destroy_with_parent = false                
+                @statusicon = Gtk::StatusIcon.new
+                @statusicon.pixbuf = Icon::LOGO_SMALL
+                @statusicon.visible = @prefs.show_in_tray            
             end
             
             # Find pane
@@ -616,11 +614,16 @@ module UI
             end
 
             on_close_find = Proc.new do
+                if @statusicon and @prefs.show_in_tray and \
+                   @prefs.dont_quit and !@find_pane.visible? \
+
+                   @on_delete_event_proc.call
+                end
                 @find_pane_close_button.clicked
             end
 
             on_preferences = Proc.new do
-                PreferencesDialog.new(@main_app) do
+                PreferencesDialog.new(@main_app, @statusicon) do
                     # This block is called when the dialog is closed
                     @prefs.save!
                     update_dictionary_cb
@@ -748,7 +751,7 @@ module UI
             @main_app.child.pack_start(@toolbar, false)
             @main_app.child.reorder_child(@toolbar, 1)
 
-            @tray_icon_popup = @uimanager.get_widget("/TrayIconPopup")
+            @statusicon_popup = @uimanager.get_widget("/StatusIconPopup")
             @clear_history_popup = @uimanager.get_widget("/ClearHistoryPopup")
         end
 
@@ -773,30 +776,33 @@ module UI
                 end    
             end
 
-            @main_app.signal_connect("delete-event") do
-                if defined? Gtk::TrayIcon and @prefs.dont_quit
-                    @main_app.hide
+            @on_delete_event_proc = Proc.new do
+                if @statusicon and @prefs.dont_quit                    
                     save_window_preferences
-                    true # needed to not destroy the window
+                    @main_app.hide_on_delete
                 else
                     @global_actions["Quit"].activate
                 end
             end
 
-            @tray_event_box.signal_connect("button_press_event") do |w, event|
-                if event.kind_of? Gdk::EventButton and event.button == 3
-                    # Right click
-                    @tray_icon_popup.popup(nil, nil, event.button, event.time)
-                elsif event.kind_of? Gdk::EventButton and event.button == 1
-                    if @main_app.visible?
-                        save_window_preferences
-                        @main_app.hide
-                    else
-                        @main_app.show
-                        load_window_preferences
-                    end
+            @main_app.signal_connect("delete-event") do
+                @on_delete_event_proc.call
+            end
+
+            @statusicon.signal_connect("popup-menu") do
+            |w, button, activate_time|
+                @statusicon_popup.popup(nil, nil, button, activate_time)
+            end if @statusicon
+
+            @statusicon.signal_connect("activate") do |w, event|
+                if @main_app.visible?
+                    save_window_preferences
+                    @main_app.hide
+                else
+                    @main_app.show
+                    load_window_preferences
                 end
-            end if defined? Gtk::TrayIcon and @prefs.show_in_tray
+            end if @statusicon
 
             IPC::Window.new(IPC::REMOTE) do |p|                    
                 @main_app.show

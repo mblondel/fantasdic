@@ -18,12 +18,6 @@
 require 'libglade2'
 require 'gtk2'
 
-begin
-    require 'gtktrayicon'
-rescue LoadError
-    $stderr.puts 'WARNING : Ruby/GtkTrayIcon was not found.'
-end
-
 require 'fantasdic/ui/glade_base'
 require 'fantasdic/ui/utils'
 require 'fantasdic/ui/alert_dialog'

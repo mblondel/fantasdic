@@ -29,10 +29,11 @@ module UI
         NAME = 1
         
 
-        def initialize(parent, &callback_proc)
+        def initialize(parent, statusicon, &callback_proc)
             super("preferences_dialog.glade")
             @main_app = parent
             @preferences_dialog.transient_for = parent
+            @statusicon = statusicon
             @prefs = Preferences.instance
             
             @callback_proc = callback_proc
@@ -128,9 +129,8 @@ module UI
 
             @prefs.show_in_tray = @show_in_tray_checkbutton.active?
 
-            if @show_in_tray_first_value != @show_in_tray_checkbutton.active?
-                InfoDialog.new(@preferences_dialog, 
-                    _("A restart is required so that change takes effect"))
+            if @statusicon
+                @statusicon.visible = @show_in_tray_checkbutton.active?
             end
         end
 
@@ -141,10 +141,9 @@ module UI
         private
                
         def initialize_ui
-            @tray_vbox.visible = defined? Gtk::TrayIcon
+            @tray_vbox.visible = !@statusicon.nil?
             @dont_quit_checkbutton.active = @prefs.dont_quit        
-            @show_in_tray_first_value = @prefs.show_in_tray
-            @show_in_tray_checkbutton.active = @prefs.show_in_tray   
+            @show_in_tray_checkbutton.active = @prefs.show_in_tray
 
             @lookup_at_start_checkbutton.active = @prefs.lookup_at_start
 

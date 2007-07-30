@@ -1,3 +1,12 @@
+2007-07-30 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui.rb:
+    * lib/fantasdic/ui/preferences_dialog.rb:
+    * lib/fantasdic/ui/main_app.rb:
+    * data/fantasdic/ui/popups.xml:
+    Switch to Gtk::StatusIcon.
+    Hide window on "Escape".
+
 2007-03-18 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * AUTHORS:
