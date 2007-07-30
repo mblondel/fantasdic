@@ -216,9 +216,12 @@ module UI
         end
 
         def find_forward(str, is_typing=false)
-            return false if str.empty? 
-
             start_iter, end_iter = self.buffer.bounds
+
+            if str.empty?
+                self.buffer.place_cursor(start_iter)
+                return false
+            end
 
             if !is_typing
                 last_search = self.buffer.get_mark("last-search-next")
@@ -226,8 +229,9 @@ module UI
                 last_search = self.buffer.get_mark("last-search-prev")
             end
 
-            if last_search.nil?
+            if last_search.nil? or str != @last_str
                 iter = start_iter
+                self.buffer.place_cursor(start_iter)
             else
                 iter = self.buffer.get_iter_at_mark(last_search)
             end
@@ -238,6 +242,8 @@ module UI
                                        Gtk::TextIter::SEARCH_VISIBLE_ONLY,
                                        nil)
 
+            @last_str = str
+
             unless match_start.nil?
                 scroll_to_iter(match_start, 0.0, true, 0.0, 0.0)
                 self.buffer.place_cursor(match_end)
@@ -245,9 +251,9 @@ module UI
                 self.buffer.create_mark("last-search-prev", match_start, false)
                 self.buffer.create_mark("last-search-next", match_end, false)
                 return true
+            else            
+                return false
             end
-            
-            return false
         end
         
     end

@@ -7,6 +7,9 @@
     Switch to Gtk::StatusIcon.
     Hide window on "Escape".
 
+    * lib/fantasdic/ui/result_text_view.rb: search from the beginning of the
+    text buffer when a new string is entered.
+
 2007-03-18 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * AUTHORS:
