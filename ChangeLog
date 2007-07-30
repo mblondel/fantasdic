@@ -6,6 +6,7 @@
     * data/fantasdic/ui/popups.xml:
     Switch to Gtk::StatusIcon.
     Hide window on "Escape".
+    New button "search" in the status icon popup-menu.
 
     * lib/fantasdic/ui/result_text_view.rb: search from the beginning of the
     text buffer when a new string is entered.

@@ -539,6 +539,7 @@ module UI
             on_search = Proc.new do
                 @search_entry.text = ""
                 @search_entry.grab_focus
+                @statusicon.activate if !@main_app.visible? and @statusicon
             end
 
             on_stop = Proc.new do
