@@ -19,7 +19,10 @@
 --> 
 <ui>
     <popup name="StatusIconPopup">
+        <menuitem action="Search"/>
+        <separator/>            
         <menuitem action="ScanClipboard"/>
+        <separator/>
         <menuitem action="Quit"/>
     </popup>
     <popup name="ClearHistoryPopup">
