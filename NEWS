@@ -1,5 +1,16 @@
 NEWS
 
+=== Fantasdic 1.0 beta3 ===
+
+- Switched to Gtk::StatusIcon.
+- Hide window on "escape".
+- New search button in the status icon popup-menu.
+- One bug fix.
+
+- Italian translation (Emilio Anzon).
+- Occitan translation (Yannig MARCHEGAY).
+- Japanese translation (Takuto MATSUU).
+
 === Fantasdic 1.0 beta2 ===
 
 2006/11/17
