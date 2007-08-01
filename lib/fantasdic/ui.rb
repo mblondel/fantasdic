@@ -18,20 +18,13 @@
 require 'libglade2'
 require 'gtk2'
 
-require 'fantasdic/ui/glade_base'
-require 'fantasdic/ui/utils'
-require 'fantasdic/ui/alert_dialog'
-require 'fantasdic/ui/about_dialog'
-require 'fantasdic/ui/preferences_dialog'
-require 'fantasdic/ui/add_dictionary_dialog'
-require 'fantasdic/ui/history_list_view'
-require 'fantasdic/ui/result_text_view'
-require 'fantasdic/ui/ipc' unless RUBY_PLATFORM =~ /win32/
-require 'fantasdic/ui/main_app'
-
 module Fantasdic
 module UI
-    
+
+    SUPPORTS_STATUS_ICON = defined? Gtk::StatusIcon
+    SUPPORTS_IPC = !(RUBY_PLATFORM =~ /win32/)
+    SUPPORTS_PRINT = defined? Gtk::PrintOperation
+
     def self.main
         options = CommandLineOptions.instance
 
@@ -39,7 +32,7 @@ module UI
 
         # Start Fantasdic normally
         # Or ask the first process to pop up the window if it exists
-        if defined? IPC
+        if SUPPORTS_IPC
             win = IPC.find(IPC::REMOTE)
         else
             win = nil
@@ -65,3 +58,14 @@ module UI
 end
 end
 
+require 'fantasdic/ui/glade_base'
+require 'fantasdic/ui/utils'
+require 'fantasdic/ui/alert_dialog'
+require 'fantasdic/ui/about_dialog'
+require 'fantasdic/ui/preferences_dialog'
+require 'fantasdic/ui/add_dictionary_dialog'
+require 'fantasdic/ui/history_list_view'
+require 'fantasdic/ui/result_text_view'
+require 'fantasdic/ui/print' if Fantasdic::UI::SUPPORTS_PRINT
+require 'fantasdic/ui/ipc' if Fantasdic::UI::SUPPORTS_IPC
+require 'fantasdic/ui/main_app'

@@ -21,7 +21,12 @@
     <menubar name="MainMenubar">
         <menu action="FantasdicMenu">
             <menuitem action="Search"/>
+            <separator/>
             <menuitem action="Save"/>
+            <separator/>
+            <menuitem action="PrintSetup"/>
+            <menuitem action="PrintPreview"/>
+            <menuitem action="Print"/>
             <separator/>
             <menuitem action="Quit"/>
         </menu>

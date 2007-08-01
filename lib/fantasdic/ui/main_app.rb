@@ -22,6 +22,7 @@ module UI
         icons_dir = File.join(Config::DATA_DIR, "icons")
         LOGO_SMALL = Gdk::Pixbuf.new(File.join(icons_dir,
                                     "fantasdic_small.png"))
+        PRINT_SETUP = "stock_print-setup"
     end
 
     class MainApp < GladeBase 
@@ -113,6 +114,12 @@ module UI
                     if definitions.empty?  
                         @show_suggested_results = true 
                     end
+
+                    @last_definitions = definitions
+                    enable_print
+                else
+                    @last_definitions = nil
+                    disable_print
                 end
                 
                 # Search with match strategy. 
@@ -505,11 +512,38 @@ module UI
                 (@current_page == @pages_seen.length - 1) ? false : true
         end
 
+        # Print
+        def disable_print_if_unsupported
+            if SUPPORTS_PRINT
+                disable_print
+            else
+                ["PrintSetup", "PrintPreview", "Print"].each do |a|
+                    @global_actions[a].visible = false
+                end
+            end
+        end
+
+        def disable_print
+            if SUPPORTS_PRINT
+                ["PrintPreview", "Print"].each do |a|
+                    @global_actions[a].sensitive = false
+                end
+            end
+        end
+
+        def enable_print
+            if SUPPORTS_PRINT
+                ["PrintPreview", "Print"].each do |a|
+                    @global_actions[a].sensitive = true
+                end
+            end
+        end   
+
         # Initialize
 
         def initialize_ui
             # Tray icon
-            if defined? Gtk::StatusIcon
+            if SUPPORTS_STATUS_ICON
                 @main_app.destroy_with_parent = false                
                 @statusicon = Gtk::StatusIcon.new
                 @statusicon.pixbuf = Icon::LOGO_SMALL
@@ -569,6 +603,29 @@ module UI
                 end
 
                 dialog.destroy
+            end
+
+            on_print_setup = Proc.new do
+                @page_setup = Print::run_page_setup_dialog(@parent_window,
+                                                           @page_setup)
+            end
+
+            on_print = Proc.new do
+                @print = Print.new(@main_app, @search_entry.text,
+                                   @last_definitions)
+                if @page_setup
+                    @print.default_page_setup = @page_setup
+                end
+                @print.run_print_dialog
+            end
+
+            on_print_preview = Proc.new do
+                @print = Print.new(@main_app, @search_entry.text,
+                                   @last_definitions)
+                if @page_setup
+                    @print.default_page_setup = @page_setup
+                end
+                @print.run_preview
             end
 
             on_quit = Proc.new do
@@ -651,6 +708,11 @@ module UI
                 ["Search", Gtk::Stock::NEW, _("_Look Up"), nil, nil,
                  on_search],
                 ["Save", Gtk::Stock::SAVE, nil, nil, nil, on_save],
+                ["PrintSetup", Icon::PRINT_SETUP, _("Print Set_up"), nil, nil,
+                 on_print_setup],
+                ["Print", Gtk::Stock::PRINT, nil, nil, nil, on_print],
+                ["PrintPreview", Gtk::Stock::PRINT_PREVIEW, nil, nil, nil,
+                 on_print_preview],
                 ["Quit", Gtk::Stock::QUIT, nil, nil, nil, on_quit],
 
                 ["EditMenu", nil, _("_Edit")],
@@ -741,6 +803,7 @@ module UI
             ["menus.xml", "toolbar.xml", "popups.xml"].each do |ui_file|
                 @uimanager.add_ui(File.join(Fantasdic::Config::DATA_DIR,
                                             "ui", ui_file))
+            
             end
 
             # Add menu and toolbar to the main window
@@ -754,6 +817,8 @@ module UI
 
             @statusicon_popup = @uimanager.get_widget("/StatusIconPopup")
             @clear_history_popup = @uimanager.get_widget("/ClearHistoryPopup")
+
+            disable_print_if_unsupported
         end
 
         def initialize_signals
@@ -814,7 +879,7 @@ module UI
                 unless p.empty?
                     lookup(p)
                 end
-            end if defined? IPC
+            end if SUPPORTS_IPC
 
             @dictionary_cb.signal_connect("changed") do
                 update_strategy_cb
