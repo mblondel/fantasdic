@@ -192,10 +192,9 @@ class Print < Gtk::PrintOperation
         layout = cr.create_pango_layout
         layout.alignment = Pango::Layout::ALIGN_RIGHT
         layout.font_description = FONT_SMALL
-        now = Time.now
-        layout.text = _("Printed by %s on %d/%d/%d at %d:%d") % \
-                        [Fantasdic::TITLE, now.year, now.month, now.day,
-                         now.hour, now.min] + "\n" + Fantasdic::WEBSITE_URL
+        layout.text = \
+            Time.now.strftime(_("Printed by Fantasdic on %Y/%m/%d at %H:%M")) +
+                "\n" + Fantasdic::WEBSITE_URL
         width, height = layout.size_in_points
         x, y = [page_width, page_height]
         x -= width

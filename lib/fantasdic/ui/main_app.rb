@@ -116,7 +116,7 @@ module UI
                     end
 
                     @last_definitions = definitions
-                    enable_print
+                    enable_print unless definitions.empty?
                 else
                     @last_definitions = nil
                     disable_print
