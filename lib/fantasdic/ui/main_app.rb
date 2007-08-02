@@ -170,16 +170,17 @@ module UI
             @buf.clear
             @iter = @buf.get_iter_at_offset(0)
             last_db = ""
-            definitions.each do |d|
+            definitions.each_with_index do |d, i|
                 if last_db != d.database
-                    @buf.insert(@iter, "%s [%s]\n" %
+                    t_format = i == 0 ? "%s [%s]\n" : "\n%s [%s]\n"
+                    @buf.insert(@iter, t_format %
                                     [d.description, d.database],
                             "header")
                     last_db = d.database
                 else
-                    @buf.insert(@iter, "__________\n", "header")
+                    @buf.insert(@iter, "\n__________\n", "header")
                 end
-                @buf.insert_with_links(@iter, d.database, d.body)
+                @buf.insert_with_links(@iter, d.database, d.body.strip)
             end
 
             # Status bar

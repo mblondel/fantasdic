@@ -1,3 +1,11 @@
+2007-08-02 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb: Better spacing between definitions.
+
+    * lib/fantasdic/ui/print.rb: Checks that last page is not blank; if a new
+    page is started and previous page's last line was a title, move it to the
+    next page; fixes spacing between definitions.
+
 2007-08-01 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui.rb: Requires print and some constants like SUPPORTS_IPC,

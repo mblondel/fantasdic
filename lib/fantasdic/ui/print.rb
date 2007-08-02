@@ -121,10 +121,15 @@ class Print < Gtk::PrintOperation
         last_db = nil
         @definitions.each do |d|
             if d.database != last_db
-                layouts << create_layout(cr, FONT_BIG, "%s\n" % [d.description])
+                layouts << create_layout(cr, FONT_BIG,
+                "\n%s\n" % [d.description])
                 last_db = d.database
+            else
+                # FIXME: should replace this with a beautiful definition
+                # separator
+                layouts << create_layout(cr, FONT, "")
             end
-            d.body.split("\n").each do |para|
+            d.body.strip.split("\n").each do |para|
                 layouts << create_layout(cr, FONT, para.strip)
             end
         end
@@ -160,13 +165,28 @@ class Print < Gtk::PrintOperation
             if curr_height + height > real_page_height
                 n_pages += 1
                 curr_height = 0
+
+                # ensures that last layout is not a title
+                if @page_layouts[n_pages - 1].last.font_description == FONT_BIG
+                    prev_layout = @page_layouts[n_pages - 1].pop
+                    @page_layouts[n_pages] ||= []
+                    @page_layouts[n_pages] << prev_layout
+                    curr_height += prev_layout.height_in_points
+                end
             end
             @page_layouts[n_pages] ||= []
             @page_layouts[n_pages] << layout
             curr_height += height
         end
 
-        n_pages + 1
+        # check for blank last page: don't waste paper!
+        n_empty = 0
+        @page_layouts.last.each do |layout|
+            n_empty += 1 if layout.text.strip.empty?
+        end
+        @page_layouts.pop if @page_layouts.length == n_empty
+
+        @page_layouts.length
     end
 
     def header_height
