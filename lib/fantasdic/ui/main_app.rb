@@ -29,15 +29,11 @@ module UI
         include GetText
         GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
-        MAX_CACHE = 15
-        KEEP_CONNECTION_OPEN_MAX_TIME = 60
+        MAX_CACHE = 15        
 
         def initialize(start_p={})
             super("main_app.glade")
             @prefs = Preferences.instance
-
-            @connections = {}
-            @connections_time = {}
 
             @pages_seen = []
             @current_page = 0
@@ -63,7 +59,7 @@ module UI
             return false if p[:word].empty?            
 
             @lookup_thread = Thread.new do
-                close_long_connections
+                DICTClient.close_long_connections
    
                 @search_entry.text = p[:word]
                 @buf = @result_text_view.buffer
@@ -94,7 +90,20 @@ module UI
                 @global_actions["Stop"].visible = true
 
                 begin
-                    dict = get_connection(p[:dictionary])
+                    # This error is raised when a word is searched
+                    # through the history while the associated dictionary
+                    # does not exist anymore in the settings
+                    if infos.nil?
+                        raise DICTClient::ConnectionError,
+                        _("Dictionary \"%s\" does not exist anymore") % \
+                        p[:dictionary]
+                    end
+
+                    self.status_bar_msg = _("Waiting for %s...") % \
+                    infos[:server]
+
+                    dict = DICTClient.get_connection(infos[:server],
+                                                      infos[:port])
 
                 rescue DICTClient::ConnectionError, Errno::ECONNRESET => e
                     error = _("Can't connect to server")
@@ -420,56 +429,6 @@ module UI
             end
         end
 
-        def get_connection(dicname)     
-            infos = @prefs.dictionaries_infos[dicname]
-
-            # This error is raised when a word is searched
-            # through the history while the associated dictionary
-            # does not exist anymore in the settings
-            raise DICTClient::ConnectionError,
-                 _("Dictionary \"%s\" does not exist anymore") % dicname \
-                 if infos.nil?
-
-            server = infos[:server]
-            port = infos[:port]
-
-            @current_server = server
-
-            self.status_bar_msg = _("Waiting for %s...") % server
-
-            unless @connections.has_key? server
-                @connections[server] = DICTClient.new(server, port, $DEBUG)
-                @connections[server].client(Fantasdic::TITLE)
-                
-                unless infos[:login].empty? or infos[:password].empty?
-                    @connections[server].auth(infos[:login], infos[:password]) 
-                end
-
-                @connections_time[server] = Time.now
-            end
-            @connections[server]
-        end
-
-        def close_connection(server)
-            begin
-                @connections[server].disconnect if @connections[server]
-            rescue DICTClient::ConnectionLost
-                # connection closed by server
-            end
-            @connections.delete(server)
-            @connections_time.delete(server)
-        end
-
-        def close_long_connections
-            @connections.each do |server, connection|
-                if @connections_time[server].nil? or \
-                   Time.now - @connections_time[server] \
-                   > KEEP_CONNECTION_OPEN_MAX_TIME
-                    close_connection(server)
-                end
-            end
-        end
-
         def dictionary_menu(word)
             menu = Gtk::Menu.new
             @dictionary_cb.model.each do |model, path, iter|
@@ -579,7 +538,7 @@ module UI
 
             on_stop = Proc.new do
                 @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
-                close_connection(@current_server) if @current_server          
+                DICTClient.close_active_connection          
      
                 @global_actions["Stop"].visible = false
                 @buf.clear
@@ -633,12 +592,7 @@ module UI
                 @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
                 @scan_thread.kill if @scan_thread and @scan_thread.alive?
                 save_preferences
-                @connections.each do |server, connection|
-                    begin
-                        connection.disconnect
-                    rescue
-                    end
-                end
+                DICTClient.close_all_connections
                 Gtk.main_quit
             end
 

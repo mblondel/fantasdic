@@ -21,7 +21,6 @@ require 'socket'
 require 'md5'
 
 class DICTClient
-    attr_reader :capabilities, :msgid, :host
 
     DATABASES_PRESENT = '110'
     STRATEGIES_AVAILABLE = '111'
@@ -67,8 +66,52 @@ class DICTClient
     class Definition < Struct.new(:word, :body, :database, :description)
     end
 
+    KEEP_CONNECTION_MAX_TIME = 60
+
+    # Class methods
+    
+    # Connections are held for sometime so that it's faster to lookup words
+    @@connections = {}
+
+    def self.close_long_connections
+        @@connections.each do |key, connection|
+            if Time.now - connection.last_time > KEEP_CONNECTION_MAX_TIME
+                connection.disconnect
+            end
+        end
+    end
+
+    def self.close_all_connections
+        @@connections.each do |key, connection|
+            begin
+                connection.disconnect
+            rescue
+            end
+        end
+    end
+
+    def self.close_active_connection
+        @@current_connection.disconnect
+    end
+
+    def self.get_connection(server, port, login="", password="")
+        unless @@connections.has_key? [server, port]
+            @@connections[[server,port]] = DICTClient.new(server, port, $DEBUG)
+            @@connections[[server,port]].client(Fantasdic::TITLE)
+
+            unless login.empty? or infos[:password].empty?
+                @@connections[[server,port]].auth(login, password)
+            end
+        end
+        @@current_connection = @@connections[[server,port]]
+        @@connections[[server,port]]
+    end
+
+    attr_reader :capabilities, :msgid, :host, :port, :last_time
+
     def initialize(host, port = DEFAULT_PORT, debug = false)
         @host = host
+        @port = port
         @debug = debug
 
         begin
@@ -87,7 +130,9 @@ class DICTClient
             printf("Capabilities: %s\n", @capabilities.join(', '))
             printf("Msgid: %s\n", @msgid)
         end
-        
+
+        @@connections[[@host, @port]] = self
+        @last_time = Time.now      
     end
 
     private
@@ -133,6 +178,7 @@ class DICTClient
     def exec_cmd(command)
         send_line(command)
         response = get_response
+        @last_time = Time.now
         code, msg = /^(\d\d\d)\s(.*)$/.match(response)[1..2]
     end
 
@@ -179,9 +225,16 @@ class DICTClient
 
     public
 
+    # Instance methods
+
     def disconnect
         exec_cmd('QUIT')
-        @sock.close
+        begin
+            @sock.close
+        rescue ConnectionLost
+            # connection already closed by server
+        end
+        @@connections.delete([@host, @port])
     end
 
     def define(db, word)
