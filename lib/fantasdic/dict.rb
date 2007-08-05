@@ -249,8 +249,8 @@ class DICTClient
     # Instance methods
 
     def disconnect
-        exec_cmd('QUIT')
         begin
+        exec_cmd('QUIT')        
             @sock.close
         rescue ConnectionLost
             # connection already closed by server
