@@ -5,8 +5,13 @@
 
     * lib/fantasdic/dict.rb:
     * lib/fantasdic/ui/main_app.rb:
-    Switch the code to hold connections from main_app.rb to dict.rb. This is to
+    Move the code to hold connections from main_app.rb to dict.rb. This is to
     clean up main_app.rb (more coming).
+
+
+    * lib/fantasdic/dict.rb:
+    * lib/fantasdic/ui/main_app.rb:
+    Move cache system from main_app.rb to dict.rb.
 
 2007-08-02 Mathieu Blondel <mblondel@cvs.gnome.org>
 

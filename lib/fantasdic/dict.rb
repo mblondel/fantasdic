@@ -66,6 +66,14 @@ class DICTClient
     class Definition < Struct.new(:word, :body, :database, :description)
     end
 
+    class Cache < Struct.new(:key, :value)
+        include Comparable
+
+        def <=>(cache)
+            self.key <=> cache.key
+        end
+    end
+
     KEEP_CONNECTION_MAX_TIME = 60
 
     # Class methods
@@ -94,10 +102,11 @@ class DICTClient
         @@current_connection.disconnect
     end
 
-    def self.get_connection(server, port, login="", password="")
+    def self.get_connection(server, port, login="", password="",
+                            app_name=Fantasdic::TITLE)
         unless @@connections.has_key? [server, port]
             @@connections[[server,port]] = DICTClient.new(server, port, $DEBUG)
-            @@connections[[server,port]].client(Fantasdic::TITLE)
+            @@connections[[server,port]].client(app_name)
 
             unless login.empty? or infos[:password].empty?
                 @@connections[[server,port]].auth(login, password)
@@ -131,6 +140,8 @@ class DICTClient
             printf("Msgid: %s\n", @msgid)
         end
 
+        @cache_queue = []
+       
         @@connections[[@host, @port]] = self
         @last_time = Time.now      
     end
@@ -223,6 +234,16 @@ class DICTClient
         end
     end
 
+    MAX_CACHE = 30
+
+    def update_cache(cache)
+        @cache_queue.unshift(cache)
+
+        if @cache_queue.length > MAX_CACHE
+            @cache_queue.pop
+        end
+    end
+
     public
 
     # Instance methods
@@ -265,12 +286,61 @@ class DICTClient
         end
     end
 
+    def multiple_define(dbs, word)
+        definitions = []
+        dbs.each do |db|
+            definitions += define(db, word)
+        end
+        definitions
+    end
+
+    def cached_multiple_define(dbs, word)
+        cache = Cache.new
+        cache.key = [dbs, word]
+
+        i = @cache_queue.index(cache)
+        if i.nil?
+            res = multiple_define(dbs, word)
+            cache.value = res
+            update_cache(cache)
+            res
+        else            
+            @cache_queue[i].value
+        end
+    end
+
     def match(db, strategy, word)
         code, msg = exec_cmd('MATCH %s %s "%s"' % [ db, strategy, word])
         if error_response? code
             {}
         else
             get_hash_key_array_values(get_pairs)
+        end
+    end
+
+    def multiple_match(dbs, strategy, word)
+        matches = {}
+        dbs.each do |db|
+            m = match(db, strategy, word)
+            m.each_key do |found_db|   
+                matches[found_db] = m[found_db]
+            end
+        end        
+        matches
+    end
+
+    def cached_multiple_match(dbs, strategy, word)
+        cache = Cache.new
+        cache.key = [dbs, strategy, word]
+
+        i = @cache_queue.index(cache)
+        if i.nil?
+            res = multiple_match(dbs, strategy, word)
+            cache.value = res
+            update_cache(cache)
+            res
+        else
+            @cache_queue[i].value
         end
     end
 

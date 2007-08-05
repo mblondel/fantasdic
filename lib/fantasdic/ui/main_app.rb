@@ -29,17 +29,12 @@ module UI
         include GetText
         GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
-        MAX_CACHE = 15        
-
         def initialize(start_p={})
             super("main_app.glade")
             @prefs = Preferences.instance
 
             @pages_seen = []
             @current_page = 0
-
-            @cache_data = {}
-            @cache_queue = []
 
             @start_p = start_p
 
@@ -144,9 +139,6 @@ module UI
                 update_pages_seen(p)
                 @history_listview.update(p)
     
-                # Update cache
-                update_cache(p, definitions, matches)
-
                 @global_actions["Stop"].visible = false
 
             end # Thread
@@ -160,18 +152,13 @@ module UI
             self.status_bar_msg = _("Transferring data from %s ...") %
                                         dict.host
 
-            if @cache_data.has_key? p
-                @cache_data[p][:definitions]
-            elsif !p[:database].nil?
-                dict.define(p[:database], p[:word])
+            if !p[:database].nil?
+                dict.cached_multiple_define([p[:database]], p[:word])
             elsif infos[:all_dbs] == true
-                dict.define(DICTClient::ALL_DATABASES, p[:word])
+                dict.cached_multiple_define([DICTClient::ALL_DATABASES],
+                                           p[:word])
             else
-                definitions = []
-                infos[:sel_dbs].each do |db|
-                    definitions += dict.define(db, p[:word])
-                end
-                definitions
+                dict.cached_multiple_define(infos[:sel_dbs], p[:word])
             end
         end
 
@@ -205,21 +192,14 @@ module UI
         def match(dict, p)  
             infos = @prefs.dictionaries_infos[p[:dictionary]]         
 
-            if @cache_data.has_key? p
-                @cache_data[p][:matches]
-            elsif infos[:all_dbs] == true
-                dict.match(DICTClient::ALL_DATABASES,
-                        p[:strategy],
-                        p[:word])
+            if infos[:all_dbs] == true
+                dict.cached_multiple_match([DICTClient::ALL_DATABASES],
+                                           p[:strategy],
+                                           p[:word])
             else
-                matches = {}
-                infos[:sel_dbs].each do |db|
-                    m = dict.match(db,
-                                p[:strategy],
-                                p[:word])
-                    matches[db] = m[db] unless m[db].nil?
-                end
-                matches
+                dict.cached_multiple_match(infos[:sel_dbs],
+                                           p[:strategy],
+                                           p[:word])
             end
         end
       
@@ -255,20 +235,6 @@ module UI
                 #     i += 1
                 # end
                 @buf.insert(@iter, "\n", "header")
-            end
-        end
-
-        def update_cache(p, definitions, matches)
-            unless @cache_data.has_key? p
-                @cache_data[p] = {}
-                @cache_data[p][:definitions] = definitions
-                @cache_data[p][:matches] = matches
-                @cache_queue.push(p)
-
-                if @cache_queue.length > MAX_CACHE
-                    last = @cache_queue.pop
-                    @cache_data.delete(last)
-                end
             end
         end
 
