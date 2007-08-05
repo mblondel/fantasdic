@@ -106,7 +106,7 @@ class Print < Gtk::PrintOperation
 
         layout.width_in_points = page_width
         layout.font_description = font_desc
-        layout.wrap = Pango::Layout::WRAP_CHAR
+        layout.wrap = Pango::Layout::WRAP_WORD_CHAR
         layout.ellipsize = Pango::Layout::ELLIPSIZE_NONE
         layout.single_paragraph_mode = false
 
