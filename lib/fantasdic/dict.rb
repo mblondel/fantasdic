@@ -141,8 +141,7 @@ class DICTClient
         end
 
         @cache_queue = []
-       
-        @@connections[[@host, @port]] = self
+        
         @last_time = Time.now      
     end
 
