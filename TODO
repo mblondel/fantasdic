@@ -1,12 +1,8 @@
 TODO
 
 - Save the PageSetup and the PrintSettings in the config file.
-- Move all the result display functions in main_app.rb to result_text_view.rb.
 - Replace the history sidepane by a matches side pane and use a combo box entry
 for the history.
-- Zoom - and Zoom + (with same shortcuts as Firefox) : sometimes it's difficult
-to read small Chinese/Japanese characters.
-- Choose font for the text view and print in the settings.
 - Drag and drop available databases and selected databases.
 - Provide a D-bus service?
 
