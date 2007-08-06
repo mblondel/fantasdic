@@ -2,6 +2,13 @@
 
     * data/fantasdic/ui/menus.xml: Changed menu items order.
 
+    * lib/fantasdic/ui/main_app.rb:
+    * lib/fantasdic/ui/result_text_view.rb:
+    When one character is selected in the textview, it is now possible to
+    "zoom over it" when it is right-clicked. This is useful to see
+    more clearly characters that would be too small otherwise (e.g. Chinese
+    characters).
+
 2007-08-06 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb:

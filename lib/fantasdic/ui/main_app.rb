@@ -370,6 +370,8 @@ module UI
 
         def dictionary_menu(word)
             menu = Gtk::Menu.new
+
+            # Search menu items
             @dictionary_cb.model.each do |model, path, iter|
                 name = iter[0]              
                 item = Gtk::MenuItem.new(_("Search %s" % name))
@@ -379,16 +381,30 @@ module UI
                 menu.append(item)
             end
             menu.append(Gtk::SeparatorMenuItem.new)
+
+            # Zoom            
+            if word.strip.utf8_length == 1
+                item = Gtk::ImageMenuItem.new("Zoom over character")
+                item.signal_connect("activate") do |mitem|
+                    CharacterZoomWindow.new(@main_app, word.strip)
+                end
+                menu.append(item)
+                menu.append(Gtk::SeparatorMenuItem.new)
+            end
+
+            # Copy and select all
             item = Gtk::ImageMenuItem.new(Gtk::Stock::COPY)
             item.signal_connect("activate") do |mitem|
                 Gtk::Clipboard.get(Gdk::Selection::CLIPBOARD).set_text(word)
             end
             menu.append(item)
+
             item = Gtk::ImageMenuItem.new(_("Select _All"))
             item.signal_connect("activate") do |mitem|
                 @global_actions["SelectAll"].activate
             end
             menu.append(item)
+
             menu.show_all
             menu
         end

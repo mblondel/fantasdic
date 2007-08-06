@@ -18,6 +18,55 @@
 module Fantasdic
 
 module UI
+
+    class CharacterZoomWindow < Gtk::Window
+
+        DEFAULT_FONT = Pango::FontDescription.new("sans 150")
+        DEFAULT_WIDTH = 300
+        DEFAULT_HEIGHT = 300
+
+        def initialize(parent, word)
+            super()
+            self.transient_for = parent            
+            self.decorated = false
+
+            p_width, p_height = parent.size
+
+            x, y = parent.position
+
+            x += (p_width - DEFAULT_WIDTH) / 2
+            y += (p_height - DEFAULT_HEIGHT) / 2
+
+            move(x, y)
+    
+            @word = word
+
+            set_default_size(DEFAULT_WIDTH, DEFAULT_HEIGHT)
+
+            @textview = Gtk::TextView.new
+            @textview.buffer.create_tag("text",
+                                        :font_desc => DEFAULT_FONT,
+                                        :justification => Gtk::JUSTIFY_CENTER)
+            @iter = @textview.buffer.get_iter_at_offset(0)
+            @textview.buffer.insert(@iter, word, "text")
+ 
+            @button = Gtk::Button.new(Gtk::Stock::CLOSE)
+            @button.signal_connect("clicked") { self.destroy }
+
+            vbox = Gtk::VBox.new
+
+            vbox.pack_start(@button, false, false)
+
+            scroll = Gtk::ScrolledWindow.new.add(@textview)        
+            scroll.set_policy(Gtk::POLICY_AUTOMATIC, Gtk::POLICY_AUTOMATIC)
+            vbox.pack_start(scroll)
+
+            add(vbox)
+
+            show_all            
+        end
+
+    end
     
     class LinkBuffer < Gtk::TextBuffer
 
