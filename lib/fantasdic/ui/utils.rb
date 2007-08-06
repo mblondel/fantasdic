@@ -60,3 +60,27 @@ class Gtk::ActionGroup
         get_action(x)
     end
 end
+
+class Pango::Layout
+    def size_points
+        self.size.collect { |v| v / Pango::SCALE }
+    end
+
+    def width_points
+        self.size[0] / Pango::SCALE
+    end
+
+    def height_points
+        self.size[1] / Pango::SCALE
+    end
+
+    def width_points=(width)
+        self.width = width * Pango::SCALE
+    end
+end
+
+class Pango::FontDescription
+    def size_points
+        self.size / Pango::SCALE
+    end
+end

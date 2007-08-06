@@ -29,11 +29,12 @@ module UI
         NAME = 1
         
 
-        def initialize(parent, statusicon, &callback_proc)
+        def initialize(parent, statusicon, textview, &callback_proc)
             super("preferences_dialog.glade")
             @main_app = parent
             @preferences_dialog.transient_for = parent
             @statusicon = statusicon
+            @textview = textview
             @prefs = Preferences.instance
             
             @callback_proc = callback_proc
@@ -137,6 +138,15 @@ module UI
         def on_dont_quit_checkbutton_toggled
             @prefs.dont_quit = @dont_quit_checkbutton.active?
         end
+
+        def on_results_fontbutton_font_set
+            @prefs.results_font_name = @results_fontbutton.font_name
+            @textview.buffer.font_name = @results_fontbutton.font_name
+        end
+
+        def on_print_fontbutton_font_set
+            @prefs.print_font_name = @print_fontbutton.font_name
+        end
         
         private
                
@@ -146,6 +156,11 @@ module UI
             @show_in_tray_checkbutton.active = @prefs.show_in_tray
 
             @lookup_at_start_checkbutton.active = @prefs.lookup_at_start
+
+            @results_fontbutton.font_name = @textview.buffer.font_name
+
+            @print_fontbutton.font_name = @prefs.print_font_name \
+                if @prefs.print_font_name
 
             @list_store = Gtk::ListStore.new(Fixnum,String)
                         

@@ -60,10 +60,6 @@ module UI
                 @buf = @result_text_view.buffer
                 @buf.clear                
     
-                # Make the scroll go up
-                @result_sw.vadjustment.value = @result_sw.vadjustment.lower
-                @result_sw.hadjustment.value = @result_sw.hadjustment.lower
-    
                 if @prefs.dictionaries.length == 0
                     msg = _("No dictionary configured")
                     self.status_bar_msg = msg
@@ -264,9 +260,15 @@ module UI
             end
         end
 
-        def load_preferences
-            load_window_preferences     
+        def load_preferences            
+            load_window_preferences
+            load_textview_preferences
             load_last_searches
+        end
+
+        def load_textview_preferences
+            @result_text_view.buffer.font_name = @prefs.results_font_name \
+                if @prefs.results_font_name
         end
         
         def save_window_preferences
@@ -288,7 +290,12 @@ module UI
             @prefs.last_search = @pages_seen[@current_page]
         end
 
+        def save_textview_preferences
+            @prefs.results_font_name = @result_text_view.buffer.font_name
+        end
+
         def save_preferences
+            save_textview_preferences
             save_window_preferences
             save_last_searches
             @prefs.save!
@@ -460,7 +467,12 @@ module UI
             @strategy_cb.model = Gtk::ListStore.new(String)
             update_strategy_cb
 
+            # Result text view (instance created by glade)
+            @result_text_view.buffer.scrolled_window = @result_sw
+
             # Global actions
+
+            # File
 
             on_search = Proc.new do
                 @search_entry.text = ""
@@ -527,6 +539,8 @@ module UI
                 Gtk.main_quit
             end
 
+            # Edit
+
             on_clear_history = Proc.new do
                 @history_listview.model.clear
             end
@@ -567,12 +581,29 @@ module UI
             end
 
             on_preferences = Proc.new do
-                PreferencesDialog.new(@main_app, @statusicon) do
+                PreferencesDialog.new(@main_app,
+                                      @statusicon,
+                                      @result_text_view) do
                     # This block is called when the dialog is closed
                     @prefs.save!
                     update_dictionary_cb
                 end
             end
+
+            # View
+            on_zoom_plus = Proc.new do
+                @result_text_view.buffer.increase_size
+            end
+
+            on_zoom_minus = Proc.new do
+                @result_text_view.buffer.decrease_size
+            end
+
+            on_zoom_normal = Proc.new do
+                @result_text_view.buffer.set_default_size
+            end
+
+            # Go
 
             on_go_back = Proc.new do
                 @current_page -= 1
@@ -586,10 +617,13 @@ module UI
                 sensitize_go_buttons
             end
 
+            # Help
+
             on_about = Proc.new { AboutDialog.new(@main_app).show }
 
             # [[name, stock_id, label, accelerator, tooltip, proc], ... ]
             standard_actions = [
+                # File
                 ["FantasdicMenu", nil, "_Fantasdic"],
                 ["Search", Gtk::Stock::NEW, _("_Look Up"), nil, nil,
                  on_search],
@@ -601,6 +635,7 @@ module UI
                  on_print_preview],
                 ["Quit", Gtk::Stock::QUIT, nil, nil, nil, on_quit],
 
+                #Edit
                 ["EditMenu", nil, _("_Edit")],
                 ["Copy", Gtk::Stock::COPY, nil, nil, nil, on_copy],
                 ["SelectAll", nil, _("Select _All"), "<ctrl>A", nil,
@@ -615,7 +650,17 @@ module UI
                 ["Preferences", Gtk::Stock::PREFERENCES, nil, nil, nil,
                  on_preferences],
 
+                # View
                 ["ViewMenu", nil, _("_View")],
+                ["TextSizeMenu", nil, _("_Text size")],
+                ["ZoomPlus", Gtk::Stock::ZOOM_IN, nil, "<ctrl>plus", nil,
+                 on_zoom_plus],
+                ["ZoomMinus", Gtk::Stock::ZOOM_OUT, nil, "<ctrl>minus", nil,
+                 on_zoom_minus],
+                ["ZoomNormal", nil, _("Zoom normal"), "<ctrl>0", nil,
+                 on_zoom_normal],
+
+                # Go
                 ["GoMenu", nil, _("_Go")],
                 ["GoBack", Gtk::Stock::GO_BACK, nil, "<alt>Left", nil,
                  on_go_back],
@@ -624,15 +669,20 @@ module UI
 
                 ["Stop", Gtk::Stock::STOP, nil, nil, nil, on_stop],
 
+                # Help
                 ["HelpMenu", nil, _("_Help")],
                 ["About", Gtk::Stock::ABOUT, _("About"), nil, nil, on_about],
 
+                # Accelerators
                 ["Slash", Gtk::Stock::FIND, nil, "slash", nil, on_find],
                 ["Escape", Gtk::Stock::CLOSE, nil, "Escape", nil,
                  on_close_find],
                 ["F3", Gtk::Stock::FIND, nil, "F3", nil, on_find_next],
                 ["ShiftF3", Gtk::Stock::FIND, nil, "<shift>F3", nil,
-                 on_find_prev]                
+                 on_find_prev],
+                ["CtrlEqual", Gtk::Stock::FIND, nil, "<ctrl>equal", nil,
+                 on_zoom_plus]
+               
             ]
 
             # Toggle actions

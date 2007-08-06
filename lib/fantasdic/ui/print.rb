@@ -15,24 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-class Pango::Layout
-    def size_in_points
-        self.size.collect { |v| v / Pango::SCALE }
-    end
-
-    def width_in_points
-        self.size[0] / Pango::SCALE
-    end
-
-    def height_in_points
-        self.size[1] / Pango::SCALE
-    end
-
-    def width_in_points=(width)
-        self.width = width * Pango::SCALE
-    end
-end
-
 module Fantasdic
 module UI
 
@@ -41,22 +23,27 @@ class Print < Gtk::PrintOperation
     include GetText
     GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
-    FONT = Pango::FontDescription.new("sans 10")
+    DEFAULT_FONT = Pango::FontDescription.new("sans 10")
     FONT_SMALL = Pango::FontDescription.new("sans 8")
-    FONT_BIG = Pango::FontDescription.new("sans 12")
-    FONT_BIG.weight = Pango::FontDescription::WEIGHT_BOLD
-
-    FONT_SIZE, FONT_SMALL_SIZE, FONT_BIG_SIZE = \
-    [FONT, FONT_SMALL, FONT_BIG].collect do |f|
-        f.size / Pango::SCALE
-    end
+    FONT_SMALL_SIZE = FONT_SMALL.size / Pango::SCALE
 
     def initialize (parent_window, title, definitions)
         super()
         @parent_window = parent_window
-
         @title = title
         @definitions = definitions
+        @prefs = Preferences.instance
+
+        # Fonts
+        if @prefs.print_font_name
+            @font = Pango::FontDescription.new(@prefs.print_font_name)
+        else
+            @font = DEFAULT_FONT
+        end
+
+        @font_big = @font.dup
+        @font_big.size *= 1.2
+        @font_big.weight = Pango::FontDescription::WEIGHT_BOLD
 
         # with this option disabled, (0,0) is the the upper left corner
         # taking into account margins !
@@ -104,7 +91,7 @@ class Print < Gtk::PrintOperation
     def create_layout(cr, font_desc, text)
         layout = cr.create_pango_layout
 
-        layout.width_in_points = page_width
+        layout.width_points = page_width
         layout.font_description = font_desc
         layout.wrap = Pango::Layout::WRAP_WORD_CHAR
         layout.ellipsize = Pango::Layout::ELLIPSIZE_NONE
@@ -121,16 +108,16 @@ class Print < Gtk::PrintOperation
         last_db = nil
         @definitions.each do |d|
             if d.database != last_db
-                layouts << create_layout(cr, FONT_BIG,
+                layouts << create_layout(cr, @font_big,
                 "\n%s\n" % [d.description])
                 last_db = d.database
             else
                 # FIXME: should replace this with a beautiful definition
                 # separator
-                layouts << create_layout(cr, FONT, "")
+                layouts << create_layout(cr, @font, "")
             end
             d.body.strip.split("\n").each do |para|
-                layouts << create_layout(cr, FONT, para.strip)
+                layouts << create_layout(cr, @font, para.strip)
             end
         end
 
@@ -161,17 +148,17 @@ class Print < Gtk::PrintOperation
         curr_height = 0
         n_pages = 0
         paragraphe_layouts.each do |layout|
-            height = layout.height_in_points
+            height = layout.height_points
             if curr_height + height > real_page_height
                 n_pages += 1
                 curr_height = 0
 
                 # ensures that last layout is not a title
-                if @page_layouts[n_pages - 1].last.font_description == FONT_BIG
+                if @page_layouts[n_pages - 1].last.font_description == @font_big
                     prev_layout = @page_layouts[n_pages - 1].pop
                     @page_layouts[n_pages] ||= []
                     @page_layouts[n_pages] << prev_layout
-                    curr_height += prev_layout.height_in_points
+                    curr_height += prev_layout.height_points
                 end
             end
             @page_layouts[n_pages] ||= []
@@ -203,7 +190,7 @@ class Print < Gtk::PrintOperation
         layout.font_description = FONT_SMALL
         layout.text = _("Definitions for %s") % @title + " - " + \
                       _("Page %d/%d") % [nth_page, total_page]
-        width, height = layout.size_in_points
+        width, height = layout.size_points
         cr.move_to(page_width - width, height)
         cr.show_pango_layout(layout)
     end
@@ -215,7 +202,7 @@ class Print < Gtk::PrintOperation
         layout.text = \
             Time.now.strftime(_("Printed by Fantasdic on %Y/%m/%d at %H:%M")) +
                 "\n" + Fantasdic::WEBSITE_URL
-        width, height = layout.size_in_points
+        width, height = layout.size_points
         x, y = [page_width, page_height]
         x -= width
         y -= height
@@ -238,7 +225,7 @@ class Print < Gtk::PrintOperation
         @page_layouts[page_num].each do |layout|
             cr.move_to(x,y)
             cr.show_pango_layout(layout)            
-            y += layout.height_in_points
+            y += layout.height_points
         end
         
         draw_footer(cr)

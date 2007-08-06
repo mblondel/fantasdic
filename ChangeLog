@@ -7,6 +7,21 @@
     * lib/fantasdic/dict.rb: Fixed a bug when the lookup thread is killed.
     * lib/fantasdic/ui/main_app.rb: Some UI tweaks.
 
+    * lib/fantasdic/ui/preferences_dialog.rb: 
+    * data/fantasdic/glade/preferences_dialog.glade: Added "fonts" options.
+
+    * lib/fantasdic/ui/utils.rb: Moved Pango::Layout helpers there.
+
+    * lib/fantasdic/ui/main_app.rb:
+    * data/fantasdic/ui/menus.xml: Zoom+, Zoom- and Zoom normal buttons.
+    
+    * lib/fantasdic/ui/result_text_view.rb: Uses font from options.
+    * lib/fantasdic/ui/print.rb: Uses font from options.
+
+    * data/fantasdic/glade/add_dictionary_dialog.glade: Fixed typo.
+    
+    * po/POTFILES.in: Added print.rb.
+
 2007-08-05 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/print.rb: Uses Pango::Layout::WRAP_WORD_CHAR instead of

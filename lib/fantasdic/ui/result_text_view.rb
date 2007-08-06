@@ -20,11 +20,30 @@ module Fantasdic
 module UI
     
     class LinkBuffer < Gtk::TextBuffer
+
+        HEADER = 0
+        TEXT = 1
+        LINK = 2
+
+        MAX_FONT_SIZE = 24
+        MIN_FONT_SIZE = 8
         
+        DEFAULT_HEADER_FONT_SIZE = 11
+        DEFAULT_FONT_SIZE = 10
+        RATIO = DEFAULT_HEADER_FONT_SIZE / DEFAULT_FONT_SIZE.to_f
+        DEFAULT_FONT = Pango::FontDescription.new("")
+        DEFAULT_FONT.size = DEFAULT_FONT_SIZE
+
+        attr_accessor :scrolled_window
+
         def initialize
             super
-            create_tag("link", :foreground => "blue", 
-                       :underline => Pango::AttrUnderline::SINGLE)
+
+            @font = DEFAULT_FONT
+
+            initialize_tags
+
+            self.clear
         end
 
         def has_selected_text?
@@ -40,45 +59,43 @@ module UI
             self.get_text(selection_iter, insert_iter)
         end
 
-        def insert_link(iter, database, word)
-            tag = create_tag(nil,
-                              {
-                                'foreground' => 'blue',
-                                'underline' => Pango::AttrUnderline::SINGLE,
-                              })
-            tag.database = database
-            tag.word = word
-
-            insert(iter, word, tag)
-        end
-        
-        def insert_with_links(db, text)
-            non_links = text.split(/\{[\w\s\-]+\}/)
-            links = text.scan(/\{[\w\s\-]+\}/)
-            non_links.each_with_index do |sentence, idx|
-                insert(@iter, sentence)
-                insert_link(@iter, db, links[idx].slice(1..-2)) \
-                    unless idx == non_links.length - 1
-            end
-        end
-
         def clear
             self.text = ""
             ["last-search-prev", "last-search-next"].each do |mark|
                 delete_mark(mark) unless get_mark(mark).nil?
             end
+            @entries = []
             @iter = get_iter_at_offset(0)
-            @definitions = nil
-            @matches = nil
+            delete_link_tags
+            # Make the scroll go up
+            #@scrolled_window.vadjustment.value = \
+            #    @scrolled_window.vadjustment.lower            
         end
 
         # Display methods
         def insert_header(txt)
+            @entries << [HEADER, txt]
             insert(@iter, txt, "header")
         end
 
         def insert_text(txt)
-            insert(@iter, txt)
+            @entries << [TEXT, txt]
+            insert(@iter, txt, "text")
+        end
+
+        def insert_link(database, word)
+            @entries << [LINK, word, database]
+            text_tag = self.tag_table.lookup("text")
+            tag = create_tag(nil,
+                              {
+                                'foreground' => 'blue',
+                                'underline' => Pango::AttrUnderline::SINGLE,
+                                'size_points' => text_tag.size_points
+                              })
+            tag.database = database
+            tag.word = word
+
+            insert(@iter, word, tag)
         end
 
         def insert_definitions(definitions)
@@ -112,6 +129,118 @@ module UI
                 insert_header("\n")
             end
         end
+
+        def insert_with_links(db, text)
+            non_links = text.split(/\{[\w\s\-]+\}/)
+            links = text.scan(/\{[\w\s\-]+\}/)
+            non_links.each_with_index do |sentence, idx|
+                insert_text(sentence)
+                insert_link(db, links[idx].slice(1..-2)) \
+                    unless idx == non_links.length - 1
+            end
+        end
+
+        # Change text size
+
+        def increase_size            
+            text_tag = self.tag_table.lookup("text")
+            text_size = text_tag.size_points
+            unless text_size >= MAX_FONT_SIZE
+                self.tag_table.each do |tag|
+                    if tag.name == "header"
+                        tag.size_points = header_font_size(text_size + 2)
+                    else
+                        tag.size_points += 2
+                    end
+                end
+                redisplay
+            end
+        end
+
+        def decrease_size            
+            text_tag = self.tag_table.lookup("text")
+            text_size = text_tag.size_points
+            unless text_size <= MIN_FONT_SIZE
+                self.tag_table.each do |tag|
+                    if tag.name == "header"
+                        tag.size_points = header_font_size(text_size - 2)
+                    else
+                        tag.size_points -= 2
+                    end
+                end
+                redisplay
+            end
+        end
+
+        def set_default_size
+            self.tag_table.each do |tag|
+                if tag.name == "header"
+                    tag.size_points = header_font_size(DEFAULT_FONT_SIZE)
+                else
+                    tag.size_points = DEFAULT_FONT_SIZE
+                end
+            end
+            redisplay
+        end
+
+        # Font name
+
+        def font_name=(font_name)            
+            font_desc = Pango::FontDescription.new(font_name)
+            font_desc_big = font_desc.dup
+            font_desc_big.size = header_font_size(font_desc.size)
+
+            self.tag_table.each do |tag|
+                if tag.name == "header"
+                    tag.font_desc = font_desc_big
+                else
+                    tag.font_desc = font_desc
+                end
+            end
+            redisplay
+        end
+
+        def font_name
+            text_tag = self.tag_table.lookup("text")
+            text_tag.font_desc.to_s
+        end
+
+        private
+
+        def initialize_tags
+            create_tag("header", :pixels_above_lines => 15,
+                                 :pixels_below_lines => 15,
+                                 :size_points => header_font_size(@font.size),
+                                 :foreground => '#005500')
+
+            create_tag("text", :foreground => '#000000',
+                               :size_points => @font.size)
+        end
+
+        def delete_link_tags
+            self.tag_table.each do |tag|
+                self.tag_table.remove(tag) if tag.name.nil?
+            end
+        end
+
+        def header_font_size(font_size)
+            (font_size * RATIO).round
+        end
+
+        def redisplay
+            entries = @entries.dup
+            self.clear
+            entries.each do |type, txt, db|
+                case type
+                    when HEADER
+                        insert_header(txt)
+                    when TEXT
+                        insert_text(txt)
+                    when LINK
+                        insert_link(db, txt)
+                end
+            end
+        end
     end
     
     class ResultTextView < Gtk::TextView
@@ -136,8 +265,6 @@ module UI
             self.cursor_visible = false
             self.left_margin = 3
             
-            initialize_tags
-
             @hand_cursor = Gdk::Cursor.new(Gdk::Cursor::HAND2)
             @regular_cursor = Gdk::Cursor.new(Gdk::Cursor::XTERM)
             @hovering = false
@@ -221,13 +348,6 @@ module UI
             end
         end
         
-        def initialize_tags
-            self.buffer.create_tag("header", :pixels_above_lines => 15,
-                                             :pixels_below_lines => 15,
-                                             :size_points => 11,
-                                             :foreground => '#005500')
-        end
-
         def find_backward(str)
             return false if str.empty?
 

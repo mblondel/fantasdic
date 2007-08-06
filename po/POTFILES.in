@@ -17,6 +17,7 @@ lib/fantasdic/ui/history_list_view.rb
 lib/fantasdic/ui/ipc.rb
 lib/fantasdic/ui/main_app.rb
 lib/fantasdic/ui/preferences_dialog.rb
+lib/fantasdic/ui/print.rb
 lib/fantasdic/ui/result_text_view.rb
 lib/fantasdic/ui/utils.rb
 lib/fantasdic/preferences.rb

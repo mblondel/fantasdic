@@ -46,6 +46,12 @@
             <menuitem action="History"/>
             <menuitem action="Statusbar"/>
             <menuitem action="Toolbar"/>
+            <separator/>
+            <menu action="TextSizeMenu">
+                <menuitem action="ZoomPlus"/>
+                <menuitem action="ZoomMinus"/>            
+                <menuitem action="ZoomNormal"/>
+            </menu>    
         </menu>
         <menu action="GoMenu">
             <menuitem action="GoBack"/>
@@ -60,4 +66,5 @@
     <accelerator name="EscapeAccel" action="Escape"/>    
     <accelerator name="F3Accel" action="F3"/>
     <accelerator name="ShiftF3Accel" action="ShiftF3"/>
+    <accelerator name="CtrlEqualAccel" action="CtrlEqual"/>
 </ui>
