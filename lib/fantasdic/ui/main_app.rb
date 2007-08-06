@@ -58,8 +58,7 @@ module UI
    
                 @search_entry.text = p[:word]
                 @buf = @result_text_view.buffer
-                @buf.clear
-                @iter = @buf.get_iter_at_offset(0)
+                @buf.clear                
     
                 # Make the scroll go up
                 @result_sw.vadjustment.value = @result_sw.vadjustment.lower
@@ -68,7 +67,7 @@ module UI
                 if @prefs.dictionaries.length == 0
                     msg = _("No dictionary configured")
                     self.status_bar_msg = msg
-                    @buf.insert(@iter, msg + "\n", "header")
+                    @buf.insert_header(msg + "\n")
                     Thread.current.kill
                 end
     
@@ -102,22 +101,16 @@ module UI
 
                 rescue DICTClient::ConnectionError, Errno::ECONNRESET => e
                     error = _("Can't connect to server")
-                    @buf.insert(@iter, error + "\n", "header")
-                    @buf.insert(@iter, e.to_s)
+                    @buf.insert_header(error + "\n")
+                    @buf.insert_text(e.to_s)
                     self.status_bar_msg = error
                     Thread.current.kill
                 end
 
-                @show_suggested_results = false
-
                 # Display definitions
                 unless p[:strategy]
                     definitions = define(dict, p)
-                    print_definitions(definitions)
-
-                    if definitions.empty?  
-                        @show_suggested_results = true 
-                    end
+                    insert_definitions(definitions)
 
                     @last_definitions = definitions
                     enable_print unless definitions.empty?
@@ -126,13 +119,11 @@ module UI
                     disable_print
                 end
                 
-                # Search with match strategy. 
-                # Use default strategy if define did not give results
-                if p[:strategy] or definitions.empty?
+                # Search with match strategy.                
+                if p[:strategy]
                     p[:strategy] = infos[:sel_strat] unless p.has_key? :strategy
                     matches = match(dict, p)
-
-                    print_matches(matches)
+                    insert_matches(matches)
                 end
     
                 # Update history and pages seen
@@ -162,27 +153,14 @@ module UI
             end
         end
 
-        def print_definitions(definitions)
+        def insert_definitions(definitions)
             @buf.clear
-            @iter = @buf.get_iter_at_offset(0)
-            last_db = ""
-            definitions.each_with_index do |d, i|
-                if last_db != d.database
-                    t_format = i == 0 ? "%s [%s]\n" : "\n%s [%s]\n"
-                    @buf.insert(@iter, t_format %
-                                    [d.description, d.database],
-                            "header")
-                    last_db = d.database
-                else
-                    @buf.insert(@iter, "\n__________\n", "header")
-                end
-                @buf.insert_with_links(@iter, d.database, d.body.strip)
-            end
+            
+            @buf.insert_definitions(definitions)
 
             # Status bar
             if definitions.empty?
-                self.status_bar_msg = _("No match found.") + " " + \
-                                      _("Looking for close results...")
+                self.status_bar_msg = _("No match found.") 
             else
                 self.status_bar_msg = _("Matches found: %d.") %
                             definitions.length
@@ -190,7 +168,10 @@ module UI
         end
 
         def match(dict, p)  
-            infos = @prefs.dictionaries_infos[p[:dictionary]]         
+            infos = @prefs.dictionaries_infos[p[:dictionary]]
+
+            self.status_bar_msg = _("Transferring data from %s ...") %
+                                        dict.host      
 
             if infos[:all_dbs] == true
                 dict.cached_multiple_match([DICTClient::ALL_DATABASES],
@@ -203,39 +184,22 @@ module UI
             end
         end
       
-        def print_matches(matches)
-            # Display matches
-            @buf.clear
-            @iter = @buf.get_iter_at_offset(0)
+        def insert_matches(matches)
+            @buf.clear            
 
            if matches.length > 0
                 nb_match = 0
                 matches.each { |db, w| nb_match += w.length }
 
-                if @show_suggested_results
-                    msg = _("Suggested results.") + " "
-                else
-                    msg = ""
-                end
-                msg += _("Matches found: %d.") % nb_match
+                msg = _("Matches found: %d.") % nb_match
                 self.status_bar_msg = msg
-            else
-                @buf.insert(@iter, _("No match found."), "header")
-                self.status_bar_msg = _("No match found.")
-            end              
 
-            matches.each do |db, words|
-                @buf.insert(@iter, db + "\n", "header")  
-                @buf.insert(@iter, words.join(", "))
-                # Print matches with links (but slow)    
-                # i = 0
-                # words.each do |w|
-                #     @buf.insert_link(@iter, db, w)
-                #     @buf.insert(@iter, ", ") unless i == words.length
-                #     i += 1
-                # end
-                @buf.insert(@iter, "\n", "header")
-            end
+                @buf.insert_matches(matches)
+            else
+                msg = _("No match found.")
+                @buf.insert_header(msg)
+                self.status_bar_msg = msg
+            end            
         end
 
         def status_bar_msg=(message)
@@ -508,7 +472,6 @@ module UI
      
                 @global_actions["Stop"].visible = false
                 @buf.clear
-                @iter = @buf.get_iter_at_offset(0)
                 self.status_bar_msg = ""
             end
 

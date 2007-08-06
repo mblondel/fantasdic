@@ -24,7 +24,7 @@ module UI
         def initialize
             super
             create_tag("link", :foreground => "blue", 
-                            :underline => Pango::AttrUnderline::SINGLE)
+                       :underline => Pango::AttrUnderline::SINGLE)
         end
 
         def has_selected_text?
@@ -52,12 +52,12 @@ module UI
             insert(iter, word, tag)
         end
         
-        def insert_with_links(iter, db, text)
+        def insert_with_links(db, text)
             non_links = text.split(/\{[\w\s\-]+\}/)
             links = text.scan(/\{[\w\s\-]+\}/)
             non_links.each_with_index do |sentence, idx|
-                insert(iter, sentence)
-                insert_link(iter, db, links[idx].slice(1..-2)) \
+                insert(@iter, sentence)
+                insert_link(@iter, db, links[idx].slice(1..-2)) \
                     unless idx == non_links.length - 1
             end
         end
@@ -66,6 +66,50 @@ module UI
             self.text = ""
             ["last-search-prev", "last-search-next"].each do |mark|
                 delete_mark(mark) unless get_mark(mark).nil?
+            end
+            @iter = get_iter_at_offset(0)
+            @definitions = nil
+            @matches = nil
+        end
+
+        # Display methods
+        def insert_header(txt)
+            insert(@iter, txt, "header")
+        end
+
+        def insert_text(txt)
+            insert(@iter, txt)
+        end
+
+        def insert_definitions(definitions)
+            @definitions = definitions
+            last_db = ""
+            definitions.each_with_index do |d, i|
+                if last_db != d.database
+                    t_format = i == 0 ? "%s [%s]\n" : "\n%s [%s]\n"
+                    insert_header(t_format %
+                                       [d.description, d.database])
+                    last_db = d.database
+                else
+                    insert_header("\n__________\n")
+                end
+                insert_with_links(d.database, d.body.strip)
+            end
+        end
+
+        def insert_matches(matches)
+            @matches = matches
+            matches.each do |db, words|
+                insert_header(db + "\n")
+                insert_text(words.join(", "))
+                # Print matches with links (but slow)    
+                # i = 0
+                # words.each do |w|
+                #     @buf.insert_link(db, w)
+                #     @buf.insert_text(", ") unless i == words.length
+                #     i += 1
+                # end
+                insert_header("\n")
             end
         end
     end

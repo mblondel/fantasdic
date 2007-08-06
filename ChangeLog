@@ -1,3 +1,9 @@
+2007-08-06 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb:
+    * lib/fantasdic/ui/result_text_view.rb:
+    Some code moved from main_app.rb to result_text_view.rb.
+
 2007-08-05 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/print.rb: Uses Pango::Layout::WRAP_WORD_CHAR instead of
@@ -7,7 +13,6 @@
     * lib/fantasdic/ui/main_app.rb:
     Move the code to hold connections from main_app.rb to dict.rb. This is to
     clean up main_app.rb (more coming).
-
 
     * lib/fantasdic/dict.rb:
     * lib/fantasdic/ui/main_app.rb:
