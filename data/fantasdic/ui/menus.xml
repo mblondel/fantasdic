@@ -43,15 +43,15 @@
             <menuitem action="Preferences"/>
         </menu>
         <menu action="ViewMenu">
+            <menu action="TextSizeMenu">
+                <menuitem action="ZoomPlus"/>
+                <menuitem action="ZoomMinus"/>
+                <menuitem action="ZoomNormal"/>
+            </menu>
+            <separator/>
             <menuitem action="History"/>
             <menuitem action="Statusbar"/>
             <menuitem action="Toolbar"/>
-            <separator/>
-            <menu action="TextSizeMenu">
-                <menuitem action="ZoomPlus"/>
-                <menuitem action="ZoomMinus"/>            
-                <menuitem action="ZoomNormal"/>
-            </menu>    
         </menu>
         <menu action="GoMenu">
             <menuitem action="GoBack"/>

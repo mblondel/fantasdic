@@ -1,3 +1,7 @@
+2007-08-07 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * data/fantasdic/ui/menus.xml: Changed menu items order.
+
 2007-08-06 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb:
