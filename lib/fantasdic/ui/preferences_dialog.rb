@@ -151,6 +151,8 @@ module UI
         private
                
         def initialize_ui
+            @print_vbox.visible = Fantasdic::UI::SUPPORTS_PRINT
+
             @tray_vbox.visible = !@statusicon.nil?
             @dont_quit_checkbutton.active = @prefs.dont_quit        
             @show_in_tray_checkbutton.active = @prefs.show_in_tray
