@@ -99,7 +99,7 @@ class DICTClient
     end
 
     def self.close_active_connection
-        @@current_connection.disconnect
+        @@current_connection.disconnect if @@current_connection
     end
 
     def self.get_connection(server, port, login="", password="",
@@ -182,14 +182,23 @@ class DICTClient
     def send_line(line)
         linern = line + "\r\n"
         $stderr.printf("SEND: %s", linern) if @debug
-        @sock.print(linern)
+        begin
+            @sock.print(linern)
+        rescue IOError
+            raise ConnectionLost
+        end
     end
 
     def exec_cmd(command)
         send_line(command)
         response = get_response
         @last_time = Time.now
-        code, msg = /^(\d\d\d)\s(.*)$/.match(response)[1..2]
+        match = /^(\d\d\d)\s(.*)$/.match(response)
+        if match
+            code, msg = match[1..2]
+        else
+            code, msg = [UNRECOGNISED_COMMAND, 'Error']
+        end
     end
 
     def has_pair?(line)

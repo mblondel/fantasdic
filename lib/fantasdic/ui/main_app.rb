@@ -160,7 +160,9 @@ module UI
 
             # Status bar
             if definitions.empty?
-                self.status_bar_msg = _("No match found.") 
+                msg = _("No match found.")
+                self.status_bar_msg = msg
+                @buf.insert_header(msg)
             else
                 self.status_bar_msg = _("Matches found: %d.") %
                             definitions.length

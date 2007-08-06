@@ -4,6 +4,9 @@
     * lib/fantasdic/ui/result_text_view.rb:
     Some code moved from main_app.rb to result_text_view.rb.
 
+    * lib/fantasdic/dict.rb: Fixed a bug when the lookup thread is killed.
+    * lib/fantasdic/ui/main_app.rb: Some UI tweaks.
+
 2007-08-05 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/print.rb: Uses Pango::Layout::WRAP_WORD_CHAR instead of
