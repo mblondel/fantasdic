@@ -1,9 +1,17 @@
 TODO
 
+Short term
+-----------
+
 - Save the PageSetup and the PrintSettings in the config file.
 - Replace the history sidepane by a matches side pane and use a combo box entry
 for the history.
 - Drag and drop available databases and selected databases.
-- Provide a D-bus service?
-
 - Make an easy-to-install package for Windows users...
+- Write documentation for the Help menu.
+
+
+Long term
+---------
+
+- Provide a D-bus service?
