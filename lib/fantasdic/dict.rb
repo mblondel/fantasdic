@@ -22,6 +22,9 @@ require 'md5'
 
 class DICTClient
 
+    MAX_CACHE = 30
+    KEEP_CONNECTION_MAX_TIME = 60
+
     DATABASES_PRESENT = '110'
     STRATEGIES_AVAILABLE = '111'
     DATABASE_INFORMATION = '112'
@@ -73,8 +76,6 @@ class DICTClient
             self.key <=> cache.key
         end
     end
-
-    KEEP_CONNECTION_MAX_TIME = 60
 
     # Class methods
     
@@ -242,8 +243,6 @@ class DICTClient
             msg << line
         end
     end
-
-    MAX_CACHE = 30
 
     def update_cache(cache)
         @cache_queue.unshift(cache)
