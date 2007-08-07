@@ -100,6 +100,7 @@ module UI
                     @buf.insert_header(error + "\n")
                     @buf.insert_text(e.to_s)
                     self.status_bar_msg = error
+                    @global_actions["Stop"].visible = false
                     Thread.current.kill
                 end
 

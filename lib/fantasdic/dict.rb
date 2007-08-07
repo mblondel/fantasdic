@@ -80,6 +80,7 @@ class DICTClient
     
     # Connections are held for sometime so that it's faster to lookup words
     @@connections = {}
+    @@current_connection = nil
 
     def self.close_long_connections
         @@connections.each do |key, connection|

@@ -13,6 +13,10 @@
     * lib/fantasdic/ui/about_dialog.rb: The close button in the about dialog
     didn't work for obscure reasons...
 
+    * lib/fantasdic/dict.rb:
+    * lib/fantasdic/ui/main_app.rb: Fixed a few problems when server is not
+    available.
+
 2007-08-06 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb:
