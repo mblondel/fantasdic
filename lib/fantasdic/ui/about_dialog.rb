@@ -17,7 +17,7 @@
 
 module Fantasdic
 module UI
-    class AboutDialog < Gtk::AboutDialog
+    class AboutDialog
         GPL = <<EOL
 Fantasdic is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License as
@@ -35,21 +35,20 @@ write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.
 EOL
 
-        def initialize(parent)
-            super()
-            self.name = Fantasdic::TITLE
-            self.version = Fantasdic::VERSION
-            self.copyright = Fantasdic::COPYRIGHT
-            self.comments = Fantasdic::DESCRIPTION
-            self.authors = Fantasdic::AUTHORS
-            #self.documenters = Fantasdic::DOCUMENTERS
-            self.translator_credits = Fantasdic::TRANSLATORS.join("\n")
-            self.website = Fantasdic::WEBSITE_URL
-            #self.logo = Icon::LOGO
-            self.license = GPL
-            self.transient_for = parent
-            signal_connect('destroy') { hide }
+        def self.show(parent)
+            Gtk::AboutDialog.show(parent,
+            "name" => Fantasdic::TITLE,
+            "version" => Fantasdic::VERSION,
+            "copyright" => Fantasdic::COPYRIGHT,
+            "comments" => Fantasdic::DESCRIPTION,
+            "authors" => Fantasdic::AUTHORS,
+            #"documenters" => Fantasdic::DOCUMENTERS,
+            "translator_credits" => Fantasdic::TRANSLATORS.join("\n"),
+            "website" => Fantasdic::WEBSITE_URL,
+            #"logo" => Icon::LOGO,
+            "license" => GPL)
         end
+
     end
     
 end

@@ -9,6 +9,10 @@
     more clearly characters that would be too small otherwise (e.g. Chinese
     characters).
 
+    * lib/fantasdic/ui/main_app.rb:
+    * lib/fantasdic/ui/about_dialog.rb: The close button in the about dialog
+    didn't work for obscure reasons...
+
 2007-08-06 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb:
