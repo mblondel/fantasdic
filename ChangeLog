@@ -1,3 +1,8 @@
+2007-08-10 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb: Load/Save PageSetup and PrintSetting from/to
+    user preferences file.
+
 2007-08-07 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * data/fantasdic/ui/menus.xml: Changed menu items order.

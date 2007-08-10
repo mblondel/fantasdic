@@ -213,7 +213,9 @@ module UI
                 clipboard.request_text do |cb, text|
                     last_selection = text
                 end
-                
+
+                # FIXME: Rewrite this portion using
+                # GLib::Timeout.add and returning false to stop
                 while true
                     clipboard.request_text do |cb, text|
                         if text != last_selection
@@ -261,17 +263,37 @@ module UI
             end
         end
 
-        def load_preferences            
-            load_window_preferences
-            load_textview_preferences
-            load_last_searches
-        end
-
         def load_textview_preferences
             @result_text_view.buffer.font_name = @prefs.results_font_name \
                 if @prefs.results_font_name
         end
-        
+
+        def load_print_preferences
+            # Page Setup
+            if @prefs.paper_size and @prefs.page_orientation
+                @page_setup = Gtk::PageSetup.new
+                @page_setup.orientation = \
+                    Gtk::PrintSettings.const_get(@prefs.page_orientation)
+                paper_size = Gtk::PaperSize.new(@prefs.paper_size)
+                @page_setup.paper_size_and_default_margins = paper_size
+            end
+
+            # Print Settings
+            if @prefs.print_settings
+                @print_settings = Gtk::PrintSettings.new
+                @prefs.print_settings.each do |key, value|
+                    @print_settings.set(key, value)
+                end
+            end
+        end
+
+        def load_preferences            
+            load_window_preferences
+            load_textview_preferences
+            load_print_preferences if SUPPORTS_PRINT
+            load_last_searches
+        end
+
         def save_window_preferences
             @prefs.view_statusbar = @global_actions["Statusbar"].active?
             @prefs.view_toolbar = @global_actions["Toolbar"].active?
@@ -295,10 +317,21 @@ module UI
             @prefs.results_font_name = @result_text_view.buffer.font_name
         end
 
+        def save_print_preferences
+            if @page_setup
+                @prefs.page_orientation = \
+                    @page_setup.orientation.name.gsub(/^GTK_PAGE_/, "")
+                @prefs.paper_size = @page_setup.paper_size.name
+            end
+
+            @prefs.print_settings = @print_settings.to_a if @print_settings
+        end
+
         def save_preferences
             save_textview_preferences
             save_window_preferences
             save_last_searches
+            save_print_preferences if SUPPORTS_PRINT
             @prefs.save!
         end
 
@@ -533,18 +566,21 @@ module UI
             on_print = Proc.new do
                 @print = Print.new(@main_app, @search_entry.text,
                                    @last_definitions)
-                if @page_setup
-                    @print.default_page_setup = @page_setup
-                end
+
+                @print.default_page_setup = @page_setup if @page_setup
+                @print.print_settings = @print_settings if @print_settings
+
                 @print.run_print_dialog
+
+                @print_settings = @print.print_settings
             end
 
             on_print_preview = Proc.new do
                 @print = Print.new(@main_app, @search_entry.text,
                                    @last_definitions)
-                if @page_setup
-                    @print.default_page_setup = @page_setup
-                end
+
+                @print.default_page_setup = @page_setup if @page_setup
+
                 @print.run_preview
             end
 
