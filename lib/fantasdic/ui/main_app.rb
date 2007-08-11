@@ -681,7 +681,7 @@ module UI
                 end
             end
 
-            on_about = Proc.new { AboutDialog.show(@main_app) }
+            on_about = Proc.new { AboutDialog.new(@main_app).show }
 
             # [[name, stock_id, label, accelerator, tooltip, proc], ... ]
             standard_actions = [
