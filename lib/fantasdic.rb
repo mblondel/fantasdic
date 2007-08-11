@@ -43,7 +43,9 @@ module Fantasdic
     ]
 
     LIST = ''
-    BUGZILLA = 'http://bugzilla.gnome.org/ (product fantasdic)'
+    BUGZILLA = 'http://bugzilla.gnome.org/browse.cgi?product=fantasdic'
+    BUGZILLA_REPORT_BUG = \
+        'http://bugzilla.gnome.org/enter_bug.cgi?product=fantasdic'
     WEBSITE_URL = 'http://www.gnome.org/projects/fantasdic/'
 
     def self.main

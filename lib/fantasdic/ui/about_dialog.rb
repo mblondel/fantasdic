@@ -35,6 +35,16 @@ write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.
 EOL
 
+        Gtk::AboutDialog.set_url_hook do |about, url|
+            prefs = Preferences.instance
+            browser = prefs.get_browser
+            if browser
+                prefs.open_url(browser, url)
+            else
+                ErrorDialog.new(about, _("Could not open browser."))
+            end
+        end
+
         def self.show(parent)
             Gtk::AboutDialog.show(parent,
             "name" => Fantasdic::TITLE,

@@ -25,7 +25,7 @@ module UI
         PRINT_SETUP = "stock_print-setup"
     end
 
-    class MainApp < GladeBase 
+    class MainApp < GladeBase
         include GetText
         GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
@@ -672,6 +672,15 @@ module UI
 
             # Help
 
+            on_submit_bug_report = Proc.new do
+                browser = @prefs.get_browser
+                if browser
+                    @prefs.open_url(browser, Fantasdic::BUGZILLA_REPORT_BUG)
+                else
+                    ErrorDialog.new(@main_app, _("Could not open browser."))
+                end
+            end
+
             on_about = Proc.new { AboutDialog.show(@main_app) }
 
             # [[name, stock_id, label, accelerator, tooltip, proc], ... ]
@@ -724,6 +733,8 @@ module UI
 
                 # Help
                 ["HelpMenu", nil, _("_Help")],
+                ["SubmitBugReport", Gtk::Stock::EDIT, _("Submit _Bug Report"),
+                 nil, nil, on_submit_bug_report],
                 ["About", Gtk::Stock::ABOUT, _("About"), nil, nil, on_about],
 
                 # Accelerators
