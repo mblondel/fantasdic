@@ -140,7 +140,7 @@ module Fantasdic
             end
 
             # Third, try to find if one of those browsers is available
-            ["firefox", "iceweasel", "mozilla", "epiphany", "konqueror",
+            ["firefox", "iceweasel", "mozilla", "epiphany-browser", "konqueror",
              "w3m"].each do |browser|
                 ENV["PATH"].split(":").each do |dir|
                     file = File.join(dir, browser)
