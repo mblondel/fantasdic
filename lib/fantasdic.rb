@@ -22,7 +22,7 @@ module Fantasdic
     extend GetText
     bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
     DESCRIPTION = _('A client for the DICT protocol.')
-    COPYRIGHT = 'Copyright (C) 2006 Mathieu Blondel'
+    COPYRIGHT = 'Copyright (C) 2006 - 2007 Mathieu Blondel'
     AUTHORS = [
         'Mathieu Blondel <mblondel@cvs.gnome.org>',
         'John Spray <spray@lyx.org>'
