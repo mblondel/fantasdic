@@ -1,3 +1,13 @@
+
+2007-08-16 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/dict.rb: A server is now identified uniquely with four
+    elements: host, port, login and password.
+    * lib/fantasdic/ui/main_app.rb: Support auth.
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Update database list if auth
+    provided: an authenticated user may get more databases.
+    * data/fantasdic/glade/add_dictionary_dialog.glade: Support auth.
+
 2007-08-15 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/dict.rb: Added strategies description.

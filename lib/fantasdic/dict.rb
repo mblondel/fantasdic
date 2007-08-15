@@ -116,18 +116,18 @@ class DICTClient
         @@current_connection.disconnect if @@current_connection
     end
 
-    def self.get_connection(server, port, login="", password="",
-                            app_name=Fantasdic::TITLE)
-        unless @@connections.has_key? [server, port]
-            @@connections[[server,port]] = DICTClient.new(server, port, $DEBUG)
-            @@connections[[server,port]].client(app_name)
+    def self.get_connection(app_name, server, port, login="", password="")
+        key = [server, port, login, password]
+        unless @@connections.has_key? key
+            @@connections[key] = DICTClient.new(server, port, $DEBUG)
+            @@connections[key].client(app_name)
 
-            unless login.empty? or infos[:password].empty?
-                @@connections[[server,port]].auth(login, password)
+            unless login.empty? or password.empty?
+                @@connections[key].auth(login, password)
             end
         end
-        @@current_connection = @@connections[[server,port]]
-        @@connections[[server,port]]
+        @@current_connection = @@connections[key]
+        @@connections[key]
     end
 
     attr_reader :capabilities, :msgid, :host, :port, :last_time
@@ -136,6 +136,8 @@ class DICTClient
         @host = host
         @port = port
         @debug = debug
+        @login = ""
+        @password = ""
 
         begin
             @sock = TCPSocket.open(host, port)
@@ -275,7 +277,7 @@ class DICTClient
         rescue ConnectionLost
             # connection already closed by server
         end
-        @@connections.delete([@host, @port])
+        @@connections.delete([@host, @port, @login, @password])
     end
 
     def define(db, word)
@@ -398,9 +400,11 @@ class DICTClient
         exec_cmd('CLIENT %s' % info)
     end
 
-    def auth(user, secret)
-        auth = MD5::new(@msgid + secret).hexdigest
-        exec_cmd('AUTH %s %s' % [ user, auth ])
+    def auth(login, password)
+        @login = login
+        @password = password
+        auth = MD5::new(@msgid + password).hexdigest
+        exec_cmd('AUTH %s %s' % [ login, auth ])
     end
 end
 

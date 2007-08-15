@@ -99,8 +99,17 @@ module UI
                     self.status_bar_msg = _("Waiting for %s...") % \
                     infos[:server]
 
-                    dict = DICTClient.get_connection(infos[:server],
-                                                      infos[:port])
+                    if infos[:auth]
+                        dict = DICTClient.get_connection(Fantasdic::TITLE,
+                                                         infos[:server],
+                                                         infos[:port],
+                                                         infos[:login],
+                                                         infos[:password])
+                    else
+                        dict = DICTClient.get_connection(Fantasdic::TITLE,
+                                                         infos[:server],
+                                                         infos[:port])
+                    end
 
                 rescue DICTClient::ConnectionError, Errno::ECONNRESET => e
                     error = _("Can't connect to server")
@@ -695,13 +704,15 @@ module UI
             end
 
             on_preferences = Proc.new do
+                save_dictionary_preferences
                 PreferencesDialog.new(@main_app,
                                       @statusicon,
                                       @result_text_view) do
-                    # This block is called when the dialog is closed
-                    @prefs.save!
+                    # This block is called when the dialog is closed       
                     update_dictionary_cb
                     update_strategy_cb
+                    load_dictionary_preferences
+                    @prefs.save!
                 end
             end
 

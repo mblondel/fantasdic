@@ -131,10 +131,21 @@ module UI
 
         def on_serv_auth_toggled
             @serv_auth_table.sensitive = @serv_auth_checkbutton.active?
+            @threads << Thread.new do
+                update_lists
+            end
         end
 
         def on_server_activate
             @port_entry.grab_focus
+        end
+
+        def on_login_entry_activate
+            on_server_activate
+        end
+
+        def on_password_entry_activate
+            on_server_activate
         end
 
         def on_server_infos_button_clicked
@@ -232,6 +243,14 @@ module UI
                 dict = DICTClient.new(@server_entry.text, @port_entry.text,
                                       $DEBUG)
 
+                if @serv_auth_checkbutton.active?
+                    unless @login_entry.text.empty? or \
+                           @password_entry.text.empty?
+
+                        dict.auth(@login_entry.text, @password_entry.text)
+                    end
+                end
+
                 sel_db_desc = {}
 
                 dbs = dict.show_db
@@ -291,12 +310,9 @@ module UI
                 end
 
                 # Auth
-                if @hash[:auth]
-                    @serv_auth_checkbutton.active = true
-                    @login_entry.text = @hash[:login]
-                    @password_entry.text = @hash[:password]
-                end
-
+                @serv_auth_checkbutton.active = @hash[:auth]
+                @login_entry.text = @hash[:login] if @hash[:login]
+                @password_entry.text = @hash[:password] if @hash[:password]
             end
         end
 
@@ -350,9 +366,13 @@ module UI
 
             @last_server = @server_entry.text
             @last_port = @port_entry.text
+            @last_login = @login_entry.text
+            @last_password = @password_entry.text
             
             [[@server_entry, @last_server], 
-             [@port_entry, @last_port]].each do |entry, last|
+             [@port_entry, @last_port],
+             [@login_entry, @last_login],
+             [@password_entry, @last_login]].each do |entry, last|
                 entry.signal_connect("focus-out-event") do |w, event|
                     if last != entry.text
                         last = entry.text
