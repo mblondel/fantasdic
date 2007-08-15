@@ -36,6 +36,8 @@
             <menuitem action="Copy"/>
             <menuitem action="SelectAll"/>
             <separator/>
+            <menuitem action="ClearHistory"/>
+            <separator/>
             <menuitem action="Find"/>
             <menuitem action="FindNext"/>
             <menuitem action="FindPrevious"/>

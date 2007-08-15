@@ -678,6 +678,10 @@ module UI
                 @result_text_view.select_all(true)
             end
 
+            on_clear_history = Proc.new do
+                @search_cb_entry.model.clear
+            end
+
             on_find = Proc.new do
                 @not_found_label.visible = false
                 @find_pane.visible = true
@@ -775,6 +779,8 @@ module UI
                 ["Copy", Gtk::Stock::COPY, nil, nil, nil, on_copy],
                 ["SelectAll", nil, _("Select _All"), "<ctrl>A", nil,
                  on_select_all],
+                ["ClearHistory", Gtk::Stock::CLEAR, _("Clear History"), nil,
+                 nil, on_clear_history],
                 ["Find", Gtk::Stock::FIND, nil, nil, nil, on_find],
                 ["FindNext", nil, _("Find N_ext"), "<ctrl>G", nil,
                  on_find_next],
