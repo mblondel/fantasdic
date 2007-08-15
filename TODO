@@ -3,8 +3,6 @@ TODO
 Short term
 -----------
 
-- Replace the history sidepane by a matches side pane and use a combo box entry
-for the history.
 - Drag and drop available databases and selected databases.
 - Make an easy-to-install package for Windows users...
 - Write documentation for the Help menu.

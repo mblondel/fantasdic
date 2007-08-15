@@ -25,7 +25,4 @@
         <separator/>
         <menuitem action="Quit"/>
     </popup>
-    <popup name="ClearHistoryPopup">
-        <menuitem action="ClearHistory"/>
-    </popup>
 </ui>

@@ -25,3 +25,26 @@ class String
     end
 end
 
+class Array
+    def push_head(ele)
+        self << ele
+        self
+    end
+
+    def push_tail(ele)
+        self[self.length] = ele
+        self
+    end
+
+    def pop_head
+        self.delete_at(0)
+    end
+
+    def pop_tail
+        if self.length == 0
+            nil
+        else
+            self.delete_at(self.length - 1)
+        end
+    end
+end

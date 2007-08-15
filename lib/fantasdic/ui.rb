@@ -64,7 +64,8 @@ require 'fantasdic/ui/alert_dialog'
 require 'fantasdic/ui/about_dialog'
 require 'fantasdic/ui/preferences_dialog'
 require 'fantasdic/ui/add_dictionary_dialog'
-require 'fantasdic/ui/history_list_view'
+require 'fantasdic/ui/combobox_entry'
+require 'fantasdic/ui/matches_listview.rb'
 require 'fantasdic/ui/result_text_view'
 require 'fantasdic/ui/print' if Fantasdic::UI::SUPPORTS_PRINT
 require 'fantasdic/ui/ipc' if Fantasdic::UI::SUPPORTS_IPC

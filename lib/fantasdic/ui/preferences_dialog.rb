@@ -151,6 +151,8 @@ module UI
         private
                
         def initialize_ui
+            @dictionaries_nb_image.pixbuf = Icon::LOGO_SMALL
+
             @print_vbox.visible = Fantasdic::UI::SUPPORTS_PRINT
 
             @tray_vbox.visible = !@statusicon.nil?

@@ -107,17 +107,11 @@ module UI
 
             hash[:sel_dbs] = []
             @sel_db_treeview.model.each do |model, path, iter|
-                hash[:sel_dbs] << iter[NAME]    
+                hash[:sel_dbs] << iter[NAME]
             end
 
-            hash[:avail_strats] = []
-            @sel_strat_combobox.model.each do |model, path, iter|
-                hash[:avail_strats] << iter[NAME]    
-            end            
-
-            active_strat = @sel_strat_combobox.active.to_s
-            active_iter = @sel_strat_combobox.model.get_iter(active_strat)
-            hash[:sel_strat] = active_iter.nil? ? ' ' : active_iter[NAME]
+            hash[:avail_strats] = @avail_strats
+            hash[:sel_strat] = "define" # default strat
 
             hash[:auth] = @serv_auth_checkbutton.active?
             hash[:login] = @login_entry.text
@@ -207,7 +201,7 @@ module UI
         end
 
         def close!
-            @threads.each { |t| t.kill if t.alive? }
+            @threads.each { |t| if t.alive?; t.kill; t.join; end }
             @dialog.destroy unless @dialog.destroyed?
         end
 
@@ -229,8 +223,7 @@ module UI
                                   % @server_entry.text
 
             @avail_db_treeview.model.clear
-            @sel_db_treeview.model.clear
-            @sel_strat_combobox.model.clear
+            @sel_db_treeview.model.clear            
 
             @last_server = @server_entry.text
             @last_port = @port_entry.text
@@ -267,14 +260,7 @@ module UI
                     end
                 end
 
-                # Add strats
-                dict.show_strat.each do |name, desc|
-                    row = @sel_strat_combobox.model.append
-
-                    row[NAME] = name
-                    row[DESC] = desc
-                end
-                @sel_strat_combobox.active = 0
+                @avail_strats = dict.show_strat.collect { |s| s[0] }
 
                 dict.disconnect
                 self.status_bar_msg = ""
@@ -302,16 +288,6 @@ module UI
                 # Selected dbs
                 if !@hash[:all_dbs]
                     @sel_db_radiobutton.active = true
-                end
-
-                # Selected strategy
-                n = 0
-                @sel_strat_combobox.model.each do |model, path, iter|
-                    if iter[NAME] == @hash[:sel_strat]
-                        @sel_strat_combobox.active = n
-                        break
-                    end
-                    n += 1
                 end
 
                 # Auth
@@ -368,11 +344,6 @@ module UI
             @sel_db_treeview.selection.signal_connect("changed") do
                 sensitize_move_up
             end
-
-            @sel_strat_combobox.model = Gtk::ListStore.new(String, String)
-            renderer = Gtk::CellRendererText.new
-            @sel_strat_combobox.pack_start(renderer, true)
-            @sel_strat_combobox.set_attributes(renderer, :text => DESC)
 
             @server_entry.text = "dict.org"
             @port_entry.text = DICTClient::DEFAULT_PORT.to_s

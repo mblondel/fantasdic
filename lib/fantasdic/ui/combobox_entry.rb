@@ -1,5 +1,5 @@
 # Fantasdic
-# Copyright (C) 2006 Mathieu Blondel
+# Copyright (C) 2007 Mathieu Blondel
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,38 +18,49 @@
 module Fantasdic
 module UI
 
-    class HistoryListView < Gtk::TreeView
+    class ComboBoxEntry < Gtk::ComboBoxEntry
         include GetText
         GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
         module Column
-            SEARCH_HASH = 0
+            STRING = 0
+            SEARCH_HASH = 1
         end
-        
-        def initialize
-            super()
-            self.model = Gtk::ListStore.new(Hash)
-            self.headers_visible = false
-            self.rules_hint = true
-            
-            @prefs = Preferences.instance
-            
-            renderer = Gtk::CellRendererText.new
-            col = Gtk::TreeViewColumn.new("Searched word", renderer)
-            
-            col.set_cell_data_func(renderer) do |col, renderer, model, iter|
-                text = iter[Column::SEARCH_HASH][:word]
-                text = text.utf8_slice(0..20) + "..." if text.utf8_length > 20
-                renderer.text = text
-            end
-            append_column(col)
-            
-            # Resize the history when a row is deleted
-            model.signal_connect("row-deleted") { self.columns_autosize }
 
-            show_all
-        end   
-        
+        def initialize
+            super
+            @prefs = Preferences.instance
+
+            self.model = Gtk::ListStore.new(String, Hash)
+            self.clear
+
+            renderer = Gtk::CellRendererText.new
+            self.pack_start(renderer, true)
+
+            self.set_cell_data_func(renderer) do |cel, renderer, model, iter|
+                if iter[Column::SEARCH_HASH]
+                    text = iter[Column::SEARCH_HASH][:word]
+                    renderer.text = text
+                end
+            end
+
+            renderer = Gtk::CellRendererText.new
+            renderer.foreground = "grey"
+            renderer.size_points = 8
+            self.pack_start(renderer, false)
+
+            self.set_cell_data_func(renderer) do |cel, renderer, model, iter|
+                if iter[Column::SEARCH_HASH]
+                    search = iter[Column::SEARCH_HASH]
+                    text = search[:strategy] ? search[:strategy] : "define"
+                    text += ", " + iter[Column::SEARCH_HASH][:dictionary]
+                    renderer.text = text
+                end
+            end
+
+            self.show_all
+        end
+
         def selected_search
             self.selected_iter[Column::SEARCH_HASH]
         end
@@ -63,12 +74,14 @@ module UI
                
         def prepend_search(search)
             search_iter = self.model.prepend()
+            search_iter[Column::STRING] = search[:word]
             search_iter[Column::SEARCH_HASH] = search
             search_iter
         end
         
         def append_search(search)
             search_iter = self.model.append()
+            search_iter[Column::STRING] = search[:word]
             search_iter[Column::SEARCH_HASH] = search
             search_iter
         end
@@ -79,17 +92,10 @@ module UI
             
             search_iter = prepend_search(search) if search_iter.nil?
             
-            # Select the word if it is not currently selected
-            if selected_iter != search_iter
-                self.selection.select_iter(search_iter)
-            end
-            
             # Delete a word if needed
             if self.model.nb_rows > @prefs.history_nb_rows
                 self.model.remove_last
             end
-            
-            self.unselect_all
         end
     end
 

@@ -29,18 +29,22 @@ module UI
         include GetText
         GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
+        module Action
+            DEFINE = 0
+            MATCH = 1
+            DEFINE_MATCH = 2
+        end
+
         def initialize(start_p={})
             super("main_app.glade")
-            @prefs = Preferences.instance
-
-            @pages_seen = []
-            @current_page = 0
+            @prefs = Preferences.instance            
 
             @start_p = start_p
 
             @main_app.hide
             initialize_ui
             initialize_signals
+            clear_pages_seen
             load_preferences
             @main_app.show
 
@@ -48,6 +52,7 @@ module UI
         end
 
         def lookup(p)
+            # Kill previous thread if still alive
             @global_actions["Stop"].activate \
                 if @lookup_thread and @lookup_thread.alive?
 
@@ -58,27 +63,29 @@ module UI
    
                 @search_entry.text = p[:word]
                 @buf = @result_text_view.buffer
-                @buf.clear                
+                @buf.clear          
     
-                if @prefs.dictionaries.length == 0
+                if @dictionary_cb.model.nb_rows == 0
                     msg = _("No dictionary configured")
                     self.status_bar_msg = msg
                     @buf.insert_header(msg + "\n")
                     Thread.current.kill
                 end
-    
+                    
                 if p[:dictionary]
                     self.selected_dictionary = p[:dictionary]
                 else 
                     p[:dictionary] = selected_dictionary
                 end
-    
-                self.selected_strategy = p[:strategy]
-                p.delete(:strategy) if ["define", "exact"].include? p[:strategy]
-    
+
+                unless p[:action] == Action::DEFINE_MATCH
+                    self.selected_strategy = p[:strategy]
+                end
+
                 infos = @prefs.dictionaries_infos[p[:dictionary]]
                 @global_actions["Stop"].visible = true
 
+                # Get connection
                 begin
                     # This error is raised when a word is searched
                     # through the history while the associated dictionary
@@ -104,29 +111,45 @@ module UI
                     Thread.current.kill
                 end
 
-                # Display definitions
-                unless p[:strategy]
+                if p[:strategy] and \
+                    not ["define", "exact"].include? p[:strategy]
+                    # Search with match strategy.
+                    @matches_listview.model.clear
+
+                    matches = match(dict, p)
+
+                    insert_matches(matches)
+
+                    if matches.length > 0
+                        @matches_listview.select_first
+                        @global_actions["MatchesSidepane"].active = true
+                    else
+                        @global_actions["MatchesSidepane"].active = false
+                    end
+
+                    @search_cb_entry.update(p)
+
+                    disable_print
+
+                    clear_pages_seen
+                else
+                    # Define
+                    unless p[:action] == Action::DEFINE_MATCH
+                        @search_cb_entry.update(p)
+                        @global_actions["MatchesSidepane"].active = false
+                    else
+                        @global_actions["MatchesSidepane"].active = true
+                        @matches_listview.select_match(p[:word])
+                    end
+
                     definitions = define(dict, p)
                     insert_definitions(definitions)
 
-                    @last_definitions = definitions
                     enable_print unless definitions.empty?
-                else
-                    @last_definitions = nil
-                    disable_print
-                end
-                
-                # Search with match strategy.                
-                if p[:strategy]
-                    p[:strategy] = infos[:sel_strat] unless p.has_key? :strategy
-                    matches = match(dict, p)
-                    insert_matches(matches)
-                end
-    
-                # Update history and pages seen
-                update_pages_seen(p)
-                @history_listview.update(p)
-    
+
+                    update_pages_seen(p)
+                end                
+
                 @global_actions["Stop"].visible = false
 
             end # Thread
@@ -157,11 +180,11 @@ module UI
 
             # Status bar
             if definitions.empty?
-                msg = _("No match found.")
+                msg = _("No definition found.")
                 self.status_bar_msg = msg
                 @buf.insert_header(msg)
             else
-                self.status_bar_msg = _("Matches found: %d.") %
+                self.status_bar_msg = _("Definitions found: %d.") %
                             definitions.length
             end
         end
@@ -186,14 +209,19 @@ module UI
         def insert_matches(matches)
             @buf.clear            
 
-           if matches.length > 0
+            if matches.length > 0
                 nb_match = 0
                 matches.each { |db, w| nb_match += w.length }
 
-                msg = _("Matches found: %d.") % nb_match
-                self.status_bar_msg = msg
+                self.status_bar_msg = ""
 
-                @buf.insert_matches(matches)
+                if nb_match == 1
+                    @matches_label.text = _("1 match")
+                elsif nb_match > 0
+                    @matches_label.text = _("%d matches") % nb_match
+                end
+
+                @matches_listview.append_matches(matches)
             else
                 msg = _("No match found.")
                 @buf.insert_header(msg)
@@ -248,13 +276,12 @@ module UI
             
             @global_actions["Statusbar"].active = @prefs.view_statusbar
             @global_actions["Toolbar"].active = @prefs.view_toolbar
-            @global_actions["History"].active = @prefs.view_history
-            @sidepane.position = @prefs.sidepane_position
+            @matches_sidepane.position = @prefs.sidepane_position
         end
 
         def load_last_searches
             @prefs.last_searches.each do |search|
-                @history_listview.append_search(search)
+                @search_cb_entry.append_search(search)
             end
             
             unless @prefs.last_search.nil? or @prefs.lookup_at_start.nil? or \
@@ -287,18 +314,29 @@ module UI
             end
         end
 
+        def load_dictionary_preferences
+            if @prefs.selected_dictionary
+                self.selected_dictionary = @prefs.selected_dictionary
+            end
+
+            dic = @prefs.dictionaries_infos[selected_dictionary]
+            if dic and dic[:sel_strat]
+                self.selected_strategy = dic[:sel_strat]
+            end
+        end
+
         def load_preferences            
             load_window_preferences
             load_textview_preferences
             load_print_preferences if SUPPORTS_PRINT
+            load_dictionary_preferences
             load_last_searches
         end
 
         def save_window_preferences
             @prefs.view_statusbar = @global_actions["Statusbar"].active?
             @prefs.view_toolbar = @global_actions["Toolbar"].active?
-            @prefs.view_history = @global_actions["History"].active?
-            @prefs.sidepane_position = @sidepane.position
+            @prefs.sidepane_position = @matches_sidepane.position
             @prefs.window_maximized = @maximized
             @prefs.window_size = @main_app.size
             @prefs.window_position = @main_app.position
@@ -306,9 +344,9 @@ module UI
 
         def save_last_searches
             @prefs.last_searches = []
-            @history_listview.model.each do |model, path, iter|
+            @search_cb_entry.model.each do |model, path, iter|
                 @prefs.last_searches <<
-                    iter[HistoryListView::Column::SEARCH_HASH]
+                    iter[ComboBoxEntry::Column::SEARCH_HASH]
             end
             @prefs.last_search = @pages_seen[@current_page]
         end
@@ -327,10 +365,15 @@ module UI
             @prefs.print_settings = @print_settings.to_a if @print_settings
         end
 
+        def save_dictionary_preferences
+            @prefs.selected_dictionary = selected_dictionary
+        end
+
         def save_preferences
             save_textview_preferences
             save_window_preferences
             save_last_searches
+            save_dictionary_preferences
             save_print_preferences if SUPPORTS_PRINT
             @prefs.save!
         end
@@ -340,21 +383,32 @@ module UI
         def update_strategy_cb
             @strategy_cb.model.clear
             infos = @prefs.dictionaries_infos[selected_dictionary]
-            
-            strats = ["define"]
-            strats += infos[:avail_strats] unless infos[:avail_strats].nil?
-            
-            strats.each do |strat|
-                row = @strategy_cb.model.append
-                row[0] = strat
-            end
 
-            @strategy_cb.active = 0
+            if infos
+                @strategy_cb.sensitive = true
+                strats = ["define"]
+                strats += infos[:avail_strats] unless infos[:avail_strats].nil?
+                
+                strats.each do |strat|
+                    unless strat == "exact" # exact is the same as define
+                        row = @strategy_cb.model.append
+                        row[0] = strat
+                    end
+                end
+
+                if infos[:sel_strat]
+                    self.selected_strategy = infos[:sel_strat]
+                else
+                    self.selected_strategy = "define"
+                end
+            else
+                @strategy_cb.sensitive = false
+            end
         end
 
         def selected_strategy
             n = @strategy_cb.active
-            @strategy_cb.model.get_iter(n.to_s)[0]
+            @strategy_cb.model.get_iter(n.to_s)[0] if n >= 0                
         end
 
         def selected_strategy=(strat)
@@ -445,6 +499,12 @@ module UI
 
         # Go back / forward
 
+        def clear_pages_seen
+            @pages_seen = []
+            @current_page = 0
+            sensitize_go_buttons
+        end
+
         def update_pages_seen(search_hash)
             if @pages_seen.empty? or @pages_seen[@current_page] != search_hash
                 @current_page += 1 unless @pages_seen.length == 0
@@ -458,7 +518,8 @@ module UI
             @global_actions["GoBack"].sensitive = \
                 (@current_page == 0) ? false : true
             @global_actions["GoForward"].sensitive = \
-                (@current_page == @pages_seen.length - 1) ? false : true
+                (@pages_seen.length == 0 or
+                 @current_page == @pages_seen.length - 1) ? false : true
         end
 
         # Print
@@ -507,6 +568,7 @@ module UI
             @main_app.icon = Icon::LOGO_SMALL
 
             # Entry
+            @search_entry = @search_cb_entry.child
             @search_entry.grab_focus
 
             # Dictionary combobox
@@ -519,6 +581,9 @@ module UI
 
             # Result text view (instance created by glade)
             @result_text_view.buffer.scrolled_window = @result_sw
+
+            # Sidepane
+            @matches_sidepane.child1.visible = false
 
             # Global actions
 
@@ -565,7 +630,7 @@ module UI
 
             on_print = Proc.new do
                 @print = Print.new(@main_app, @search_entry.text,
-                                   @last_definitions)
+                                   @result_text_view.buffer.definitions)
 
                 @print.default_page_setup = @page_setup if @page_setup
                 @print.print_settings = @print_settings if @print_settings
@@ -577,7 +642,7 @@ module UI
 
             on_print_preview = Proc.new do
                 @print = Print.new(@main_app, @search_entry.text,
-                                   @last_definitions)
+                                   @result_text_view.buffer.definitions)
 
                 @print.default_page_setup = @page_setup if @page_setup
 
@@ -593,10 +658,6 @@ module UI
             end
 
             # Edit
-
-            on_clear_history = Proc.new do
-                @history_listview.model.clear
-            end
 
             on_copy = Proc.new do
                clipboard = Gtk::Clipboard.get(Gdk::Selection::CLIPBOARD)
@@ -640,6 +701,7 @@ module UI
                     # This block is called when the dialog is closed
                     @prefs.save!
                     update_dictionary_cb
+                    update_strategy_cb
                 end
             end
 
@@ -707,8 +769,6 @@ module UI
                  on_find_next],
                 ["FindPrevious", nil, _("Find Pre_vious"), "<ctrl><shift>G",
                  nil, on_find_prev],
-                ["ClearHistory", Gtk::Stock::CLEAR, _("Clear history"), nil,
-                 nil, on_clear_history],
                 ["Preferences", Gtk::Stock::PREFERENCES, nil, nil, nil,
                  on_preferences],
 
@@ -758,11 +818,10 @@ module UI
                     @scan_thread.kill
                 end
             end
-            
-            on_toggle_history = Proc.new do
-                @sidepane.child1.visible = \
-                    @global_actions["ClearHistory"].visible = \
-                    @global_actions["History"].active?
+
+            on_toggle_matches_sidepane = Proc.new do
+                @matches_sidepane.child1.visible = \
+                    @global_actions["MatchesSidepane"].active?
             end
             
             on_toggle_statusbar = Proc.new do
@@ -777,8 +836,8 @@ module UI
             toggle_actions = [
                 ["ScanClipboard", nil, _("Scan clipboard"), nil, nil,
                  on_toggle_scan_clipboard, false],
-                ["History", nil, _("_History"), "F9", nil, on_toggle_history,
-                 true],
+                ["MatchesSidepane", nil, _("_Matches"), "F9", nil,
+                 on_toggle_matches_sidepane, false],
                 ["Statusbar", nil, _("_Statusbar"), nil, nil,
                  on_toggle_statusbar, true],
                 ["Toolbar", nil, _("_Toolbar"), nil, nil, on_toggle_toolbar,
@@ -816,7 +875,6 @@ module UI
             @main_app.child.reorder_child(@toolbar, 1)
 
             @statusicon_popup = @uimanager.get_widget("/StatusIconPopup")
-            @clear_history_popup = @uimanager.get_widget("/ClearHistoryPopup")
 
             disable_print_if_unsupported
         end
@@ -830,16 +888,21 @@ module UI
                        :word => @search_entry.text)
             end
 
-            @history_listview.selection.signal_connect("changed") do
-                # Search from history
-                if @history_listview.has_row_selected?
-                    search = @history_listview.selected_search
-                    
-                    if @pages_seen.empty? or                    
-                        @pages_seen[@current_page] != search
-                        lookup(search)
+            @matches_listview.selection.signal_connect("changed") do
+                if @matches_listview.has_row_selected?
+                    match = @matches_listview.selected_match
+                    if @pages_seen.empty? or
+                       @pages_seen[@current_page][:word] != match
+                        Thread.new do
+                            @lookup_thread.join \
+                                if @lookup_thread and @lookup_thread.alive?
+
+                            lookup(:dictionary => selected_dictionary,
+                                   :word => match,
+                                   :action => Action::DEFINE_MATCH)
+                        end
                     end
-                end    
+                end
             end
 
             @on_delete_event_proc = Proc.new do
@@ -881,10 +944,6 @@ module UI
                 end
             end if SUPPORTS_IPC
 
-            @dictionary_cb.signal_connect("changed") do
-                update_strategy_cb
-            end
-
             @result_text_view.signal_connect("link_clicked") do
                 |w, db, word, event|
                 lookup(:dictionary => selected_dictionary,
@@ -921,17 +980,35 @@ module UI
                 @find_pane.visible = false
             end
 
-            @history_listview.signal_connect("button_press_event") do |w, ev|
-                if ev.kind_of? Gdk::EventButton and ev.button == 3
-                    @clear_history_popup.popup(nil, nil, ev.button,
-                                              ev.time)
-                end
-            end
-
             @main_app.signal_connect("window-state-event") do |w, e|
                 if e.is_a?(Gdk::EventWindowState)
                     @maximized = \
                         e.new_window_state == Gdk::EventWindowState::MAXIMIZED 
+                end
+            end
+
+            @sidepane_close_button.signal_connect("clicked") do
+                @global_actions["MatchesSidepane"].active = false
+            end
+
+            @dictionary_cb.signal_connect("changed") do
+                # Update the cb with the available strats
+                update_strategy_cb
+            end
+
+            @strategy_cb.signal_connect("changed") do
+                # Save strategy
+                dic = @prefs.dictionaries_infos[selected_dictionary]
+                if dic
+                    dic[:sel_strat] = selected_strategy
+                end
+            end
+
+            @search_cb_entry.signal_connect("changed") do
+                iter = @search_cb_entry.active_iter
+                if iter
+                    search = iter[ComboBoxEntry::Column::SEARCH_HASH]
+                    lookup(search)
                 end
             end
 

@@ -83,7 +83,7 @@ module UI
         DEFAULT_FONT = Pango::FontDescription.new("")
         DEFAULT_FONT.size = DEFAULT_FONT_SIZE
 
-        attr_accessor :scrolled_window
+        attr_accessor :scrolled_window, :definitions
 
         def initialize
             super
@@ -133,6 +133,8 @@ module UI
         end
 
         def insert_link(database, word)
+            # Removes bad chars that may appear in links
+            word = word.gsub(/(\n|\r)/, "").gsub(/(\s)+/, " ")
             @entries << [LINK, word, database]
             text_tag = self.tag_table.lookup("text")
             tag = create_tag(nil,

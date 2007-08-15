@@ -22,7 +22,11 @@
         <toolitem action="GoBack"/>
         <toolitem action="GoForward"/>
         <separator/>
-        <toolitem action="Search"/>
+        <toolitem action="Search"/>        
+        <separator/>
+        <toolitem action="Save"/>
+        <toolitem action="Print"/>
+        <separator/>
         <toolitem action="Stop"/>
     </toolbar>
 </ui>

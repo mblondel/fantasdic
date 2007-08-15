@@ -13,7 +13,7 @@ dictionaries_infos:
   English:
     :auth: false
     :port: "2628"
-    :sel_strat: lev
+    :sel_strat: define
     :all_dbs: false
     :server: dict.org
     :selected: 1
@@ -37,7 +37,7 @@ dictionaries_infos:
   English <-> French:
     :auth: false
     :port: "2628"
-    :sel_strat: lev
+    :sel_strat: define
     :all_dbs: false
     :server: dict.org
     :selected: 1

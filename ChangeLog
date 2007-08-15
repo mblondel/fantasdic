@@ -1,3 +1,32 @@
+2007-08-15 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui.rb: Require new files lib/fantasdic/ui/combobox_entry.rb
+    and lib/fantasdic/ui/matches_listview.rb, remove
+    lib/fantasdic/ui/history_list_view.rb.
+    * lib/fantasdic/ui/history_list_view.rb: Deleted.
+    * lib/fantasdic/ui/combobox_entry.rb: Added. History moved here.
+    * lib/fantasdic/ui/matches_listview.rb: Added. Matches results moved here.
+    * lib/fantasdic/utils.rb: Utils to use Arrays as queues.
+    * lib/fantasdic/ui/preferences_dialog.rb: Adds a dictionary icon to the
+    "dictionaries" tab.
+    * lib/fantasdic/ui/main_app.rb: History now uses a ComboBoxEntry and
+    matches are listed in a TreeView. This seems to be much more convenient. 
+    Yay!
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: The combobox to select the
+    default strategy of a dictionary was removed. Instead, the last selected
+    strategy is saved for each dictionary before the application quits.
+    * lib/fantasdic/ui/result_text_view.rb: Fixes a problem when links are
+    wrapped.
+    * data/fantasdic/config/default.yaml: Set "define" as the default strategy.
+    * data/fantasdic/glade/main_app.glade: Updated to include the combobox and
+    the matches list.
+    * data/fantasdic/glade/add_dictionary_dialog.glade: Added fancy icons to
+    tabs.
+    * data/fantasdic/glade/preferences_dialog.glade: Likewise.
+    * data/fantasdic/ui/toolbar.xml: Added "print" and "save" to the toolbar.
+    * data/fantasdic/ui/popups.xml: Removed the clear history pop-up.
+    * data/fantasdic/ui/menus.xml: Replaced History by MatchesSidepane.
+
 2007-08-11 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/preferences.rb: Some code to detect which browser to use.

@@ -49,7 +49,7 @@
                 <menuitem action="ZoomNormal"/>
             </menu>
             <separator/>
-            <menuitem action="History"/>
+            <menuitem action="MatchesSidepane"/>
             <menuitem action="Statusbar"/>
             <menuitem action="Toolbar"/>
         </menu>
