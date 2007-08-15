@@ -1,5 +1,14 @@
 2007-08-16 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic/ui/preferences_dialog.rb:
+    * lib/fantasdic/ui/main_app.rb:
+    * data/fantasdic/config/default.yaml:
+    * data/fantasdic/glade/preferences_dialog.glade:
+    Added dont_show_at_startup option. This option is going to be useful for
+    users who want Fantasdic to be started when the computer boots.
+
+2007-08-16 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/ui/main_app.rb: Clear history menu item.
     * data/fantasdic/ui/menus.xml: Likewise.
 

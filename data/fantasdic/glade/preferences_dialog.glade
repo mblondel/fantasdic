@@ -138,6 +138,7 @@
                   <widget class="GtkImage" id="dictionaries_nb_image">
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                    <property name="stock">gtk-missing-image</property>
                   </widget>
                 </child>
                 <child>
@@ -350,7 +351,7 @@
                       <widget class="GtkLabel" id="label15">
                         <property name="visible">True</property>
                         <property name="xalign">0</property>
-                        <property name="label" translatable="yes">&lt;b&gt;Tray&lt;/b&gt;</property>
+                        <property name="label" translatable="yes">&lt;b&gt;System tray&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
                       </widget>
                       <packing>
@@ -370,7 +371,7 @@
                               <widget class="GtkCheckButton" id="show_in_tray_checkbutton">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="label" translatable="yes">_Show Fantasdic in tray</property>
+                                <property name="label" translatable="yes">_Show Fantasdic in system tray</property>
                                 <property name="use_underline">True</property>
                                 <property name="response_id">0</property>
                                 <property name="active">True</property>
@@ -392,6 +393,7 @@
                               <widget class="GtkCheckButton" id="dont_quit_checkbutton">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
+                                <property name="tooltip" translatable="yes">Fantasdic will stay in the system tray even if the window is closed.</property>
                                 <property name="label" translatable="yes">Do _not quit when main window is closed</property>
                                 <property name="use_underline">True</property>
                                 <property name="response_id">0</property>
@@ -405,6 +407,30 @@
                             <property name="expand">False</property>
                             <property name="fill">False</property>
                             <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkAlignment" id="alignment2">
+                            <property name="visible">True</property>
+                            <property name="left_padding">20</property>
+                            <child>
+                              <widget class="GtkCheckButton" id="dont_show_at_startup_checkbutton">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="tooltip" translatable="yes">This option should be enabled if Fantasdic is started when the computer boots.</property>
+                                <property name="label" translatable="yes">Do not show main window at startup</property>
+                                <property name="use_underline">True</property>
+                                <property name="response_id">0</property>
+                                <property name="active">True</property>
+                                <property name="draw_indicator">True</property>
+                                <signal name="toggled" handler="on_dont_show_at_startup_checkbutton_toggled"/>
+                              </widget>
+                            </child>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">2</property>
                           </packing>
                         </child>
                       </widget>

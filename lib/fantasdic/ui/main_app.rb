@@ -46,7 +46,7 @@ module UI
             initialize_signals
             clear_pages_seen
             load_preferences
-            @main_app.show
+            @main_app.show unless @prefs.dont_show_at_startup
 
             lookup(@start_p) unless @start_p.empty?
         end

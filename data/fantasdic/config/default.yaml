@@ -65,6 +65,7 @@ view_statusbar: true
 view_history: true
 show_in_tray: true
 dont_quit: true
+dont_show_at_startup: false
 dictionaries:
 - English
 - English <-> French
