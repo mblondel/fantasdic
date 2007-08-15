@@ -60,6 +60,18 @@ class DICTClient
 
     DEFAULT_PORT = 2628
 
+    STRATEGIES_DESC = {
+        "define" => "Results match with the word exactly.",
+        "prefix" => "Results match with the beginning of the word.",
+        "soundex" => "Results have a similar pronunciation.",
+        "regexp" => "Results match with the regular expression.",
+        "word" => "Results have one word that match with the word.",
+        "substring" => "Results have a portion that contains the word.",
+        "lev" => "Results match with the word, using the Levenshtein " + \
+                 "distance algorithm.",
+        "suffix" => "Results match with the end of the word."
+    }
+
     class ConnectionError < RuntimeError
     end
 

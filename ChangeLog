@@ -1,5 +1,9 @@
 2007-08-15 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic/dict.rb: Added strategies description.
+
+2007-08-15 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/ui.rb: Require new files lib/fantasdic/ui/combobox_entry.rb
     and lib/fantasdic/ui/matches_listview.rb, remove
     lib/fantasdic/ui/history_list_view.rb.
