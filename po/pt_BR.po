@@ -1,14 +1,14 @@
 # Brazilian Portuguese translation of fantasdic.
 # Copyright (C) 2006 Free Software Foundation, Inc.
-# Raphael Higino <raphaelh@uai.com.br>, 2006.
+# Alexandre Cavedon <alexandre.cavedon@gmail.com>, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-12 17:02-0300\n"
-"PO-Revision-Date: 2006-03-12 17:12-0300\n"
-"Last-Translator: Raphael Higino <raphaelh@uai.com.br>\n"
+"PO-Revision-Date: 2007-08-15 16:38-0300\n"
+"Last-Translator: Alexandre Cavedon <alexandre.cavedon@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,7 +40,7 @@ msgstr "Não encontrado"
 #: ../lib/fantasdic/ui/main_app.rb:134
 #, c-format
 msgid "Matches found for \"%s\": %d."
-msgstr ""
+msgstr "Resultados encontrados para \"%s\": %d."
 
 #: ../lib/fantasdic/ui/main_app.rb:159
 msgid "Suggested results:"
@@ -131,7 +131,7 @@ msgstr "Buscar nos bancos de _dados selecionados abaixo"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
 msgid "Server _requires authentication"
-msgstr ""
+msgstr "O Servidor _requer autenticação"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
 msgid "_Name:"
