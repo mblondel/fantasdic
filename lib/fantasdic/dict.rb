@@ -126,7 +126,7 @@ class DICTClient
                 @@connections[key].auth(login, password)
             end
         end
-        @@current_connection = @@connections[key]
+        @@current_connection = @@connections[key]        
         @@connections[key]
     end
 
@@ -140,7 +140,12 @@ class DICTClient
         @password = ""
 
         begin
-            @sock = TCPSocket.open(host, port)
+            if ENV['SOCKS_SERVER']
+                klass = Net::SOCKSSocket
+            else
+                klass = TCPSocket
+            end
+            @sock = klass.open(host, port)
         rescue => e
             raise ConnectionError, e.to_s
         end
@@ -274,7 +279,7 @@ class DICTClient
         begin
             exec_cmd('QUIT')        
             @sock.close
-        rescue ConnectionLost
+        rescue ConnectionLost, Errno::EPIPE
             # connection already closed by server
         end
         @@connections.delete([@host, @port, @login, @password])
