@@ -142,17 +142,17 @@ module UI
                     clear_pages_seen
                 else
                     # Define
-                    unless p[:action] == Action::DEFINE_MATCH
-                        @search_cb_entry.update(p)
-                        @global_actions["MatchesSidepane"].active = false
-                    else
-                        @global_actions["MatchesSidepane"].active = true
-                        @matches_listview.select_match(p[:word])
-                    end
-
                     begin
                         definitions = define(dict, p)
                         insert_definitions(definitions)
+
+                        unless p[:action] == Action::DEFINE_MATCH
+                            @search_cb_entry.update(p)
+                            @global_actions["MatchesSidepane"].active = false
+                        else
+                            @global_actions["MatchesSidepane"].active = true
+                            @matches_listview.select_match(p[:word])
+                        end
 
                         enable_print unless definitions.empty?
 
