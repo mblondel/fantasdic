@@ -112,12 +112,7 @@ module UI
                     end
 
                 rescue DICTClient::ConnectionError, Errno::ECONNRESET => e
-                    error = _("Can't connect to server")
-                    @buf.insert_header(error + "\n")
-                    @buf.insert_text(e.to_s)
-                    self.status_bar_msg = error
-                    @global_actions["Stop"].visible = false
-                    Thread.current.kill
+                    cant_connect_to_server(e)
                 end
 
                 if p[:strategy] and \
@@ -125,18 +120,22 @@ module UI
                     # Search with match strategy.
                     @matches_listview.model.clear
 
-                    matches = match(dict, p)
+                    begin
+                        matches = match(dict, p)
+                        insert_matches(matches)
 
-                    insert_matches(matches)
+                        if matches.length > 0
+                            @matches_listview.select_first
+                            @global_actions["MatchesSidepane"].active = true
+                        else
+                            @global_actions["MatchesSidepane"].active = false
+                        end
 
-                    if matches.length > 0
-                        @matches_listview.select_first
-                        @global_actions["MatchesSidepane"].active = true
-                    else
-                        @global_actions["MatchesSidepane"].active = false
-                    end
-
-                    @search_cb_entry.update(p)
+                        @search_cb_entry.update(p)
+                    rescue DICTClient::ConnectionLost, Errno::EPIPE
+                        e = _("Connection with server lost.")
+                        cant_connect_to_server(e)
+                    end                    
 
                     disable_print
 
@@ -151,12 +150,17 @@ module UI
                         @matches_listview.select_match(p[:word])
                     end
 
-                    definitions = define(dict, p)
-                    insert_definitions(definitions)
+                    begin
+                        definitions = define(dict, p)
+                        insert_definitions(definitions)
 
-                    enable_print unless definitions.empty?
+                        enable_print unless definitions.empty?
 
-                    update_pages_seen(p)
+                        update_pages_seen(p)
+                    rescue DICTClient::ConnectionLost, Errno::EPIPE
+                        e = _("Connection with server lost.")
+                        cant_connect_to_server(e)
+                    end                           
                 end                
 
                 @global_actions["Stop"].visible = false
@@ -165,6 +169,16 @@ module UI
         end
    
         private
+
+        def cant_connect_to_server(e)
+            error = _("Can't connect to server")
+            @buf.insert_header(error + "\n")
+            @buf.insert_text(e.to_s)
+            self.status_bar_msg = error
+            @global_actions["Stop"].visible = false
+            DICTClient.close_all_connections
+            Thread.current.kill
+        end
 
         def define(dict, p)
             infos = @prefs.dictionaries_infos[p[:dictionary]]
@@ -334,11 +348,29 @@ module UI
             end
         end
 
+        def load_proxy_preferences
+            if @prefs.enable_proxy
+                if @prefs.proxy_host and @prefs.proxy_port
+                    ENV['SOCKS_SERVER'] = "%s:%s" % [@prefs.proxy_host,
+                                                    @prefs.proxy_port]
+                end
+                if @prefs.proxy_user and @prefs.proxy_password
+                    ENV['SOCKS_USER'] = @prefs.proxy_user
+                    ENV['SOCKS_PASSWORD'] = @prefs.proxy_password
+                end
+            else
+                ['SOCKS_SERVER', 'SOCKS_USER', 'SOCKS_PASSWORD'].each do |k|
+                    ENV.delete(k)
+                end
+            end
+        end
+
         def load_preferences            
             load_window_preferences
             load_textview_preferences
             load_print_preferences if SUPPORTS_PRINT
             load_dictionary_preferences
+            load_proxy_preferences
             load_last_searches
         end
 
@@ -712,10 +744,12 @@ module UI
                 PreferencesDialog.new(@main_app,
                                       @statusicon,
                                       @result_text_view) do
-                    # This block is called when the dialog is closed       
+                    # This block is called when the dialog is closed
+                    DICTClient.close_all_connections  
                     update_dictionary_cb
                     update_strategy_cb
                     load_dictionary_preferences
+                    load_proxy_preferences
                     @prefs.save!
                 end
             end

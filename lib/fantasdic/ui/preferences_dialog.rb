@@ -42,6 +42,12 @@ module UI
         end
         
         def on_preferences_close
+            @prefs.enable_proxy = @enable_proxy_checkbutton.active?
+            @prefs.proxy_host = @proxy_host_entry.text
+            @prefs.proxy_port = @proxy_port_entry.text
+            @prefs.proxy_username = @proxy_username_entry.text
+            @prefs.proxy_password = @proxy_password_entry.text
+
             @callback_proc.call
             @preferences_dialog.destroy
         end
@@ -100,6 +106,10 @@ module UI
             sensitize_buttons
             # down graphically = up in the array
             @prefs.dictionary_up(name)
+        end
+
+        def on_enable_proxy_checkbutton_toggled
+            @proxy_settings_table.sensitive = @enable_proxy_checkbutton.active?
         end
 
         def update_dic_list
@@ -175,6 +185,17 @@ module UI
 
             @print_fontbutton.font_name = @prefs.print_font_name \
                 if @prefs.print_font_name
+
+            @enable_proxy_checkbutton.active = @prefs.enable_proxy
+            @proxy_settings_table.sensitive = @prefs.enable_proxy
+
+            [[@proxy_host_entry, @prefs.proxy_host],
+             [@proxy_port_entry, @prefs.proxy_port],
+             [@proxy_username_entry, @prefs.proxy_username],
+             [@proxy_password_entry, @prefs.proxy_password]
+            ].each do |entry,pref|
+                entry.text = pref if pref and !pref.strip.empty?
+            end
 
             @list_store = Gtk::ListStore.new(Fixnum,String)
                         

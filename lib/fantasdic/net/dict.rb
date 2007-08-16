@@ -279,7 +279,7 @@ class DICTClient
         begin
             exec_cmd('QUIT')        
             @sock.close
-        rescue ConnectionLost, Errno::EPIPE
+        rescue
             # connection already closed by server
         end
         @@connections.delete([@host, @port, @login, @password])
