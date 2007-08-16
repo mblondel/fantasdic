@@ -504,6 +504,7 @@
                       <widget class="GtkCheckButton" id="enable_proxy_checkbutton">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
+                        <property name="tooltip" translatable="yes">This proxy can for example be used to traverse firewalls.</property>
                         <property name="label" translatable="yes">Enable proxy</property>
                         <property name="use_underline">True</property>
                         <property name="response_id">0</property>
