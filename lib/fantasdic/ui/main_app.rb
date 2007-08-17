@@ -998,7 +998,7 @@ module UI
             @result_text_view.signal_connect("link_clicked") do
                 |w, db, word, event|
                 lookup(:dictionary => selected_dictionary,
-                       :word => word, :database => db)
+                       :word => word, :strategy => "define")
             end
 
             @result_text_view.signal_connect("button_press_event") do |w, ev|
