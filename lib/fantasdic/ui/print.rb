@@ -171,8 +171,8 @@ class Print < Gtk::PrintOperation
         @page_layouts.last.each do |layout|
             n_empty += 1 if layout.text.strip.empty?
         end
-        @page_layouts.pop if @page_layouts.length == n_empty
-
+        @page_layouts.pop if @page_layouts.last.length == n_empty
+        
         @page_layouts.length
     end
 
