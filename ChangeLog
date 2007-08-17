@@ -12,7 +12,7 @@
 2007-08-16 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/dict.rb: Moved to lib/fantasdic/net/dict.rb.
-    * lib/fantasdic/net/sockssocket.rb: Supports for SOCKS 5 by Ryota Tokiwa.
+    * lib/fantasdic/net/sockssocket.rb: SOCKS 5 library by Ryota Tokiwa.
     The library was imported to the source tree for convenience.
     * lib/fantasdic/ui/preferences_dialog.rb: Proxy tab.
     * lib/fantasdic/ui/main_app.rb: Load proxy. Don't crash if connection was
