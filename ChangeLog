@@ -1,7 +1,7 @@
 2007-08-17 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb: When a link is clicked, search all
-    databases selected instead on the database the link belong to. This makes
+    databases selected instead of the database the link belong to. This makes
     more sense since Fantasdic uses the concept of "virtual" dictionary.
 
 2007-08-17 Mathieu Blondel <mblondel@cvs.gnome.org>
