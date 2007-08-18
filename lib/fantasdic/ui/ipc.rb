@@ -15,15 +15,78 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-if Fantasdic::WIN32
-# IPC mechanism using Ruby DRb (Distributed Ruby)
+# This file contains IPC mechanism using three possible backends:
+# - Named pipes. This uses win32/pipe from the win32-utils package. This
+#   approach is preferred on win32.
+# - DRb (Distributed Ruby). This approach is portable but its main disadvantage
+#   is that it may be blocked by the local firewall.
+# - X11. This works by creating an invisible window, setting a uniquely named
+#   atom on the root window which refers to the invisible window (so other
+#   instances can find the window) and watching for property change events
+#   on the invisible window. This approach is preferred on Unix.
+#
+# IPC is used in Fantasdic to make the application a single-instance
+# application. It is possible to pass parameters to the running instance.
 
-require "drb"
+if Fantasdic::WIN32
+
+begin
+require "win32/pipe"
+include Win32  
 
 module Fantasdic
 module UI
 module IPC
 
+    REMOTE = Fantasdic::TITLE
+
+    def self.send(pclient, uri, value)
+        pclient.write(Marshal.dump(value))
+        pclient.close
+    end
+
+    def self.find(uri)
+        begin
+            pclient = Pipe.new_client(uri)
+            #data = pclient.read # read data from server
+        rescue
+            nil
+        end
+    end    
+
+    class Instance
+
+        def initialize(uri, &block)
+            Thread.new do
+                pserver = Pipe.new_server(uri, Pipe::NOWAIT)
+                pserver.connect
+                while true
+                    ok = pserver.read
+                    if ok
+                        params = Marshal.load(pserver.buffer)
+                        block.call(params)
+                        #pserver.write("") # send data to client
+                        pserver.close
+                        pserver.connect
+                    end                    
+                    sleep 0.5
+                end                
+            end # Thread
+        end
+    end
+
+end
+end
+end
+
+rescue LoadError # win32/pipe
+  
+# IPC mechanism using Ruby DRb (Distributed Ruby)
+require "drb"
+
+module Fantasdic
+module UI
+module IPC
     # The private ports range is between 49152 and 65535
     REMOTE = 'druby://127.0.0.1:56373'
 
@@ -41,7 +104,7 @@ module IPC
         end
     end    
 
-    class Instance < Gtk::Invisible
+    class Instance
 
         def initialize(uri, &block)
             begin
@@ -56,6 +119,8 @@ module IPC
 end
 end
 end
+
+end # rescue LoadError win32/pipe
 
 else
 # IPC mechanism using X11

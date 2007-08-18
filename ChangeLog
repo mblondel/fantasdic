@@ -1,5 +1,20 @@
 2007-08-18 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic/ui/ipc.rb: Added an IPC backend using win32 named pipes
+    thanks to win32/pipe from the win32-utils package. Three backends are
+    now available:
+
+    - Named pipes. This uses win32/pipe from the win32-utils package. This
+    approach is preferred on win32.
+    - DRb (Distributed Ruby). This approach is portable but its main
+    disadvantage is that it may be blocked by the local firewall.
+    - X11. This works by creating an invisible window, setting a uniquely named
+    atom on the root window which refers to the invisible window (so other
+    instances can find the window) and watching for property change events
+    on the invisible window. This approach is preferred on Unix.
+
+2007-08-18 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/ui.rb: Renamed "win" variable to "instance". IPC now
     supported by window.
     * lib/fantasdic/ui/main_app.rb: IPC::Window renamed to IPC::Instance.
