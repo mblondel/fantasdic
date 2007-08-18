@@ -22,7 +22,6 @@ module Fantasdic
 module UI
 
     SUPPORTS_STATUS_ICON = defined? Gtk::StatusIcon
-    SUPPORTS_IPC = (not WIN32)
     SUPPORTS_PRINT = defined? Gtk::PrintOperation
 
     def self.main
@@ -32,11 +31,7 @@ module UI
 
         # Start Fantasdic normally
         # Or ask the first process to pop up the window if it exists
-        if SUPPORTS_IPC
-            win = IPC.find(IPC::REMOTE)
-        else
-            win = nil
-        end
+        instance = IPC.find(IPC::REMOTE)
 
         if ARGV.length == 2
             params = {:dictionary => ARGV[0], :strategy => options[:match],
@@ -45,9 +40,8 @@ module UI
             params = {}
         end
 
-        if win
-            IPC.send(win, IPC::REMOTE, params)
-            Gtk.main_iteration while Gtk.events_pending?
+        if instance
+            IPC.send(instance, IPC::REMOTE, params)            
         else             
             MainApp.new(params)
             Gtk.main
@@ -68,5 +62,5 @@ require 'fantasdic/ui/combobox_entry'
 require 'fantasdic/ui/matches_listview.rb'
 require 'fantasdic/ui/result_text_view'
 require 'fantasdic/ui/print' if Fantasdic::UI::SUPPORTS_PRINT
-require 'fantasdic/ui/ipc' if Fantasdic::UI::SUPPORTS_IPC
+require 'fantasdic/ui/ipc'
 require 'fantasdic/ui/main_app'

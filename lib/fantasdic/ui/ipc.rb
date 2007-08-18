@@ -15,7 +15,51 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-# Code given on the Ruby-GNOME2 ML by Geoff Youngs
+if Fantasdic::WIN32
+# IPC mechanism using Ruby DRb (Distributed Ruby)
+
+require "drb"
+
+module Fantasdic
+module UI
+module IPC
+
+    # The private ports range is between 49152 and 65535
+    REMOTE = 'druby://127.0.0.1:56373'
+
+    def self.send(block, uri, value)
+        block.call(value)
+    end
+
+    def self.find(uri)
+        begin
+            DRb.start_service       
+            block = DRbObject.new nil, uri
+            block.to_proc
+        rescue
+            nil
+        end
+    end    
+
+    class Instance < Gtk::Invisible
+
+        def initialize(uri, &block)
+            begin
+                DRb.start_service uri, block
+                Thread.new { DRb.thread.join }
+            rescue
+            end
+        end
+
+    end
+
+end
+end
+end
+
+else
+# IPC mechanism using X11
+# Code kindly provided by Geoff Youngs
 
 module Gdk
     class Window
@@ -51,7 +95,7 @@ module IPC
     MESSAGE_ARGS = "_RUBY_MARSHAL_DATA"
     REMOTE = 'FANTASDIC_IPC'
 
-    class Window < Gtk::Invisible
+    class Instance < Gtk::Invisible
 
         def initialize(atom_name,&block)
             @atom_name, @block = atom_name, block
@@ -92,6 +136,7 @@ module IPC
         window.set_string(MESSAGE_ARGS, Marshal.dump(value))
         window.set_string(name, window.xid)
         Gdk::flush()
+        Gtk.main_iteration while Gtk.events_pending?
     end
 
     def self.find(name)
@@ -120,6 +165,8 @@ module IPC
 end
 end
 end
+
+end # Fantasdic::WIN32
 
 if $0 == __FILE__
     REMOTE='_RUBY_GTK_IPC_TEST'

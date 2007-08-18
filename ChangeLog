@@ -1,5 +1,15 @@
 2007-08-18 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic/ui.rb: Renamed "win" variable to "instance". IPC now
+    supported by window.
+    * lib/fantasdic/ui/main_app.rb: IPC::Window renamed to IPC::Instance.
+    * lib/fantasdic/ui/ipc.rb: Simple IPC mechanism using DRb (Distributed
+    Ruby). This mechanism is used for Windows. IPC using X11 is kept for the
+    rest. This allows to make Fantasdic a single-instance program on Windows
+    too.
+
+2007-08-18 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * pre-setup.rb: Don't fail if there's a problem with a .po file. Just
     display a warning.
 

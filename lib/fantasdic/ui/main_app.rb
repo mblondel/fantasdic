@@ -984,7 +984,7 @@ module UI
                 end
             end if @statusicon
 
-            IPC::Window.new(IPC::REMOTE) do |p|                    
+            IPC::Instance.new(IPC::REMOTE) do |p|
                 @main_app.show
                 load_window_preferences              
 
@@ -993,7 +993,7 @@ module UI
                 unless p.empty?
                     lookup(p)
                 end
-            end if SUPPORTS_IPC
+            end
 
             @result_text_view.signal_connect("link_clicked") do
                 |w, db, word, event|
