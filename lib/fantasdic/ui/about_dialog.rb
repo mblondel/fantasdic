@@ -18,6 +18,9 @@
 module Fantasdic
 module UI
     class AboutDialog < Gtk::AboutDialog
+        include GetText
+        GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
+
         GPL = <<EOL
 Fantasdic is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License as
@@ -41,7 +44,7 @@ EOL
             if browser
                 prefs.open_url(browser, url)
             else
-                ErrorDialog.new(about, _("Could not open browser."))
+                ErrorDialog.new(about, GetText._("Could not open browser."))
             end
         end
 

@@ -1,3 +1,7 @@
+2007-08-18 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui/about_dialog.rb: Forgot to include GetText.
+
 2007-08-17 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb: When a link is clicked, search all
