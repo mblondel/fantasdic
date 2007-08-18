@@ -1,5 +1,10 @@
 2007-08-18 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * pre-setup.rb: Don't fail if there's a problem with a .po file. Just
+    display a warning.
+
+2007-08-18 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic.rb: New WIN32 constant.
     * lib/fantasdic/ui.rb: Use this constant.
     * lib/fantasdic/preferences.rb: Use this constant.
