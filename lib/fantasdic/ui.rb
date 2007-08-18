@@ -22,7 +22,7 @@ module Fantasdic
 module UI
 
     SUPPORTS_STATUS_ICON = defined? Gtk::StatusIcon
-    SUPPORTS_IPC = !(RUBY_PLATFORM =~ /win32/)
+    SUPPORTS_IPC = (not WIN32)
     SUPPORTS_PRINT = defined? Gtk::PrintOperation
 
     def self.main

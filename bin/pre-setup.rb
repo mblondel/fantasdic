@@ -15,6 +15,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
+WIN32 = (/mingw|mswin|win32/ =~ RUBY_PLATFORM)
+
 File.open('fantasdic', 'w') do |file|
     file.print <<EOF
 #!/path/to/ruby
@@ -46,7 +48,7 @@ Message: \#{e.message}
 Backtrace:
 \#{e.backtrace.join("\\n")}
 Release: \#{Fantasdic::VERSION}
-Uname -a: \#{`uname -a`.chomp}
+System: \#{Fantasdic::WIN32 ? "Windows" : `uname -a`.chomp}
 --
 Please report this dump to '\#{Fantasdic::BUGZILLA}' with some additional
 information, such as the description of the crash and the steps to reproduce it
@@ -57,11 +59,16 @@ end
 EOF
 end
 
-if RUBY_PLATFORM =~ /win32/
-	File.open('fantasdic.bat','w') do |file|
-		file.print <<EOF
-rubyw c:/ruby/bin/fantasdic
-EOF
-	end
+if WIN32
+    begin
+        require "rbconfig"
+        bindir = Config::CONFIG["bindir"]
+
+        File.open('fantasdic.bat','w') do |file|
+            file.print("rubyw #{File.join(bindir, "fantasdic")}")
+        end
+    rescue LoadError
+    end
+
 end
 	

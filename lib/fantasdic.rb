@@ -48,6 +48,8 @@ module Fantasdic
         'http://bugzilla.gnome.org/enter_bug.cgi?product=fantasdic'
     WEBSITE_URL = 'http://www.gnome.org/projects/fantasdic/'
 
+    WIN32 = (/mingw|mswin|win32/ =~ RUBY_PLATFORM)
+
     def self.main
         options = CommandLineOptions.instance
 

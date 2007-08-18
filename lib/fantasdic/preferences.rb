@@ -22,7 +22,7 @@ module Fantasdic
 
     module Config
     
-        if RUBY_PLATFORM =~ /win32/
+        if WIN32
             CONFIG_DIR = File.join(ENV['USERPROFILE'],"fantasdic")
         else
             CONFIG_DIR = File.join(ENV['HOME'],".fantasdic")

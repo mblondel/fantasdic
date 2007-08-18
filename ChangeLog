@@ -1,5 +1,13 @@
 2007-08-18 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic.rb: New WIN32 constant.
+    * lib/fantasdic/ui.rb: Use this constant.
+    * lib/fantasdic/preferences.rb: Use this constant.
+    * bin/pre-setup.rb: Don't use uname -a on Win32, don't hardcode ruby path
+    for generating fantasdic.bat.
+
+2007-08-18 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/ui/about_dialog.rb: Forgot to include GetText.
 
 2007-08-17 Mathieu Blondel <mblondel@cvs.gnome.org>
