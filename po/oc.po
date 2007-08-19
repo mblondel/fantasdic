@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Fantasdic 1.0-beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-11-17 10:51+0800\n"
-"PO-Revision-Date: 2007-07-29 09:56+0200\n"
+"PO-Revision-Date: 2007-08-19 18:11+0200\n"
 "Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
@@ -157,7 +157,7 @@ msgstr ""
 #: ../lib/fantasdic/ui/add_dictionary_dialog.rb:363
 #, c-format
 msgid "About database %s"
-msgstr ""
+msgstr "A prepaus de la basa de donadas %s"
 
 #: ../lib/fantasdic/ui/main_app.rb:72
 msgid "No dictionary configured"
@@ -165,7 +165,7 @@ msgstr ""
 
 #: ../lib/fantasdic/ui/main_app.rb:96
 msgid "Can't connect to server"
-msgstr ""
+msgstr "Impossible de se connectar al servidor"
 
 #: ../lib/fantasdic/ui/main_app.rb:135
 #, c-format
@@ -207,7 +207,7 @@ msgstr ""
 #: ../lib/fantasdic/ui/main_app.rb:450
 #, c-format
 msgid "Search %s"
-msgstr ""
+msgstr "Recercar %s"
 
 #: ../lib/fantasdic/ui/main_app.rb:462 ../lib/fantasdic/ui/main_app.rb:642
 msgid "Select _All"
@@ -235,7 +235,7 @@ msgstr "Recercar lo _precedent"
 
 #: ../lib/fantasdic/ui/main_app.rb:649
 msgid "Clear history"
-msgstr ""
+msgstr "Voidar l'istoric"
 
 #: ../lib/fantasdic/ui/main_app.rb:654
 msgid "_View"
@@ -295,7 +295,7 @@ msgstr ""
 
 #: ../lib/fantasdic/command_line.rb:61
 msgid "Show version"
-msgstr ""
+msgstr "Visualizar la version"
 
 #: ../lib/fantasdic/command_line.rb:85
 msgid "Error: Dictionary does not exist in the settings"
