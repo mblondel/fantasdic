@@ -31,7 +31,7 @@ module UI
 
         # Start Fantasdic normally
         # Or ask the first process to pop up the window if it exists
-        instance = IPC.find(IPC::REMOTE)
+        instance = IPC::Instance.find(IPC::Instance::REMOTE)
 
         if ARGV.length == 2
             params = {:dictionary => ARGV[0], :strategy => options[:match],
@@ -41,7 +41,7 @@ module UI
         end
 
         if instance
-            IPC.send(instance, IPC::REMOTE, params)            
+            IPC::Instance.send(instance, IPC::Instance::REMOTE, params)
         else             
             MainApp.new(params)
             Gtk.main

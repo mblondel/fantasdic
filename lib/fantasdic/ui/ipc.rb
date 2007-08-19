@@ -38,23 +38,23 @@ module Fantasdic
 module UI
 module IPC
 
-    REMOTE = Fantasdic::TITLE
-
-    def self.send(pclient, uri, value)
-        pclient.write(Marshal.dump(value))
-        pclient.close
-    end
-
-    def self.find(uri)
-        begin
-            pclient = Pipe.new_client(uri)
-            #data = pclient.read # read data from server
-        rescue
-            nil
-        end
-    end    
-
     class Instance
+
+        REMOTE = Fantasdic::TITLE
+
+        def self.send(pclient, uri, value)
+            pclient.write(Marshal.dump(value))
+            pclient.close
+        end
+
+        def self.find(uri)
+            begin
+                pclient = Pipe.new_client(uri)
+                #data = pclient.read # read data from server
+            rescue
+                nil
+            end
+        end    
 
         def initialize(uri, &block)
             Thread.new do
@@ -87,24 +87,24 @@ require "drb"
 module Fantasdic
 module UI
 module IPC
-    # The private ports range is between 49152 and 65535
-    REMOTE = 'druby://127.0.0.1:56373'
-
-    def self.send(block, uri, value)
-        block.call(value)
-    end
-
-    def self.find(uri)
-        begin
-            DRb.start_service       
-            block = DRbObject.new nil, uri
-            block.to_proc
-        rescue
-            nil
-        end
-    end    
-
     class Instance
+
+        # The private ports range is between 49152 and 65535
+        REMOTE = 'druby://127.0.0.1:56373'
+
+        def self.send(block, uri, value)
+            block.call(value)
+        end
+
+        def self.find(uri)
+            begin
+                DRb.start_service       
+                block = DRbObject.new nil, uri
+                block.to_proc
+            rescue
+                nil
+            end
+        end    
 
         def initialize(uri, &block)
             begin
@@ -157,10 +157,27 @@ end
 module Fantasdic
 module UI
 module IPC
-    MESSAGE_ARGS = "_RUBY_MARSHAL_DATA"
-    REMOTE = 'FANTASDIC_IPC'
 
     class Instance < Gtk::Invisible
+
+        MESSAGE_ARGS = "_RUBY_MARSHAL_DATA"
+        REMOTE = 'FANTASDIC_IPC'
+
+        def self.send(window, name, value)
+            window.set_string(MESSAGE_ARGS, Marshal.dump(value))
+            window.set_string(name, window.xid)
+            Gdk::flush()
+            Gtk.main_iteration while Gtk.events_pending?
+        end
+
+        def self.find(name)
+            win_xid = Gdk::Window.default_root_window.get_string( name )
+            return false if win_xid.nil?
+            win = Gdk::Window.foreign_new(win_xid.to_i)
+            return false unless win.kind_of?(Gdk::Window)
+            return false unless win.get_string(name) == win_xid
+            win
+        end
 
         def initialize(atom_name,&block)
             @atom_name, @block = atom_name, block
@@ -197,36 +214,6 @@ module IPC
         end
     end
 
-    def self.send(window, name, value)
-        window.set_string(MESSAGE_ARGS, Marshal.dump(value))
-        window.set_string(name, window.xid)
-        Gdk::flush()
-        Gtk.main_iteration while Gtk.events_pending?
-    end
-
-    def self.find(name)
-        win_xid = Gdk::Window.default_root_window.get_string( name )
-        return false if win_xid.nil?
-        win = Gdk::Window.foreign_new(win_xid.to_i)
-        return false unless win.kind_of?(Gdk::Window)
-        return false unless win.get_string(name) == win_xid
-        win
-    end
-
-    def self.auto(name,server_func,client_func=nil)
-        win = find(name)
-        if win
-            if client_func
-                client_func.call(win)
-            else
-                send(win,name,ARGV)
-            end
-            exit
-        else
-            $ipc_window = IPC::Window.new(name,&server_func)
-            return false
-        end
-    end
 end
 end
 end

@@ -984,7 +984,7 @@ module UI
                 end
             end if @statusicon
 
-            IPC::Instance.new(IPC::REMOTE) do |p|
+            IPC::Instance.new(IPC::Instance::REMOTE) do |p|
                 @main_app.show
                 load_window_preferences              
 

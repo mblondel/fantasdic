@@ -1,3 +1,11 @@
+2007-08-19 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui/ipc.rb: Moved IPC::send and IPC::find to IPC::Instance
+    module. It makes more sense to use this namespace.
+    * lib/fantasdic/ui.rb: Applied the necessary modifications to follow above
+    change.
+    * lib/fantasdic/ui/main_app.rb: Likewise.
+
 2007-08-18 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/ipc.rb: Added an IPC backend using win32 named pipes
