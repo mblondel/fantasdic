@@ -16,12 +16,6 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 module Fantasdic
-
-    TITLE = 'Fantasdic'
-    TEXTDOMAIN = 'fantasdic'
-    extend GetText
-    bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
-    DESCRIPTION = _('A client for the DICT protocol.')
     COPYRIGHT = 'Copyright (C) 2006 - 2007 Mathieu Blondel'
     AUTHORS = [
         'Mathieu Blondel <mblondel@cvs.gnome.org>',
@@ -49,6 +43,36 @@ module Fantasdic
     WEBSITE_URL = 'http://www.gnome.org/projects/fantasdic/'
 
     WIN32 = (/mingw|mswin|win32/ =~ RUBY_PLATFORM)
+
+    if WIN32
+        begin
+            open("CONIN$") {}
+            open("CONOUT$", "w") {}
+            HAVE_CONSOLE = true
+        rescue SystemCallError
+            HAVE_CONSOLE = false
+        end
+    else
+        HAVE_CONSOLE = true
+    end 
+end
+
+begin
+    require 'gettext'
+rescue LoadError
+    require 'fantasdic/gettext'
+    if Fantasdic::HAVE_CONSOLE
+        $stderr.puts 'WARNING : Ruby/Gettext was not found.'
+        $stderr.puts 'The interface will therefore remain in English.'
+    end
+end
+
+module Fantasdic
+    TITLE = 'Fantasdic'
+    TEXTDOMAIN = 'fantasdic'
+    extend GetText
+    bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
+    DESCRIPTION = _('A client for the DICT protocol.')
 
     def self.main
         options = CommandLineOptions.instance

@@ -1,5 +1,13 @@
 2007-08-19 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic.rb: Added a HAVE_CONSOLE constant. This constant must be
+    used to check that the console is available because rubyw can't use stdout,
+    stderr, stdin.
+    * bin/pre-setup.rb: Don't require gettext here but in lib/fantasdic.rb
+    instead.
+
+2007-08-19 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/ui/ipc.rb: Moved IPC::send and IPC::find to IPC::Instance
     module. It makes more sense to use this namespace.
     * lib/fantasdic/ui.rb: Applied the necessary modifications to follow above

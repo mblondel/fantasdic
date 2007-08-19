@@ -27,13 +27,6 @@ File.open('fantasdic', 'w') do |file|
 \$KCODE = "u"
 Thread.abort_on_exception = true
 
-begin
-    require 'gettext'
-rescue LoadError
-    require 'fantasdic/gettext'
-    $stderr.puts 'WARNING : Ruby/Gettext was not found.'
-end
-
 require 'fantasdic'
 
 begin
