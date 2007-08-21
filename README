@@ -25,7 +25,6 @@ Requirements
     Intltool [**]:              http://freedesktop.org/wiki/Software_2fintltool
 
     [*]: Required libraries are: Ruby/Libglade2, Ruby/Gtk2 and Ruby/GdkPixbuf2.
-         Other optional library is: Ruby/Gtktrayicon.
          Ruby-GTK2 0.16 is however highly recommended.
 
     [**]: Optional.
