@@ -247,8 +247,9 @@ module UI
             @buf.clear            
 
             if matches.length > 0
-                nb_match = 0
-                matches.each { |db, w| nb_match += w.length }
+                @matches_listview.append_matches(matches)
+
+                nb_match = @matches_listview.model.n_rows
 
                 self.status_bar_msg = ""
 
@@ -257,10 +258,9 @@ module UI
                 elsif nb_match > 0
                     @matches_label.text = _("%d matches") % nb_match
                 end
-
-                @matches_listview.append_matches(matches)
             else
                 msg = _("No match found.")
+                @matches_label.text = _("Matches")
                 @buf.insert_header(msg)
                 self.status_bar_msg = msg
             end            

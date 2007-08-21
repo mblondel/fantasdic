@@ -41,6 +41,7 @@ module Gtk::TreeModel
         self.each { count += 1 }
         count
     end
+    alias :n_rows :nb_rows
 
     def empty?
         nb_rows == 0

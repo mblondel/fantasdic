@@ -1,5 +1,13 @@
 2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic/ui/utils.rb: Added Gtk::TreeModel#n_rows alias.
+    * lib/fantasdic/ui/main_app.rb: Display the number of matches in the
+    treeview instead of the total number of matches.
+    * data/fantasdic/glade/main_app.glade: Sets "Matches" as the default string
+    for the sidepane.
+
+2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/ui/main_app.rb: Make the ResultTextView grab the focus when
     definitions are added.
 
