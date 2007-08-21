@@ -1,5 +1,10 @@
 2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic/ui/main_app.rb: Make the ResultTextView grab the focus when
+    definitions are added.
+
+2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/ui/main_app.rb: Some code cleanup (kill_lookup_thread).
 
 2007-08-19 Mathieu Blondel <mblondel@cvs.gnome.org>

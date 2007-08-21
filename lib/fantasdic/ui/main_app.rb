@@ -137,7 +137,7 @@ module UI
                     rescue DICTClient::ConnectionLost, Errno::EPIPE
                         e = _("Connection with server lost.")
                         cant_connect_to_server(e)
-                    end                    
+                    end
 
                     disable_print
 
@@ -155,6 +155,8 @@ module UI
                             @global_actions["MatchesSidepane"].active = true
                             @matches_listview.select_match(p[:word])
                         end
+
+                        @result_text_view.grab_focus
 
                         enable_print unless definitions.empty?
 
