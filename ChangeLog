@@ -1,5 +1,12 @@
 2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic/net/dict.rb: Fixed bug when db provided to show_db doesn't
+    exist.
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Authenticate for show_server
+    and show_db if login and password provided.
+
+2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * AUTHORS: Translators names moved...
     * po/AUTHORS: ...here.
     * po/README: Ask translators to add their name to po/AUTHORS.

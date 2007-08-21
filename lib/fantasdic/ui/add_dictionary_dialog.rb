@@ -163,6 +163,14 @@ module UI
                 dict = DICTClient.new(@server_entry.text, @port_entry.text,     
                                      $DEBUG)
 
+                if @serv_auth_checkbutton.active?
+                    unless @login_entry.text.empty? or \
+                           @password_entry.text.empty?
+
+                        dict.auth(@login_entry.text, @password_entry.text)
+                    end
+                end
+
                 ServerInfosDialog.new.text = dict.show_server
 
                 dict.disconnect
@@ -330,6 +338,14 @@ module UI
             begin
                 dict = DICTClient.new(@server_entry.text, @port_entry.text,     
                                      $DEBUG)
+
+                if @serv_auth_checkbutton.active?
+                    unless @login_entry.text.empty? or \
+                           @password_entry.text.empty?
+
+                        dict.auth(@login_entry.text, @password_entry.text)
+                    end
+                end
 
                 window = ServerInfosDialog.new
                 window.title = _("About database %s") % dbname

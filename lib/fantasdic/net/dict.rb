@@ -372,22 +372,26 @@ class DICTClient
     end
 
     def show_db
-        exec_cmd('SHOW DB')
+        code, msg = exec_cmd('SHOW DB')
         get_hash_key_value(get_pairs)
     end
 
     def show_strat
-        exec_cmd('SHOW STRAT')
+        code, msg = exec_cmd('SHOW STRAT')
         get_hash_key_value(get_pairs)
     end
 
     def show_info(db)
-        exec_cmd('SHOW INFO %s' % db)
-        get_msg
+        code, msg = exec_cmd('SHOW INFO %s' % db)
+        if error_response?(code)
+            nil
+        else
+            get_msg
+        end
     end
 
     def show_server
-        exec_cmd('SHOW SERVER')
+        code, msg = exec_cmd('SHOW SERVER')
         get_msg
     end
 
