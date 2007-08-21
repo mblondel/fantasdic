@@ -3,6 +3,15 @@
     * AUTHORS: Translators named moved...
     * po/AUTHORS: ...here.
     * po/README: Ask translators to add their name to po/AUTHORS.
+    * lib/fantasdic/pre-setup.rb: Generate lib/fantasdic/authors.rb and
+    lib/fantasdic/translators.rb from AUTHORS and po/AUTHORS. This way, authors
+    and translators names are centralized in one place.
+    * lib/fantasdic/ui/about_dialog.rb: Display translators for relevant locale
+    only.
+    * lib/fantasdic.rb: Try to load lib/fantasdic/authors.rb and
+    lib/fantasdic/translators.rb if present.
+    * data/fantasdic/glade/preferences_dialog.glade: Increase a little bit page
+    width.
 
 2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
 

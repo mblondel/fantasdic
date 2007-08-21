@@ -56,7 +56,15 @@ EOL
             self.comments = Fantasdic::DESCRIPTION
             self.authors = Fantasdic::AUTHORS
             #self.documenters = Fantasdic::DOCUMENTERS
-            self.translator_credits = Fantasdic::TRANSLATORS.join("\n")
+
+            GLib.language_names.each do |l|
+                if Fantasdic::TRANSLATORS[l]
+                    self.translator_credits = \
+                        Fantasdic::TRANSLATORS[l].join("\n")
+                    break
+                end
+            end
+
             self.website = Fantasdic::WEBSITE_URL
             #self.logo = Icon::LOGO
             self.license = GPL

@@ -15,26 +15,24 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
+begin
+    require 'fantasdic/authors'
+rescue LoadError
+    module Fantasdic
+        AUTHORS = ['Mathieu Blondel <mblondel@cvs.gnome.org>']
+    end
+end
+
+begin
+    require 'fantasdic/translators'
+rescue LoadError
+    module Fantasdic
+        TRANSLATORS = {}
+    end
+end
+
 module Fantasdic
     COPYRIGHT = 'Copyright (C) 2006 - 2007 Mathieu Blondel'
-    AUTHORS = [
-        'Mathieu Blondel <mblondel@cvs.gnome.org>',
-        'John Spray <spray@lyx.org>'
-    ]
-    DOCUMENTERS = [
-
-    ]
-    TRANSLATORS = [
-        'Mathieu Blondel <mblondel@cvs.gnome.org> (French)',
-        'Jérémy Ar Floc\'h <jeremy.lefloch@gmail.com> (Breton)',
-        'Hendrik Brandt <heb@gnome-de.org> (German)',
-        'Raphael Higino <raphaelh@uai.com.br> (Brazilian Portuguese)',
-        'Danilo Šegan <danilo@gnome.org> (Serbian)',
-        'Daniel Nylander <po@danielnylander.se> (Swedish)',
-        'Emilio Anzon <pan@linux.it> (Italian)',
-        'Yannig MARCHEGAY <yannig@marchegay.org> (Occitan)',
-        'Takuto MATSUU <matsuu@gmail.com> (Japanese)'
-    ]
 
     LIST = ''
     BUGZILLA = 'http://bugzilla.gnome.org/browse.cgi?product=fantasdic'
