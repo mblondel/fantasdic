@@ -52,17 +52,19 @@ module UI
         end
 
         def lookup(p)
-            # Kill previous thread if still alive
-            @global_actions["Stop"].activate \
-                if @lookup_thread and @lookup_thread.alive?
+            return false if p[:word].empty?
 
-            return false if p[:word].empty?            
+            @lookup_thread = Thread.new(@lookup_thread) do |previous_thread|
+                # Kill previous thread if still alive
+                if previous_thread and previous_thread.alive?
+                    kill_lookup_thread(previous_thread)
+                    # wait for the thread to actually terminate
+                    previous_thread.join
+                end
 
-            @lookup_thread = Thread.new do
                 DICTClient.close_long_connections
    
-                @search_entry.text = p[:word]
-                @buf = @result_text_view.buffer
+                @search_entry.text = p[:word]           
                 @buf.clear          
     
                 if @dictionary_cb.model.nb_rows == 0
@@ -160,8 +162,8 @@ module UI
                     rescue DICTClient::ConnectionLost, Errno::EPIPE
                         e = _("Connection with server lost.")
                         cant_connect_to_server(e)
-                    end                           
-                end                
+                    end
+                end
 
                 @global_actions["Stop"].visible = false
 
@@ -169,6 +171,16 @@ module UI
         end
    
         private
+
+        def kill_lookup_thread(thread=nil)
+            thread = @lookup_thread if thread.nil?
+            thread.kill if thread and thread.alive?
+            DICTClient.close_active_connection
+     
+            @global_actions["Stop"].visible = false
+            @buf.clear
+            self.status_bar_msg = ""
+        end
 
         def cant_connect_to_server(e)
             error = _("Can't connect to server")
@@ -621,6 +633,7 @@ module UI
             update_strategy_cb
 
             # Result text view (instance created by glade)
+            @buf = @result_text_view.buffer
             @result_text_view.buffer.scrolled_window = @result_sw
 
             # Sidepane
@@ -637,12 +650,7 @@ module UI
             end
 
             on_stop = Proc.new do
-                @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
-                DICTClient.close_active_connection          
-     
-                @global_actions["Stop"].visible = false
-                @buf.clear
-                self.status_bar_msg = ""
+                kill_lookup_thread
             end
 
             on_save = Proc.new do

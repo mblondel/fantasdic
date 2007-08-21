@@ -1,3 +1,7 @@
+2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb: Some code cleanup (kill_lookup_thread).
+
 2007-08-19 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic.rb: Added a HAVE_CONSOLE constant. This constant must be
