@@ -1,5 +1,11 @@
 2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * AUTHORS: Translators named moved...
+    * po/AUTHORS: ...here.
+    * po/README: Ask translators to add their name to po/AUTHORS.
+
+2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/ui/main_app.rb: Trim leading and ending spaces in the
     searched word.
 

@@ -4,7 +4,7 @@ This directory
 
 This directory (po/) contains the translations for Fantasdic. Members from the
 GNOME i18n team can commit translations in this directory without the
-maintainer's permission.
+maintainer's permission. Don't forget to add your name to po/AUTHORS.
 
 How to contribute a translation ?
 ---------------------------------
@@ -13,8 +13,8 @@ You should be inside this directory in order to use the following commands.
 
 $ intltool-update --pot
 
-Is used the first time to generate a .pot file. Rename this file to xx.po where xx is your 
-language's code and edit it.
+Is used the first time to generate a .pot file. Rename this file to xx.po
+where xx is your language's code and edit it.
 
 $ intltool-update xx
 
