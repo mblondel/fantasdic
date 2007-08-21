@@ -19,3 +19,5 @@ where xx is your language's code and edit it.
 $ intltool-update xx
 
 Is used to update xx.po with potential new strings that need to be translated.
+Take care of strings marked as "fuzzy". You need to fix them! Remove "#, fuzzy"
+once you've fixed them.
