@@ -1,5 +1,10 @@
 2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic/ui/main_app.rb: Trim leading and ending spaces in the
+    searched word.
+
+2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/ui/utils.rb: Added Gtk::TreeModel#n_rows alias.
     * lib/fantasdic/ui/main_app.rb: Display the number of matches in the
     treeview instead of the total number of matches.

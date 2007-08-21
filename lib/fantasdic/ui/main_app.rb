@@ -52,6 +52,7 @@ module UI
         end
 
         def lookup(p)
+            p[:word].strip!
             return false if p[:word].empty?
 
             @lookup_thread = Thread.new(@lookup_thread) do |previous_thread|
@@ -63,7 +64,7 @@ module UI
                 end
 
                 DICTClient.close_long_connections
-   
+                
                 @search_entry.text = p[:word]           
                 @buf.clear          
     
