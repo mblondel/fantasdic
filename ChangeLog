@@ -1,6 +1,6 @@
 2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
 
-    * AUTHORS: Translators named moved...
+    * AUTHORS: Translators names moved...
     * po/AUTHORS: ...here.
     * po/README: Ask translators to add their name to po/AUTHORS.
     * lib/fantasdic/pre-setup.rb: Generate lib/fantasdic/authors.rb and
