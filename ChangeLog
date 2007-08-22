@@ -1,3 +1,8 @@
+2007-08-22 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui/ipc.rb: There are cases when Win32::Pipe doesn't seem to
+    like strings returned by Marshal.dump so let's use Base64.
+
 2007-08-21 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * README: updated with newest features.

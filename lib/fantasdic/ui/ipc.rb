@@ -32,6 +32,7 @@ if Fantasdic::WIN32
 
 begin
 require "win32/pipe"
+require "base64"
 include Win32  
 
 module Fantasdic
@@ -43,7 +44,7 @@ module IPC
         REMOTE = Fantasdic::TITLE
 
         def self.send(pclient, uri, value)
-            pclient.write(Marshal.dump(value))
+            pclient.write(Base64.encode64(Marshal.dump(value)))
             pclient.close
         end
 
@@ -63,7 +64,7 @@ module IPC
                 while true
                     ok = pserver.read
                     if ok
-                        params = Marshal.load(pserver.buffer)
+                        params = Marshal.load(Base64.decode64(pserver.buffer))
                         block.call(params)
                         #pserver.write("") # send data to client
                         pserver.close
