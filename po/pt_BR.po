@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-12 17:02-0300\n"
+"POT-Creation-Date: 2007-08-22 15:45-0300\n"
 "PO-Revision-Date: 2007-08-15 16:38-0300\n"
 "Last-Translator: Alexandre Cavedon <alexandre.cavedon@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
@@ -15,2464 +15,414 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:58
-msgid "Fields missing"
-msgstr "Campos ausentes"
-
-#: ../lib/fantasdic/ui/main_app.rb:64
-msgid "No dictionary configured"
-msgstr "Nenhum dicionário configurado"
-
-#: ../lib/fantasdic/ui/main_app.rb:82
-#, c-format
-msgid "Transferring data from %s ..."
-msgstr "Transferindo dados de %s..."
-
-#: ../lib/fantasdic/ui/main_app.rb:109
-msgid "Can't connect to server"
-msgstr "Impossível conectar-se ao servidor"
-
-#: ../lib/fantasdic/ui/main_app.rb:132 ../lib/fantasdic/ui/main_app.rb:158
-#, fuzzy
-msgid "No match found."
-msgstr "Não encontrado"
-
-#: ../lib/fantasdic/ui/main_app.rb:134
-#, c-format
-msgid "Matches found for \"%s\": %d."
-msgstr "Resultados encontrados para \"%s\": %d."
-
-#: ../lib/fantasdic/ui/main_app.rb:159
-msgid "Suggested results:"
-msgstr "Resultados sugeridos:"
-
-#: ../lib/fantasdic/ui/main_app.rb:315
-#, c-format
-msgid "Dictionary \"%s\" does not exist anymore"
-msgstr "O dicionário \"%s\" não existe mais"
-
-#: ../lib/fantasdic/ui/main_app.rb:321
-#, c-format
-msgid "Waiting for %s..."
-msgstr "Esperando por %s..."
-
-#: ../lib/fantasdic/ui/main_app.rb:342
-#, c-format
-msgid "Search %s"
-msgstr "Procurar %s"
-
-#: ../lib/fantasdic/ui/main_app.rb:445
-#: ../data/fantasdic/glade/main_app.glade.h:2
-msgid "_Look Up"
-msgstr "_Consultar"
-
-#: ../lib/fantasdic/ui/main_app.rb:448
-msgid "_Edit"
-msgstr "_Editar"
-
-#: ../lib/fantasdic/ui/main_app.rb:449
-#, fuzzy
-msgid "Clear history"
-msgstr "Limpar definição"
-
-#: ../lib/fantasdic/ui/main_app.rb:453
-msgid "_View"
-msgstr "_Ver"
-
-#: ../lib/fantasdic/ui/main_app.rb:454
-msgid "_Go"
-msgstr "_Ir"
-
-#: ../lib/fantasdic/ui/main_app.rb:459
-msgid "_Help"
-msgstr "Aj_uda"
-
-#: ../lib/fantasdic/ui/main_app.rb:460
-msgid "About"
-msgstr "Sobre"
-
-#: ../lib/fantasdic/ui/main_app.rb:489
-msgid "Scan clipboard"
-msgstr "Verificar área de transferência"
-
-#: ../lib/fantasdic/ui/main_app.rb:491
-#, fuzzy
-msgid "_History"
-msgstr "_Dicionário"
-
-#: ../lib/fantasdic/ui/main_app.rb:493
-msgid "_Statusbar"
-msgstr "Barra de _Status"
-
-#: ../lib/fantasdic/ui/main_app.rb:495
-msgid "_Toolbar"
-msgstr "_Barra de Ferramentas"
-
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
 msgid "Add dictionary"
 msgstr "Adicionar dicionário"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:2
-msgid "Pass_word"
-msgstr "_Senha"
+msgid "Available databases"
+msgstr "Opções disponíveis"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:3
-#, fuzzy
-msgid "S_earch strategy:"
-msgstr "R_esultados da pesquisa:"
+msgid "Databases"
+msgstr "Banco de dados"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:4
-msgid "Search _all databases"
-msgstr "Buscar em _todos os bancos de dados"
+msgid "Informations about server"
+msgstr "Informações sobre este servidor"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
-msgid "Search _databases selected below"
-msgstr "Buscar nos bancos de _dados selecionados abaixo"
+msgid "Most servers don't require authentication."
+msgstr "O Servidor _requer autenticação"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
+msgid "Move database to selected databases"
+msgstr "Buscar nos bancos de _dados selecionados abaixo"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
+msgid "Pass_word"
+msgstr "Senha"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
+msgid "Remove database from selected databases"
+msgstr "Buscar nos bancos de _dados selecionados abaixo"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
+msgid "Search _all databases"
+msgstr "Busc_ar em todos os bancos de dados"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
+msgid "Search selected _databases"
+msgstr "Buscar nos bancos de _dados selecionados"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
+msgid "Selected databases"
+msgstr "Bancos de dados selecionados"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
+msgid "Server"
+msgstr "Servidor:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:13
 msgid "Server _requires authentication"
 msgstr "O Servidor _requer autenticação"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
+msgid ""
+"This name will identify your dictionary uniquely and will appear in the "
+"application menu."
+msgstr ""
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
 msgid "_Name:"
 msgstr "_Nome:"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
 msgid "_Port:"
-msgstr "_Porta:"
+msgstr "Porta:"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
 msgid "_Server:"
 msgstr "_Servidor:"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
-#, fuzzy
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:18
 msgid "_Username:"
-msgstr "Nome da máquina:"
+msgstr "Nome de _Usuário:"
 
 #: ../data/fantasdic/glade/main_app.glade.h:1
+msgid "<i>Not found</i>"
+msgstr "<i>Não encontrado</i>"
+
+#: ../data/fantasdic/glade/main_app.glade.h:2
 msgid "Fantasdic"
 msgstr "Fantasdic"
 
+#: ../data/fantasdic/glade/main_app.glade.h:3
+msgid "Find: "
+msgstr "Procurar:"
+
+#: ../data/fantasdic/glade/main_app.glade.h:4
+#: ../lib/fantasdic/ui/main_app.rb:264
+msgid "Matches"
+msgstr "Caminhos"
+
+#: ../data/fantasdic/glade/main_app.glade.h:5
+msgid "_Next"
+msgstr "_Próximo"
+
+#: ../data/fantasdic/glade/main_app.glade.h:6
+msgid "_Previous"
+msgstr "_Anterior"
+
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:1
+msgid "<b>Print</b>"
+msgstr "<b>Previsão</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:2
+msgid "<b>Results</b>"
+msgstr "<b>Fontes disponíveis:</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:3
+msgid "<b>SOCKS 5 Proxy</b>"
+msgstr "<b>SOCKS 5 Proxy</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:4
+msgid "<b>Startup</b>"
+msgstr "<b>Ao iniciar:</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:5
+msgid "<b>System tray</b>"
+msgstr "<b>Área de Notificação</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:6
 msgid "Dictionaries"
 msgstr "Dicionários"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:2
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:7
+msgid "Do _not quit when main window is closed"
+msgstr "Largura da janela principal, em pixels"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
+msgid "Do not show main window at startup"
+msgstr "Não mostrar janela principal na próxima vez"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
+msgid "Enable proxy"
+msgstr "Utilizar proxy"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
+msgid "Fantasdic will stay in the system tray even if the window is closed."
+msgstr "Permanecer na área de notificações quando a janela é fechada"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
+msgid "Fonts"
+msgstr "Fontes"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
+msgid "Host:"
+msgstr "Nome de máquina"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
+msgid "Password (opt.):"
+msgstr "Senha (opcional):"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
+msgid "Port:"
+msgstr "Porta:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
 msgid "Preferences"
 msgstr "Preferências"
 
-#~ msgid "Floppy Formatter"
-#~ msgstr "Formatador de Disquetes"
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
+msgid "Proxy"
+msgstr "Proxy"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
+msgid "Select a font"
+msgstr "Selecione um diretório"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
+msgid "Startup"
+msgstr "Inicializar"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:19
+msgid ""
+"This option should be enabled if Fantasdic is started when the computer "
+"boots."
+msgstr "Este opção permite startar o Fantasdic quando seu computador for "
+"iniciado."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:20
+msgid "This proxy can for example be used to traverse firewalls."
+msgstr "Este proxy permite ser usado em firewalls tranversais."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:21
+msgid "Username (opt.):"
+msgstr "Nome de usuário (opcional):"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:22
+msgid "_Look up last word at startup"
+msgstr "Mostrar ú_ltima palavra consultada"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:23
+msgid "_Show Fantasdic in system tray"
+msgstr "Mo_strar o Fantasdic na área de notificações"
+
+#: ../data/fantasdic/glade/server_infos_dialog.glade.h:1
+msgid "Server informations"
+msgstr "Informações do servidor"
+
+#: ../lib/fantasdic/ui/about_dialog.rb:47 ../lib/fantasdic/ui/main_app.rb:802
+msgid "Could not open browser."
+msgstr "Não foi possível abrir a pasta \"%s\""
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:91
+msgid "Fields missing"
+msgstr "Campos ausentes"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:97
+msgid "Dictionary %s exists already!"
+msgstr "O dicionário \"%s\" não existe mais"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:153
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:329
+msgid "Server missing"
+msgstr "Campos ausentes"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:158
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:334
+msgid "Port missing"
+msgstr "Campos ausentes"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:178
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:296
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:356
+msgid "Could not connect to %s"
+msgstr "Impossível conectar-se ao servidor"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:241
+msgid "Fetching informations from %s..."
+msgstr "Buscando informações de %s..."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:351
+msgid "About database %s"
+msgstr "Banco de dados '%s' inválido"
+
+#: ../lib/fantasdic/ui/main_app.rb:72
+msgid "No dictionary configured"
+msgstr "Nenhum dicionário configurado"
+
+#: ../lib/fantasdic/ui/main_app.rb:98
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "O dicionário \"%s\" não existe mais"
+
+#: ../lib/fantasdic/ui/main_app.rb:102
+msgid "Waiting for %s..."
+msgstr "Esperando por %s..."
+
+#: ../lib/fantasdic/ui/main_app.rb:139 ../lib/fantasdic/ui/main_app.rb:166
+msgid "Connection with server lost."
+msgstr "Erro na conexão."
+
+#: ../lib/fantasdic/ui/main_app.rb:189
+msgid "Can't connect to server"
+msgstr "Impossível conectar-se ao servidor"
+
+#: ../lib/fantasdic/ui/main_app.rb:201 ../lib/fantasdic/ui/main_app.rb:233
+msgid "Transferring data from %s ..."
+msgstr "Transferindo dados de %s ..."
+
+#: ../lib/fantasdic/ui/main_app.rb:221
+msgid "No definition found."
+msgstr "Nenhuma definição encontrada"
+
+#: ../lib/fantasdic/ui/main_app.rb:225
+msgid "Definitions found: %d."
+msgstr "Nenhuma definição encontrada"
+
+#: ../lib/fantasdic/ui/main_app.rb:258
+msgid "1 match"
+msgstr "1 resultado"
+
+#: ../lib/fantasdic/ui/main_app.rb:260
+msgid "%d matches"
+msgstr "%d resultados"
+
+#: ../lib/fantasdic/ui/main_app.rb:263 ../lib/fantasdic/command_line.rb:107
+#: ../lib/fantasdic/command_line.rb:144
+msgid "No match found."
+msgstr "Nenhum resultado encontrado."
+
+#: ../lib/fantasdic/ui/main_app.rb:521
+msgid "Search %s"
+msgstr "Procurar %s"
+
+#: ../lib/fantasdic/ui/main_app.rb:546 ../lib/fantasdic/ui/main_app.rb:825
+msgid "Select _All"
+msgstr "Selecionar _Tudo"
+
+#: ../lib/fantasdic/ui/main_app.rb:661
+msgid "Save definition"
+msgstr "Salvar definição"
+
+#: ../lib/fantasdic/ui/main_app.rb:812
+msgid "_Look Up"
+msgstr "_Consultar"
+
+#: ../lib/fantasdic/ui/main_app.rb:815
+msgid "Print Set_up"
+msgstr "Config_urar impressão"
+
+#: ../lib/fantasdic/ui/main_app.rb:823
+msgid "_Edit"
+msgstr "_Editar"
+
+#: ../lib/fantasdic/ui/main_app.rb:827
+msgid "Clear History"
+msgstr "Limpar definição"
+
+#: ../lib/fantasdic/ui/main_app.rb:830
+msgid "Find N_ext"
+msgstr "Procurar Próximo"
+
+#: ../lib/fantasdic/ui/main_app.rb:832
+msgid "Find Pre_vious"
+msgstr "Procurar _Anterior"
 
-#~ msgid "Format Floppy Disks"
-#~ msgstr "Formate disquetes"
+#: ../lib/fantasdic/ui/main_app.rb:838
+msgid "_View"
+msgstr "_Ver"
 
-#~ msgid ""
-#~ "0 for the quick format, 1 for a standard one (adds a low-level format) "
-#~ "and finally 2 for a thorough format (adds a bad blocks scan)."
-#~ msgstr ""
-#~ "0 para formatação rápida, 1 para padrão (adiciona formatação em baixo "
-#~ "nível) e 2 para completa (adiciona checagem por blocos ruins)."
+#: ../lib/fantasdic/ui/main_app.rb:839
+msgid "_Text size"
+msgstr "Tamanho de texto maior"
 
-#~ msgid "ADVANCED USERS ONLY - Default backend for FAT formatting"
-#~ msgstr ""
-#~ "APENAS USUÁRIOS AVANÇADOS - Utilitário padrão para formatação em FAT"
+#: ../lib/fantasdic/ui/main_app.rb:844
+msgid "Zoom normal"
+msgstr "Tamanho normal"
 
-#~ msgid "Default filesystem type"
-#~ msgstr "Sistema de arquivos padrão"
+#: ../lib/fantasdic/ui/main_app.rb:848
+msgid "_Go"
+msgstr "_Ir"
 
-#~ msgid "Default formatting mode"
-#~ msgstr "Modo de formatação padrão"
+#: ../lib/fantasdic/ui/main_app.rb:857
+msgid "_Help"
+msgstr "Ajuda"
 
-#~ msgid ""
-#~ "TRUE to set mkdosfs as the preferred FAT formatting backend or FALSE to "
-#~ "set mtools as the preferred FAT formatting backend."
-#~ msgstr ""
-#~ "TRUE define o mkdosfs como padrão para formatação em FAT, FALSE define o "
-#~ "mtools como padrão."
+#: ../lib/fantasdic/ui/main_app.rb:858
+msgid "Submit _Bug Report"
+msgstr "Enviar um relatório de _Bugs (erros)"
 
-#~ msgid "ext2 for the linux native filesystem or fat for the DOS filesystem."
-#~ msgstr "ext2 para o sistema de arquivos do linux ou fat para o do DOS."
+#: ../lib/fantasdic/ui/main_app.rb:860
+msgid "About"
+msgstr "Sobre"
 
-#~ msgid "Internal Error: Unable to seek to the correct location."
-#~ msgstr "Erro interno: Não foi possível acessar o local correto."
+#: ../lib/fantasdic/ui/main_app.rb:899
+msgid "Scan clipboard"
+msgstr "Varrer área de transferência"
 
-#~ msgid "Internal Error: Weird value (%ld) in do_test\n"
-#~ msgstr "Erro interno: valor estranho (%ld) em do_test\n"
+#: ../lib/fantasdic/ui/main_app.rb:901
+msgid "_Matches"
+msgstr "Resultados"
 
-#~ msgid "Checking for bad blocks..."
-#~ msgstr "Procurando por blocos ruins..."
+#: ../lib/fantasdic/ui/main_app.rb:903
+msgid "_Statusbar"
+msgstr "Barra de _Status"
 
-#~ msgid "Failed to open device %s for badblock checking\n"
-#~ msgstr "Erro ao abrir o dispositivo %s para procurar blocos ruins\n"
+#: ../lib/fantasdic/ui/main_app.rb:905
+msgid "_Toolbar"
+msgstr "_Barra de Ferramentas"
 
-#~ msgid "Checking for bad blocks... Done"
-#~ msgstr "Procurando blocos ruins... Pronto."
+#: ../lib/fantasdic/ui/print.rb:191
+msgid "Definitions for %s"
+msgstr "Definições para %s"
 
-#~ msgid "Formatting the disk..."
-#~ msgstr "Formatando o disquete..."
+#: ../lib/fantasdic/ui/print.rb:192
+msgid "Page %d/%d"
+msgstr "Página %d/%d"
 
-#~ msgid "I don't know what this is, but it's very wrong."
-#~ msgstr "Eu não sei o que é isso, mas é algo muito errado."
+#: ../lib/fantasdic/ui/print.rb:203
+msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
+msgstr "Impresso pelo Fantasdic em %d/%m/%Y em %H:%M"
 
-#~ msgid "Error formatting track #%d"
-#~ msgstr "Erro ao formatar a trilha #%d"
+#: ../lib/fantasdic/command_line.rb:34
+msgid "Usage: fantasdic [options] [dictionary] [word]"
+msgstr "Uso: fantasdic [opções] [dicionário] [palavra]"
 
-#~ msgid "Error during completion of formatting"
-#~ msgstr "Erro durante o término da formatação"
+#: ../lib/fantasdic/command_line.rb:37
+msgid "Print results to stdout"
+msgstr "Imprimir resultado no console"
 
-#~ msgid "Formatting the disk... Done"
-#~ msgstr "Formatando o disquete... Pronto."
+#: ../lib/fantasdic/command_line.rb:42
+msgid "List dictionaries in settings"
+msgstr "Listar dicionários nas opções"
 
-#~ msgid "Verifying the format..."
-#~ msgstr "Verificando a formatação..."
+#: ../lib/fantasdic/command_line.rb:47
+msgid "List strategies available for dictionary"
+msgstr "Listar estratégias permitidas para o dicionário"
 
-#~ msgid ""
-#~ "Unable to write to the floppy.\n"
-#~ "\n"
-#~ "Please confirm that it is not write-protected."
-#~ msgstr ""
-#~ "Não foi possível gravar no disquete.\n"
-#~ "\n"
-#~ "Verifique se ele está protegido contra gravação."
+#: ../lib/fantasdic/command_line.rb:52
+msgid "Use strategy to match words"
+msgstr "Usar estratégia para os resultados encontrados"
 
-#~ msgid "Insufficient permissions to open floppy device %s."
-#~ msgstr "Permissões não suficientes para abrir o dispositivo de disquete %s."
+#: ../lib/fantasdic/command_line.rb:56
+msgid "Show this message"
+msgstr "Mostrar esta mensagem"
 
-#~ msgid ""
-#~ "Unable to access the floppy disk.\n"
-#~ "\n"
-#~ "Please confirm that it is in the drive\n"
-#~ "with the drive door shut."
-#~ msgstr ""
-#~ "Não foi possível acessar o disquete.\n"
-#~ "\n"
-#~ "Por favor verifique se ele está inserido\n"
-#~ "no driver."
+#: ../lib/fantasdic/command_line.rb:61
+msgid "Show version"
+msgstr "Mostrar versão"
 
-#~ msgid ""
-#~ "Generic error accessing floppy device %s.\n"
-#~ "\n"
-#~ "Error code %s:%d"
-#~ msgstr ""
-#~ "Erro genérico ao acessar o dispositivo de disquete %s.\n"
-#~ "\n"
-#~ "Código do erro %s:%d"
+#: ../lib/fantasdic/command_line.rb:85
+msgid "Error: Dictionary does not exist in the settings"
+msgstr "O dicionário \"%s\" não existe mais"
 
-#~ msgid ""
-#~ "Read Error:\n"
-#~ "Problem reading cylinder %d, expected %d, read %d"
-#~ msgstr ""
-#~ "Erro de leitura:\n"
-#~ "Ocorreu um problema ao ler o cilindro %d. Esperava %d, leu %d"
+#: ../lib/fantasdic/command_line.rb:98
+msgid "Error: Could not connect to %s"
+msgstr "Impossível conectar-se ao servidor"
 
-#~ msgid "Problem reading cylinder %d, expected %d, read %d"
-#~ msgstr "Ocorreu um problema ao ler o cilindro %d. Esperava %d, leu %d"
+#: ../lib/fantasdic/command_line.rb:109
+msgid "Matches found: %d."
+msgstr "Resultados encontrados para \"%s\": %d."
 
-#~ msgid "Bad data in cyl %d.  Continuing... "
-#~ msgstr "Dado corrompido no cilindro %d. Continuando..."
-
-#~ msgid "Error closing device %s"
-#~ msgstr "Erro ao fechar o dispositivo %s"
-
-#~ msgid "Verifying the format... Done"
-#~ msgstr "Verificando a formatação... Pronto"
-
-#~ msgid "Unable to write to device %s"
-#~ msgstr "Não foi possível gravar para o dispositivo %s"
-
-#~ msgid ""
-#~ "Generic error accessing floppy device %s.\n"
-#~ "\n"
-#~ "Error code %s"
-#~ msgstr ""
-#~ "Erro genérico ao acessar o dispositivo de disquete %s.\n"
-#~ "\n"
-#~ "Código de erro %s"
-
-#~ msgid "Could not determine current floppy geometry."
-#~ msgstr "Não foi possível determinar a geometria do disquete atual"
-
-#~ msgid "Error while creating a unique filename for the bad blocks list file."
-#~ msgstr ""
-#~ "Erro ao criar um nome de arquivo único para a lista de blocos ruins."
-
-#~ msgid "Error while filling the bad blocks list file."
-#~ msgstr "Erro ao preencher o arquivo de lista de blocos ruins."
-
-#~ msgid "Error while spawning the (%s) command: %s."
-#~ msgstr "Erro na criação do comando (%s): %s"
-
-#~ msgid "Unknown mke2fs starting signature, cancelling."
-#~ msgstr "Assinatura de início do mke2fs desconhecida, cancelando."
-
-#~ msgid ""
-#~ "The filesystem creation utility (%s) reported the following errors:\n"
-#~ "\n"
-#~ "%s (%d)"
-#~ msgstr ""
-#~ "O utilitário de criação de sistemas de arquivos (%s) reportou os "
-#~ "seguintes erros:\n"
-#~ "\n"
-#~ "%s (%d)"
-
-#~ msgid "Abnormal child process termination."
-#~ msgstr "Processo filho terminado anormalmente"
-
-#~ msgid "Error while spawning the mbadblocks command: %s."
-#~ msgstr "Erro na criação do comando mbadblocks: %s"
-
-#~ msgid ""
-#~ "The bad blocks checking utility (mbadblocks) reported the following "
-#~ "errors:\n"
-#~ "%s."
-#~ msgstr ""
-#~ "O utilitário de checagem de blocos ruins (mbadblocks) reportou os "
-#~ "seguintes erros:\n"
-#~ "%s."
-
-#~ msgid "Abnormal mbadblocks child process termination."
-#~ msgstr "Processo filho mbadblocks terminado anormalmente."
-
-#~ msgid "Making filesystem on disk..."
-#~ msgstr "Criando sistema de arquivos no disquete..."
-
-#~ msgid "Unable to create filesystem correctly."
-#~ msgstr "Não foi possível criar sistema de arquivos corretamente."
-
-#~ msgid "Making filesystem on disk... Done"
-#~ msgstr "Criando sistema de arquivos no disquete... Pronto."
-
-#~ msgid "Checking for bad blocks... (this might take a while)"
-#~ msgstr "Verificando se há blocos ruins... (pode demorar um pouco)"
-
-#~ msgid "Error while checking the bad blocks."
-#~ msgstr "Erro ao verificar a existência de blocos ruins."
-
-#~ msgid "    "
-#~ msgstr "    "
-
-#~ msgid "*"
-#~ msgstr "*"
-
-#~ msgid ""
-#~ "<small><i><b>Note</b>: The mbadblocks utility isn't installed on this "
-#~ "system.  It must be installed in order to perform a thorough DOS (fat) "
-#~ "formatting.</i></small>"
-#~ msgstr ""
-#~ "<small><i><b>Nota</b>: O utilitário mbadblocks não está instalado neste "
-#~ "sistema. Ele deve ser instalado para fazer uma formatação completa com o "
-#~ "sistema de arquivos DOS (fat).</i></small>"
-
-#~ msgid "DOS (FAT)"
-#~ msgstr "DOS (FAT)"
-
-#~ msgid "Double Density 3.5\" (720KB)"
-#~ msgstr "Dupla Densidade 3.5\" (720 KB)"
-
-#~ msgid "Double Density 5.25\" (360KB)"
-#~ msgstr "Dupla Densidade 5.25\" (360 KB)"
-
-#~ msgid "File system _type:"
-#~ msgstr "_Tipo de sistema de arquivos:"
-
-#~ msgid "Filesystem Settings"
-#~ msgstr "Definições do Sistema de Arquivos"
-
-#~ msgid "Floppy _density:"
-#~ msgstr "_Densidade do disquete:"
-
-#~ msgid "Floppy de_vice:"
-#~ msgstr "Dis_positivo do disquete:"
-
-#~ msgid "Formatting Mode"
-#~ msgstr "Modo de Formatação"
-
-#~ msgid "High Density 3.5\" (1.44MB)"
-#~ msgstr "Alta Densidade 3.5\" (1.44MB)"
-
-#~ msgid "High Density 5.25\" (1.2MB)"
-#~ msgstr "Alta Densidade 5.25\" (1.2 MB)"
-
-#~ msgid "Linux Native (ext2)"
-#~ msgstr "Linux Nativo (ext2)"
-
-#~ msgid "Physical Settings"
-#~ msgstr "Definições Físicas"
-
-#~ msgid "Thorou_gh (adds a bad blocks check to the standard mode)"
-#~ msgstr "_Completo (adiciona checagem por blocos ruins ao modo Padrão)"
-
-#~ msgid "Volume _name:"
-#~ msgstr "_Nome do Volume:"
-
-#~ msgid "_Format"
-#~ msgstr "F_ormatar"
-
-#~ msgid "_Quick (only creates the filesystem)"
-#~ msgstr "_Rápido (apenas cria o sistema de arquivos)"
-
-#~ msgid "_Standard (adds a low-level format to the quick mode)"
-#~ msgstr "P_adrão (adiciona uma formatação de baixo nível ao modo Rápido)"
-
-#~ msgid "Cannot Format"
-#~ msgstr "Impossível formatar"
-
-#~ msgid ""
-#~ "Neither the mke2fs nor the mkdosfs/mformat applications are installed. "
-#~ "You can't format a floppy without one of them."
-#~ msgstr ""
-#~ "Nenhum dos utilitários mke2fs e mkdosfs/mformat estão instalados. Você "
-#~ "não pode formatar disquetes sem um deles."
-
-#~ msgid "Unable to open the device %s, formatting cannot continue."
-#~ msgstr "Não foi possível abrir o dispositivo %s, formatação cancelada."
-
-#~ msgid ""
-#~ "The device %s is disconnected.\n"
-#~ "Please attach device to continue."
-#~ msgstr ""
-#~ "O dispositivo %s está desconectado.\n"
-#~ "Favor conectar o dispositivo para continar."
-
-#~ msgid ""
-#~ "You do not have the proper permissions to write to %s, formatting will "
-#~ "not be possible.\n"
-#~ "Contact your system administrator about getting write permissions."
-#~ msgstr ""
-#~ "Você não tem permissão para gravar em %s, impossível continuar a "
-#~ "formatação.\n"
-#~ "Contacte o administrador do sistema para saber como obter permissões de "
-#~ "gravação."
-
-#~ msgid "Cannot initialize device"
-#~ msgstr "Não foi possível inicializar o dispositivo"
-
-#~ msgid "Unable to open any device, formatting cannot continue."
-#~ msgstr "Incapaz de abrir algum dispositivo, formatação cancelada."
-
-#~ msgid "/dev/floppy/0 or /dev/fd0"
-#~ msgstr "/dev/floppy/0 ou /dev/fd0"
-
-#~ msgid "Could not display help for the floppy formatter."
-#~ msgstr "Não foi possível exibir ajuda para o formatador de disquetes."
-
-#~ msgid "Incorrect volume name"
-#~ msgstr "Nome incorreto de volume"
-
-#~ msgid "The volume name can't contain any blank space."
-#~ msgstr "O nome do volume não pode conter nenhum espaço em branco."
-
-#~ msgid "The device to format"
-#~ msgstr "Dispositivo a formatar"
-
-#~ msgid "DEVICE"
-#~ msgstr "DISPOSITIVO"
-
-#~ msgid ""
-#~ "The floppy has been formatted, but <b>%d bad block</b> (out of %d) has "
-#~ "been found and marked."
-#~ msgid_plural ""
-#~ "The floppy has been formatted, but <b>%d bad blocks</b> (out of %d) have "
-#~ "been found and marked."
-#~ msgstr[0] ""
-#~ "O disquete foi formatado, mas <b>%d bloco ruim</b> (de um total de %d) "
-#~ "foi encontrado e marcado."
-#~ msgstr[1] ""
-#~ "O disquete foi formatado, mas <b>%d blocos ruins</b> (de um total de %d) "
-#~ "foram encontrados e marcados."
-
-#~ msgid "Floppy formatted successfully."
-#~ msgstr "Disquete formatado com sucesso."
-
-#~ msgid "Floppy formatting cancelled."
-#~ msgstr "Formatação do disquete cancelada."
-
-#~ msgid "Format Progress"
-#~ msgstr "Progresso da Formatação"
-
-#~ msgid "Default Dictionary Server"
-#~ msgstr "Servidor de Dicionário Padrão"
-
-#~ msgid "Dictionary Look up"
-#~ msgstr "Consulta ao Dicionário"
-
-#~ msgid "Look up words in a dictionary"
-#~ msgstr "Consulta palavras num dicionário"
-
-#~ msgid "Cl_ear"
-#~ msgstr "_Limpar"
-
-#~ msgid "_Look Up Selected Text"
-#~ msgstr "Procurar o texto se_lecionado"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Preferências"
-
-#~ msgid "_Print"
-#~ msgstr "_Imprimir"
-
-#~ msgid "_Save"
-#~ msgstr "_Salvar"
-
-#~ msgid "Look up words in an online dictionary"
-#~ msgstr "Consulte palavras em um dicionário on-line"
-
-#~ msgid "Dictionary server (Deprecated)"
-#~ msgstr "Servidor de dicionário (Obsoleto)"
-
-#~ msgid "Port used to connect to server (Deprecated)"
-#~ msgstr "Porta usada para conectar ao servidor (Obsoleto)"
-
-#~ msgid ""
-#~ "Specify whether to use smart lookup. This key is dependant on whether the "
-#~ "dictionary server supports this option. The default is TRUE. This key is "
-#~ "deprecated and no longer in use."
-#~ msgstr ""
-#~ "Especifica se deve ser usada a busca inteligente. Esta chave é dependente "
-#~ "do suporte a esta opção por parte do servidor. O padrão é TRUE. Esta "
-#~ "chave é obsoleta e não é mais usada."
-
-#~ msgid "The default database to use"
-#~ msgstr "O banco de dados padrão a ser usado"
-
-#~ msgid "The default height of the application window"
-#~ msgstr "A altura padrão da janela da aplicação"
-
-#~ msgid "The default search strategy to use"
-#~ msgstr "A estratégia de procura padrão a ser usada"
-
-#~ msgid "The default width of the application window"
-#~ msgstr "A largura padrão da janela da aplicação"
-
-#~ msgid ""
-#~ "The dictionary server to connect to. The default server is dict.org. See "
-#~ "http://www.dict.org for details on other servers. This key is deprecated "
-#~ "and no longer in use."
-#~ msgstr ""
-#~ "O servidor do dicionário a conectar. O servidor padrão é dict.org. Veja "
-#~ "http://www.dict.org para uma lista de outros servidores. Esta chave é "
-#~ "obsoleta e não é mais usada."
-
-#~ msgid "The font to be used when printing"
-#~ msgstr "A fonte para usar ao imprimir"
-
-#~ msgid "The font to be used when printing a definition."
-#~ msgstr "A fonte para usar ao imprimir uma definição."
-
-#~ msgid ""
-#~ "The name of the default individual database or meta-database to use on a "
-#~ "dictionary source. An exclamation mark (\"!\") means that all the "
-#~ "databases present in a dictionary source should be searched"
-#~ msgstr ""
-#~ "O nome do banco de dados individual padrão ou meta-banco de dados a usar "
-#~ "numa fonte de dicionário. '!' especifica que o programa deve procurar "
-#~ "todos os bancos de dados no servidor especificado."
-
-#~ msgid ""
-#~ "The name of the default search strategy to use on a dictionary source, if "
-#~ "available. The default strategy is 'exact', that is match exact words."
-#~ msgstr ""
-#~ "O nome da estratégia de busca padrão a usar numa fonte de dicionário, se "
-#~ "disponível. A estratégia padrão é 'exact', que procura palavras exatas."
-
-#~ msgid "The name of the dictionary source used"
-#~ msgstr "O nome da fonte de dicionário usada"
-
-#~ msgid ""
-#~ "The name of the dictionary source used to retrieve the definitions of "
-#~ "words."
-#~ msgstr ""
-#~ "O nome da fonte de dicionário usada para recuperar as definições de "
-#~ "palavras."
-
-#~ msgid ""
-#~ "The port number to connect to. The default port is 2628. This key is "
-#~ "deprecated and no longer in use."
-#~ msgstr ""
-#~ "O número da porta a conectar. A porta padrão é 2628. Essa chave está "
-#~ "obsoleta e não é mais usada."
-
-#~ msgid ""
-#~ "This key defines the window height and it's used to remember the size of "
-#~ "the dictionary window across sessions. Setting it to -1 will make the "
-#~ "dictionary window use a height based on the font size."
-#~ msgstr ""
-#~ "Essa chave define a altura da janela e é usada para lembrar o tamanho da "
-#~ "janela de dicionário entre sessões. Defini-la como -1 fará a janela de "
-#~ "dicionário usar a altura baseada no tamanho da fonte."
-
-#~ msgid ""
-#~ "This key defines the window width and it's used to remember the size of "
-#~ "the dictionary window across sessions. Setting it to -1 will make the "
-#~ "dictionary window use a width based on the font size."
-#~ msgstr ""
-#~ "Essa chave define a largura da janela e é usada para lembrar o tamanho da "
-#~ "janela de dicionário entre sessões. Defini-la como -1 fará a janela de "
-#~ "dicionário usar a largura baseada no tamanho da fonte."
-
-#~ msgid ""
-#~ "This key defines whether the window should be maximized and it's used to "
-#~ "remember the state of the dictionary window across sessions. Setting it "
-#~ "to TRUE will make the window always appear as maximized."
-#~ msgstr ""
-#~ "Esta chave define se a janela deve ser maximizada e é usada para lembrar "
-#~ "o estado da janela de dicionário entre sessões. Defini-la como TRUE fará "
-#~ "a janela sempre aparecer maximizada."
-
-#~ msgid "Use smart lookup (Deprecated)"
-#~ msgstr "Usar consulta inteligente (Obsoleto)"
-
-#~ msgid "Whether the application window should be maximized"
-#~ msgstr "Se a janela da aplicação deve ser maximizada"
-
-#~ msgid "Data_base:"
-#~ msgstr "_Banco de dados:"
-
-#~ msgid "Dictionary Server"
-#~ msgstr "Servidor de dicionário"
-
-#~ msgid "Print"
-#~ msgstr "Imprimir"
-
-#~ msgid "Source"
-#~ msgstr "Fonte"
-
-#~ msgid "Source Name"
-#~ msgstr "Nome da Fonte"
-
-#~ msgid "_Advanced settings"
-#~ msgstr "Configurações _avançadas"
-
-#~ msgid "_Description:"
-#~ msgstr "_Descrição:"
-
-#~ msgid "_Print font:"
-#~ msgstr "Fonte de im_pressão:"
-
-#~ msgid "_Select a dictionary source for looking up words:"
-#~ msgstr "_Selecione uma fonte de dicionário para consultar palavras:"
-
-#~ msgid "_Strategy:"
-#~ msgstr "_Estratégia:"
-
-#~ msgid "_Transport:"
-#~ msgstr "_Transporte:"
-
-#~ msgid "French Dictionaries from Wikipedia"
-#~ msgstr "Dicionários de Francês do Wikipedia"
-
-#~ msgid "Spanish Dictionaries"
-#~ msgstr "Dicionários de Espanhol"
-
-#~ msgid "Client Name"
-#~ msgstr "Nome do Cliente"
-
-#~ msgid "The name of the client of the context object"
-#~ msgstr "O nome do cliente do objeto de contexto"
-
-#~ msgid "Hostname"
-#~ msgstr "Nome de máquina"
-
-#~ msgid "The hostname of the dictionary server to connect to"
-#~ msgstr "O nome de máquina do servidor de dicionário ao qual se conectar."
-
-#~ msgid "Port"
-#~ msgstr "Porta"
-
-#~ msgid "The port of the dictionary server to connect to"
-#~ msgstr "A porta do servidor de dicionário ao qual se conectar."
-
-#~ msgid "Status"
-#~ msgstr "Status"
-
-#~ msgid "The status code as returned by the dictionary server"
-#~ msgstr "O código de status como retornado pelo servidor de dicionário"
-
-#~ msgid "No connection to the dictionary server at '%s:%d'"
-#~ msgstr "Nenhuma conexão ao servidor de dicionário em '%s:%d'"
-
-#~ msgid "Lookup failed for hostname '%s': no suitable resources found"
-#~ msgstr ""
-#~ "Falha na consulta à máquina '%s': nenhum recurso apropriado encontrado"
-
-#~ msgid "Lookup failed for host '%s': %s"
-#~ msgstr "Falha na consulta à máquina '%s': %s"
-
-#~ msgid "Lookup failed for host '%s': host not found"
-#~ msgstr "Falha na consulta à máquina '%s': máquina não encontrada"
-
-#~ msgid ""
-#~ "Unable to connect to the dictionary server at '%s:%d'. The server replied "
-#~ "with code %d (server down)"
-#~ msgstr ""
-#~ "Impossível conectar ao servidor de dicionário em '%s:%d'. O servidor "
-#~ "respondeu com o código %d (servidor desligado)"
-
-#~ msgid ""
-#~ "Unable to parse the dictionary server reply\n"
-#~ ": '%s'"
-#~ msgstr ""
-#~ "Impossível analisar a resposta do servidor de dicionário:\n"
-#~ "'%s'"
-
-#~ msgid "No definitions found for '%s'"
-#~ msgstr "Nenhuma definição encontrada para '%s'"
-
-#~ msgid "Invalid database '%s'"
-#~ msgstr "Banco de dados '%s' inválido"
-
-#~ msgid "Invalid strategy '%s'"
-#~ msgstr "Estratégia '%s' inválida"
-
-#~ msgid "Bad command '%s'"
-#~ msgstr "Comando '%s' inválido"
-
-#~ msgid "Bad parameters for command '%s'"
-#~ msgstr "Parâmetros inválidos para o comando '%s'"
-
-#~ msgid "No databases found on dictionary server at '%s'"
-#~ msgstr "Nenhum banco de dados encontrado no servidor de dicionário em '%s'."
-
-#~ msgid "No strategies found on dictionary server at '%s'"
-#~ msgstr "Nenhuma estratégia encontrada no servidor de dicionário em '%s'"
-
-#~ msgid "Connection failed to the dictionary server at %s:%d"
-#~ msgstr "Falha na conexão ao servidor de dicionário em %s:%d"
-
-#~ msgid ""
-#~ "Error while reading reply from server:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Erro ao ler a resposta do servidor:\n"
-#~ "%s"
-
-#~ msgid "No hostname defined for the dictionary server"
-#~ msgstr "Nenhum nome de máquina definido para o servidor de dicionário"
-
-#~ msgid "Unable to create socket"
-#~ msgstr "Impossível criar socket"
-
-#~ msgid "Unable to set the channel as non-blocking: %s"
-#~ msgstr "Impossível definir o canal como não-bloqueante: %s"
-
-#~ msgid "Unable to connect to the dictionary server at '%s:%d'"
-#~ msgstr "Impossível conectar ao servidor do dicionário em '%s:%d'"
-
-#~ msgid "Local Only"
-#~ msgstr "Apenas Local"
-
-#~ msgid "Whether the context uses only local dictionaries or not"
-#~ msgstr "Se o contexto usa apenas dicionários locais ou não"
-
-#~ msgid "F_ind:"
-#~ msgstr "Pro_curar:"
-
-#~ msgid "_Previous"
-#~ msgstr "_Anterior"
-
-#~ msgid "_Next"
-#~ msgstr "_Próximo"
-
-#~ msgid "Context"
-#~ msgstr "Contexto"
-
-#~ msgid "The GdictContext object used to get the word definition"
-#~ msgstr "O objeto GdictContext usado para obter a definição da palavra"
-
-#~ msgid "Database"
-#~ msgstr "Banco de dados"
-
-#~ msgid "The database used to query the GdictContext"
-#~ msgstr "O banco de dados usado para consultar o GdictContext"
-
-#~ msgid "Emphasys Color"
-#~ msgstr "Cor de Ênfase"
-
-#~ msgid "Color of emphasised text"
-#~ msgstr "Cor do texto enfatizado"
-
-#~ msgid "Link Color"
-#~ msgstr "Cor de Link"
-
-#~ msgid "Color of hyperlinks"
-#~ msgstr "Cor de hiperlinks"
-
-#~ msgid "Word Color"
-#~ msgstr "Car da Palavra"
-
-#~ msgid "Color of the dictionary word"
-#~ msgstr "Cor da palavra no dicionário"
-
-#~ msgid "Source Color"
-#~ msgstr "Cor da Fonte"
-
-#~ msgid "Color of the dictionary source"
-#~ msgstr "Cor da fonte do dicionário"
-
-#~ msgid "Progress"
-#~ msgstr "Progresso"
-
-#~ msgid "Definition for '%s' (%d/%d)"
-#~ msgstr "Definição para '%s' (%d/%d)"
-
-#~ msgid "Error while looking up definition"
-#~ msgstr "Erro ao consultar a definição"
-
-#~ msgid "Attempting to look up '%s' but no GdictContext defined.  Aborting."
-#~ msgstr ""
-#~ "Tentando consultar '%s', mas nenhum GdictContext foi definido. Abortando."
-
-#~ msgid "Another search is in progress"
-#~ msgstr "Uma outra busca está em progresso"
-
-#~ msgid "Please wait until the current search ends."
-#~ msgstr "Por favor, espere até que a busca atual termine."
-
-#~ msgid "Error while retrieving the definition"
-#~ msgstr "Erro ao recuperar a definição"
-
-#~ msgid "The database to be used to generate the completion list"
-#~ msgstr "O banco de dados a usar para gerar a lista de completar"
-
-#~ msgid "Strategy"
-#~ msgstr "Estratégia"
-
-#~ msgid "The matching strategy to be used to generate the completion list"
-#~ msgstr "A estratégia a usar para gerar a lista de completar"
-
-#~ msgid "Filename"
-#~ msgstr "Nome do arquivo"
-
-#~ msgid "The filename used by this dictionary source"
-#~ msgstr "O nome do arquivo usado por essa fonte de dicionário"
-
-#~ msgid "Name"
-#~ msgstr "Nome"
-
-#~ msgid "The display name of this dictonary source"
-#~ msgstr "O nome de exibição desta fonte de dicionário"
-
-#~ msgid "Description"
-#~ msgstr "Descrição"
-
-#~ msgid "The description of this dictionary source"
-#~ msgstr "A descrição desta fonte de dicionário"
-
-#~ msgid "The default database of this dictonary source"
-#~ msgstr "O banco de dados padrão desta fonte de dicionário"
-
-#~ msgid "The default strategy of this dictonary source"
-#~ msgstr "A estratégia padrão desta fonte dedicionário"
-
-#~ msgid "Transport"
-#~ msgstr "Transporte"
-
-#~ msgid "The transport mechanism used by this dictionary source"
-#~ msgstr "O mecanismo de transporte usado por esta fonte de dicionário"
-
-#~ msgid "Invalid transport type '%d'"
-#~ msgstr "Tipo de transporte '%d' inválido"
-
-#~ msgid "No '%s' group found inside the dictionary source definition"
-#~ msgstr ""
-#~ "Nenhum grupo '%s' encontrado dentro da definição da fonte de dicionário"
-
-#~ msgid ""
-#~ "Unable to get the '%s' key inside the dictionary source definition: %s"
-#~ msgstr ""
-#~ "Impossível obter a chave '%s' dentro da definição da fonte de dicionário: "
-#~ "%s"
-
-#~ msgid ""
-#~ "Unable to get the '%s' key inside the dictionary source definition file: %"
-#~ "s"
-#~ msgstr ""
-#~ "Impossível obter a chave '%s' dentro do arquivo de definição da fonte de "
-#~ "dicionário: %s"
-
-#~ msgid "Dictionary source '%s' has invalid transport '%s'"
-#~ msgstr "A fonte de dicionário '%s' tem transporte '%s' inválido"
-
-#~ msgid "Paths"
-#~ msgstr "Caminhos"
-
-#~ msgid "Search paths used by this object"
-#~ msgstr "Caminhos de busca usados por este objeto"
-
-#~ msgid "Sources"
-#~ msgstr "Fontes"
-
-#~ msgid "Dictionary sources found"
-#~ msgstr "Fontes de dicionário encontradas"
-
-#~ msgid "translator-credits"
-#~ msgstr ""
-#~ "Alexandre Hautequest <hquest@fesppr.br>\n"
-#~ "Ariel Bressan da Silva <ariel@conectiva.com.br>\n"
-#~ "Evandro Fernandes Giovanini <evandrofg@ig.com.br>\n"
-#~ "Francisco Petrúcio Cavalcante Junior <fpcj@impa.br>\n"
-#~ "Gustavo Maciel Dias Vieira <gustavo@sagui.org>\n"
-#~ "Welther José O. Esteves <weltherjoe@yahoo.com.br>\n"
-#~ "Goedson Teixeira Paixão <goedson@debian.org>\n"
-#~ "Guilherme de S. Pastore <gpastore@colband.com.br>"
-
-#~ msgid "Look up words in dictionaries"
-#~ msgstr "Consultar palavras em dicionários"
-
-#~ msgid "Unable to open the application icon: %s"
-#~ msgstr "Impossível abrir o ícone da aplicação: %s"
-
-#~ msgid "Error: %s\n"
-#~ msgstr "Erro: %s\n"
-
-#~ msgid "See gnome-dictionary --help for usage\n"
-#~ msgstr "Veja gnome-dictionary --help para uso\n"
-
-#~ msgid "Unable to find a suitable dictionary source"
-#~ msgstr "Impossível encontrar uma fonte de dicionário apropriada"
-
-#~ msgid ""
-#~ "Error while looking up the definition of \"%s\":\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Erro ao consultar a definição de \"%s\":\n"
-#~ "%s"
-
-#~ msgid "Dictionary source to use"
-#~ msgstr "Fonte de dicionário para usar"
-
-#~ msgid "source"
-#~ msgstr "fonte"
-
-#~ msgid "Show available dictionary sources"
-#~ msgstr "Mostrar fontes de dicionário disponíveis"
-
-#~ msgid "Print result to the console"
-#~ msgstr "Imprimir resultado no console"
-
-#~ msgid "Database to use"
-#~ msgstr "Banco de dados para usar"
-
-#~ msgid " - Look up words in dictionaries"
-#~ msgstr " - Consultar palavras em dicionários"
-
-#~ msgid "Dictionary and spelling tool"
-#~ msgstr "Ferramenta de dicionário e ortografia"
-
-#~ msgid "Show Dictionary options"
-#~ msgstr "Mostra opções de dicionário"
-
-#~ msgid "Save a Copy"
-#~ msgstr "Salvar uma cópia"
-
-#~ msgid "Untitled document"
-#~ msgstr "Documento sem título"
-
-#~ msgid "Error while writing to '%s'"
-#~ msgstr "Erro ao gravar em '%s'"
-
-#~ msgid "Clear the definitions found"
-#~ msgstr "Limpa as definições encontradas"
-
-#~ msgid "Clear the text of the definition"
-#~ msgstr "Limpa o texto da definição"
-
-#~ msgid "Print the definitions found"
-#~ msgstr "Imprime as definições encontradas"
-
-#~ msgid "Print definition"
-#~ msgstr "Imprimir definição"
-
-#~ msgid "Print the text of the definition"
-#~ msgstr "Imprime o texto da definição"
-
-#~ msgid "Save the definitions found"
-#~ msgstr "Salva as definições encontradas"
-
-#~ msgid "Save definition"
-#~ msgstr "Salvar definição"
-
-#~ msgid "Save the text of the definition to a file"
-#~ msgstr "Salva o texto da definição em um arquivo"
-
-#~ msgid "Toggle dictionary window"
-#~ msgstr "Alternar janela do dicionário"
-
-#~ msgid "Show or hide the definition window"
-#~ msgstr "Mostra ou oculta a janela de definição"
-
-#~ msgid "Click to view the dictionary window"
-#~ msgstr "Clique para ver a janela do dicionário"
-
-#~ msgid "Dictionary entry"
-#~ msgstr "Entrada de dicionário"
-
-#~ msgid "Type the word you want to look up"
-#~ msgstr "Digite a palavra que você gostaria de consultar"
-
-#~ msgid "There was an error while displaying help"
-#~ msgstr "Ocorreu um erro ao mostrar a ajuda"
-
-#~ msgid "No dictionary source available with name '%s'"
-#~ msgstr "Nenhuma fonte de dicionário disponível com o nome '%s'"
-
-#~ msgid "Unable to find dictionary source"
-#~ msgstr "Impossível encontrar a fonte de dicionário"
-
-#~ msgid "No context available for source '%s'"
-#~ msgstr "Nenhum contexto disponível para a fonte '%s'"
-
-#~ msgid "Unable to create a context"
-#~ msgstr "Impossível criar um contexto"
-
-#~ msgid "Unable to create the data directory '%s'"
-#~ msgstr "Impossível criar o diretório de dados '%s'"
-
-#~ msgid "Unable to load the applet icon"
-#~ msgstr "Impossível carregar o ícone do mini-aplicativo"
-
-#~ msgid "Remove \"%s\"?"
-#~ msgstr "Remover \"%s\"?"
-
-#~ msgid "This will permanently remove the dictionary source from the list."
-#~ msgstr "Isto removerá permanentemente a fonte de dicioário da lista."
-
-#~ msgid "Unable to remove source '%s'"
-#~ msgstr "Impossível remover a fonte '%s'"
-
-#~ msgid "Add a new dictionary source"
-#~ msgstr "Adiciona uma nova fonte de dicionário"
-
-#~ msgid "Remove the currently selected dictionary source"
-#~ msgstr "Remove a fonte de dicionário selecionada atualmente"
-
-#~ msgid "Set the font used for printing the definitions"
-#~ msgstr "Define a fonte usada para imprimir as definições"
-
-#~ msgid "%s (page %d)"
-#~ msgstr "%s (página %d)"
-
-#~ msgid "Print Preview"
-#~ msgstr "Visualizar impressão"
-
-#~ msgid "Unable to create a source file"
-#~ msgstr "Impossível criar um arquivo de fonte"
-
-#~ msgid "Unable to save source file"
-#~ msgstr "Impossível salvar o arquivo de fonte"
-
-#~ msgid "No definitions found"
-#~ msgstr "Nenhuma definição encontrada"
-
-#~ msgid "A definition found"
-#~ msgstr "Uma definição encontrada"
-
-#~ msgid "%d definitions found"
-#~ msgstr "%d definições encontradas"
-
-#~ msgid "%s - Dictionary"
-#~ msgstr "%s - Dicionário"
-
-#~ msgid "Dictionary Preferences"
-#~ msgstr "Preferências do Dicionário"
-
-#~ msgid "_File"
-#~ msgstr "_Arquivo"
-
-#~ msgid "_New"
-#~ msgstr "_Novo"
-
-#~ msgid "New look up"
-#~ msgstr "Nova consulta"
-
-#~ msgid "_Save a Copy..."
-#~ msgstr "_Salvar uma cópia..."
-
-#~ msgid "_Print..."
-#~ msgstr "Im_primir..."
-
-#~ msgid "Print this document"
-#~ msgstr "Imprime esse documento"
-
-#~ msgid "Select _All"
-#~ msgstr "Selecionar _Tudo"
-
-#~ msgid "Find a word or phrase in the document"
-#~ msgstr "Encontra uma palavra ou frase no documento"
-
-#~ msgid "Find Ne_xt"
-#~ msgstr "Procurar _Próxima"
-
-#~ msgid "Find Pre_vious"
-#~ msgstr "Procurar _Anterior"
-
-#~ msgid "_Previous Definition"
-#~ msgstr "Definição _Anterior"
-
-#~ msgid "Go to the previous definition"
-#~ msgstr "Vai para a definição anterior"
-
-#~ msgid "_Next Definition"
-#~ msgstr "_Próxima Definição"
-
-#~ msgid "Go to the next definition"
-#~ msgstr "Vai para a próxima definição"
-
-#~ msgid "_First Definition"
-#~ msgstr "Primeira _Definição"
-
-#~ msgid "Go to the first definition"
-#~ msgstr "Vai para a primeira definição"
-
-#~ msgid "_Last Definition"
-#~ msgstr "Ú_ltima Definição"
-
-#~ msgid "Go to the last definition"
-#~ msgstr "Vai para a última definição"
-
-#~ msgid "_Contents"
-#~ msgstr "_Conteúdo"
-
-#~ msgid "Look _up:"
-#~ msgstr "_Consultar:"
-
-#~ msgid "Unable to load the application icon"
-#~ msgstr "Impossível carregar o ícone da aplicação"
-
-#~ msgid " (invalid Unicode)"
-#~ msgstr " (Unicode inválido)"
-
-#~ msgid "(%d:%02d:%d Remaining)"
-#~ msgstr "(Restando %d:%02d:%d)"
-
-#~ msgid "(%d:%02d Remaining)"
-#~ msgstr "(Restando %d:%02d)"
-
-#~ msgid "%ld of %ld"
-#~ msgstr "%ld de %ld"
-
-#~ msgid "Error loading help"
-#~ msgstr "Erro ao carregar ajuda"
-
-#~ msgid "There was an error displaying the help pages for this dialog:"
-#~ msgstr "Ocorreu um erro ao mostrar as páginas de ajuta para este diálogo:"
-
-#~ msgid "Screenshot-%s.png"
-#~ msgstr "Captura_da_tela-%s.png"
-
-#~ msgid "Screenshot.png"
-#~ msgstr "Captura_da_tela.png"
-
-#~ msgid "Screenshot-%s-%d.png"
-#~ msgstr "Captura_da_tela-%s-%d.png"
-
-#~ msgid "Screenshot-%d.png"
-#~ msgstr "Captura_da_tela-%d.png"
-
-#~ msgid "Unable to take a screenshot of the current desktop."
-#~ msgstr "Impossível obter uma captura da tela da área de trabalho atual."
-
-#~ msgid "Grab a window instead of the entire screen"
-#~ msgstr "Captura uma janela ao invés de uma tela inteira"
-
-#~ msgid "Include the window border with the screenshot"
-#~ msgstr "Inclui a borda da janela com a imagem da tela"
-
-#~ msgid "Take screenshot after specified delay [in seconds]"
-#~ msgstr "Obtém uma captura da tela após um atraso [em segundos] especificado"
-
-#~ msgid "Effect to add to the window border"
-#~ msgstr "Efeito para adicionar a borda da janela"
-
-#~ msgid "<b>Options</b>"
-#~ msgstr "<b>Opções</b>"
-
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>Previsão</b>"
-
-#~ msgid "Save Screenshot"
-#~ msgstr "Salvar Captura de Tela"
-
-#~ msgid "Take Screenshot"
-#~ msgstr "Capturar Imagem da Tela"
-
-#~ msgid "Take a screenshot of your desktop"
-#~ msgstr "Capture uma imagem da sua área de trabalho"
-
-#~ msgid "Save in _folder:"
-#~ msgstr "Salvar na _pasta:"
-
-#~ msgid "Border Effect"
-#~ msgstr "Efeito de Borda"
-
-#~ msgid ""
-#~ "Effect to add to the outside of a border. Possible values are \"shadow\", "
-#~ "\"none\", and \"black-line\"."
-#~ msgstr ""
-#~ "Efeito para adicionar uma borda externa. Valores permitidos são: \"shadow"
-#~ "\", \"none\" e \"black-line\""
-
-#~ msgid "Include Border"
-#~ msgstr "Incluir Borda"
-
-#~ msgid "Include the window manager border along with the screenshot"
-#~ msgstr "Inclui a borda do gerenciador de janelas dentro da captura de tela"
-
-#~ msgid "Screenshot directory"
-#~ msgstr "Diretório de captura de tela"
-
-#~ msgid "The directory the last screenshot was saved in."
-#~ msgstr "Diretório em que a última captura de tela foi salva"
-
-#~ msgid ""
-#~ "Glade file for the screenshot program is missing.\n"
-#~ "Please check your installation of gnome-utils"
-#~ msgstr ""
-#~ "O arquivo do Glade para o programa de captura de tela está faltando.\n"
-#~ "Por favor, verifique sua instalação do gnome-utils."
-
-#~ msgid "Select a directory"
-#~ msgstr "Selecione um diretório"
-
-#~ msgid ""
-#~ "Unable to clear the temporary directory:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Impossível limpar o diretório temporário:\n"
-#~ "%s"
-
-#~ msgid ""
-#~ "The child save process unexpectedly exited.  We are unable to write the "
-#~ "screenshot to disk."
-#~ msgstr ""
-#~ "O processo filho salvo terminou de maneira inesperada.  Você não pode "
-#~ "salvar a captura de tela no disco."
-
-#~ msgid "Unknown error saving screenshot to disk"
-#~ msgstr "Erro desconhecido ao salvar a captura de tela no disco."
-
-#~ msgid "Untitled Window"
-#~ msgstr "Janela sem Nome"
-
-#~ msgid "Preparing to copy"
-#~ msgstr "Preparando para copiar"
-
-#~ msgid "File already exists"
-#~ msgstr "O arquivo já existe"
-
-#~ msgid "The file \"%s\" already exists.  Would you like to replace it?"
-#~ msgstr "O arquivo \"%s\" já existe. Você desejaria substituí-lo?"
-
-#~ msgid "_Replace"
-#~ msgstr "Substitui_r"
-
-#~ msgid "Unknown GnomeVFSXferProgressStatus %d"
-#~ msgstr "GnomeVFSXferProgressStatus %d desconhecido"
-
-#~ msgid "Find files, folders, and documents on your computer"
-#~ msgstr "Encontre arquivos, pastas e documentos em seu computador"
-
-#~ msgid "Search for Files..."
-#~ msgstr "Procurar por Arquivos..."
-
-#~ msgid "Default Window Height"
-#~ msgstr "Altura da Janela Padrão"
-
-#~ msgid "Default Window Maximized"
-#~ msgstr "Janela Padrão Maximizada"
-
-#~ msgid "Default Window Width"
-#~ msgstr "Largura da Janela Padrão"
-
-#~ msgid "Disable Quick Search"
-#~ msgstr "Desabilitar a Busca Rápida"
-
-#~ msgid "Disable Quick Search Second Scan"
-#~ msgstr "Desabilitar a Segunda Varredura da Busca Rápida"
-
-#~ msgid "Quick Search Excluded Paths"
-#~ msgstr "Caminhos Excluídos de Procura Rápida"
-
-#~ msgid "Quick Search Second Scan Excluded Paths"
-#~ msgstr "Caminhos Excluídos de Segunda Busca Rápida"
-
-#~ msgid "Search Result Columns Order"
-#~ msgstr "Ordem das Colunas dos Resultados da Busca"
-
-#~ msgid "Select the search option \"Contains the text\""
-#~ msgstr "Seleciona a opção de procura \"Contém o texto\""
-
-#~ msgid "Select the search option \"Date modified less than\""
-#~ msgstr "Seleciona a opção de procura \"Última modificação antes de\""
-
-#~ msgid "Select the search option \"Date modified more than\""
-#~ msgstr "Seleciona a opção de procura \"Última modificação depois de\""
-
-#~ msgid "Select the search option \"File is empty\""
-#~ msgstr "Seleciona a opção de procura \"O arquivo está vazio\""
-
-#~ msgid "Select the search option \"Follow symbolic links\""
-#~ msgstr "Seleciona a opção de procura \"Seguir links simbólicos\""
-
-#~ msgid "Select the search option \"Include other filesystems\""
-#~ msgstr ""
-#~ "Seleciona a opção de procura \"Incluir outros sistemas de arquivos\""
-
-#~ msgid "Select the search option \"Name does not contain\""
-#~ msgstr "Seleciona a opção de procura \"Nome não contém\""
-
-#~ msgid "Select the search option \"Name matches regular expression\""
-#~ msgstr ""
-#~ "Seleciona a opção de procura \"Nome de acordo com a expressão regular\""
-
-#~ msgid "Select the search option \"Owned by group\""
-#~ msgstr "Seleciona a opção de procura \"Propriedade do grupo\""
-
-#~ msgid "Select the search option \"Owned by user\""
-#~ msgstr "Seleciona a opção de procura \"Propriedade do usuário\""
-
-#~ msgid "Select the search option \"Owner is unrecognized\""
-#~ msgstr "Seleciona a opção de procura \"Proprietário desconhecido\""
-
-#~ msgid "Select the search option \"Show hidden files and folders\""
-#~ msgstr "Selecione a opção de procura \"Mostrar arquivos ocultos e pastas\""
-
-#~ msgid "Select the search option \"Size at least\""
-#~ msgstr "Seleciona a opção de procura \"Tamanho mínimo\""
-
-#~ msgid "Select the search option \"Size at most\""
-#~ msgstr "Seleciona a opção de procura \"Tamanho máximo\""
-
-#~ msgid "Show Additional Options"
-#~ msgstr "Mostra Opções Adicionais"
-
-#~ msgid ""
-#~ "This key defines the order of the columns in the search results. This key "
-#~ "should not be modified by the user."
-#~ msgstr ""
-#~ "Esta chave define a ordem das colunas nos resultados de busca. Ela não "
-#~ "deve ser modificada."
-
-#~ msgid ""
-#~ "This key defines the paths the search tool will exclude from a quick "
-#~ "search. The wildcards '*' and '?' are supported. The default values are /"
-#~ "mnt/*, /media/*, /dev/*, /tmp/*, /proc/*, and /var/*."
-#~ msgstr ""
-#~ "Esta chave define os caminhos que a ferramenta de procura irá excluir da "
-#~ "busca rápida. Os caracteres curinga '*' e '?' são suportados. Os valores "
-#~ "padrão são /mnt/*, /media/*, /dev/*, /tmp/*, /proc/* e /var/*."
-
-#~ msgid ""
-#~ "This key defines the paths the search tool will exclude from a second "
-#~ "scan when performing a quick search. The second scan uses the find "
-#~ "command to search for files. The purpose of the second scan is to find "
-#~ "files that have not been indexed. The wildcards '*' and '?' are "
-#~ "supported. The default value is /."
-#~ msgstr ""
-#~ "Esta chave define os caminhos que a ferramenta de procura irá excluir de "
-#~ "uma segunda varredura quando realizando uma procura rápida. A segunda "
-#~ "varredura utiliza o comando procurar para encontrar os arquivos. O "
-#~ "propósito da segunda varredura é encontrar arquivos que não tenham sido "
-#~ "indexados. Os caracteres curinga '*' e '?' são suportados. O valor padrão "
-#~ "é /."
-
-#~ msgid ""
-#~ "This key defines the window height, and it's used to remember the size of "
-#~ "the search tool between sessions. Setting it to -1 will make the search "
-#~ "tool use the default height."
-#~ msgstr ""
-#~ "Essa chave define a altura da janela e é usada para lembrar o tamanho da "
-#~ "ferramenta de busca entre sessões. Defini-la como -1 fará a ferramenta de "
-#~ "busca usar a altura padrão."
-
-#~ msgid ""
-#~ "This key defines the window width, and it's used to remember the size of "
-#~ "the search tool between sessions. Setting it to -1 will make the search "
-#~ "tool use the default width."
-#~ msgstr ""
-#~ "Essa chave define a largura da janela e é usada para lembrar o tamanho da "
-#~ "ferramenta de busca entre sessões. Defini-la como -1 fará a ferramenta de "
-#~ "busca usar a largura padrão."
-
-#~ msgid ""
-#~ "This key determines if the \"Contains the text\" search option is "
-#~ "selected when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a opção de procura \"Contém o texto\" é "
-#~ "selecionada quando a ferramenta de procura é iniciada."
-
-#~ msgid ""
-#~ "This key determines if the \"Date modified less than\" search option is "
-#~ "selected when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a opção de procura \"Última modificação antes de"
-#~ "\" é selecionada quando a ferramenta de procura é iniciada."
-
-#~ msgid ""
-#~ "This key determines if the \"Date modified more than\" search option is "
-#~ "selected when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a opção de procura \"Última modificação depois de"
-#~ "\" é selecionada quando a ferramenta de procura é iniciada."
-
-#~ msgid ""
-#~ "This key determines if the \"File is empty\" search option is selected "
-#~ "when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a opção de procura \"O arquivo está vazio\" é "
-#~ "selecionada quando a ferramenta de procura é iniciada."
-
-#~ msgid ""
-#~ "This key determines if the \"Follow symbolic links\" search option is "
-#~ "selected when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a opção de procura \"Seguir links simbólicos\" é "
-#~ "selecionada quando a ferramenta de procura é iniciada."
-
-#~ msgid ""
-#~ "This key determines if the \"Include other filesystems\" search option is "
-#~ "selected when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a opção de procura \"Incluir outros sistemas de "
-#~ "arquivos\" é selecionada quando a ferramenta de procura é iniciada."
-
-#~ msgid ""
-#~ "This key determines if the \"Name does not contain\" search option is "
-#~ "selected when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a opção de procura \"Nome não contém\" é "
-#~ "selecionada quando a ferramenta de procura é iniciada."
-
-#~ msgid ""
-#~ "This key determines if the \"Name matches regular expression\" search "
-#~ "option is selected when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a opção de procura \"O nome corresponde a "
-#~ "expressão regular\" é selecionada quando a ferramenta de procura é "
-#~ "iniciada."
-
-#~ msgid ""
-#~ "This key determines if the \"Owned by group\" search option is selected "
-#~ "when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a opção de procura \"Propriedade do grupo\" é "
-#~ "selecionada quando a ferramenta de procura é iniciada."
-
-#~ msgid ""
-#~ "This key determines if the \"Owned by user\" search option is selected "
-#~ "when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a opção de procura \"Propriedade do usuário\" é "
-#~ "selecionada quando a ferramenta de procura é iniciada."
-
-#~ msgid ""
-#~ "This key determines if the \"Owner is unrecognized\" search option is "
-#~ "selected when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a opção de procura \"Propriedade não é reconhecida"
-#~ "\" é selecionada quando a ferramenta de procura é iniciada."
-
-#~ msgid ""
-#~ "This key determines if the \"Select more options\" section is expanded "
-#~ "when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a seção \"Mostrar mais opções\" estará expandida "
-#~ "quando a ferramenta de procura é iniciada."
-
-#~ msgid ""
-#~ "This key determines if the \"Show hidden files and folders\" search "
-#~ "option is selected when the search tool is started."
-#~ msgstr ""
-#~ "A chave determina se a opção de procura \"Mostra arquivos ocultos e pastas"
-#~ "\" é selecionada quando a ferramenta de procura se inicia."
-
-#~ msgid ""
-#~ "This key determines if the \"Size at least\" search option is selected "
-#~ "when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a opção de procura \"Tamanho mínimo\" é "
-#~ "selecionada quando a ferramenta de procura é iniciada."
-
-#~ msgid ""
-#~ "This key determines if the \"Size at most\" search option is selected "
-#~ "when the search tool is started."
-#~ msgstr ""
-#~ "Esta chave determina se a opção de procura \"Tamanho máximo\" é "
-#~ "selecionada quando a ferramenta de procura se inicia."
-
-#~ msgid ""
-#~ "This key determines if the search tool disables the use of the find "
-#~ "command after performing a quick search."
-#~ msgstr ""
-#~ "Esta chave determina se a ferramenta de procura desabilita o uso do "
-#~ "comando de procura após realizar uma procura rápida."
-
-#~ msgid ""
-#~ "This key determines if the search tool disables the use of the locate "
-#~ "command when performing simple file name searches."
-#~ msgstr ""
-#~ "Esta chave determina de a ferramenta de procura desabilita o uso do "
-#~ "comando de localização quando realizar um procura simples de nome de "
-#~ "aquivos."
-
-#~ msgid ""
-#~ "This key determines if the search tool window starts in a maximized state."
-#~ msgstr ""
-#~ "Esta chave determina se a janela da ferramenta de busca inicia em estado "
-#~ "maximizado."
-
-#~ msgid "Could not open help document."
-#~ msgstr "Não foi possível abrir o documento de ajuda."
-
-#~ msgid "Are you sure you want to open %d document?"
-#~ msgid_plural "Are you sure you want to open %d documents?"
-#~ msgstr[0] "Você quer realmente abrir %d documento?"
-#~ msgstr[1] "Você quer realmente abrir %d documentos?"
-
-#~ msgid "This will open %d separate window."
-#~ msgid_plural "This will open %d separate windows."
-#~ msgstr[0] "Isto abrirá %d janela distinta."
-#~ msgstr[1] "Isto abrirá %d janelas distintas."
-
-#~ msgid "Could not open document \"%s\"."
-#~ msgstr "Não foi possível abrir o documento \"%s\""
-
-#~ msgid "Could not open folder \"%s\"."
-#~ msgstr "Não foi possível abrir a pasta \"%s\""
-
-#~ msgid "The nautilus file manager is not running."
-#~ msgstr "O gerenciador de arquivos Nautilus não está sendo executado."
-
-#~ msgid "The document does not exist."
-#~ msgstr "O documento não exixte."
-
-#~ msgid "There is no installed viewer capable of displaying the document."
-#~ msgstr "Não há visualizador instalado capaz de exibir o documento."
-
-#~ msgid "Are you sure you want to open %d folder?"
-#~ msgid_plural "Are you sure you want to open %d folders?"
-#~ msgstr[0] "Você realmente quer abrir %d pasta?"
-#~ msgstr[1] "Você realmente quer abrir %d pastas?"
-
-#~ msgid "Could not move \"%s\" to trash."
-#~ msgstr "Não foi possível mover \"%s\" para a lixeira."
-
-#~ msgid "Do you want to delete \"%s\" permanently?"
-#~ msgstr "Você quer excluir \"%s\" permanentemente?"
-
-#~ msgid "Trash is unavailable.  Could not move \"%s\" to the trash."
-#~ msgstr ""
-#~ "A lixeira está desabilitada. Não é possível mover \"%s\" para a lixeira."
-
-#~ msgid "Could not delete \"%s\"."
-#~ msgstr "Não foi possível excluir \"%s\"."
-
-#~ msgid "Moving \"%s\" failed: %s."
-#~ msgstr "Ao mover \"%s\" falhou: %s."
-
-#~ msgid "Deleting \"%s\" failed: %s."
-#~ msgstr "Ao excluir \"%s\" falhou: %s."
-
-#~ msgid "Save Search Results As..."
-#~ msgstr "Salvar Resultados da Pesquisa Como..."
-
-#~ msgid "Could not save document."
-#~ msgstr "Não foi possível salvar o documento."
-
-#~ msgid "You did not select a document name."
-#~ msgstr "Você não selecionou um documento."
-
-#~ msgid "Could not save \"%s\" document to \"%s\"."
-#~ msgstr "Não foi possível salvar \"%s\" em \"%s\"."
-
-#~ msgid "The document \"%s\" already exists.  Would you like to replace it?"
-#~ msgstr "O documento \"%s\" já existe. Você quer substituí-lo?"
-
-#~ msgid "If you replace an existing file, its contents will be overwritten."
-#~ msgstr ""
-#~ "Se você substituir um arquivo existente, seu conteúdo será sobrescrito."
-
-#~ msgid "The document name you selected is a folder."
-#~ msgstr "O nome do documento selecionado é uma pasta."
-
-#~ msgid "You may not have write permissions to the document."
-#~ msgstr "Você pode não ter permissões de escrita para o documento."
-
-#~ msgid ""
-#~ "GConf error:\n"
-#~ "  %s"
-#~ msgstr ""
-#~ "Erro do GConf:\n"
-#~ "  %s"
-
-#~ msgid "today at %-I:%M %p"
-#~ msgstr "hoje às %-H:%M"
-
-#~ msgid "yesterday at %-I:%M %p"
-#~ msgstr "ontem às %-H:%M"
-
-#~ msgid "%A, %B %-d %Y at %-I:%M:%S %p"
-#~ msgstr "%A, %-d de %B de %Y às %-H:%M:%S"
-
-#~ msgid "link (broken)"
-#~ msgstr "link (quebrado)"
-
-#~ msgid "link to %s"
-#~ msgstr "link para %s"
-
-#~ msgid "Contains the _text"
-#~ msgstr "Contém o _texto"
-
-#~ msgid "_Date modified less than"
-#~ msgstr "Última mo_dificação antes de"
-
-#~ msgid "days"
-#~ msgstr "dias"
-
-#~ msgid "Date modified more than"
-#~ msgstr "Última modificação depois de"
-
-#~ msgid "S_ize at least"
-#~ msgstr "Tamanho mí_nimo"
-
-#~ msgid "kilobytes"
-#~ msgstr "kilobytes"
-
-#~ msgid "Si_ze at most"
-#~ msgstr "Tamanho má_ximo"
-
-#~ msgid "File is empty"
-#~ msgstr "O arquivo está vazio"
-
-#~ msgid "Owned by _user"
-#~ msgstr "Propriedade do _usuário"
-
-#~ msgid "Owned by _group"
-#~ msgstr "Propriedade do _grupo"
-
-#~ msgid "Owner is unrecognized"
-#~ msgstr "Dono é irreconhecível"
-
-#~ msgid "Na_me does not contain"
-#~ msgstr "No_me não contém"
-
-#~ msgid "Name matches regular e_xpression"
-#~ msgstr "Nome de acordo com a e_xpressão regular"
-
-#~ msgid "Show hidden and backup files"
-#~ msgstr "Mostrar arquivos ocultos e de backup"
-
-#~ msgid "Follow symbolic links"
-#~ msgstr "Seguir links simbólicos"
-
-#~ msgid "Include other filesystems"
-#~ msgstr "Incluir outros sistemas de arquivos"
-
-#~ msgid "_Open"
-#~ msgstr "_Abrir"
-
-#~ msgid "O_pen Folder"
-#~ msgstr "Abrir _Pasta"
-
-#~ msgid "Mo_ve to Trash"
-#~ msgstr "Mo_ver para Lixeira"
-
-#~ msgid "_Save Results As..."
-#~ msgstr "_Salvar Resultados Como..."
-
-#~ msgid "A locate database has probably not been created."
-#~ msgstr "Um banco de dados local provavelmente não foi criado."
-
-#~ msgid "Character set conversion failed for \"%s\""
-#~ msgstr "A conversão do conjunto de caracteres falhou para \"%s\""
-
-#~ msgid "No files found"
-#~ msgstr "Nenhum arquivo encontrado"
-
-#~ msgid "(stopped)"
-#~ msgstr "(parado)"
-
-#~ msgid "No Files Found"
-#~ msgstr "Nenhum Arquivo Encontrado"
-
-#~ msgid "%d File Found"
-#~ msgid_plural "%d Files Found"
-#~ msgstr[0] "%d Arquivo Encontrado"
-#~ msgstr[1] "%d Arquivos Encontrados"
-
-#~ msgid "%d file found"
-#~ msgid_plural "%d files found"
-#~ msgstr[0] "%d arquivo encontrado"
-#~ msgstr[1] "%d arquivos encontrados"
-
-#~ msgid "Search for Files"
-#~ msgstr "Procurar Arquivos"
-
-#~ msgid "Entry changed called for a non entry option!"
-#~ msgstr "Entrada alterada chamada para uma opção de não-entrada!"
-
-#~ msgid "Searching..."
-#~ msgstr "Procurando..."
-
-#~ msgid "Set the text of \"Name contains\" search option"
-#~ msgstr "Define o texto da opção de procura \"Nome contém\""
-
-#~ msgid "Set the text of \"Look in folder\" search option"
-#~ msgstr "Define o texto da opção de procura \"Procurar na pasta\""
-
-#~ msgid ""
-#~ "Sort files by one of the following: name, folder, size, type, or date"
-#~ msgstr ""
-#~ "Organizar arquivos por um dos seguintes: nome, pasta, tamanho, tipo ou "
-#~ "data"
-
-#~ msgid "Set sort order to descending, the default is ascending"
-#~ msgstr ""
-#~ "Definir ordem de organização como descendente, o padrão é ascendente"
-
-#~ msgid "Automatically start a search"
-#~ msgstr "Iniciar uma busca automaticamente"
-
-#~ msgid "Select the \"%s\" search option"
-#~ msgstr "Seleciona a opção de procura \"%s\""
-
-#~ msgid "Select and set the \"%s\" search option"
-#~ msgstr "Seleciona e define a opção de procura \"%s\""
-
-#~ msgid "Invalid option passed to sortby command line argument."
-#~ msgstr "Opção inválida passada para o argumento sortby da linha de comando."
-
-#~ msgid ""
-#~ "\n"
-#~ "... Too many errors to display ..."
-#~ msgstr ""
-#~ "\n"
-#~ "... Muitos erros para serem mostrados ..."
-
-#~ msgid ""
-#~ "The search results may be invalid.  There were errors while performing "
-#~ "this search."
-#~ msgstr ""
-#~ "O resultado da busca pode ser inválido. Ocorreram erros durante a "
-#~ "execução da busca."
-
-#~ msgid "Show more _details"
-#~ msgstr "Mostrar mais _detalhes"
-
-#~ msgid ""
-#~ "The search results may be out of date or invalid.  Do you want to disable "
-#~ "the quick search feature?"
-#~ msgstr ""
-#~ "O resultado da busca pode ser inválido ou estar desatualizado. Você "
-#~ "deseja desabilitar a busca rápida?"
-
-#~ msgid "Disable _Quick Search"
-#~ msgstr "Desabilitar _Busca Rápida"
-
-#~ msgid "Failed to set process group id of child %d: %s.\n"
-#~ msgstr "Falha ao definir o id do grupo de processo para o filho %d: %s.\n"
-
-#~ msgid "Error parsing the search command."
-#~ msgstr "Erro ao analisar o comando de busca."
-
-#~ msgid "Error running the search command."
-#~ msgstr "Erro ao executar o comando de busca."
-
-#~ msgid "Enter a text value for the \"%s\" search option."
-#~ msgstr "Entre um valor de texto para a opção de procuta \"%s\"."
-
-#~ msgid "\"%s\" in %s"
-#~ msgstr "\"%s\" em %s"
-
-#~ msgid "Enter a value in %s for the \"%s\" search option."
-#~ msgstr "Entre um valor em %s para a opção de procura \"%s\"."
-
-#~ msgid "Remove \"%s\""
-#~ msgstr "Remover \"%s\""
-
-#~ msgid "Click to remove the \"%s\" search option."
-#~ msgstr "Clique para remover a opção \"%s\"."
-
-#~ msgid "A_vailable options:"
-#~ msgstr "Opções disponí_veis:"
-
-#~ msgid "Available options"
-#~ msgstr "Opções disponíveis"
-
-#~ msgid "Select a search option from the drop-down list."
-#~ msgstr "Selecione uma opção de pesquisa a partir da lista do menu."
-
-#~ msgid "Add search option"
-#~ msgstr "Adicionar uma opção de procura"
-
-#~ msgid "Click to add the selected available search option."
-#~ msgstr "Clique para adicionar a opção de procura disponível selecionada."
-
-#~ msgid "List View"
-#~ msgstr "Relaciona a Janela"
-
-#~ msgid "Folder"
-#~ msgstr "Pasta"
-
-#~ msgid "Size"
-#~ msgstr "Tamanho"
-
-#~ msgid "Type"
-#~ msgstr "Tipo"
-
-#~ msgid "Date Modified"
-#~ msgstr "Última Modificação"
-
-# Na interface em pt_BR, existe o botão '_Navegar...'
-#~ msgid "_Name contains:"
-#~ msgstr "No_me contém:"
-
-#~ msgid "Enter a filename or partial filename with or without wildcards."
-#~ msgstr ""
-#~ "Entre um nome de arquivo ou nome de aquivo parcial com ou sem caracteres "
-#~ "curingas."
-
-# Na interface em pt_BR, existe o botão '_Navegar...'
-#~ msgid "Name contains"
-#~ msgstr "Nome contém"
-
-#~ msgid "_Look in folder:"
-#~ msgstr "Proc_urar na pasta:"
-
-#~ msgid "Browse"
-#~ msgstr "Navegar"
-
-#~ msgid "Look in folder"
-#~ msgstr "Procurar na pasta"
-
-#~ msgid "Select the folder or device from which you want to begin the search."
-#~ msgstr ""
-#~ "Selecione a pasta ou dispositivo a partir do qual você deseja iniciar a "
-#~ "pesquisa."
-
-#~ msgid "Select more _options"
-#~ msgstr "Selecionar mais _opções"
-
-#~ msgid "Select more options"
-#~ msgstr "Selecionar mais opções"
-
-#~ msgid "Click to expand or collapse the list of available options."
-#~ msgstr "Clique para expandir ou colapsar a lista de opções disponíveis."
-
-#~ msgid "Click to display the help manual."
-#~ msgstr "Clique para mostrar o manual de ajuda."
-
-#~ msgid "Click to close \"Search for Files\"."
-#~ msgstr "Clique para fechar \"Procurar por Arquivos\""
-
-#~ msgid "Click to perform a search."
-#~ msgstr "Clique para realizar uma pesquisa"
-
-#~ msgid "Click to stop a search."
-#~ msgstr "Clique para interromper uma pesquisa."
-
-#~ msgid "System Log Viewer"
-#~ msgstr "Visualizador de Log do Sistema"
-
-#~ msgid "A system log viewer for GNOME."
-#~ msgstr "Um visualizador de log para o GNOME."
-
-#~ msgid "System Log"
-#~ msgstr "Log do Sistema"
-
-#~ msgid "View the system log file"
-#~ msgstr "Visualize o arquivo de log do sistema"
-
-#~ msgid "last update : %s"
-#~ msgstr "última atualização: %s"
-
-#~ msgid "%d lines (%s) - %s"
-#~ msgstr "%d linhas (%s) - %s"
-
-#~ msgid "Current"
-#~ msgstr "Atual"
-
-#~ msgid "One file or more could not be opened"
-#~ msgstr "Um ou mais arquivos não puderam ser abertos"
-
-#~ msgid ""
-#~ "%s is not user readable. Either run the program as root or ask the "
-#~ "sysadmin to change the permissions on the file.\n"
-#~ msgstr ""
-#~ "%s não pode ser lido pelo usuário. Execute o programa como root ou peça "
-#~ "ao seu adminstrador para alterar as permissões do arquivo.\n"
-
-#~ msgid "%s is too big."
-#~ msgstr "%s é muito grande."
-
-#~ msgid "%s could not be opened."
-#~ msgstr "Não foi possível abrir %s."
-
-#~ msgid "%s is not a log file."
-#~ msgstr "%s não é um arquivo de log."
-
-#~ msgid "Not enough memory."
-#~ msgstr "Memória insuficiente!"
-
-#~ msgid "%s cannot be opened."
-#~ msgstr "%s não pode ser aberto."
-
-#~ msgid "_Filter:"
-#~ msgstr "_Filtro:"
-
-#~ msgid "_Clear"
-#~ msgstr "_Limpar"
-
-#~ msgid "_Log"
-#~ msgstr "_Log"
-
-#~ msgid "_Open..."
-#~ msgstr "_Abrir..."
-
-#~ msgid "Open a log from file"
-#~ msgstr "Abrir um log a partir de um arquivo"
-
-#~ msgid "_Close"
-#~ msgstr "_Fechar"
-
-#~ msgid "Close this log"
-#~ msgstr "Fecha este log"
-
-#~ msgid "_Quit"
-#~ msgstr "Sai_r"
-
-#~ msgid "Quit the log viewer"
-#~ msgstr "Sai do visualizador de log"
-
-#~ msgid "_Copy"
-#~ msgstr "_Copiar"
-
-#~ msgid "Copy the selection"
-#~ msgstr "Copia a seleção"
-
-#~ msgid "Select the entire log"
-#~ msgstr "Seleciona todo o log"
-
-#~ msgid "_Filter..."
-#~ msgstr "_Filtro..."
-
-#~ msgid "Filter log"
-#~ msgstr "Filtra os logs"
-
-#~ msgid "Bigger text size"
-#~ msgstr "Tamanho de texto maior"
-
-#~ msgid "Smaller text size"
-#~ msgstr "Tamanho de texto menor"
-
-#~ msgid "Normal text size"
-#~ msgstr "Tamanho de texto normal"
-
-#~ msgid "Collapse _All"
-#~ msgstr "Colapsar _Todos"
-
-#~ msgid "Collapse all the rows"
-#~ msgstr "Colapsar todas as linhas"
-
-#~ msgid "Open the help contents for the log viewer"
-#~ msgstr "Abre os conteúdos de ajuda para o visualizador de log"
-
-#~ msgid "Show the about dialog for the log viewer"
-#~ msgstr "Mostra o diálogo \"sobre\" para o visualizador de log"
-
-#~ msgid "Show Status Bar"
-#~ msgstr "Exibir Barra de Status"
-
-#~ msgid "Side _Pane"
-#~ msgstr "_Painel Lateral"
-
-#~ msgid "Show Side Pane"
-#~ msgstr "Mostrar Painel Lateral"
-
-#~ msgid "_Monitor"
-#~ msgstr "_Monitorar"
-
-#~ msgid "Monitor Current Log"
-#~ msgstr "Monitorar Logs Atuais"
-
-#~ msgid "Ca_lendar"
-#~ msgstr "_Calendário"
-
-#~ msgid "Show Calendar Log"
-#~ msgstr "Mostrar Log do Calendário"
-
-#~ msgid "%s (monitored) - %s"
-#~ msgstr "%s (monitorado) - %s"
-
-#~ msgid "Open Log"
-#~ msgstr "Abrir Log"
-
-#~ msgid "There was an error displaying help."
-#~ msgstr "Ocorreu um erro ao mostrar a ajuda."
-
-#~ msgid "Version: "
-#~ msgstr "Versão: "
-
-#~ msgid "Days"
-#~ msgstr "Dias"
-
-#~ msgid "Pointer towards a GSList of days for the current log."
-#~ msgstr "Aponta para uma lista de dias para o log atual."
-
-#~ msgid "Height of the main window in pixels"
-#~ msgstr "Altura da janela principal, em pixels"
-
-#~ msgid "Log file to open up on startup"
-#~ msgstr "Arquivo de log para abrir ao iniciar"
-
-#~ msgid "Log files to open up on startup"
-#~ msgstr "Arquivo de log para abrir ao iniciar"
-
-#~ msgid "Size of the font used to display the log"
-#~ msgstr "Tamanho da fonte usada para exibir o log"
-
-#~ msgid ""
-#~ "Specifies a list of log files to open up at startup. A default list is "
-#~ "created by reading /etc/syslog.conf."
-#~ msgstr ""
-#~ "Especifica uma lista de logs para abrir ao iniciar. Uma lista padrão é "
-#~ "criada ao ler /etc/syslog.conf."
-
-#~ msgid "Specifies the height of the log viewer main window in pixels."
-#~ msgstr ""
-#~ "Especifica a altura da janela principal do visualizador de log, em pixels."
-
-#~ msgid ""
-#~ "Specifies the log file displayed at startup. The default is either /var/"
-#~ "adm/messages or /var/log/messages, depending on your operating system."
-#~ msgstr ""
-#~ "Especifica o arquivo de log exibido ao iniciar. O padrão é ou /var/adm/"
-#~ "messages ou /var/log/messages, dependendo do seu sistema operacional."
-
-#~ msgid ""
-#~ "Specifies the size of the fixed-width font used to display the log in the "
-#~ "main tree view. The default is taken from the default terminal font size."
-#~ msgstr ""
-#~ "Especifica o tamanho da fonte de largura fixa usada para exibir o log na "
-#~ "árvore de visualização principal. O padrão é definido a partir do tamanho "
-#~ "padrão da fonte de terminal."
-
-#~ msgid "Specifies the width of the log viewer main window in pixels."
-#~ msgstr ""
-#~ "Especifica a largura da janela principal do visualizador de log, em "
-#~ "pixels."
-
-#~ msgid "Width of the main window in pixels"
-#~ msgstr "Largura da janela principal, em pixels"
-
-#~ msgid "Show the application's version"
-#~ msgstr "Mostra a versão da aplicação"
-
-#~ msgid "Show System Log Viewer options"
-#~ msgstr "Mostra as opções do Visualizador de Log do Sistema"
-
-#~ msgid " - Browse and monitor logs"
-#~ msgstr " - Navegar e monitorar logs"
-
-#~ msgid "Log Viewer"
-#~ msgstr "Visualizador de Log"
-
-#~ msgid "Unable to create user interface."
-#~ msgstr "Impossível criar a interface com o usuário."
-
-#~ msgid "January"
-#~ msgstr "Janeiro"
-
-#~ msgid "February"
-#~ msgstr "Fevereiro"
-
-#~ msgid "March"
-#~ msgstr "Março"
-
-#~ msgid "April"
-#~ msgstr "Abril"
-
-#~ msgid "May"
-#~ msgstr "Maio"
-
-#~ msgid "June"
-#~ msgstr "Junho"
-
-#~ msgid "July"
-#~ msgstr "Julho"
-
-#~ msgid "August"
-#~ msgstr "Agosto"
-
-#~ msgid "September"
-#~ msgstr "Setembro"
-
-#~ msgid "October"
-#~ msgstr "Outubro"
-
-#~ msgid "November"
-#~ msgstr "Novembro"
-
-#~ msgid "December"
-#~ msgstr "Dezembro"
-
-#~ msgid "Invalid date"
-#~ msgstr "Data inválida"
-
-#~ msgid "%x"
-#~ msgstr "%x"
-
-#~ msgid "This file cannot be monitored."
-#~ msgstr "Esse arquivo não pode ser monitorado."
-
-#~ msgid "File monitoring is not supported on this file system.\n"
-#~ msgstr ""
-#~ "Monitoramento de arquivos não é suportado neste sistema de arquivos.\n"
-
-#~ msgid "Gnome-VFS Error.\n"
-#~ msgstr "Erro do Gnome-VFS.\n"
-
-#~ msgid ""
-#~ "Definitions for \"%s\":\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Definições para \"%s\":\n"
-#~ "\n"
-
-#~ msgid ""
-#~ "From %s:\n"
-#~ "%s\n"
-#~ msgstr ""
-#~ "De %s:\n"
-#~ "%s\n"
-
-#~ msgid "Server Error"
-#~ msgstr "Erro do Servidor"
-
-#~ msgid ""
-#~ "A serious error occurred. Please check that your server and port are "
-#~ "correct. For reference the default server is dict.org and the port 2628"
-#~ msgstr ""
-#~ "Um error sério ocorreu. Verifique que o servidor e porta estão corretos. "
-#~ "Para referência, o servidor padrão é dict.org e a porta 2628"
-
-#~ msgid "Connection error"
-#~ msgstr "Erro na conecção"
-
-#~ msgid ""
-#~ "Either the server you are using is not available \n"
-#~ "or you are not connected to the Internet."
-#~ msgstr ""
-#~ "Ou o servidor que você está utilizando não está disponível \n"
-#~ "ou você não está conectado à Internet."
-
-#~ msgid "Find"
-#~ msgstr "Procurar"
-
-#~ msgid "_Search for:"
-#~ msgstr "_Procurar por:"
-
-#~ msgid "Could not display help"
-#~ msgstr "Não foi possível abrir o documento de ajuda"
-
-#~ msgid "Find next occurrence of the word"
-#~ msgstr "Encontra a próxima ocorrência da palavra"
-
-#~ msgid "P_references"
-#~ msgstr "P_referências"
-
-#~ msgid "Configure the application"
-#~ msgstr "Configura a aplicação"
-
-#~ msgid "View help for this application"
-#~ msgstr "Visualiza a ajuda para esta aplicação"
-
-#~ msgid "About this application"
-#~ msgstr "Sobre esta aplicação"
-
-#~ msgid "Cu_t"
-#~ msgstr "Cor_tar"
-
-#~ msgid "Cut the selection"
-#~ msgstr "Corta a seleção"
-
-#~ msgid "_Paste"
-#~ msgstr "C_olar"
-
-#~ msgid "Select everything"
-#~ msgstr "Seleciona tudo"
-
-#~ msgid "_Spellings"
-#~ msgstr "Verificar _Ortografia"
-
-#~ msgid "View alternate spellings"
-#~ msgstr "Visualiza escritas alternativas"
-
-#~ msgid "On a Web Site"
-#~ msgstr "Em um Site da Web"
-
-#~ msgid "Enter a Word or select one from the list below"
-#~ msgstr "Digite uma palavra ou selecione uma da lista abaixo"
-
-#~ msgid "Look Up for a Word"
-#~ msgstr "Procurar Palavra"
-
-#~ msgid "Looking up word..."
-#~ msgstr "Procurando a palavra..."
-
-#~ msgid "String not found"
-#~ msgstr "Texto não encontrado"
-
-#~ msgid "Error invoking query"
-#~ msgstr "Erro ao fazer consulta"
-
-#~ msgid "Looking up entry..."
-#~ msgstr "Procurando a palavra..."
-
-#~ msgid "De_fault Server"
-#~ msgstr "Ser_vidor Padrão"
-
-#~ msgid "Reset server to default"
-#~ msgstr "Redefinir o servidor como o padrão"
-
-#~ msgid "Reset port to default"
-#~ msgstr "Redefinir a porta como o padrão"
-
-#~ msgid "Server Entry"
-#~ msgstr "Servidor"
-
-#~ msgid "Enter the Server Name"
-#~ msgstr "Digite o Nome do Servidor"
-
-#~ msgid "Port Entry"
-#~ msgstr "Porta"
-
-#~ msgid "Enter the Port Number"
-#~ msgstr "Digite o Número da Porta"
-
-#~ msgid "F_ont:"
-#~ msgstr "_Fonte:"
-
-#~ msgid "Web Site"
-#~ msgstr "Sítio da Web"
-
-#~ msgid "Web Sites"
-#~ msgstr "Sítios da Web"
-
-#~ msgid "Default Strategy"
-#~ msgstr "Estratégia padrão"
-
-#~ msgid "Spellings"
-#~ msgstr "Ortografia"
-
-#~ msgid "Spell-checking..."
-#~ msgstr "Verificação ortográfica..."
-
-#~ msgid ""
-#~ "The search strategy to use. This is dependant on the search strategy that "
-#~ "the dictionary server supports. The default strategy is 'lev' - Match "
-#~ "words within Levenshtein distance one"
-#~ msgstr ""
-#~ "A estratégia de procura a utilizar. Esta opção depende nas estratégias "
-#~ "que são suportadas pelo servidor. A estratégia padrão é 'lev'."
-
-#~ msgid "Web directory"
-#~ msgstr "Diretório da Web"
-
-#~ msgid "Action Database"
-#~ msgstr "Banco de dados de Ações"
-
-#~ msgid "Actions"
-#~ msgstr "Ações"
-
-#~ msgid "_Add"
-#~ msgstr "_Adicionar"
-
-#~ msgid "Add an action"
-#~ msgstr "Adicionar uma ação"
-
-#~ msgid "Edit an action"
-#~ msgstr "Editar uma ação"
-
-#~ msgid "_Remove"
-#~ msgstr "_Remover"
-
-#~ msgid "Remove an action"
-#~ msgstr "Remover uma ação"
-
-#~ msgid "Cannot open action data base <%s>! Open failed."
-#~ msgstr ""
-#~ "Não foi possível abrir banco de dados de ações <%s>! Abertura falhou."
-
-#~ msgid "Error parsing actions data base"
-#~ msgstr "Erro ao analisar banco de dados de ações."
-
-#~ msgid "Can't write to actions database!"
-#~ msgstr "Não foi possível gravar no banco de dados ativo!"
-
-#~ msgid "<empty>"
-#~ msgstr "<vazio>"
-
-#~ msgid "log name regexp"
-#~ msgstr "Expr. reg. de nome de log"
-
-#~ msgid "process regexp"
-#~ msgstr "Expr. regular de processo"
-
-#~ msgid "message regexp"
-#~ msgstr "Expr. regular de mensagem"
-
-#~ msgid "action to execute when regexps are TRUE"
-#~ msgstr "ação a executar quando expressões regulares forem verdadeiras"
-
-#~ msgid "description"
-#~ msgstr "descrição"
-
-#~ msgid "Edit Action"
-#~ msgstr "Editar Ação"
-
-#~ msgid "_Tag:"
-#~ msgstr "E_tiqueta:"
-
-#~ msgid "Tag that identifies the log file."
-#~ msgstr "Etiqueta que identifica o arquivo de log."
-
-#~ msgid "_Log name:"
-#~ msgstr "Nome do log:"
-
-#~ msgid "Regular expression that will match the log name."
-#~ msgstr "Expressão regular que corresponderá ao nome do log."
-
-#~ msgid "_Process:"
-#~ msgstr "_Processo:"
-
-#~ msgid "Regular expression that will match process part of message."
-#~ msgstr ""
-#~ "Expressões regulares que irão casar com a parte de processo da mensagem."
-
-#~ msgid "_Message:"
-#~ msgstr "_Mensagem:"
-
-#~ msgid "Regular expression that will match the message."
-#~ msgstr "Expressão regular que corresponderá à mensagem."
-
-#~ msgid "_Action:"
-#~ msgstr "_Ação:"
-
-#~ msgid ""
-#~ "Action that will be executed if all previous regexps. are matched. This "
-#~ "is executed by a system command: system (action)."
-#~ msgstr ""
-#~ "Ação que será executada se todas as expressões regulares anteriores "
-#~ "casarem. Este será executado por um comando do sistema: sistema (ação)."
-
-#~ msgid ""
-#~ "tag: [%s]\n"
-#~ "log_name: [%s]\n"
-#~ "process: [%s]\n"
-#~ "message: [%s]\n"
-#~ "description: [%s]\n"
-#~ "action: [%s]\n"
-#~ msgstr ""
-#~ "marca: [%s]\n"
-#~ "nome do log: [%s]\n"
-#~ "processo: [%s]\n"
-#~ "messagem: [%s]\n"
-#~ "descrição: [%s]\n"
-#~ "ação: [%s]\n"
-
-#~ msgid "Cannot open regexp data base <%s>! Open failed."
-#~ msgstr ""
-#~ "Não foi possível abrir banco de dados de expressão regular <%s>! Abertura "
-#~ "falhou."
-
-#~ msgid "Cannot open description data base <%s>! Open failed."
-#~ msgstr "Não foi possível abrir banco de dados de descrição <%s>."
-
-#~ msgid "Properties"
-#~ msgstr "Propriedades"
-
-#~ msgid "%ld byte"
-#~ msgid_plural "%ld bytes"
-#~ msgstr[0] "%ld byte"
-#~ msgstr[1] "%ld bytes"
-
-#~ msgid "<b>Size</b>: %s"
-#~ msgstr "<b>Tamanho</b>: %s"
-
-#~ msgid "<b>Modified</b>: %s"
-#~ msgstr "<b>Modificado</b>: %s"
-
-#~ msgid "<b>Start Date</b>: %s"
-#~ msgstr "<b>Data de Início</b>: %s"
-
-#~ msgid "<b>Number of Lines</b>: %ld"
-#~ msgstr "<b>Número de Linhas</b>: %ld"
-
-#~ msgid "Last Modified: %s, %d lines"
-#~ msgstr "Última Modificação: %s, %d linhas"
-
-#~ msgid "%B %e"
-#~ msgstr "%e de %B"
-
-#~ msgid "%X"
-#~ msgstr "%X"
-
-#~ msgid "ReadLogStats: out of memory"
-#~ msgstr "ReadLogStats: memória esgotada"
-
-#~ msgid "_Properties"
-#~ msgstr "_Propriedades"
-
-#~ msgid "Show Log Properties"
-#~ msgstr "Mostrar Propriedades do Log"
-
-#~ msgid "Close"
-#~ msgstr "Fechar"
-
-#~ msgid "Copy"
-#~ msgstr "_Copiar"
-
-#~ msgid "Select All"
-#~ msgstr "Seleciona Tudo"
-
-#~ msgid "Sidebar"
-#~ msgstr "Barra Lateral"
-
-#~ msgid "Date"
-#~ msgstr "Data"
-
-#~ msgid "Message"
-#~ msgstr "Mensagem"
-
-#~ msgid "Open new logfile"
-#~ msgstr "Abrir novo arquivo de log"
-
-#~ msgid "Entry Detail"
-#~ msgstr "Detalhes da Entrada"
-
-#~ msgid "%B %e %X"
-#~ msgstr "%B %e %X"
-
-#~ msgid "_Word:"
-#~ msgstr "P_alavra:"
-
-#~ msgid "Cannot initialize bonobo."
-#~ msgstr "Não foi possível inicializar o bonobo."
-
-#~ msgid "Lookup done"
-#~ msgstr "Procura concluída"
-
-#~ msgid "Spell check done"
-#~ msgstr "Verificação ortográfica concluída"
-
-#~ msgid "Find Next"
-#~ msgstr "Procurar o Próximo"
-
-#~ msgid "_Entry Detail"
-#~ msgstr "Detalhes da _Entrada"
-
-#~ msgid "Show Entry Detail"
-#~ msgstr "Mostrar Detalhes da Entrada"
