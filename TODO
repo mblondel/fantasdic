@@ -4,6 +4,8 @@ Short term
 -----------
 
 - Drag and drop available databases and selected databases.
+- Remember scrolls position when the user goes back or forward
+- Remember scrolls position when the user uses Zoom+ and Zoom-
 - Make an easy-to-install package for Windows users...
 - Write documentation for the Help menu.
 
