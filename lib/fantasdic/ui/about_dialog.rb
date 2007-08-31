@@ -66,7 +66,7 @@ EOL
             end
 
             self.website = Fantasdic::WEBSITE_URL
-            #self.logo = Icon::LOGO
+            self.logo = Icon::LOGO_48X48
             self.license = GPL
             self.transient_for = parent
             signal_connect('destroy') { hide }

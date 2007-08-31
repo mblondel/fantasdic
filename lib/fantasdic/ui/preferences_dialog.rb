@@ -169,7 +169,7 @@ module UI
         private
                
         def initialize_ui
-            @dictionaries_nb_image.pixbuf = Icon::LOGO_SMALL
+            @dictionaries_nb_image.pixbuf = Icon::LOGO_24X24
 
             @print_vbox.visible = Fantasdic::UI::SUPPORTS_PRINT
 

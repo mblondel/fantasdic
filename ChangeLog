@@ -1,3 +1,23 @@
+2007-08-31 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * data/fantasdic/icons/fantasdic.svg: New master icon, based on two icons
+    from the Tango project.
+    * data/fantasdic/icons/fantasdic_32x32.png: Added for convenience.
+    * data/fantasdic/icons/fantasdic_24x24.png: Likewise.
+    * data/fantasdic/icons/fantasdic_48x48.ico: Likewise.
+    * data/fantasdic/icons/fantasdic_16x16.png: Likewise.
+    * data/fantasdic/icons/fantasdic_22x22.ico: Likewise.
+    * data/fantasdic/icons/fantasdic_32x32.ico: Likewise.
+    * data/fantasdic/icons/fantasdic_small.png: Likewise.
+    * data/fantasdic/icons/fantasdic_24x24.ico: Likewise.
+    * data/fantasdic/icons/fantasdic_16x16.ico: Likewise.
+    * data/fantasdic/icons/fantasdic_22x22.png: Likewise.
+    * data/fantasdic/icons/fantasdic_48x48.png: Likewise.
+    * lib/fantasdic/ui/main_app.rb: Applied the necessary changes.
+    * lib/fantasdic/ui/preferences_dialog.rb: Likewise.
+    * lib/fantasdic/ui/about_dialog.rb: Added icon.
+    * data/fantasdic/icons/fantasdic_small.png: Deleted.
+
 2007-08-22 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/ipc.rb: There are cases when Win32::Pipe doesn't seem to

@@ -20,8 +20,14 @@ module UI
 
     module Icon
         icons_dir = File.join(Config::DATA_DIR, "icons")
-        LOGO_SMALL = Gdk::Pixbuf.new(File.join(icons_dir,
-                                    "fantasdic_small.png"))
+        LOGO_16X16 = Gdk::Pixbuf.new(File.join(icons_dir,
+                                               "fantasdic_16x16.png"))
+        LOGO_22X22 = Gdk::Pixbuf.new(File.join(icons_dir,
+                                               "fantasdic_22x22.png"))
+        LOGO_24X24 = Gdk::Pixbuf.new(File.join(icons_dir,
+                                               "fantasdic_22x22.png"))
+        LOGO_48X48 = Gdk::Pixbuf.new(File.join(icons_dir,
+                                               "fantasdic_48x48.png"))
         PRINT_SETUP = "stock_print-setup"
     end
 
@@ -612,7 +618,7 @@ module UI
             if SUPPORTS_STATUS_ICON
                 @main_app.destroy_with_parent = false                
                 @statusicon = Gtk::StatusIcon.new
-                @statusicon.pixbuf = Icon::LOGO_SMALL
+                @statusicon.pixbuf = Icon::LOGO_22X22
                 @statusicon.visible = @prefs.show_in_tray            
             end
             
@@ -621,7 +627,7 @@ module UI
             @not_found_label.visible = false
 
             # Icon
-            @main_app.icon = Icon::LOGO_SMALL
+            @main_app.icon = Icon::LOGO_16X16
 
             # Entry
             @search_entry = @search_cb_entry.child
