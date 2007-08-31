@@ -1,5 +1,9 @@
 2007-08-31 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * THANKS: Added :).
+
+2007-08-31 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * pre-setup.rb: Don't act differently on Windows.
     * win32/: Added. This directory will be used for all the win32 stuff which
     obviously can't go to lib/.

@@ -1,0 +1,9 @@
+I would like to thank the following projects and people: their great work
+indirectly contributed to Fantasdic.
+
+- Yukihiro Matsumoto and the Ruby contributors for creating this wonderful
+  language,
+- The GTK project contributors,
+- The Ruby-GNOME2 team, especially Masao Mutoh and Kouhei Sutou,
+- Laurent Sansonetti, his project Alexandria helped design Fantasdic a lot,
+- Daniel Berger, for his work on the Win32-utils package.
