@@ -24,8 +24,6 @@ module UI
                                                "fantasdic_16x16.png"))
         LOGO_22X22 = Gdk::Pixbuf.new(File.join(icons_dir,
                                                "fantasdic_22x22.png"))
-        LOGO_24X24 = Gdk::Pixbuf.new(File.join(icons_dir,
-                                               "fantasdic_22x22.png"))
         LOGO_48X48 = Gdk::Pixbuf.new(File.join(icons_dir,
                                                "fantasdic_48x48.png"))
         PRINT_SETUP = "stock_print-setup"
