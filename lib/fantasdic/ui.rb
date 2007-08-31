@@ -22,7 +22,7 @@ module Fantasdic
 module UI
 
     SUPPORTS_STATUS_ICON = defined? Gtk::StatusIcon
-    SUPPORTS_PRINT = defined? Gtk::PrintOperation and not WIN32
+    SUPPORTS_PRINT = defined? Gtk::PrintOperation
 
     def self.main
         options = CommandLineOptions.instance
