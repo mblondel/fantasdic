@@ -1,0 +1,117 @@
+This file provides instructions to help prepare a self-contained archive and
+installer for Fantasdic on Windows. A working directory like for example
+c:\Fantasdic\ should be created. This directory will hereafter be referred to as
+the root directory.
+
+Root directory
+--------------
+
+The root directory needs the following directories:
+- fantasdic/
+- GTK/
+- ruby/
+- ruby-gettext/
+- ruby-gtk2
+- win32-pipe
+
+The instructions for each directory only need to be performed again if the
+related package needs be upgraded.
+
+In addition to that, the root directory needs fantasdic.exe. 
+
+Ruby
+-----
+
+- Download a pre-compiled version of Ruby from ruby-lang.org.
+- Unpack the archive and rename the directory to ruby/.
+- Remove share/, doc/, man/.
+
+GTK
+----
+
+- Download the runtime development installer from gladewin32.sourceforge.net
+  (non-developer version).
+- Install it and copy c:/GTK/ to the root directory.
+- Edit etc/pango/pango.module, etc/gtk-2.0/gdk-pixbuf.loader,
+  etc/gtk-2.0/gtk.immodules and replace all absolute paths with relative paths
+  starting with GTK/.
+
+Ruby/GTK2
+-----------
+
+- Download the pre-compiled version of Ruby/GTK2 from
+  ruby-gnome2.sourceforge.jp.
+- Unpack it and rename the directory to ruby-gtk2.
+
+Ruby/Gettext
+-------------
+
+- Download the last .gem file from rubyforge.org.
+- Rename it to *.tar, unpack it, unpack data.tar.gz, rename the folder to
+  ruby-gettext.
+- Edit lib/gettext/textdomain.rb and add fantasdic/data/locale/ to the
+  locale dir list.
+
+Win32-Pipe
+-----------
+
+- Download the package from the win32-utils project on Rubyforge.
+- Unpack it and rename it to win32-pipe. 
+- lib/win32/ must contain pipe.so.
+
+Fantasdic
+---------
+
+- cd fantasdic/bin/
+- "../../ruby/bin/ruby" pre-setup.rb
+- cd ../lib/fantasdic
+- "../../../ruby/bin/ruby" pre-setup.rb
+
+- Edit bin/fantasdic and add the lines below at the top of the file:
+[
+"ruby/lib/ruby/1.8/",
+"ruby/lib/ruby/1.8/i386-mswin32",
+"win32-pipe/lib",
+"ruby-gtk2/lib/ruby/site_ruby/1.8/",
+"ruby-gtk2/lib/ruby/site_ruby/1.8/i386-msvcrt",
+"ruby-gettext/lib/",
+"fantasdic/lib"].reverse.each do |path|
+    $LOAD_PATH.unshift(path)
+end
+
+require 'rbconfig'
+if /mingw|mswin|mswin32/ =~ RUBY_PLATFORM
+ENV['PATH'] = %w(bin lib).collect{|dir|
+"#{Dir.pwd}\\GTK\\#{dir};"
+}.join('') + ENV['PATH']
+end
+
+- Create lib/fantasdic/config.rb with the following content:
+module Fantasdic
+    module Config
+        DATA_DIR = 'fantasdic/data/fantasdic/'
+    end
+end
+
+- cd win32/
+- "../../ruby/bin/ruby" gen_po.rb
+
+fantasdic.exe
+-------------
+
+- Compile win32/fantasdic.c (e.g. with Dev-C++).
+- Move fantasdic.exe to the root directory.
+- Set the executable icon (see fantasdic/data/fantasdic/icons/) with a
+resource editor like:
+* XN Resource Editor (http://www.wilsonc.demon.co.uk/d10resourceeditor.htm), or
+* Resource Hacker (http://www.angusj.com/resourcehacker/)
+
+- Double-click on fantasdic.exe. Fantasdic should start :-).
+- Everything uses relative paths so it is possible to rename the root
+directory or even move it to an USB key.
+
+Installer
+--------
+
+TODO. The installer would just be a matter of unpacking all the above and
+creating a menu shortcut. See nsis.sourceforge.net.

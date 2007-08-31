@@ -15,8 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-WIN32 = (/mingw|mswin|win32/ =~ RUBY_PLATFORM)
-
 File.open('fantasdic', 'w') do |file|
     file.print <<EOF
 #!/path/to/ruby
@@ -51,17 +49,3 @@ EOS
 end
 EOF
 end
-
-if WIN32
-    begin
-        require "rbconfig"
-        bindir = Config::CONFIG["bindir"]
-
-        File.open('fantasdic.bat','w') do |file|
-            file.print("rubyw #{File.join(bindir, "fantasdic")}")
-        end
-    rescue LoadError
-    end
-
-end
-	

@@ -1,5 +1,20 @@
 2007-08-31 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * pre-setup.rb: Don't act differently on Windows.
+    * win32/: Added. This directory will be used for all the win32 stuff which
+    obviously can't go to lib/.
+    * win32/gen_po.rb: Added. This file generates the .mo files and must be run
+    from win32/.
+    * win32/fantasdic.c: Added. Run the ruby interpreter in a sub process and
+    hide the command pop-up window.
+    * win32/README: Instructions to help prepare an archive which contains all
+    the dependencies including Ruby and GTK. This is heavy but my experience
+    shows that you can't expect people to install Ruby and GTK separately...
+    * lib/fantasdic/pre-setup.rb: Don't fail if run outside setup.rb.
+    * bin/pre-setup.rb: Don't generate the .bat file anymore.
+
+2007-08-31 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/ui.rb: Disable Print support in Windows for now.
 
 2007-08-31 Mathieu Blondel <mblondel@cvs.gnome.org>

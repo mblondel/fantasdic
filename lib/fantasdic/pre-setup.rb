@@ -6,6 +6,7 @@ copyright = <<EOS
 EOS
 
 File.open('config.rb', 'w') do |file|
+begin
     file.print <<EOS
 
 module Fantasdic
@@ -16,6 +17,8 @@ module Fantasdic
     end
 end
 EOS
+rescue NoMethodError
+end
 end
 
 File.open('version.rb', 'w') do |file|

@@ -21,13 +21,7 @@ Dir.glob("po/*.po") do |file|
         Dir.mkdir(path) unless FileTest.exists?(path)
     end
     
-    if RUBY_PLATFORM =~ /win32/
-        cmd = "ruby c:/ruby/bin/rmsgfmt po/#{lang}.po "
-        cmd += "-o #{mo_path}/#{basename}.mo"
-	    system(cmd)
-    else
-	    system("msgfmt po/#{lang}.po -o #{mo_path}/#{basename}.mo")
-    end
+    system("msgfmt po/#{lang}.po -o #{mo_path}/#{basename}.mo")
 
     $stderr.puts "msgfmt failed on po/#{lang}.po" if $? != 0
 end
