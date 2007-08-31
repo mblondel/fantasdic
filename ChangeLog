@@ -1,5 +1,13 @@
 2007-08-31 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic/ui.rb: Disable Print support in Windows for now.
+
+2007-08-31 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * MAINTAINERS: Added to follow GNOME's policy.
+
+2007-08-31 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * make_release.sh: Delete .tmp files.
 
 2007-08-31 Mathieu Blondel <mblondel@cvs.gnome.org>

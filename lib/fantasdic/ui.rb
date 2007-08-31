@@ -1,5 +1,5 @@
 # Fantasdic
-# Copyright (C) 2006 Mathieu Blondel
+# Copyright (C) 2006 - 2007 Mathieu Blondel
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@ module Fantasdic
 module UI
 
     SUPPORTS_STATUS_ICON = defined? Gtk::StatusIcon
-    SUPPORTS_PRINT = defined? Gtk::PrintOperation
+    SUPPORTS_PRINT = defined? Gtk::PrintOperation and not WIN32
 
     def self.main
         options = CommandLineOptions.instance
