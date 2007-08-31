@@ -1,5 +1,9 @@
 2007-08-31 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * make_release.sh: Delete .tmp files.
+
+2007-08-31 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * data/fantasdic/icons/fantasdic.svg: New master icon, based on two icons
     from the Tango project.
     * data/fantasdic/icons/fantasdic_32x32.png: Added for convenience.

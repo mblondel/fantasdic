@@ -21,6 +21,7 @@ cd $TMP_DIR
 
 echo "Removing unnecessary files..."
 $RM `find . -name CVS -or -name ".*" -or -name "*~" -or -name "*.orig"`
+$RM `find . -name "*.tmp"`
 $RM `find data/fantasdic/glade -name "*.gladep" -or -name "*.bak"`
 $RM RELEASE_CHECKLIST make_release.sh InstalledFiles config.save
 $RM data/locale lib/fantasdic/config.rb lib/fantasdic/version.rb
