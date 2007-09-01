@@ -39,10 +39,10 @@ module Fantasdic
             unless(FileTest.exists?(Config::CONFIG_DIR))
                 Dir.mkdir(Config::CONFIG_DIR)    
             end
-            
-            if(FileTest.exists?(Config::CONFIG_FILE))
-                @config = YAML.load(File.open(Config::CONFIG_FILE))
 
+            @config = YAML.load(File.open(Config::CONFIG_FILE,
+                                          File::CREAT|File::RDWR))
+            if @config and @config.is_a? Hash
                 # merge with the default config in case of new parameters 
                 dflt_config = YAML.load(File.open(Config::DEFAULT_CONFIG_FILE))
                 dflt_config.each_key do |key|

@@ -1,3 +1,8 @@
+2007-09-01 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/preferences.rb: Handles the case when the config file is
+    blank or malformed.
+
 2007-08-31 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * THANKS: Added :).
