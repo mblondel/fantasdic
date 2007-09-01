@@ -31,6 +31,7 @@ begin
     Fantasdic.main
 rescue => e
     $stderr.puts <<EOS
+
 -----------------------
 Fantasdic just crashed
 -----------------------
