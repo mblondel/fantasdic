@@ -27,7 +27,7 @@ module UI
         end
 
         def on_close
-            @server_infos_dialog.destroy
+            @server_infos_dialog.hide
         end
 
         def text
@@ -221,7 +221,7 @@ module UI
 
         def close!
             @threads.each { |t| if t.alive?; t.kill; t.join; end }
-            @dialog.destroy unless @dialog.destroyed?
+            @dialog.hide
         end
 
         def sensitize_move_up

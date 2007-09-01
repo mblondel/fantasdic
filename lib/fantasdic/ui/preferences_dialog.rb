@@ -49,7 +49,7 @@ module UI
             @prefs.proxy_password = @proxy_password_entry.text
 
             @callback_proc.call
-            @preferences_dialog.destroy
+            @preferences_dialog.hide
         end
                
         def on_add_dictionary

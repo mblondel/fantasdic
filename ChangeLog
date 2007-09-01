@@ -1,5 +1,11 @@
 2007-09-01 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic/ui/preferences_dialog.rb: Use the hide method instead of
+    destroy. It seems to workaround some GC-related bug in RG2.
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Likewise.
+
+2007-09-01 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/preferences.rb: Handles the case when the config file is
     blank or malformed.
 
