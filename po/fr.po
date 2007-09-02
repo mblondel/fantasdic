@@ -127,7 +127,7 @@ msgstr "<b>Résultats</b>"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:3
 msgid "<b>SOCKS 5 Proxy</b>"
-msgstr "Proxy SOCKS 5"
+msgstr "<b>Proxy SOCKS 5</b>"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:4
 msgid "<b>Startup</b>"
