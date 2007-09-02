@@ -336,6 +336,10 @@
 
 2007-07-30 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * release 1.0-beta3
+
+2007-07-30 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/ui.rb:
     * lib/fantasdic/ui/preferences_dialog.rb:
     * lib/fantasdic/ui/main_app.rb:

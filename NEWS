@@ -2,6 +2,8 @@ NEWS
 
 === Fantasdic 1.0 beta3 ===
 
+2007/07/30
+
 - Switched to Gtk::StatusIcon.
 - Hide window on "escape".
 - New search button in the status icon popup-menu.
