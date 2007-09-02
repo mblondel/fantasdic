@@ -1,3 +1,9 @@
+2007-09-02 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * fantasdic.desktop: Fantasdic should always be described as a "dictionary
+    application". "DICT client" doesn't make sense for most people...
+    * lib/fantasdic.rb: Likewise.
+
 2007-09-01 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/preferences_dialog.rb: Use the hide method instead of

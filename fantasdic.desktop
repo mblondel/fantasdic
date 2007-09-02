@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Fantasdic dictionary
-GenericName=Client for the DICT protocol
-Comment=Connect to any DICT server!
+GenericName=Dictionary application
+Comment=DICT client
 Exec=/usr/bin/fantasdic
 Terminal=false
 Type=Application
