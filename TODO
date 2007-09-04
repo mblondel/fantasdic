@@ -3,12 +3,23 @@ TODO
 Short term
 -----------
 
+- Lexicon:
+-> Add word dialog (category, word, translation, reading, score)
+-> Revize vocabulary dialog (revize words from all or one category, ask words
+with a lower score more frequently)
+-> Word list view dialog: search words in lexicon, move words to another
+category
+-> Import/Export dialog (CSV, printable flashcards in PDF, other tools
+format...)
+-> Multiple-backend support? KirbyBase (pure Ruby), SQLite, XML-RPC...
+
 - Drag and drop available databases and selected databases.
 - Remember scrolls position when the user goes back or forward
 - Remember scrolls position when the user uses Zoom+ and Zoom-
+- Case-insensitive search in find pane
+
 - Make an easy-to-install package for Windows users...
 - Write documentation for the Help menu.
-
 
 Long term
 ---------

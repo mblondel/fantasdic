@@ -1,3 +1,7 @@
+2007-09-04 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * TODO: Updated with new ideas.
+
 2007-09-02 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic.rb: intltool doesn't recognize _('...'). Use double quotes.
