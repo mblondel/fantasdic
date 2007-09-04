@@ -9,7 +9,7 @@ Short term
 with a lower score more frequently)
 -> Word list view dialog: search words in lexicon, move words to another
 category
--> Import/Export dialog (CSV, printable flashcards in PDF, other tools
+-> Import/Export dialog (CSV, printable flashcards in PDF, XHTML, other tools
 format...)
 -> Multiple-backend support? KirbyBase (pure Ruby), SQLite, XML-RPC...
 
