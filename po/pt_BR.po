@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-22 15:45-0300\n"
-"PO-Revision-Date: 2007-08-15 16:38-0300\n"
+"POT-Creation-Date: 2007-09-02 15:34+0200\n"
+"PO-Revision-Date: 2007-10-04 16:38-0300\n"
 "Last-Translator: Alexandre Cavedon <alexandre.cavedon@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
@@ -33,11 +33,11 @@ msgstr "Informações sobre este servidor"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
 msgid "Most servers don't require authentication."
-msgstr "O Servidor _requer autenticação"
+msgstr "O Servidor não requer autenticação"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
 msgid "Move database to selected databases"
-msgstr "Buscar nos bancos de _dados selecionados abaixo"
+msgstr "Selecionar banco de dados"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
 msgid "Pass_word"
@@ -45,7 +45,7 @@ msgstr "Senha"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
 msgid "Remove database from selected databases"
-msgstr "Buscar nos bancos de _dados selecionados abaixo"
+msgstr "Remover banco de dados da seleção"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
 msgid "Search _all databases"
@@ -71,7 +71,7 @@ msgstr "O Servidor _requer autenticação"
 msgid ""
 "This name will identify your dictionary uniquely and will appear in the "
 "application menu."
-msgstr ""
+msgstr "Este nome irá identificar o dicionário no menu."
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
 msgid "_Name:"
@@ -79,7 +79,7 @@ msgstr "_Nome:"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
 msgid "_Port:"
-msgstr "Porta:"
+msgstr "_Porta:"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
 msgid "_Server:"
@@ -99,24 +99,24 @@ msgstr "Fantasdic"
 
 #: ../data/fantasdic/glade/main_app.glade.h:3
 msgid "Find: "
-msgstr "Procurar:"
+msgstr "Localizar:"
 
 #: ../data/fantasdic/glade/main_app.glade.h:4
-#: ../lib/fantasdic/ui/main_app.rb:264
+#: ../lib/fantasdic/ui/main_app.rb:268
 msgid "Matches"
-msgstr "Caminhos"
+msgstr "Resultados"
 
 #: ../data/fantasdic/glade/main_app.glade.h:5
 msgid "_Next"
-msgstr "_Próximo"
+msgstr "Próximo"
 
 #: ../data/fantasdic/glade/main_app.glade.h:6
 msgid "_Previous"
-msgstr "_Anterior"
+msgstr "Anterior"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:1
 msgid "<b>Print</b>"
-msgstr "<b>Previsão</b>"
+msgstr "<b>Impressão</b>"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:2
 msgid "<b>Results</b>"
@@ -140,7 +140,7 @@ msgstr "Dicionários"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:7
 msgid "Do _not quit when main window is closed"
-msgstr "Largura da janela principal, em pixels"
+msgstr "_Não sair quando a janela principal for fechada"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:8
 msgid "Do not show main window at startup"
@@ -180,7 +180,7 @@ msgstr "Proxy"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:17
 msgid "Select a font"
-msgstr "Selecione um diretório"
+msgstr "Selecione um local"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:18
 msgid "Startup"
@@ -190,8 +190,8 @@ msgstr "Inicializar"
 msgid ""
 "This option should be enabled if Fantasdic is started when the computer "
 "boots."
-msgstr "Este opção permite startar o Fantasdic quando seu computador for "
-"iniciado."
+msgstr ""
+"Este opção permite startar o Fantasdic quando seu computador for iniciado."
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:20
 msgid "This proxy can for example be used to traverse firewalls."
@@ -212,179 +212,6 @@ msgstr "Mo_strar o Fantasdic na área de notificações"
 #: ../data/fantasdic/glade/server_infos_dialog.glade.h:1
 msgid "Server informations"
 msgstr "Informações do servidor"
-
-#: ../lib/fantasdic/ui/about_dialog.rb:47 ../lib/fantasdic/ui/main_app.rb:802
-msgid "Could not open browser."
-msgstr "Não foi possível abrir a pasta \"%s\""
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:91
-msgid "Fields missing"
-msgstr "Campos ausentes"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:97
-msgid "Dictionary %s exists already!"
-msgstr "O dicionário \"%s\" não existe mais"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:153
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:329
-msgid "Server missing"
-msgstr "Campos ausentes"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:158
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:334
-msgid "Port missing"
-msgstr "Campos ausentes"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:178
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:296
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:356
-msgid "Could not connect to %s"
-msgstr "Impossível conectar-se ao servidor"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:241
-msgid "Fetching informations from %s..."
-msgstr "Buscando informações de %s..."
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:351
-msgid "About database %s"
-msgstr "Banco de dados '%s' inválido"
-
-#: ../lib/fantasdic/ui/main_app.rb:72
-msgid "No dictionary configured"
-msgstr "Nenhum dicionário configurado"
-
-#: ../lib/fantasdic/ui/main_app.rb:98
-msgid "Dictionary \"%s\" does not exist anymore"
-msgstr "O dicionário \"%s\" não existe mais"
-
-#: ../lib/fantasdic/ui/main_app.rb:102
-msgid "Waiting for %s..."
-msgstr "Esperando por %s..."
-
-#: ../lib/fantasdic/ui/main_app.rb:139 ../lib/fantasdic/ui/main_app.rb:166
-msgid "Connection with server lost."
-msgstr "Erro na conexão."
-
-#: ../lib/fantasdic/ui/main_app.rb:189
-msgid "Can't connect to server"
-msgstr "Impossível conectar-se ao servidor"
-
-#: ../lib/fantasdic/ui/main_app.rb:201 ../lib/fantasdic/ui/main_app.rb:233
-msgid "Transferring data from %s ..."
-msgstr "Transferindo dados de %s ..."
-
-#: ../lib/fantasdic/ui/main_app.rb:221
-msgid "No definition found."
-msgstr "Nenhuma definição encontrada"
-
-#: ../lib/fantasdic/ui/main_app.rb:225
-msgid "Definitions found: %d."
-msgstr "Nenhuma definição encontrada"
-
-#: ../lib/fantasdic/ui/main_app.rb:258
-msgid "1 match"
-msgstr "1 resultado"
-
-#: ../lib/fantasdic/ui/main_app.rb:260
-msgid "%d matches"
-msgstr "%d resultados"
-
-#: ../lib/fantasdic/ui/main_app.rb:263 ../lib/fantasdic/command_line.rb:107
-#: ../lib/fantasdic/command_line.rb:144
-msgid "No match found."
-msgstr "Nenhum resultado encontrado."
-
-#: ../lib/fantasdic/ui/main_app.rb:521
-msgid "Search %s"
-msgstr "Procurar %s"
-
-#: ../lib/fantasdic/ui/main_app.rb:546 ../lib/fantasdic/ui/main_app.rb:825
-msgid "Select _All"
-msgstr "Selecionar _Tudo"
-
-#: ../lib/fantasdic/ui/main_app.rb:661
-msgid "Save definition"
-msgstr "Salvar definição"
-
-#: ../lib/fantasdic/ui/main_app.rb:812
-msgid "_Look Up"
-msgstr "_Consultar"
-
-#: ../lib/fantasdic/ui/main_app.rb:815
-msgid "Print Set_up"
-msgstr "Config_urar impressão"
-
-#: ../lib/fantasdic/ui/main_app.rb:823
-msgid "_Edit"
-msgstr "_Editar"
-
-#: ../lib/fantasdic/ui/main_app.rb:827
-msgid "Clear History"
-msgstr "Limpar definição"
-
-#: ../lib/fantasdic/ui/main_app.rb:830
-msgid "Find N_ext"
-msgstr "Procurar Próximo"
-
-#: ../lib/fantasdic/ui/main_app.rb:832
-msgid "Find Pre_vious"
-msgstr "Procurar _Anterior"
-
-#: ../lib/fantasdic/ui/main_app.rb:838
-msgid "_View"
-msgstr "_Ver"
-
-#: ../lib/fantasdic/ui/main_app.rb:839
-msgid "_Text size"
-msgstr "Tamanho de texto maior"
-
-#: ../lib/fantasdic/ui/main_app.rb:844
-msgid "Zoom normal"
-msgstr "Tamanho normal"
-
-#: ../lib/fantasdic/ui/main_app.rb:848
-msgid "_Go"
-msgstr "_Ir"
-
-#: ../lib/fantasdic/ui/main_app.rb:857
-msgid "_Help"
-msgstr "Ajuda"
-
-#: ../lib/fantasdic/ui/main_app.rb:858
-msgid "Submit _Bug Report"
-msgstr "Enviar um relatório de _Bugs (erros)"
-
-#: ../lib/fantasdic/ui/main_app.rb:860
-msgid "About"
-msgstr "Sobre"
-
-#: ../lib/fantasdic/ui/main_app.rb:899
-msgid "Scan clipboard"
-msgstr "Varrer área de transferência"
-
-#: ../lib/fantasdic/ui/main_app.rb:901
-msgid "_Matches"
-msgstr "Resultados"
-
-#: ../lib/fantasdic/ui/main_app.rb:903
-msgid "_Statusbar"
-msgstr "Barra de _Status"
-
-#: ../lib/fantasdic/ui/main_app.rb:905
-msgid "_Toolbar"
-msgstr "_Barra de Ferramentas"
-
-#: ../lib/fantasdic/ui/print.rb:191
-msgid "Definitions for %s"
-msgstr "Definições para %s"
-
-#: ../lib/fantasdic/ui/print.rb:192
-msgid "Page %d/%d"
-msgstr "Página %d/%d"
-
-#: ../lib/fantasdic/ui/print.rb:203
-msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
-msgstr "Impresso pelo Fantasdic em %d/%m/%Y em %H:%M"
 
 #: ../lib/fantasdic/command_line.rb:34
 msgid "Usage: fantasdic [options] [dictionary] [word]"
@@ -416,13 +243,189 @@ msgstr "Mostrar versão"
 
 #: ../lib/fantasdic/command_line.rb:85
 msgid "Error: Dictionary does not exist in the settings"
-msgstr "O dicionário \"%s\" não existe mais"
+msgstr "Erro: O dicionário não existe nas opções"
 
 #: ../lib/fantasdic/command_line.rb:98
 msgid "Error: Could not connect to %s"
-msgstr "Impossível conectar-se ao servidor"
+msgstr "Impossível conectar-se ao servidor %s"
+
+#: ../lib/fantasdic/command_line.rb:107 ../lib/fantasdic/command_line.rb:144
+#: ../lib/fantasdic/ui/main_app.rb:267
+msgid "No match found."
+msgstr "Nenhum resultado encontrado."
 
 #: ../lib/fantasdic/command_line.rb:109
 msgid "Matches found: %d."
-msgstr "Resultados encontrados para \"%s\": %d."
+msgstr "Resultados encontrados: %d."
 
+#: ../lib/fantasdic.rb:73
+msgid "Dictionary application (DICT client)."
+msgstr "Dicionário (Cliente DICT)."
+
+#: ../lib/fantasdic/ui/about_dialog.rb:47 ../lib/fantasdic/ui/main_app.rb:806
+msgid "Could not open browser."
+msgstr "Não foi possível abrir o navegador."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:91
+msgid "Fields missing"
+msgstr "Campos ausentes"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:97
+msgid "Dictionary %s exists already!"
+msgstr "O dicionário %s já existe"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:153
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:329
+msgid "Server missing"
+msgstr "Servidor ausente"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:158
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:334
+msgid "Port missing"
+msgstr "Porta ausente"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:178
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:296
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:356
+msgid "Could not connect to %s"
+msgstr "Impossível conectar-se ao servidor %s"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:241
+msgid "Fetching informations from %s..."
+msgstr "Buscando informações de %s..."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:351
+msgid "About database %s"
+msgstr "Sobre o banco de dados %s"
+
+#: ../lib/fantasdic/ui/main_app.rb:76
+msgid "No dictionary configured"
+msgstr "Nenhum dicionário configurado"
+
+#: ../lib/fantasdic/ui/main_app.rb:102
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "O dicionário \"%s\" não existe mais"
+
+#: ../lib/fantasdic/ui/main_app.rb:106
+msgid "Waiting for %s..."
+msgstr "Aguardando por %s..."
+
+#: ../lib/fantasdic/ui/main_app.rb:143 ../lib/fantasdic/ui/main_app.rb:170
+msgid "Connection with server lost."
+msgstr "Conexão perdida com o servidor."
+
+#: ../lib/fantasdic/ui/main_app.rb:193
+msgid "Can't connect to server"
+msgstr "Impossível conectar-se ao servidor"
+
+#: ../lib/fantasdic/ui/main_app.rb:205 ../lib/fantasdic/ui/main_app.rb:237
+msgid "Transferring data from %s ..."
+msgstr "Transferindo dados de %s ..."
+
+#: ../lib/fantasdic/ui/main_app.rb:225
+msgid "No definition found."
+msgstr "Nenhuma definição encontrada"
+
+#: ../lib/fantasdic/ui/main_app.rb:229
+msgid "Definitions found: %d."
+msgstr "Definição encontrada: %d."
+
+#: ../lib/fantasdic/ui/main_app.rb:262
+msgid "1 match"
+msgstr "1 resultado"
+
+#: ../lib/fantasdic/ui/main_app.rb:264
+msgid "%d matches"
+msgstr "%d resultados"
+
+#: ../lib/fantasdic/ui/main_app.rb:525
+msgid "Search %s"
+msgstr "Localizar %s"
+
+#: ../lib/fantasdic/ui/main_app.rb:550 ../lib/fantasdic/ui/main_app.rb:829
+msgid "Select _All"
+msgstr "Selecion_ar Tudo"
+
+#: ../lib/fantasdic/ui/main_app.rb:665
+msgid "Save definition"
+msgstr "Salvar definição"
+
+#: ../lib/fantasdic/ui/main_app.rb:816
+msgid "_Look Up"
+msgstr "Consu_ltar"
+
+#: ../lib/fantasdic/ui/main_app.rb:819
+msgid "Print Set_up"
+msgstr "Config_urar impressão"
+
+#: ../lib/fantasdic/ui/main_app.rb:827
+msgid "_Edit"
+msgstr "_Editar"
+
+#: ../lib/fantasdic/ui/main_app.rb:831
+msgid "Clear History"
+msgstr "Limpar definição"
+
+#: ../lib/fantasdic/ui/main_app.rb:834
+msgid "Find N_ext"
+msgstr "Procurar Próximo"
+
+#: ../lib/fantasdic/ui/main_app.rb:836
+msgid "Find Pre_vious"
+msgstr "Procurar Anterior"
+
+#: ../lib/fantasdic/ui/main_app.rb:842
+msgid "_View"
+msgstr "_Ver"
+
+#: ../lib/fantasdic/ui/main_app.rb:843
+msgid "_Text size"
+msgstr "_Tamanho do texto"
+
+#: ../lib/fantasdic/ui/main_app.rb:848
+msgid "Zoom normal"
+msgstr "Tamanho normal"
+
+#: ../lib/fantasdic/ui/main_app.rb:852
+msgid "_Go"
+msgstr "_Ir"
+
+#: ../lib/fantasdic/ui/main_app.rb:861
+msgid "_Help"
+msgstr "Ajuda"
+
+#: ../lib/fantasdic/ui/main_app.rb:862
+msgid "Submit _Bug Report"
+msgstr "Enviar um relatório de _Bugs (erros)"
+
+#: ../lib/fantasdic/ui/main_app.rb:864
+msgid "About"
+msgstr "Sobre"
+
+#: ../lib/fantasdic/ui/main_app.rb:903
+msgid "Scan clipboard"
+msgstr "Varrer área de transferência"
+
+#: ../lib/fantasdic/ui/main_app.rb:905
+msgid "_Matches"
+msgstr "Resultados"
+
+#: ../lib/fantasdic/ui/main_app.rb:907
+msgid "_Statusbar"
+msgstr "Barra de _Status"
+
+#: ../lib/fantasdic/ui/main_app.rb:909
+msgid "_Toolbar"
+msgstr "_Barra de Ferramentas"
+
+#: ../lib/fantasdic/ui/print.rb:191
+msgid "Definitions for %s"
+msgstr "Definições para %s"
+
+#: ../lib/fantasdic/ui/print.rb:192
+msgid "Page %d/%d"
+msgstr "Página %d/%d"
+
+#: ../lib/fantasdic/ui/print.rb:203
+msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
+msgstr "Impresso pelo Fantasdic em %d/%m/%Y as %H:%M"
