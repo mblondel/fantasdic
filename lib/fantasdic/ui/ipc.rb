@@ -51,8 +51,9 @@ module IPC
         def self.find(uri)
             begin
                 pclient = Pipe.new_client(uri)
+                pclient
                 #data = pclient.read # read data from server
-            rescue
+            rescue PipeError
                 nil
             end
         end    
