@@ -1,5 +1,27 @@
 NEWS
 
+=== Fantasdic 1.0 beta4 ===
+
+Yet a lot of love with this release :-).
+
+- Print support.
+- New match dialog.
+- New history dialog.
+- Can choose fonts in the preferences.
+- Zoom+, Zomm-, Zoom normal buttons.
+- New "Zoom over character" dialog.
+- Better handling of connections and cache.
+- Better support of authentication.
+- SOCKS 5 Proxy support.
+- New application icon.
+- Various bug fixes.
+- Better MS Windows support and easy to install archive.
+
+- French translation updated (Mathieu Blondel).
+- Brazilian Portuguese translation updated (Alexandre Cavedon).
+- Swedish translation updated (Daniel Nylander).
+- Occitan translation updated partially (Yannig Marchegay).
+
 === Fantasdic 1.0 beta3 ===
 
 2007/07/30

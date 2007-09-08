@@ -1,7 +1,8 @@
 Fantasdic
 =========
 
-    Fantasdic is a client for the DICT protocol (RFC 2229).
+    Fantasdic is a dictionary application (client for the DICT protocol,
+    RFC 2229).
 
     Fantasdic:
 
@@ -11,7 +12,7 @@ Fantasdic
       * Keeps an history of searched words.
       * Supports printing.
       * Supports SOCKS 5 proxies.
-      * Can stay in the system stray.
+      * Can stay in the system tray.
       * Is available in several languages.
 
 
