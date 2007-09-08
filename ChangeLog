@@ -1,3 +1,10 @@
+2007-09-08 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * win32/fantasdic.c: Move fantasdic/, GTK/, ruby/, ruby-gettext/, 
+    ruby-gtk2/ and win32-pipe/ to a new dir lib/ in order to hide them from the
+    user.
+    * win32/README: Update instructions to follow this change.
+
 2007-09-04 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * TODO: Updated with new ideas.

@@ -6,13 +6,13 @@ the root directory.
 Root directory
 --------------
 
-The root directory needs the following directories:
+The root directory needs a lib/ directory with the following directories:
 - fantasdic/
 - GTK/
 - ruby/
 - ruby-gettext/
-- ruby-gtk2
-- win32-pipe
+- ruby-gtk2/
+- win32-pipe/
 
 The instructions for each directory only need to be performed again if the
 related package needs be upgraded.
@@ -23,7 +23,7 @@ Ruby
 -----
 
 - Download a pre-compiled version of Ruby from ruby-lang.org.
-- Unpack the archive and rename the directory to ruby/.
+- Unpack the archive and rename the directory to lib/ruby/.
 - Remove share/, doc/, man/.
 
 GTK
@@ -31,70 +31,70 @@ GTK
 
 - Download the runtime development installer from gladewin32.sourceforge.net
   (non-developer version).
-- Install it and copy c:/GTK/ to the root directory.
+- Install it and copy c:/GTK/ to lib/.
 - Edit etc/pango/pango.module, etc/gtk-2.0/gdk-pixbuf.loader,
   etc/gtk-2.0/gtk.immodules and replace all absolute paths with relative paths
-  starting with GTK/.
+  starting with lib/GTK/.
 
 Ruby/GTK2
 -----------
 
 - Download the pre-compiled version of Ruby/GTK2 from
   ruby-gnome2.sourceforge.jp.
-- Unpack it and rename the directory to ruby-gtk2.
+- Unpack it and rename the directory to lib/ruby-gtk2.
 
 Ruby/Gettext
 -------------
 
 - Download the last .gem file from rubyforge.org.
 - Rename it to *.tar, unpack it, unpack data.tar.gz, rename the folder to
-  ruby-gettext.
-- Edit lib/gettext/textdomain.rb and add fantasdic/data/locale/ to the
-  locale dir list.
+  lib/ruby-gettext.
+- Edit lib/ruby-gettext/lib/gettext/textdomain.rb and add
+  lib/fantasdic/data/locale/  to the locale dir list.
 
 Win32-Pipe
 -----------
 
 - Download the package from the win32-utils project on Rubyforge.
-- Unpack it and rename it to win32-pipe. 
-- lib/win32/ must contain pipe.so.
+- Unpack it and rename it to lib/win32-pipe.
+- lib/win32-pipe/lib/win32/ must contain pipe.so.
 
 Fantasdic
 ---------
 
-- cd fantasdic/bin/
-- "../../ruby/bin/ruby" pre-setup.rb
-- cd ../lib/fantasdic
+- cd lib/fantasdic/bin/
 - "../../../ruby/bin/ruby" pre-setup.rb
+- cd ../lib/fantasdic
+- "../../../../ruby/bin/ruby" pre-setup.rb
 
 - Edit bin/fantasdic and add the lines below at the top of the file:
 [
-"ruby/lib/ruby/1.8/",
-"ruby/lib/ruby/1.8/i386-mswin32",
-"win32-pipe/lib",
-"ruby-gtk2/lib/ruby/site_ruby/1.8/",
-"ruby-gtk2/lib/ruby/site_ruby/1.8/i386-msvcrt",
-"ruby-gettext/lib/",
-"fantasdic/lib"].reverse.each do |path|
+"lib/ruby/lib/ruby/1.8/",
+"lib/ruby/lib/ruby/1.8/i386-mswin32",
+"lib/win32-pipe/lib",
+"lib/ruby-gtk2/lib/ruby/site_ruby/1.8/",
+"lib/ruby-gtk2/lib/ruby/site_ruby/1.8/i386-msvcrt",
+"lib/ruby-gettext/lib/",
+"lib/fantasdic/lib"].reverse.each do |path|
     $LOAD_PATH.unshift(path)
 end
 
 require 'rbconfig'
 if /mingw|mswin|mswin32/ =~ RUBY_PLATFORM
 ENV['PATH'] = %w(bin lib).collect{|dir|
-"#{Dir.pwd}\\GTK\\#{dir};"
+"#{Dir.pwd}\\lib\\GTK\\#{dir};"
 }.join('') + ENV['PATH']
 end
 
 - Create lib/fantasdic/config.rb with the following content:
 module Fantasdic
     module Config
-        DATA_DIR = 'fantasdic/data/fantasdic/'
+        DATA_DIR = 'lib/fantasdic/data/fantasdic/'
     end
 end
 
 - cd win32/
-- "../../ruby/bin/ruby" gen_po.rb
+- "../../../ruby/bin/ruby" gen_po.rb
 
 fantasdic.exe
 -------------

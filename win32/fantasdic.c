@@ -24,8 +24,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#define FANTASDIC_COMMAND "ruby/bin/rubyw fantasdic/bin/fantasdic"
-#define FANTASDIC_DBG_COMMAND "ruby/bin/ruby fantasdic/bin/fantasdic"
+#define FANTASDIC_COMMAND "lib/ruby/bin/rubyw lib/fantasdic/bin/fantasdic"
+#define FANTASDIC_DBG_COMMAND "lib/ruby/bin/ruby lib/fantasdic/bin/fantasdic"
 
 static void
 get_dirname (char *path, char *dirname)
