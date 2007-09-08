@@ -63,9 +63,9 @@ Fantasdic
 ---------
 
 - cd lib/fantasdic/bin/
-- "../../../ruby/bin/ruby" pre-setup.rb
+- "../../ruby/bin/ruby" pre-setup.rb
 - cd ../lib/fantasdic
-- "../../../../ruby/bin/ruby" pre-setup.rb
+- "../../../ruby/bin/ruby" pre-setup.rb
 
 - Edit bin/fantasdic and add the lines below at the top of the file:
 [
@@ -94,7 +94,7 @@ module Fantasdic
 end
 
 - cd win32/
-- "../../../ruby/bin/ruby" gen_po.rb
+- "../../ruby/bin/ruby" gen_po.rb
 
 fantasdic.exe
 -------------
