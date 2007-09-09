@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-30 13:25+0900\n"
-"PO-Revision-Date: 2007-07-31 00:02+0900\n"
+"POT-Creation-Date: 2007-09-09 11:40+0900\n"
+"PO-Revision-Date: 2007-09-09 11:41+0900\n"
 "Last-Translator: MATSUU Takuto <matsuu@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -28,58 +28,66 @@ msgid "Databases"
 msgstr "データベース"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:4
-msgid "Default _match strategy:"
-msgstr "標準の検索ルール(_m):"
-
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
-msgid "General informations"
-msgstr "一般的な情報"
-
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
 msgid "Informations about server"
 msgstr "サーバに関する情報"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
+msgid "Most servers don't require authentication."
+msgstr "多くのサーバで認証は必要とされていません"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
 msgid "Move database to selected databases"
 msgstr "データベースを対象に入れる"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
 msgid "Pass_word"
 msgstr "パスワード(_w)"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
 msgid "Remove database from selected databases"
 msgstr "データベースを対象から外す"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
 msgid "Search _all databases"
 msgstr "全てのデータベースから検索する(_a)"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
 msgid "Search selected _databases"
 msgstr "選択したデータベースから検索する(_d)"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
 msgid "Selected databases"
 msgstr "選択したデータベース"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
+msgid "Server"
+msgstr "サーバ"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:13
 msgid "Server _requires authentication"
 msgstr "サーバ接続時の認証を有効にする(_r)"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
+msgid ""
+"This name will identify your dictionary uniquely and will appear in the "
+"application menu."
+msgstr ""
+"This name will identify your dictionary uniquely and will appear in the "
+"application menu."
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
 msgid "_Name:"
 msgstr "名称(_N):"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
 msgid "_Port:"
 msgstr "ポート(_P):"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
 msgid "_Server:"
 msgstr "サーバ(_S):"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:18
 msgid "_Username:"
 msgstr "ユーザ名(_U)"
 
@@ -96,196 +104,118 @@ msgid "Find: "
 msgstr "検索: "
 
 #: ../data/fantasdic/glade/main_app.glade.h:4
+#: ../lib/fantasdic/ui/main_app.rb:268
+msgid "Matches"
+msgstr "検索結果"
+
+#: ../data/fantasdic/glade/main_app.glade.h:5
 msgid "_Next"
 msgstr "次へ(_N)"
 
-#: ../data/fantasdic/glade/main_app.glade.h:5
+#: ../data/fantasdic/glade/main_app.glade.h:6
 msgid "_Previous"
 msgstr "前へ(_P)"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:1
-msgid "<b>Look up</b>"
-msgstr "<b>検索</b>"
+msgid "<b>Print</b>"
+msgstr "<b>印刷用</b>"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:2
-msgid "<b>Tray</b>"
-msgstr "<b>トレイ</b>"
+msgid "<b>Results</b>"
+msgstr "<b>結果表示用</b>"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:3
+msgid "<b>SOCKS 5 Proxy</b>"
+msgstr "<b>SOCKS 5 プロキシ</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:4
+msgid "<b>Startup</b>"
+msgstr "<b>起動</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:5
+msgid "<b>System tray</b>"
+msgstr "<b>システムトレイ</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:6
 msgid "Dictionaries"
 msgstr "辞書"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:4
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:7
 msgid "Do _not quit when main window is closed"
 msgstr "メインウィンドウを閉じても終了しない(_n)"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:5
-msgid "Miscellaneous"
-msgstr "その他"
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
+msgid "Do not show main window at startup"
+msgstr "起動時にメインウィンドウを表示しない"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:6
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
+msgid "Enable proxy"
+msgstr "プロキシを有効にする"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
+msgid "Fantasdic will stay in the system tray even if the window is closed."
+msgstr ""
+"Fantasdicはウィンドウを閉じてもシステムトレイに常駐することになります。"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
+msgid "Fonts"
+msgstr "フォント"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
+msgid "Host:"
+msgstr "ホスト名:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
+msgid "Password (opt.):"
+msgstr "パスワード(オプション):"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
+msgid "Port:"
+msgstr "ポート:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
 msgid "Preferences"
 msgstr "設定"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:7
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
+msgid "Proxy"
+msgstr "プロキシ"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
+msgid "Select a font"
+msgstr "フォントを選択してください"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
+msgid "Startup"
+msgstr "起動設定"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:19
+msgid ""
+"This option should be enabled if Fantasdic is started when the computer "
+"boots."
+msgstr ""
+"コンピュータの起動時、Fantasdicを自動的に起動したい場合はこのオプションを有効"
+"にしてください。"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:20
+msgid "This proxy can for example be used to traverse firewalls."
+msgstr "このプロキシは例えばファイアウォール越えなどに有用です。"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:21
+msgid "Username (opt.):"
+msgstr "ユーザ名(オプション):"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:22
 msgid "_Look up last word at startup"
 msgstr "次回起動時、最後に入力した単語を検索する(_L)"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
-msgid "_Show Fantasdic in tray"
-msgstr "トレイに表示する(_S)"
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:23
+msgid "_Show Fantasdic in system tray"
+msgstr "システムトレイに表示する(_S)"
 
 #: ../data/fantasdic/glade/server_infos_dialog.glade.h:1
 msgid "Server informations"
 msgstr "サーバ情報"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:91
-msgid "Fields missing"
-msgstr "入力されていません"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:97
-#, c-format
-msgid "Dictionary %s exists already!"
-msgstr "%sは既に存在しています！"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:148
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:329
-msgid "Server missing"
-msgstr "サーバが入力されていません"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:153
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:334
-msgid "Port missing"
-msgstr "ポートが入力されていません"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:165
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:283
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:348
-#, c-format
-msgid "Could not connect to %s"
-msgstr "%sに接続できません"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:228
-#, c-format
-msgid "Fetching informations from %s..."
-msgstr "%sから情報を取得しています..."
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:343
-#, c-format
-msgid "About database %s"
-msgstr "データベース%sについて"
-
-#: ../lib/fantasdic/ui/main_app.rb:77
-msgid "No dictionary configured"
-msgstr "辞書が登録されていません"
-
-#: ../lib/fantasdic/ui/main_app.rb:99
-msgid "Can't connect to server"
-msgstr "サーバに接続できません"
-
-#: ../lib/fantasdic/ui/main_app.rb:144
-#, c-format
-msgid "Transferring data from %s ..."
-msgstr "%sからデータを転送しています..."
-
-#: ../lib/fantasdic/ui/main_app.rb:180 ../lib/fantasdic/ui/main_app.rb:226
-#: ../lib/fantasdic/ui/main_app.rb:227 ../lib/fantasdic/command_line.rb:107
-#: ../lib/fantasdic/command_line.rb:144
-msgid "No match found."
-msgstr "見つかりませんでした。"
-
-#: ../lib/fantasdic/ui/main_app.rb:181
-msgid "Looking for close results..."
-msgstr "類似の表現を検索しています..."
-
-#: ../lib/fantasdic/ui/main_app.rb:183 ../lib/fantasdic/ui/main_app.rb:223
-#: ../lib/fantasdic/command_line.rb:109
-#, c-format
-msgid "Matches found: %d."
-msgstr "%d件みつかりました。"
-
-#: ../lib/fantasdic/ui/main_app.rb:219
-msgid "Suggested results."
-msgstr "類似の表現を表示します。"
-
-#: ../lib/fantasdic/ui/main_app.rb:422
-#, c-format
-msgid "Dictionary \"%s\" does not exist anymore"
-msgstr "辞書\"%s\"は既に存在しません"
-
-#: ../lib/fantasdic/ui/main_app.rb:430
-#, c-format
-msgid "Waiting for %s..."
-msgstr "%sを待っています..."
-
-#: ../lib/fantasdic/ui/main_app.rb:469
-#, c-format
-msgid "Search %s"
-msgstr "%sを検索"
-
-#: ../lib/fantasdic/ui/main_app.rb:481 ../lib/fantasdic/ui/main_app.rb:654
-msgid "Select _All"
-msgstr "全てを選択(_A)"
-
-#: ../lib/fantasdic/ui/main_app.rb:558
-msgid "Save definition"
-msgstr "検索結果を保存する"
-
-#: ../lib/fantasdic/ui/main_app.rb:647
-msgid "_Look Up"
-msgstr "検索(_L)"
-
-#: ../lib/fantasdic/ui/main_app.rb:652
-msgid "_Edit"
-msgstr "編集(_E)"
-
-#: ../lib/fantasdic/ui/main_app.rb:657
-msgid "Find N_ext"
-msgstr "前方検索(_e)"
-
-#: ../lib/fantasdic/ui/main_app.rb:659
-msgid "Find Pre_vious"
-msgstr "後方検索(_v)"
-
-#: ../lib/fantasdic/ui/main_app.rb:661
-msgid "Clear history"
-msgstr "履歴を削除する"
-
-#: ../lib/fantasdic/ui/main_app.rb:666
-msgid "_View"
-msgstr "表示(_V)"
-
-#: ../lib/fantasdic/ui/main_app.rb:667
-msgid "_Go"
-msgstr "履歴(_G)"
-
-#: ../lib/fantasdic/ui/main_app.rb:675
-msgid "_Help"
-msgstr "ヘルプ(_H)"
-
-#: ../lib/fantasdic/ui/main_app.rb:676
-msgid "About"
-msgstr "情報"
-
-#: ../lib/fantasdic/ui/main_app.rb:712
-msgid "Scan clipboard"
-msgstr "クリップボードから読み込む"
-
-#: ../lib/fantasdic/ui/main_app.rb:714
-msgid "_History"
-msgstr "履歴(_H)"
-
-#: ../lib/fantasdic/ui/main_app.rb:716
-msgid "_Statusbar"
-msgstr "ステータスバー(_S)"
-
-#: ../lib/fantasdic/ui/main_app.rb:718
-msgid "_Toolbar"
-msgstr "ツールバー(_T)"
-
-#: ../lib/fantasdic/ui/preferences_dialog.rb:133
-msgid "A restart is required so that change takes effect"
-msgstr "設定を有効にするには再起動が必要です"
 
 #: ../lib/fantasdic/command_line.rb:34
 msgid "Usage: fantasdic [options] [dictionary] [word]"
@@ -323,3 +253,197 @@ msgstr "エラー: 指定された辞書は登録されていません"
 #, c-format
 msgid "Error: Could not connect to %s"
 msgstr "エラー: %sに接続できません"
+
+#: ../lib/fantasdic/command_line.rb:107 ../lib/fantasdic/command_line.rb:144
+#: ../lib/fantasdic/ui/main_app.rb:267
+msgid "No match found."
+msgstr "見つかりませんでした。"
+
+#: ../lib/fantasdic/command_line.rb:109
+#, c-format
+msgid "Matches found: %d."
+msgstr "%d件みつかりました。"
+
+#: ../lib/fantasdic.rb:73
+msgid "Dictionary application (DICT client)."
+msgstr "辞書アプリケーション(DICTクライアント)"
+
+#: ../lib/fantasdic/ui/about_dialog.rb:47 ../lib/fantasdic/ui/main_app.rb:806
+msgid "Could not open browser."
+msgstr "ブラウザを開けませんでした。"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:91
+msgid "Fields missing"
+msgstr "未入力の項目があります"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:97
+#, c-format
+msgid "Dictionary %s exists already!"
+msgstr "辞書%sは既に存在しています。"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:153
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:329
+msgid "Server missing"
+msgstr "サーバが入力されていません"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:158
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:334
+msgid "Port missing"
+msgstr "ポートが入力されていません"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:178
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:296
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:356
+#, c-format
+msgid "Could not connect to %s"
+msgstr "%sに接続できません"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:241
+#, c-format
+msgid "Fetching informations from %s..."
+msgstr "%sから情報を取得しています..."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:351
+#, c-format
+msgid "About database %s"
+msgstr "データベース%sについて"
+
+#: ../lib/fantasdic/ui/main_app.rb:76
+msgid "No dictionary configured"
+msgstr "辞書が登録されていません"
+
+#: ../lib/fantasdic/ui/main_app.rb:102
+#, c-format
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "辞書\"%s\"は既に存在しません"
+
+#: ../lib/fantasdic/ui/main_app.rb:106
+#, c-format
+msgid "Waiting for %s..."
+msgstr "%sを待っています..."
+
+#: ../lib/fantasdic/ui/main_app.rb:143 ../lib/fantasdic/ui/main_app.rb:170
+msgid "Connection with server lost."
+msgstr "サーバとの通信が切断されました。"
+
+#: ../lib/fantasdic/ui/main_app.rb:193
+msgid "Can't connect to server"
+msgstr "サーバに接続できません"
+
+#: ../lib/fantasdic/ui/main_app.rb:205 ../lib/fantasdic/ui/main_app.rb:237
+#, c-format
+msgid "Transferring data from %s ..."
+msgstr "%sからデータを転送しています..."
+
+#: ../lib/fantasdic/ui/main_app.rb:225
+msgid "No definition found."
+msgstr "定義が見つかりません。"
+
+#: ../lib/fantasdic/ui/main_app.rb:229
+#, c-format
+msgid "Definitions found: %d."
+msgstr "%d件の定義が見つかりました。"
+
+#: ../lib/fantasdic/ui/main_app.rb:262
+msgid "1 match"
+msgstr "該当件数 1件"
+
+#: ../lib/fantasdic/ui/main_app.rb:264
+#, c-format
+msgid "%d matches"
+msgstr "該当件数 %d件"
+
+#: ../lib/fantasdic/ui/main_app.rb:525
+#, c-format
+msgid "Search %s"
+msgstr "%sを検索"
+
+#: ../lib/fantasdic/ui/main_app.rb:550 ../lib/fantasdic/ui/main_app.rb:829
+msgid "Select _All"
+msgstr "全てを選択(_A)"
+
+#: ../lib/fantasdic/ui/main_app.rb:665
+msgid "Save definition"
+msgstr "検索結果を保存する"
+
+#: ../lib/fantasdic/ui/main_app.rb:816
+msgid "_Look Up"
+msgstr "検索(_L)"
+
+#: ../lib/fantasdic/ui/main_app.rb:819
+msgid "Print Set_up"
+msgstr "印刷設定(_u)"
+
+#: ../lib/fantasdic/ui/main_app.rb:827
+msgid "_Edit"
+msgstr "編集(_E)"
+
+#: ../lib/fantasdic/ui/main_app.rb:831
+msgid "Clear History"
+msgstr "履歴を削除する"
+
+#: ../lib/fantasdic/ui/main_app.rb:834
+msgid "Find N_ext"
+msgstr "前方検索(_e)"
+
+#: ../lib/fantasdic/ui/main_app.rb:836
+msgid "Find Pre_vious"
+msgstr "後方検索(_v)"
+
+#: ../lib/fantasdic/ui/main_app.rb:842
+msgid "_View"
+msgstr "表示(_V)"
+
+#: ../lib/fantasdic/ui/main_app.rb:843
+msgid "_Text size"
+msgstr "文字サイズ(_T)"
+
+#: ../lib/fantasdic/ui/main_app.rb:848
+msgid "Zoom normal"
+msgstr "標準サイズ"
+
+#: ../lib/fantasdic/ui/main_app.rb:852
+msgid "_Go"
+msgstr "履歴(_G)"
+
+#: ../lib/fantasdic/ui/main_app.rb:861
+msgid "_Help"
+msgstr "ヘルプ(_H)"
+
+#: ../lib/fantasdic/ui/main_app.rb:862
+msgid "Submit _Bug Report"
+msgstr "バグ報告の送信(_B)"
+
+#: ../lib/fantasdic/ui/main_app.rb:864
+msgid "About"
+msgstr "情報"
+
+#: ../lib/fantasdic/ui/main_app.rb:903
+msgid "Scan clipboard"
+msgstr "クリップボードから読み込む"
+
+#: ../lib/fantasdic/ui/main_app.rb:905
+msgid "_Matches"
+msgstr "検索結果(_M)"
+
+#: ../lib/fantasdic/ui/main_app.rb:907
+msgid "_Statusbar"
+msgstr "ステータスバー(_S)"
+
+#: ../lib/fantasdic/ui/main_app.rb:909
+msgid "_Toolbar"
+msgstr "ツールバー(_T)"
+
+#: ../lib/fantasdic/ui/print.rb:191
+#, c-format
+msgid "Definitions for %s"
+msgstr "%sの定義"
+
+#: ../lib/fantasdic/ui/print.rb:192
+#, c-format
+msgid "Page %d/%d"
+msgstr "ページ %d/%d"
+
+#: ../lib/fantasdic/ui/print.rb:203
+msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
+msgstr "Printed by Fantasdic %Y年%m月%d日 %H時%M分"
