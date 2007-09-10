@@ -40,11 +40,10 @@ EOL
 
         set_url_hook do |about, url|
             prefs = Preferences.instance
-            browser = prefs.get_browser
-            if browser
-                prefs.open_url(browser, url)
-            else
-                ErrorDialog.new(about, GetText._("Could not open browser."))
+            ok = prefs.open_url(url)
+            if not ok
+                ErrorDialog.new(about, GetText._("Could not open browser." + \
+                                                 "\n(%s)" % url))
             end
         end
 

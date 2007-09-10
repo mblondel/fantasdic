@@ -799,11 +799,11 @@ module UI
             # Help
 
             on_submit_bug_report = Proc.new do
-                browser = @prefs.get_browser
-                if browser
-                    @prefs.open_url(browser, Fantasdic::BUGZILLA_REPORT_BUG)
-                else
-                    ErrorDialog.new(@main_app, _("Could not open browser."))
+                url = Fantasdic::BUGZILLA_REPORT_BUG
+                ok = @prefs.open_url(url)
+                if not ok
+                    ErrorDialog.new(@main_app, _("Could not open browser." + \
+                                                 "\n (%s)" % url))
                 end
             end
 

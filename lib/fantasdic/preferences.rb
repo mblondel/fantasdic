@@ -121,6 +121,7 @@ module Fantasdic
             end                
         end
 
+        # Returns first found browser path or nil.
         def get_browser
             # First try with gconf in order to get the default browser set in
             # System > Preferences > My favourite applications
@@ -154,8 +155,22 @@ module Fantasdic
             return nil
         end
 
-        def open_url(command, url)
-            Thread.new { system(command % url) }
+        # Opens url in browser and returns true if succeeded
+        def open_url(url)
+            if WIN32
+                require 'win32ole'
+                wsh = WIN32OLE.new('Shell.Application')
+                wsh.Open(url)
+                return true
+            else
+                command = get_browser
+                if command
+                    Thread.new { system(command % url) }
+                    return true
+                else
+                    return false
+                end
+            end
         end
 
     end

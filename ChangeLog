@@ -1,3 +1,13 @@
+2007-09-10 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/preferences.rb (open_url): Doesn't take the command as
+    paramater anymore, call get_browser directly instead. Returns true if
+    succedded. Uses Windows OLE on Windows in order to open url in default
+    browser.
+    * lib/fantasdic/ui/main_app.rb: Show the url in error dialog when
+    cannot open browser.
+    * lib/fantasdic/ui/about_dialog.rb: Likewise.
+
 2007-09-08 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * release 1.0-beta4
