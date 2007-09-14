@@ -6,5 +6,5 @@ Comment=DICT client
 Exec=/usr/bin/fantasdic
 Terminal=false
 Type=Application
-Categories=Application;Utility;
+Categories=Utility;
 Icon=fantasdic

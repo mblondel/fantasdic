@@ -1,3 +1,8 @@
+2007-09-15 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * fantasdic.desktop: "Application" is not a valid category.
+    See http://standards.freedesktop.org/menu-spec/1.0/apa.html.
+
 2007-09-14 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb: Disable printing if no definition found.
