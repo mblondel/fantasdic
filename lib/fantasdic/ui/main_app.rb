@@ -163,7 +163,11 @@ module UI
 
                         @result_text_view.grab_focus
 
-                        enable_print unless definitions.empty?
+                        if definitions.empty?
+                            disable_print
+                        else
+                            enable_print
+                        end
 
                         update_pages_seen(p)
                     rescue DICTClient::ConnectionLost, Errno::EPIPE
