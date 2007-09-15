@@ -1,5 +1,9 @@
 2007-09-15 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+   	 * LINGUAS: added. 
+
+2007-09-15 Mathieu Blondel <mblondel@cvs.gnome.org>
+
    	 * fr.po: Fixed errors indicated by msgfmt -c.
 	 * it.po: Ditto.
 	 * ja.po: Ditto.
