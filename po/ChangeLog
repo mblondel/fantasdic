@@ -1,3 +1,9 @@
+2007-09-15 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+   	 * fr.po: Fixed errors indicated by msgfmt -c.
+	 * it.po: Ditto.
+	 * ja.po: Ditto.
+
 2007-09-09 Mathieu Blondel <mblondel@cvs.gnome.org>
 
    	 * ja.po: updated. Thanks to Takuto Matsuu.

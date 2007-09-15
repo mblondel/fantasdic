@@ -3,7 +3,6 @@
 # This file is distributed under the same license as Fantasdic.
 # Mathieu Blondel <mblondel@cvs.gnome.org>, 2006.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Fantasdic 1.0-beta\n"

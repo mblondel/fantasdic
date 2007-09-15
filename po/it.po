@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the fantasdic package.
 # Emilio Anzon <pan@linux.it>, 2007.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Fantasdic 1.0-beta\n"
