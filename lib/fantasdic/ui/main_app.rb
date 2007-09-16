@@ -165,8 +165,10 @@ module UI
 
                         if definitions.empty?
                             disable_print
+                            disable_save
                         else
                             enable_print
+                            enable_save
                         end
 
                         update_pages_seen(p)
@@ -299,7 +301,7 @@ module UI
                                     lookup(:word => text)
                                     @main_app.show \
                                         unless @main_app.visible?
-                                    @main_app.present 
+                                    @main_app.present
                                 end
                             end
                         end
@@ -584,6 +586,15 @@ module UI
             @global_actions["GoForward"].sensitive = \
                 (@pages_seen.length == 0 or
                  @current_page == @pages_seen.length - 1) ? false : true
+        end
+
+        # Save
+        def disable_save
+            @global_actions["Save"].sensitive = false
+        end
+
+        def enable_save
+            @global_actions["Save"].sensitive = true
         end
 
         # Print
@@ -947,6 +958,7 @@ module UI
             @statusicon_popup = @uimanager.get_widget("/StatusIconPopup")
 
             disable_print_if_unsupported
+            disable_save
         end
 
         def initialize_signals
