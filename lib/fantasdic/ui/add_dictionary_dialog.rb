@@ -69,116 +69,10 @@ module UI
             @threads = []
             @callback_proc = callback_proc
             initialize_ui
+            initialize_signals
         end
 
-        def on_add
-
-            checks = [
-                @name_entry.text.empty?,
-                @server_entry.text.empty?,
-                @port_entry.text.empty?,
-
-                (@sel_db_radiobutton.active? and
-                @sel_db_treeview.model.empty?),
-
-                (@serv_auth_checkbutton.active? and
-                @password_entry.text.empty? and
-                @login_entry.text.empty?)
-            ]
-
-            checks.each do |expr|
-                if expr == true
-                    ErrorDialog.new(@dialog, _("Fields missing")) 
-                    return false
-                end
-            end
-
-            if @prefs.dictionary_exists? @name_entry.text and !@update_dialog
-                ErrorDialog.new(@dialog, _("Dictionary %s exists already!") \
-                                         % @name_entry.text) 
-                return false    
-            end
-
-            hash = {}
-
-            hash[:server] = @server_entry.text
-            hash[:port] = @port_entry.text
-            hash[:all_dbs] = @all_db_radiobutton.active?
-
-            hash[:sel_dbs] = []
-            @sel_db_treeview.model.each do |model, path, iter|
-                hash[:sel_dbs] << iter[NAME]
-            end
-
-            hash[:avail_strats] = @avail_strats
-            hash[:sel_strat] = "define" # default strat
-
-            hash[:auth] = @serv_auth_checkbutton.active?
-            hash[:login] = @login_entry.text
-            hash[:password] = @password_entry.text
-
-            @callback_proc.call(@name_entry.text, hash)
-
-            close!
-        end
-
-        def on_cancel
-            close!
-        end
-
-        def on_radiobutton_group_changed
-        end
-
-        def on_serv_auth_toggled
-            @serv_auth_table.sensitive = @serv_auth_checkbutton.active?
-            @threads << Thread.new do
-                update_lists
-            end
-        end
-
-        def on_server_activate
-            @port_entry.grab_focus
-        end
-
-        def on_login_entry_activate
-            on_server_activate
-        end
-
-        def on_password_entry_activate
-            on_server_activate
-        end
-
-        def on_server_infos_button_clicked
-            if @server_entry.text.empty?
-                ErrorDialog.new(@dialog, _("Server missing"))
-                return false
-            end
-                
-            if @server_entry.text.empty?
-                ErrorDialog.new(@dialog, _("Port missing"))
-                return false
-            end                
-
-            begin
-                dict = DICTClient.new(@server_entry.text, @port_entry.text,     
-                                     $DEBUG)
-
-                if @serv_auth_checkbutton.active?
-                    unless @login_entry.text.empty? or \
-                           @password_entry.text.empty?
-
-                        dict.auth(@login_entry.text, @password_entry.text)
-                    end
-                end
-
-                ServerInfosDialog.new.text = dict.show_server
-
-                dict.disconnect
-            rescue DICTClient::ConnectionError
-                self.status_bar_msg = _("Could not connect to %s") \
-                                      % @server_entry.text
-            end
-        end
+        private
 
         def sel_dbs_have?(name)
             ret = false
@@ -187,37 +81,6 @@ module UI
             end
             ret
         end
-
-        def on_move_up_button_clicked
-            iters = []
-            @sel_db_treeview.selection.selected_each do |model, path, iter|
-                iters << iter
-            end
-            iters.each { |iter| @sel_db_treeview.model.remove(iter) }
-            @avail_db_treeview.selection.unselect_all
-
-            @all_db_radiobutton.activate if @sel_db_treeview.model.empty?
-        end
-
-        def on_move_down_button_clicked
-            @avail_db_treeview.selection.selected_each do |model, path, iter|
-                unless sel_dbs_have? iter[NAME]
-                    row = @sel_db_treeview.model.append
-    
-                    row[NAME] = iter[NAME]
-                    row[DESC] = iter[DESC]
-                end
-            end
-            @avail_db_treeview.selection.unselect_all
-
-            @sel_db_radiobutton.activate
-        end
-
-        def on_show_help_button_clicked
-            Browser::open_help("fantasdic-dictionaries")
-        end
-
-        private
 
         def status_bar_msg=(message)
             @statusbar.push(0, message)
@@ -360,6 +223,154 @@ module UI
                 self.status_bar_msg = _("Could not connect to %s") \
                                       % @server_entry.text
             end
+        end
+
+        def initialize_signals
+            @show_help_button.signal_connect("clicked") do
+                Browser::open_help("fantasdic-dictionaries")
+            end
+
+            @cancel_button.signal_connect("clicked") do
+                close!
+            end
+
+            @server_entry.signal_connect("activate") do
+                @port_entry.grab_focus
+            end
+
+            @port_entry.signal_connect("activate") do
+                @server_entry.grab_focus
+            end
+
+            @login_entry.signal_connect("activate") do
+                @server_entry.activate
+            end
+
+            @password_entry.signal_connect("activate") do
+                @server_entry.activate
+            end
+
+            @serv_auth_checkbutton.signal_connect("toggled") do
+                @serv_auth_table.sensitive = @serv_auth_checkbutton.active?
+                @threads << Thread.new do
+                    update_lists
+                end
+            end
+
+            @move_up_button.signal_connect("clicked") do
+                iters = []
+                @sel_db_treeview.selection.selected_each do |model, path, iter|
+                    iters << iter
+                end
+                iters.each { |iter| @sel_db_treeview.model.remove(iter) }
+                @avail_db_treeview.selection.unselect_all
+
+                @all_db_radiobutton.activate if @sel_db_treeview.model.empty?
+            end
+
+            @move_down_button.signal_connect("clicked") do
+                @avail_db_treeview.selection.selected_each do |model,
+                                                               path,
+                                                               iter|
+                    unless sel_dbs_have? iter[NAME]
+                        row = @sel_db_treeview.model.append
+        
+                        row[NAME] = iter[NAME]
+                        row[DESC] = iter[DESC]
+                    end
+                end
+                @avail_db_treeview.selection.unselect_all
+
+                @sel_db_radiobutton.activate
+            end
+
+            @server_infos_button.signal_connect("clicked") do
+                if @server_entry.text.empty?
+                    ErrorDialog.new(@dialog, _("Server missing"))
+                    return false
+                end
+                    
+                if @server_entry.text.empty?
+                    ErrorDialog.new(@dialog, _("Port missing"))
+                    return false
+                end                
+
+                begin
+                    dict = DICTClient.new(@server_entry.text,
+                                          @port_entry.text,
+                                          $DEBUG)
+
+                    if @serv_auth_checkbutton.active?
+                        unless @login_entry.text.empty? or \
+                            @password_entry.text.empty?
+
+                            dict.auth(@login_entry.text, @password_entry.text)
+                        end
+                    end
+
+                    ServerInfosDialog.new.text = dict.show_server
+
+                    dict.disconnect
+                rescue DICTClient::ConnectionError
+                    self.status_bar_msg = _("Could not connect to %s") \
+                                        % @server_entry.text
+                end
+            end # show server infos
+
+            @add_button.signal_connect("clicked") do
+                checks = [
+                    @name_entry.text.empty?,
+                    @server_entry.text.empty?,
+                    @port_entry.text.empty?,
+
+                    (@sel_db_radiobutton.active? and
+                    @sel_db_treeview.model.empty?),
+
+                    (@serv_auth_checkbutton.active? and
+                    @password_entry.text.empty? and
+                    @login_entry.text.empty?)
+                ]
+
+                checks.each do |expr|
+                    if expr == true
+                        ErrorDialog.new(@dialog, _("Fields missing")) 
+                        return false
+                    end
+                end
+
+                if @prefs.dictionary_exists? @name_entry.text and \
+                   !@update_dialog
+
+                    ErrorDialog.new(@dialog,
+                                    _("Dictionary %s exists already!") % \
+                                        @name_entry.text) 
+                    return false    
+                end
+
+                hash = {}
+
+                hash[:server] = @server_entry.text
+                hash[:port] = @port_entry.text
+                hash[:all_dbs] = @all_db_radiobutton.active?
+
+                hash[:sel_dbs] = []
+                @sel_db_treeview.model.each do |model, path, iter|
+                    hash[:sel_dbs] << iter[NAME]
+                end
+
+                hash[:avail_strats] = @avail_strats
+                hash[:sel_strat] = "define" # default strat
+
+                hash[:auth] = @serv_auth_checkbutton.active?
+                hash[:login] = @login_entry.text
+                hash[:password] = @password_entry.text
+
+                @callback_proc.call(@name_entry.text, hash)
+
+                close!
+            end # add_button signal
+
+
         end
 
         def initialize_ui

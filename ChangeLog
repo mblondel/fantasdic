@@ -1,5 +1,14 @@
 2007-09-20 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic/ui/preferences_dialog.rb:
+    * lib/fantasdic/ui/add_dictionary_dialog.rb:
+    * data/fantasdic/glade/add_dictionary_dialog.glade:
+    * data/fantasdic/glade/preferences_dialog.glade:
+    Connects signals from the Ruby files instead of defining functions callbacks
+    in the Glade files.
+
+2007-09-20 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/ui.rb: SUPPORTS_STATUS_ICON and SUPPORTS_PRINT renamed to
     HAVE_STATUS_ICON and HAVE_PRINT.
     * lib/fantasdic/ui/preferences_dialog.rb: Likewise.

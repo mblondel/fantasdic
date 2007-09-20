@@ -39,138 +39,141 @@ module UI
             
             @callback_proc = callback_proc
             initialize_ui
+            initialize_signals
         end
-        
-        def on_preferences_close
-            @prefs.enable_proxy = @enable_proxy_checkbutton.active?
-            @prefs.proxy_host = @proxy_host_entry.text
-            @prefs.proxy_port = @proxy_port_entry.text
-            @prefs.proxy_username = @proxy_username_entry.text
-            @prefs.proxy_password = @proxy_password_entry.text
-
-            @callback_proc.call
-            @preferences_dialog.hide
-        end
-               
-        def on_add_dictionary
-            AddDictionaryDialog.new(@preferences_dialog) do |name, hash|
-                hash[:selected] = SEL
-                @prefs.add_dictionary(name, hash)
-                append_dictionary(SEL, name)
-            end
-        end
-
-        def on_configure_dictionary
-            selected_iter = @dictionary_treeview.selected_iter 
-            dicname = selected_iter[NAME]
-            hash = @prefs.dictionaries_infos[dicname]
-            AddDictionaryDialog.new(@preferences_dialog, dicname, hash) do
-                |new_name, new_hash|
-                if new_name != dicname
-                    @prefs.dictionary_replace_name(dicname, new_name)
-                    selected_iter[NAME] = new_name
-                end
-                new_hash[:selected] = selected_iter[SELECTION]
-                @prefs.update_dictionary(new_name, new_hash)
-            end
-        end
-        
-        def on_remove_dictionary
-            selection = @dictionary_treeview.selection.selected
-            name = selection[NAME]
-            @list_store.remove(selection)
-            @prefs.delete_dictionary(name)
-        end
-        
-        def on_dictionary_up
-            iter = @dictionary_treeview.selection.selected
-            name = iter[NAME]
-            old_path = iter.path
-            new_path = iter.path
-            new_path.prev!
-            model = @dictionary_treeview.model
-            model.move_after(model.get_iter(new_path), iter)
-            sensitize_buttons
-            # up graphically = down in the array
-            @prefs.dictionary_down(name) 
-        end
-
-        def on_dictionary_down
-            iter = @dictionary_treeview.selection.selected
-            name = iter[NAME]
-            next_iter = iter.dup
-            old_path = next_iter.path
-            next_iter.next!
-            new_path = next_iter.path
-            @dictionary_treeview.model.move_after(iter, next_iter)
-            sensitize_buttons
-            # down graphically = up in the array
-            @prefs.dictionary_up(name)
-        end
-
-        def on_enable_proxy_checkbutton_toggled
-            @proxy_settings_table.sensitive = @enable_proxy_checkbutton.active?
-        end
-
-        def update_dic_list
-            @list_store.clear
-            @prefs.dictionaries.each do |name|
-                hash = @prefs.dictionaries_infos[name]
-                append_dictionary(hash[:selected], name)
-            end
-        end
-        
-        def append_dictionary(sel, name)
-            row = @list_store.append()
-            row[SELECTION] = sel
-            row[NAME] = name
-        end
-
-        def on_lookup_at_start_checkbutton_toggled
-            @prefs.lookup_at_start = @lookup_at_start_checkbutton.active?
-        end
-
-        def on_show_in_tray_checkbutton_toggled
-            @dont_quit_checkbutton.sensitive = \
-                @dont_show_at_startup_checkbutton.sensitive = \
-                    @show_in_tray_checkbutton.active?
-            
-
-            if !@show_in_tray_checkbutton.active?
-                @dont_quit_checkbutton.active = false
-                @dont_show_at_startup_checkbutton.active = false
-            end
-
-            @prefs.show_in_tray = @show_in_tray_checkbutton.active?
-
-            if @statusicon
-                @statusicon.visible = @show_in_tray_checkbutton.active?
-            end
-        end
-
-        def on_dont_show_at_startup_checkbutton_toggled
-            @prefs.dont_show_at_startup = \
-                @dont_show_at_startup_checkbutton.active?
-        end
-
-        def on_dont_quit_checkbutton_toggled
-            @prefs.dont_quit = @dont_quit_checkbutton.active?
-        end
-
-        def on_results_fontbutton_font_set
-            @prefs.results_font_name = @results_fontbutton.font_name
-            @textview.buffer.font_name = @results_fontbutton.font_name
-        end
-
-        def on_print_fontbutton_font_set
-            @prefs.print_font_name = @print_fontbutton.font_name
-        end
-
-        def on_show_help_button_clicked
-            Browser::open_help("fantasdic-preferences")
-        end
-        
+      
         private
+
+        def initialize_signals
+            initialize_dictionaries_signals
+            initialize_font_signals
+            initialize_startup_signals
+            initialize_proxy_signals
+        end
+
+        def initialize_proxy_signals
+            @enable_proxy_checkbutton.signal_connect("toggled") do
+                @proxy_settings_table.sensitive = \
+                    @enable_proxy_checkbutton.active?
+            end
+        end
+
+        def initialize_startup_signals
+            @lookup_at_start_checkbutton.signal_connect("toggled") do
+                @prefs.lookup_at_start = @lookup_at_start_checkbutton.active?
+            end
+
+            @show_in_tray_checkbutton.signal_connect("toggled") do
+                @dont_quit_checkbutton.sensitive = \
+                    @dont_show_at_startup_checkbutton.sensitive = \
+                        @show_in_tray_checkbutton.active?
+                
+
+                if !@show_in_tray_checkbutton.active?
+                    @dont_quit_checkbutton.active = false
+                    @dont_show_at_startup_checkbutton.active = false
+                end
+
+                @prefs.show_in_tray = @show_in_tray_checkbutton.active?
+
+                if @statusicon
+                    @statusicon.visible = @show_in_tray_checkbutton.active?
+                end
+            end
+
+            @dont_quit_checkbutton.signal_connect("toggled") do
+                @prefs.dont_quit = @dont_quit_checkbutton.active?
+            end
+
+            @dont_show_at_startup_checkbutton.signal_connect("toggled") do
+                @prefs.dont_show_at_startup = \
+                    @dont_show_at_startup_checkbutton.active?
+            end
+        end
+
+        def initialize_font_signals
+            @results_fontbutton.signal_connect("font-set") do
+                @prefs.results_font_name = @results_fontbutton.font_name
+                @textview.buffer.font_name = @results_fontbutton.font_name
+            end
+
+            @print_fontbutton.signal_connect("font-set") do
+                @prefs.print_font_name = @print_fontbutton.font_name
+            end
+        end
+
+        def initialize_dictionaries_signals
+            @show_help_button.signal_connect("clicked") do
+                Browser::open_help("fantasdic-preferences")
+            end
+
+            @preferences_close_button.signal_connect("clicked") do
+                @prefs.enable_proxy = @enable_proxy_checkbutton.active?
+                @prefs.proxy_host = @proxy_host_entry.text
+                @prefs.proxy_port = @proxy_port_entry.text
+                @prefs.proxy_username = @proxy_username_entry.text
+                @prefs.proxy_password = @proxy_password_entry.text
+
+                @callback_proc.call
+                @preferences_dialog.hide
+            end
+
+            @add_dictionary_button.signal_connect("clicked") do
+                AddDictionaryDialog.new(@preferences_dialog) do |name, hash|
+                    hash[:selected] = SEL
+                    @prefs.add_dictionary(name, hash)
+                    append_dictionary(SEL, name)
+                end
+            end
+
+            @remove_dictionary_button.signal_connect("clicked") do
+                selection = @dictionary_treeview.selection.selected
+                name = selection[NAME]
+                @list_store.remove(selection)
+                @prefs.delete_dictionary(name)
+            end
+
+            @configure_dictionary_button.signal_connect("clicked") do
+                selected_iter = @dictionary_treeview.selected_iter 
+                dicname = selected_iter[NAME]
+                hash = @prefs.dictionaries_infos[dicname]
+                AddDictionaryDialog.new(@preferences_dialog, dicname, hash) do
+                    |new_name, new_hash|
+                    if new_name != dicname
+                        @prefs.dictionary_replace_name(dicname, new_name)
+                        selected_iter[NAME] = new_name
+                    end
+                    new_hash[:selected] = selected_iter[SELECTION]
+                    @prefs.update_dictionary(new_name, new_hash)
+                end
+            end
+
+            @dictionary_up_button.signal_connect("clicked") do
+                iter = @dictionary_treeview.selection.selected
+                name = iter[NAME]
+                old_path = iter.path
+                new_path = iter.path
+                new_path.prev!
+                model = @dictionary_treeview.model
+                model.move_after(model.get_iter(new_path), iter)
+                sensitize_buttons
+                # up graphically = down in the array
+                @prefs.dictionary_down(name) 
+            end
+
+            @dictionary_down_button.signal_connect("clicked") do
+                iter = @dictionary_treeview.selection.selected
+                name = iter[NAME]
+                next_iter = iter.dup
+                old_path = next_iter.path
+                next_iter.next!
+                new_path = next_iter.path
+                @dictionary_treeview.model.move_after(iter, next_iter)
+                sensitize_buttons
+                # down graphically = up in the array
+                @prefs.dictionary_up(name)
+            end
+        end
                
         def initialize_ui
             @dictionaries_nb_image.pixbuf = Icon::LOGO_22X22
@@ -262,6 +265,20 @@ module UI
                 @dictionary_down_button.sensitive = \
                     ((selected_iter != iter_last) and (not selected_iter.nil?))
             end
+        end
+
+        def update_dic_list
+            @list_store.clear
+            @prefs.dictionaries.each do |name|
+                hash = @prefs.dictionaries_infos[name]
+                append_dictionary(hash[:selected], name)
+            end
+        end
+        
+        def append_dictionary(sel, name)
+            row = @list_store.append()
+            row[SELECTION] = sel
+            row[NAME] = name
         end
               
     end
