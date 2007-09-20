@@ -30,10 +30,30 @@ $RM po/fantasdic
 echo "Updating version number..."
 echo $1 > VERSION
 
-echo "Creating man page"
+echo "Creating man page..."
 mkdir -p data/man/man1/
 docbook-to-man fantasdic.sgml > data/man/man1/fantasdic.1
 gzip data/man/man1/fantasdic.1
+
+echo "Creating documentation translation from po files..."
+for d in `ls data/gnome/help/fantasdic/ | egrep -v "C$"`; do
+    if test -d data/gnome/help/fantasdic/$d; then        
+        (
+        cd data/gnome/help/fantasdic/$d
+        xml2po -p $d.po -o fantasdic.xml ../C/fantasdic.xml
+        $RM $d.po .xml2po.mo
+        )
+     fi
+done
+
+echo "Creating html documentation..."
+mkdir -p "data/doc/fantasdic/html/"
+for d in `ls data/gnome/help/fantasdic`; do
+    if test -d data/gnome/help/fantasdic/$d; then
+        xmlto -o data/doc/fantasdic/html/$d html \
+            data/gnome/help/fantasdic/$d/fantasdic.xml
+    fi
+done
 
 cd ..
 

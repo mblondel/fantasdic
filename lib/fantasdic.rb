@@ -31,6 +31,14 @@ rescue LoadError
     end
 end
 
+begin
+    require 'fantasdic/documenters'
+rescue LoadError
+    module Fantasdic
+        DOCUMENTERS = ['Mathieu Blondel <mblondel@cvs.gnome.org>']
+    end
+end
+
 module Fantasdic
     COPYRIGHT = 'Copyright (C) 2006 - 2007 Mathieu Blondel'
 

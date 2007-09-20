@@ -813,13 +813,13 @@ module UI
 
             # Help
 
+            on_help = Proc.new do
+                Browser::open_help
+            end
+
             on_submit_bug_report = Proc.new do
                 url = Fantasdic::BUGZILLA_REPORT_BUG
-                ok = @prefs.open_url(url)
-                if not ok
-                    ErrorDialog.new(@main_app, _("Could not open browser." + \
-                                                 "\n (%s)" % url))
-                end
+                Browser::open_url(url)
             end
 
             on_about = Proc.new { AboutDialog.new(@main_app).show }
@@ -874,6 +874,7 @@ module UI
 
                 # Help
                 ["HelpMenu", nil, _("_Help")],
+                ["Help", Gtk::Stock::HELP, _("_Contents"), "F1", nil, on_help],
                 ["SubmitBugReport", Gtk::Stock::EDIT, _("Submit _Bug Report"),
                  nil, nil, on_submit_bug_report],
                 ["About", Gtk::Stock::ABOUT, _("About"), nil, nil, on_about],

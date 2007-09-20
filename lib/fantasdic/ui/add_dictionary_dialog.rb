@@ -213,6 +213,10 @@ module UI
             @sel_db_radiobutton.activate
         end
 
+        def on_show_help_button_clicked
+            Browser::open_help("fantasdic-dictionaries")
+        end
+
         private
 
         def status_bar_msg=(message)

@@ -1,3 +1,58 @@
+2007-09-20 Mathieu Blondel <mblondel@cvs.gnome.org>
+
+    * lib/fantasdic/ui.rb: Makes Fantasdic a GNOME application if possible,
+    otherwise uses GTK.
+
+    * lib/fantasdic/ui/browser.rb: Added. Takes care of opening the browser
+    (if possible default browser) in a portable way. Takes care of opening
+    help. Uses GNOME's help system when  possible, open HTML documentation in a
+    browser otherwise.
+    * lib/fantasdic/preferences.rb: Browser code removed and moved to above
+    file.
+
+    * data/fantasdic/glade/preferences_dialog.glade: Adds help button.
+    * data/fantasdic/glade/add_dictionary_dialog.glade: Likewise.
+    * lib/fantasdic/ui/preferences_dialog.rb: Opens help when help button
+    clicked.
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Likewise.
+
+    * data/fantasdic/ui/menus.xml: Adds a menu item to user manuel in help menu.
+    * lib/fantasdic/ui/main_app.rb: Opens help when above menu item is clicked.
+      
+    * lib/fantasdic/pre-setup.rb: Generates documenters.rb out of
+    data/gnome/help/fantasdic/AUTHORS.
+    * lib/fantasdic.rb: Tries to load documenters.rb.
+    * lib/fantasdic/ui/about_dialog.rb: Displays documenters.   
+
+    * data/omf/fantasdic/fantasdic-C.omf: OMF metadata for English doc.
+    * data/omf/fantasdic/fantasdic-fr.omf: Same for French.
+    * data/omf/fantasdic/post-install.rb: Run scrollkeeper-update. Caution, for
+    distributions using binary packages, this should be done at the package
+    level.
+    * data/omf/fantasdic/pre-setup.rb: Replacing path to OMF files.
+
+    * data/gnome/help/fantasdic/C/figures/fantasdic.png:
+    * data/gnome/help/fantasdic/C/figures/fantasdic-search.png:
+    * data/gnome/help/fantasdic/C/figures/fantasdic-find-text.png:
+    Figures in English.
+    * data/gnome/help/fantasdic/C/fantasdic.xml: Master user documentation.
+    This is for now largely inspired by gnome-dictionary's documentation. Some
+    areas are not complete yet because they're going to change soon.
+    * data/gnome/help/fantasdic/fr/fr.po: French translation.
+    * data/gnome/help/fantasdic/fr/figures/fantasdic.png:
+    * data/gnome/help/fantasdic/fr/figures/fantasdic-search.png:
+    * data/gnome/help/fantasdic/fr/figures/fantasdic-find-text.png:
+    Figures in French.
+
+    * data/gnome/help/fantasdic/ChangeLog: ChangeLog aimed to documenters.
+    * data/gnome/help/fantasdic/README: Useful commands for generating HTML,
+    merging .po files, etc.
+    * data/gnome/help/fantasdic/AUTHORS: Documenters.
+    * data/pre-setup.rb: Copies figures for HTML documentation too.
+
+    * make_release.sh: Merges documentation .po files back to XML files.
+    Generates HTML out of Docbook XML.
+
 2007-09-16 Mathieu Blondel <mblondel@cvs.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb: Disable save if no definition found.

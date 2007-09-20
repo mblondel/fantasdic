@@ -1,0 +1,32 @@
+This directory
+--------------
+
+This directory contains the documentation for Fantasdic. Members from the
+GNOME Documentation project can commit changes without the maintainer's
+permission. Don't forget to add your name to AUTHORS.
+
+How to contribute documentation ?
+---------------------------------
+
+Check the validity of your document:
+$ xmllint --noout --noent --valid fantasdic.xml
+
+Transform the document:
+$ xsltproc --noout -o output  stylesheet.xsl fantasdic.xml
+
+Visualize the document:
+$ yelp -p /full/path/to/fantasdic.xml
+
+Create a .po file:
+$ xml2po -o LANG.po ../C/fantasdic.xml
+
+Merge back the changes to fantasdic.xml:
+$ xml2po -p LANG.po -o fantasdic.xml ../C/fantasdic.xml
+
+Updating an existing .po file:
+$ xml2po -u LANG.po ../C/fantasdic.xml
+
+Convert to HTML:
+$ xmlto -o html-dir html fantasdic.xml
+
+You should follow the GNOME Documentation style guide.

@@ -165,6 +165,10 @@ module UI
         def on_print_fontbutton_font_set
             @prefs.print_font_name = @print_fontbutton.font_name
         end
+
+        def on_show_help_button_clicked
+            Browser::open_help("fantasdic-preferences")
+        end
         
         private
                

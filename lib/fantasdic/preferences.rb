@@ -121,58 +121,6 @@ module Fantasdic
             end                
         end
 
-        # Returns first found browser path or nil.
-        def get_browser
-            # First try with gconf in order to get the default browser set in
-            # System > Preferences > My favourite applications
-            begin
-                require "gconf2"
-                client = GConf::Client.default
-                dir = "/desktop/gnome/url-handlers/http/"
-                if client[dir + "enabled"]
-                    return client[dir + "command"]            
-                end
-            rescue LoadError 
-            end
-
-            # Second, see if user has not set a browser in the prefs file
-            if self.www_browser
-                return self.www_browser
-            end
-
-            # Third, try to find if one of those browsers is available
-            ["firefox", "iceweasel", "mozilla", "epiphany-browser", "konqueror",
-             "w3m"].each do |browser|
-                ENV["PATH"].split(":").each do |dir|
-                    file = File.join(dir, browser)
-                    if File.executable? file
-                        return "#{file} %s"
-                    end
-                end
-            end
-
-            # Too bad...
-            return nil
-        end
-
-        # Opens url in browser and returns true if succeeded
-        def open_url(url)
-            if WIN32
-                require 'win32ole'
-                wsh = WIN32OLE.new('Shell.Application')
-                wsh.Open(url)
-                return true
-            else
-                command = get_browser
-                if command
-                    Thread.new { system(command % url) }
-                    return true
-                else
-                    return false
-                end
-            end
-        end
-
     end
 
 end

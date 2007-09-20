@@ -40,11 +40,7 @@ EOL
 
         set_url_hook do |about, url|
             prefs = Preferences.instance
-            ok = prefs.open_url(url)
-            if not ok
-                ErrorDialog.new(about, GetText._("Could not open browser." + \
-                                                 "\n(%s)" % url))
-            end
+            Fantasdic::UI::Browser::open_url(url)
         end
 
         def initialize(parent)
@@ -54,7 +50,7 @@ EOL
             self.copyright = Fantasdic::COPYRIGHT
             self.comments = Fantasdic::DESCRIPTION
             self.authors = Fantasdic::AUTHORS
-            #self.documenters = Fantasdic::DOCUMENTERS
+            self.documenters = Fantasdic::DOCUMENTERS
 
             GLib.language_names.each do |l|
                 if Fantasdic::TRANSLATORS[l]

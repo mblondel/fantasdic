@@ -16,7 +16,13 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 require 'libglade2'
-require 'gtk2'
+begin
+    require 'gnome2'
+    HAVE_GNOME2 = TRUE
+rescue LoadError
+    require 'gtk2'
+    HAVE_GNOME2 = FALSE
+end
 
 module Fantasdic
 module UI
@@ -27,7 +33,12 @@ module UI
     def self.main
         options = CommandLineOptions.instance
 
-        Gtk.init
+        if HAVE_GNOME2
+            pgm = Gnome::Program.new('fantasdic', VERSION)
+            pgm.app_datadir = Config::MAIN_DATA_DIR
+        else
+            Gtk.init
+        end
 
         # Start Fantasdic normally
         # Or ask the first process to pop up the window if it exists
@@ -63,4 +74,5 @@ require 'fantasdic/ui/matches_listview.rb'
 require 'fantasdic/ui/result_text_view'
 require 'fantasdic/ui/print' if Fantasdic::UI::SUPPORTS_PRINT
 require 'fantasdic/ui/ipc'
+require 'fantasdic/ui/browser'
 require 'fantasdic/ui/main_app'

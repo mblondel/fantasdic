@@ -1,0 +1,259 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY app "Fantasdic">
+<!ENTITY appversion "1.0">
+]>
+<!--
+This document is greatly inspired by gnome-dictionary's documentation,
+maintained by the GNOME Documentation Project,
+http://developer.gnome.org/projects/gdp
+-->
+
+<!-- Begin -->
+
+<article id="index" lang="en">
+<articleinfo>
+<title><application>&app;</application> Manual</title>
+
+<copyright><year>2007</year><holder>Mathieu Blondel</holder></copyright>
+<!-- translators: uncomment this:
+
+<copyright>
+<year>2007</year>
+<holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+</copyright>
+
+-->
+
+<revhistory>
+<revision> 
+<revnumber>&app; Manual</revnumber>
+<date>2007-09-16</date>
+<revdescription> 
+<para role="author">Mathieu Blondel</para>
+</revdescription> 
+</revision>
+</revhistory>
+
+<publisher>
+<publishername>Mathieu Blondel</publishername>
+<address><email>mblondel@cvs.gnome.org</email></address>
+</publisher>
+<!--
+<publisher>
+<publishername>Name</publishername>
+<address><email>email</email></address>
+</publisher>
+-->
+
+<authorgroup>
+<author role="maintainer">
+<firstname>Mathieu</firstname>
+<surname>Blondel</surname>
+</author>
+
+</authorgroup>
+
+<releaseinfo>
+This documentation is for version &appversion; of &app;.
+</releaseinfo>
+
+<abstract role="description">
+<para>User manual for the Fantasdic dictionary.</para>
+</abstract>
+</articleinfo>
+
+<indexterm zone="index">
+<primary>&app;</primary>
+</indexterm>
+
+<!-- INTODUCTION          -->
+<!-- What is &app; -->
+
+<sect1 id="fantasdic-introduction">
+<title>Introduction</title>
+
+<para><application>&app;</application> is a dictionary application. It enables
+to look up words using dictionary servers.
+</para>
+
+</sect1>
+
+<sect1 id="fantasdic-getting-started">
+<title>Getting Started</title>
+
+<para>You can start <application>&app;</application> in the following
+ways:</para>
+
+<variablelist>
+    <varlistentry>
+        <term><guimenu>Applications</guimenu> menu</term>
+        <listitem>
+            <para>Choose
+                <menuchoice><guisubmenu>Accessories</guisubmenu>
+                            <guimenuitem>Fantasdic</guimenuitem>
+                </menuchoice>.
+            </para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term>Command line</term>
+        <listitem>
+            <para>Execute the following command:
+                <command>fantasdic</command></para>
+        </listitem>
+    </varlistentry>
+</variablelist>
+
+<para>Once started, the <application>&app;</application> window is
+    displayed:</para>
+
+<figure id="fantasdic-fig">
+    <title>&app; Window</title>
+    <screenshot>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="figures/fantasdic.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Shows &app; main window.</phrase></textobject>
+        </mediaobject>
+    </screenshot>
+</figure>
+</sect1>
+
+
+<sect1 id="fantasdic-usage">
+<title>Usage</title>
+
+<sect2 id="fantasdic-looking-up-a-word">
+<title>Looking up a word</title>
+
+<para>To look up a word, type it into the <guilabel>entry field</guilabel>
+and press <keycap>Enter</keycap>. It is possible to change the match strategy
+by using the <guilabel>left combo box</guilabel>. It it possible to change the
+dictionary used to look up words by using the <guilabel>right combo
+box</guilabel>.
+
+<tip><para>Dictionaries can be added and changed in the preferences. Available
+match strategies depend on the dictionary selected.</para></tip>
+</para>
+
+<para>If some definition for the word is found, it will appear inside the main
+window area:</para>
+
+<figure id="fantasdic-dictionary-lookup-fig">
+    <title>&app; Window</title>
+    <screenshot>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="figures/fantasdic-search.png"
+                           format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Shows a definition inside the &app; main
+                    window.</phrase></textobject>
+        </mediaobject>
+    </screenshot>
+</figure>
+
+<para>Otherwise, an error dialog will appear, with a message explaining the     
+ nature of the error.</para>
+
+</sect2>
+
+<sect2 id="fantasdic-saving-results">
+    <title>Saving results</title>
+    
+    <para>To save the results of a look up, choose
+<menuchoice><guimenu>Fantasdic</guimenu>
+<guimenuitem>Save</guimenuitem></menuchoice >. Enter a name for the file in the
+<guilabel>Save</guilabel> dialog, then click <guibutton>Save</guibutton>.</para>
+    
+</sect2>
+
+<sect2 id="fantasdic-printing-results">
+    <title>Printing results</title>
+    
+    <para>To print the results of a look up, choose
+<menuchoice><guimenu>Fantasdic</guimenu>
+<guimenuitem>Print</guimenuitem></menuchoice >.</para>
+    
+<para>Inside the <guilabel>Print</guilabel> dialog you can select the        
+printer to use, the paper format, the number of copies.</para>
+
+<para>To see a preview of what will be printed, click
+<guibutton>Preview</guibutton>.</para>
+    
+</sect2>
+
+<sect2 id="fantasdic-finding-text">
+    <title>Finding text</title>
+    
+    <figure id="fantasdic-find-fig">
+        <title>&app; Window</title>
+        <screenshot>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="figures/fantasdic-find-text.png"
+                               format="PNG"/>
+                </imageobject>
+                <textobject><phrase>Shows the &app; Find pane inside the main
+                        window.</phrase></textobject>
+            </mediaobject>
+        </screenshot>
+    </figure>    
+    
+    <para>To find text inside the results of a look up, perform the following
+        steps:</para>
+    
+    <orderedlist>
+        <listitem><para>Choose <menuchoice> <guimenu>Edit</guimenu>
+        <guimenuitem>Find</guimenuitem> </menuchoice> to display the
+        <guilabel>Find</guilabel> pane.</para></listitem>
+        <listitem><para>Type the text you want to find inside the
+                <guilabel>Search</guilabel> entry.</para></listitem>
+        <listitem><para>To find the next occurrence of the text, click
+        <guibutton>Next</guibutton>.
+        To find the previous occurrence of the text, click
+        <guibutton>Previous</guibutton>.</para></listitem>
+      </orderedlist>
+    
+</sect2>
+
+</sect1>
+
+<sect1 id="fantasdic-preferences">
+<title>Preferences</title>
+
+<para>To change the application preferences, choose
+<menuchoice><guimenu>Edit</guimenu><guimenuitem>Preferences</guimenuitem>
+</menuchoice>.</para>
+</sect1>
+
+<sect1 id="fantasdic-dictionaries">
+<title>Dictionaries</title>
+<para>To add or change dictionaries used to look up words, choose the
+"Dictionaries" tab in the preferences window.</para>
+</sect1>
+
+<sect1 id="fantasdic-about">
+<title>About <application>&app;</application></title>
+<para><application>&app;</application> is written by Mathieu Blondel
+(<email>mblondel@cvs.gnome.org</email>).
+To find more information about <application>&app;</application>, please visit
+the <ulink url="http://www.gnome.org/projects/fantasdic/"
+type="http"><application>&app;</application> Home Page</ulink>.
+</para>
+
+<para>This program is distributed under the terms of the GNU General Public
+license as published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version. A copy of this license can be
+found in the file COPYING included with the source code of this program. </para>
+</sect1>
+
+
+
+</article>
+
+<!-- END -->
+
