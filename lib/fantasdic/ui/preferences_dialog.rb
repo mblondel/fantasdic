@@ -175,7 +175,7 @@ module UI
         def initialize_ui
             @dictionaries_nb_image.pixbuf = Icon::LOGO_22X22
 
-            @print_vbox.visible = Fantasdic::UI::SUPPORTS_PRINT
+            @print_vbox.visible = Fantasdic::UI::HAVE_PRINT
 
             @tray_vbox.visible = !@statusicon.nil?
             @dont_quit_checkbutton.active = @prefs.dont_quit

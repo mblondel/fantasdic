@@ -27,8 +27,8 @@ end
 module Fantasdic
 module UI
 
-    SUPPORTS_STATUS_ICON = defined? Gtk::StatusIcon
-    SUPPORTS_PRINT = defined? Gtk::PrintOperation
+    HAVE_STATUS_ICON = defined? Gtk::StatusIcon
+    HAVE_PRINT = defined? Gtk::PrintOperation
 
     def self.main
         options = CommandLineOptions.instance
@@ -72,7 +72,7 @@ require 'fantasdic/ui/add_dictionary_dialog'
 require 'fantasdic/ui/combobox_entry'
 require 'fantasdic/ui/matches_listview.rb'
 require 'fantasdic/ui/result_text_view'
-require 'fantasdic/ui/print' if Fantasdic::UI::SUPPORTS_PRINT
+require 'fantasdic/ui/print' if Fantasdic::UI::HAVE_PRINT
 require 'fantasdic/ui/ipc'
 require 'fantasdic/ui/browser'
 require 'fantasdic/ui/main_app'

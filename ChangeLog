@@ -1,5 +1,12 @@
 2007-09-20 Mathieu Blondel <mblondel@cvs.gnome.org>
 
+    * lib/fantasdic/ui.rb: SUPPORTS_STATUS_ICON and SUPPORTS_PRINT renamed to
+    HAVE_STATUS_ICON and HAVE_PRINT.
+    * lib/fantasdic/ui/preferences_dialog.rb: Likewise.
+    * lib/fantasdic/ui/main_app.rb: Likewise.
+
+2007-09-20 Mathieu Blondel <mblondel@cvs.gnome.org>
+
     * lib/fantasdic/ui.rb: Makes Fantasdic a GNOME application if possible,
     otherwise uses GTK.
 

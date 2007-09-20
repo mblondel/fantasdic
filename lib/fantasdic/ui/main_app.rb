@@ -393,7 +393,7 @@ module UI
         def load_preferences            
             load_window_preferences
             load_textview_preferences
-            load_print_preferences if SUPPORTS_PRINT
+            load_print_preferences if HAVE_PRINT
             load_dictionary_preferences
             load_proxy_preferences
             load_last_searches
@@ -440,7 +440,7 @@ module UI
             save_window_preferences
             save_last_searches
             save_dictionary_preferences
-            save_print_preferences if SUPPORTS_PRINT
+            save_print_preferences if HAVE_PRINT
             @prefs.save!
         end
 
@@ -599,7 +599,7 @@ module UI
 
         # Print
         def disable_print_if_unsupported
-            if SUPPORTS_PRINT
+            if HAVE_PRINT
                 disable_print
             else
                 ["PrintSetup", "PrintPreview", "Print"].each do |a|
@@ -609,7 +609,7 @@ module UI
         end
 
         def disable_print
-            if SUPPORTS_PRINT
+            if HAVE_PRINT
                 ["PrintPreview", "Print"].each do |a|
                     @global_actions[a].sensitive = false
                 end
@@ -617,7 +617,7 @@ module UI
         end
 
         def enable_print
-            if SUPPORTS_PRINT
+            if HAVE_PRINT
                 ["PrintPreview", "Print"].each do |a|
                     @global_actions[a].sensitive = true
                 end
@@ -628,7 +628,7 @@ module UI
 
         def initialize_ui
             # Tray icon
-            if SUPPORTS_STATUS_ICON
+            if HAVE_STATUS_ICON
                 @main_app.destroy_with_parent = false                
                 @statusicon = Gtk::StatusIcon.new
                 @statusicon.pixbuf = Icon::LOGO_22X22
