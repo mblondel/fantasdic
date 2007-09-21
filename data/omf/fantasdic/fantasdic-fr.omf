@@ -3,10 +3,10 @@
 <omf>
   <resource>
     <creator>
-      mblondel@cvs.gnome.org (Mathieu Blondel)
+      mblondel@svn.gnome.org (Mathieu Blondel)
     </creator>
     <maintainer>
-      mblondel@cvs.gnome.org (Mathieu Blondel)
+      mblondel@svn.gnome.org (Mathieu Blondel)
     </maintainer>
     <!--<contributor>
       

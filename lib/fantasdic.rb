@@ -19,7 +19,7 @@ begin
     require 'fantasdic/authors'
 rescue LoadError
     module Fantasdic
-        AUTHORS = ['Mathieu Blondel <mblondel@cvs.gnome.org>']
+        AUTHORS = ['Mathieu Blondel <mblondel@svn.gnome.org>']
     end
 end
 
@@ -35,7 +35,7 @@ begin
     require 'fantasdic/documenters'
 rescue LoadError
     module Fantasdic
-        DOCUMENTERS = ['Mathieu Blondel <mblondel@cvs.gnome.org>']
+        DOCUMENTERS = ['Mathieu Blondel <mblondel@svn.gnome.org>']
     end
 end
 

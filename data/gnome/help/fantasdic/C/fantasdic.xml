@@ -38,7 +38,7 @@ http://developer.gnome.org/projects/gdp
 
 <publisher>
 <publishername>Mathieu Blondel</publishername>
-<address><email>mblondel@cvs.gnome.org</email></address>
+<address><email>mblondel@svn.gnome.org</email></address>
 </publisher>
 <!--
 <publisher>
@@ -239,7 +239,7 @@ printer to use, the paper format, the number of copies.</para>
 <sect1 id="fantasdic-about">
 <title>About <application>&app;</application></title>
 <para><application>&app;</application> is written by Mathieu Blondel
-(<email>mblondel@cvs.gnome.org</email>).
+(<email>mblondel@svn.gnome.org</email>).
 To find more information about <application>&app;</application>, please visit
 the <ulink url="http://www.gnome.org/projects/fantasdic/"
 type="http"><application>&app;</application> Home Page</ulink>.
