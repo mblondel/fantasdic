@@ -462,6 +462,7 @@ module UI
                 end
             end
 
+            @dialog.show_all
         end
     end
         

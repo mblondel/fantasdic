@@ -1,5 +1,10 @@
 2007-09-21 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * data/fantasdic/glade/add_dictionary_dialog.glade: Some UI tweaks.
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Likewise.
+
+2007-09-21 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * AUTHORS: Changed my email address.
     * ChangeLog: Likewise.
     * HACKING: Likewise.
