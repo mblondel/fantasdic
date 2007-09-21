@@ -1,3 +1,8 @@
+2007-09-22 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * data/fantasdic/glade/preferences_dialog.glade: UI tweaks regarding the
+    proxy tab.
+
 2007-09-21 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * data/fantasdic/glade/add_dictionary_dialog.glade: Some UI tweaks.
