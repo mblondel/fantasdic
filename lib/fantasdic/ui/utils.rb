@@ -84,4 +84,8 @@ class Pango::FontDescription
     def size_points
         self.size / Pango::SCALE
     end
+
+    def size_points=(size)
+        self.size = size * Pango::SCALE
+    end
 end

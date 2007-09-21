@@ -29,12 +29,11 @@ module UI
         NAME = 1
         
 
-        def initialize(parent, statusicon, textview, &callback_proc)
+        def initialize(parent, statusicon, &callback_proc)
             super("preferences_dialog.glade")
             @main_app = parent
             @preferences_dialog.transient_for = parent
             @statusicon = statusicon
-            @textview = textview
             @prefs = Preferences.instance
             
             @callback_proc = callback_proc
@@ -45,8 +44,7 @@ module UI
         private
 
         def initialize_signals
-            initialize_dictionaries_signals
-            initialize_font_signals
+            initialize_dictionaries_signals            
             initialize_startup_signals
             initialize_proxy_signals
         end
@@ -88,17 +86,6 @@ module UI
             @dont_show_at_startup_checkbutton.signal_connect("toggled") do
                 @prefs.dont_show_at_startup = \
                     @dont_show_at_startup_checkbutton.active?
-            end
-        end
-
-        def initialize_font_signals
-            @results_fontbutton.signal_connect("font-set") do
-                @prefs.results_font_name = @results_fontbutton.font_name
-                @textview.buffer.font_name = @results_fontbutton.font_name
-            end
-
-            @print_fontbutton.signal_connect("font-set") do
-                @prefs.print_font_name = @print_fontbutton.font_name
             end
         end
 
@@ -178,8 +165,6 @@ module UI
         def initialize_ui
             @dictionaries_nb_image.pixbuf = Icon::LOGO_22X22
 
-            @print_vbox.visible = Fantasdic::UI::HAVE_PRINT
-
             @tray_vbox.visible = !@statusicon.nil?
             @dont_quit_checkbutton.active = @prefs.dont_quit
             @dont_show_at_startup_checkbutton.active = \
@@ -187,11 +172,6 @@ module UI
             @show_in_tray_checkbutton.active = @prefs.show_in_tray
 
             @lookup_at_start_checkbutton.active = @prefs.lookup_at_start
-
-            @results_fontbutton.font_name = @textview.buffer.font_name
-
-            @print_fontbutton.font_name = @prefs.print_font_name \
-                if @prefs.print_font_name
 
             @enable_proxy_checkbutton.active = @prefs.enable_proxy
             @proxy_settings_table.sensitive = @prefs.enable_proxy

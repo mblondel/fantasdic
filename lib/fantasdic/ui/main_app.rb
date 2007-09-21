@@ -90,7 +90,7 @@ module UI
                 end
 
                 infos = @prefs.dictionaries_infos[p[:dictionary]]
-                @global_actions["Stop"].visible = true
+                @global_actions["Stop"].visible = true                
 
                 # Get connection
                 begin
@@ -121,6 +121,8 @@ module UI
                 rescue DICTClient::ConnectionError, Errno::ECONNRESET => e
                     cant_connect_to_server(e)
                 end
+
+                set_font_name(infos[:results_font_name])
 
                 if p[:strategy] and \
                     not ["define", "exact"].include? p[:strategy]
@@ -281,6 +283,10 @@ module UI
             @statusbar.push(0, message)
         end
 
+        def set_font_name(font_name)
+            @result_text_view.buffer.font_name = font_name
+        end
+
         def scan_clipboard
             @scan_thread = Thread.new(@search_entry) do |entry|
                 
@@ -338,11 +344,6 @@ module UI
             end
         end
 
-        def load_textview_preferences
-            @result_text_view.buffer.font_name = @prefs.results_font_name \
-                if @prefs.results_font_name
-        end
-
         def load_print_preferences
             # Page Setup
             if @prefs.paper_size and @prefs.page_orientation
@@ -392,7 +393,6 @@ module UI
 
         def load_preferences            
             load_window_preferences
-            load_textview_preferences
             load_print_preferences if HAVE_PRINT
             load_dictionary_preferences
             load_proxy_preferences
@@ -417,10 +417,6 @@ module UI
             @prefs.last_search = @pages_seen[@current_page]
         end
 
-        def save_textview_preferences
-            @prefs.results_font_name = @result_text_view.buffer.font_name
-        end
-
         def save_print_preferences
             if @page_setup
                 @prefs.page_orientation = \
@@ -436,12 +432,16 @@ module UI
         end
 
         def save_preferences
-            save_textview_preferences
             save_window_preferences
             save_last_searches
             save_dictionary_preferences
             save_print_preferences if HAVE_PRINT
             @prefs.save!
+        end
+
+        def save_selected_dictionary_font_name
+            sel_dic = @prefs.dictionaries_infos[selected_dictionary]
+            sel_dic[:results_font_name] = @result_text_view.buffer.font_name
         end
 
         # Strategy menu
@@ -700,7 +700,9 @@ module UI
             end
 
             on_print = Proc.new do
-                @print = Print.new(@main_app, @search_entry.text,
+                @print = Print.new(@main_app,
+                                   @search_entry.text,
+                                   selected_dictionary,
                                    @result_text_view.buffer.definitions)
 
                 @print.default_page_setup = @page_setup if @page_setup
@@ -712,7 +714,9 @@ module UI
             end
 
             on_print_preview = Proc.new do
-                @print = Print.new(@main_app, @search_entry.text,
+                @print = Print.new(@main_app,
+                                   @search_entry.text,
+                                   selected_dictionary,
                                    @result_text_view.buffer.definitions)
 
                 @print.default_page_setup = @page_setup if @page_setup
@@ -772,8 +776,7 @@ module UI
             on_preferences = Proc.new do
                 save_dictionary_preferences
                 PreferencesDialog.new(@main_app,
-                                      @statusicon,
-                                      @result_text_view) do
+                                      @statusicon) do
                     # This block is called when the dialog is closed
                     DICTClient.close_all_connections  
                     update_dictionary_cb
@@ -787,14 +790,17 @@ module UI
             # View
             on_zoom_plus = Proc.new do
                 @result_text_view.buffer.increase_size
+                save_selected_dictionary_font_name
             end
 
             on_zoom_minus = Proc.new do
                 @result_text_view.buffer.decrease_size
+                save_selected_dictionary_font_name
             end
 
             on_zoom_normal = Proc.new do
                 @result_text_view.buffer.set_default_size
+                save_selected_dictionary_font_name
             end
 
             # Go

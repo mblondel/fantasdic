@@ -27,22 +27,19 @@ class Print < Gtk::PrintOperation
     FONT_SMALL = Pango::FontDescription.new("sans 8")
     FONT_SMALL_SIZE = FONT_SMALL.size / Pango::SCALE
 
-    def initialize (parent_window, title, definitions)
+    def initialize (parent_window, title, dictionary, definitions)
         super()
         @parent_window = parent_window
         @title = title
         @definitions = definitions
-        @prefs = Preferences.instance
 
-        # Fonts
-        if @prefs.print_font_name
-            @font = Pango::FontDescription.new(@prefs.print_font_name)
-        else
-            @font = DEFAULT_FONT
-        end
+        @prefs = Preferences.instance
+        font = @prefs.dictionaries_infos[dictionary][:print_font_name]
+
+        @font = font.nil? ? DEFAULT_FONT : Pango::FontDescription.new(font)  
 
         @font_big = @font.dup
-        @font_big.size *= 1.2
+        @font_big.size = (@font_big.size * 1.2).round
         @font_big.weight = Pango::FontDescription::WEIGHT_BOLD
 
         # with this option disabled, (0,0) is the the upper left corner

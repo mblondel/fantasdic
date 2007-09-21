@@ -77,21 +77,20 @@ module UI
         MAX_FONT_SIZE = 24
         MIN_FONT_SIZE = 8
         
-        DEFAULT_HEADER_FONT_SIZE = 11
+        DEFAULT_HEADER_FONT_SIZE = 12
         DEFAULT_FONT_SIZE = 10
         RATIO = DEFAULT_HEADER_FONT_SIZE / DEFAULT_FONT_SIZE.to_f
-        DEFAULT_FONT = Pango::FontDescription.new("")
-        DEFAULT_FONT.size = DEFAULT_FONT_SIZE
+
+        DEFAULT_FONT = Pango::FontDescription.new("Sans #{DEFAULT_FONT_SIZE}")
+
+        DEFAULT_HEADER_FONT = DEFAULT_FONT.dup
+        DEFAULT_HEADER_FONT.size_points = DEFAULT_HEADER_FONT_SIZE
 
         attr_accessor :scrolled_window, :definitions
 
         def initialize
             super
-
-            @font = DEFAULT_FONT
-
             initialize_tags
-
             self.clear
         end
 
@@ -236,19 +235,22 @@ module UI
 
         # Font name
 
-        def font_name=(font_name)            
-            font_desc = Pango::FontDescription.new(font_name)
-            font_desc_big = font_desc.dup
-            font_desc_big.size = header_font_size(font_desc.size)
+        def font_name=(fn=nil)      
+            unless self.font_name == fn
+                fn = DEFAULT_FONT.to_s unless fn
+                font_desc = Pango::FontDescription.new(fn)
+                font_desc_big = font_desc.dup
+                font_desc_big.size = header_font_size(font_desc.size)
 
-            self.tag_table.each do |tag|
-                if tag.name == "header"
-                    tag.font_desc = font_desc_big
-                else
-                    tag.font_desc = font_desc
+                self.tag_table.each do |tag|
+                    if tag.name == "header"
+                        tag.font_desc = font_desc_big
+                    else
+                        tag.font_desc = font_desc
+                    end
                 end
+                redisplay
             end
-            redisplay
         end
 
         def font_name
@@ -261,11 +263,11 @@ module UI
         def initialize_tags
             create_tag("header", :pixels_above_lines => 15,
                                  :pixels_below_lines => 15,
-                                 :size_points => header_font_size(@font.size),
+                                 :font_desc => DEFAULT_HEADER_FONT,
                                  :foreground => '#005500')
 
             create_tag("text", :foreground => '#000000',
-                               :size_points => @font.size)
+                               :font_desc => DEFAULT_FONT)
         end
 
         def delete_link_tags

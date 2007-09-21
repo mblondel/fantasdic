@@ -175,6 +175,11 @@ module UI
             @server_entry.text = @hash[:server]
             @port_entry.text = @hash[:port]
 
+            # Font buttons
+            @print_fontbutton.font_name = @hash[:print_font_name] \
+                if @hash[:print_font_name]
+            @results_fontbutton.font_name = @hash[:results_font_name] \
+                if @hash[:results_font_name]
             
             @threads << Thread.new do
                 update_lists
@@ -226,14 +231,11 @@ module UI
         end
 
         def initialize_signals
-            @show_help_button.signal_connect("clicked") do
-                Browser::open_help("fantasdic-dictionaries")
-            end
+            initialize_dialog_buttons_signals
+            initialize_dictionaries_signals
+        end
 
-            @cancel_button.signal_connect("clicked") do
-                close!
-            end
-
+        def initialize_dictionaries_signals
             @server_entry.signal_connect("activate") do
                 @port_entry.grab_focus
             end
@@ -248,13 +250,6 @@ module UI
 
             @password_entry.signal_connect("activate") do
                 @server_entry.activate
-            end
-
-            @serv_auth_checkbutton.signal_connect("toggled") do
-                @serv_auth_table.sensitive = @serv_auth_checkbutton.active?
-                @threads << Thread.new do
-                    update_lists
-                end
             end
 
             @move_up_button.signal_connect("clicked") do
@@ -316,6 +311,23 @@ module UI
                                         % @server_entry.text
                 end
             end # show server infos
+        end
+
+        def initialize_dialog_buttons_signals
+            @show_help_button.signal_connect("clicked") do
+                Browser::open_help("fantasdic-dictionaries")
+            end
+
+            @cancel_button.signal_connect("clicked") do
+                close!
+            end
+
+            @serv_auth_checkbutton.signal_connect("toggled") do
+                @serv_auth_table.sensitive = @serv_auth_checkbutton.active?
+                @threads << Thread.new do
+                    update_lists
+                end
+            end
 
             @add_button.signal_connect("clicked") do
                 checks = [
@@ -365,18 +377,22 @@ module UI
                 hash[:login] = @login_entry.text
                 hash[:password] = @password_entry.text
 
+        
+                hash[:results_font_name] = @results_fontbutton.font_name
+                hash[:print_font_name] = @print_fontbutton.font_name
+
                 @callback_proc.call(@name_entry.text, hash)
 
                 close!
             end # add_button signal
-
-
         end
 
         def initialize_ui
             @dialog.signal_connect("delete-event") do
                 close!
             end
+
+            @print_vbox.visible = Fantasdic::UI::HAVE_PRINT
 
             @avail_db_treeview.model = Gtk::ListStore.new(String, String)
             @avail_db_treeview.selection.mode = Gtk::SELECTION_MULTIPLE
