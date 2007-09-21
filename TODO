@@ -12,10 +12,6 @@ Short term
 -> Google translate
 -> ...
 
-- It should be possible to choose one font per dictionary so that it's for
-example possible to choose a chinese font for a chinese dictionary and a
-japanese font for a japanese dictionary.
-
 - A combobox inside the textview to quiclky jump to the definitions for a given
 database and in the menu, buttons to go to the previous and next database.
 
@@ -35,7 +31,6 @@ format...)
 - Case-insensitive search in find pane
 
 - Make an easy-to-install package for Windows users...
-- Write documentation for the Help menu.
 
 Long term
 ---------
