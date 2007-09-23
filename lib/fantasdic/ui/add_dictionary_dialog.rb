@@ -173,13 +173,20 @@ module UI
             # Main fields
             @name_entry.text = @dicname
             @server_entry.text = @hash[:server]
-            @port_entry.text = @hash[:port]
+            @port_entry.text = @hash[:port]                
 
             # Font buttons
-            @print_fontbutton.font_name = @hash[:print_font_name] \
-                if @hash[:print_font_name]
-            @results_fontbutton.font_name = @hash[:results_font_name] \
-                if @hash[:results_font_name]
+            if @hash[:print_font_name]
+                @print_fontbutton.font_name = @hash[:print_font_name]
+            else
+                @print_fontbutton.font_name = Print::DEFAULT_FONT.to_s
+            end
+
+            if @hash[:results_font_name]                
+                @results_fontbutton.font_name = @hash[:results_font_name]
+            else
+                @results_fontbutton.font_name = LinkBuffer::DEFAULT_FONT.to_s
+            end
             
             @threads << Thread.new do
                 update_lists
@@ -233,6 +240,14 @@ module UI
         def initialize_signals
             initialize_dialog_buttons_signals
             initialize_dictionaries_signals
+            initialize_font_signals
+        end
+
+        def initialize_font_signals
+            @set_default_fonts_button.signal_connect("clicked") do
+                @results_fontbutton.font_name = LinkBuffer::DEFAULT_FONT.to_s
+                @print_fontbutton.font_name = Print::DEFAULT_FONT.to_s
+            end
         end
 
         def initialize_dictionaries_signals

@@ -1,3 +1,10 @@
+2007-09-23 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/ui/add_dictionary_dialog.rb:
+    * lib/fantasdic/ui/print.rb:
+    * data/fantasdic/glade/add_dictionary_dialog.glade: Restore default fonts
+    button.
+
 2007-09-22 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * data/fantasdic/glade/preferences_dialog.glade: UI tweaks regarding the

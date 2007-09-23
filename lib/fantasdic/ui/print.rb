@@ -23,8 +23,8 @@ class Print < Gtk::PrintOperation
     include GetText
     GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
-    DEFAULT_FONT = Pango::FontDescription.new("sans 10")
-    FONT_SMALL = Pango::FontDescription.new("sans 8")
+    DEFAULT_FONT = Pango::FontDescription.new("Sans 10")
+    FONT_SMALL = Pango::FontDescription.new("Sans 8")
     FONT_SMALL_SIZE = FONT_SMALL.size / Pango::SCALE
 
     def initialize (parent_window, title, dictionary, definitions)
