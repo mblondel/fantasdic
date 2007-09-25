@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-02 16:48+0200\n"
-"PO-Revision-Date: 2007-09-02 16:56+0100\n"
+"POT-Creation-Date: 2007-09-25 22:24+0200\n"
+"PO-Revision-Date: 2007-09-25 22:25+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -16,76 +16,101 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
+msgid "<b>Print</b>"
+msgstr "<b>Skriv ut</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:2
+msgid "<b>Results</b>"
+msgstr "<b>Resultat</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:3
 msgid "Add dictionary"
 msgstr "Lägg till ordbok"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:2
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:4
 msgid "Available databases"
 msgstr "Tillgängliga databaser"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:3
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
 msgid "Databases"
 msgstr "Databaser"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:4
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
+msgid "Fonts"
+msgstr "Typsnitt"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
 msgid "Informations about server"
 msgstr "Information om servern"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
 msgid "Most servers don't require authentication."
 msgstr "De flesta servrar kräver inte autentisering."
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
 msgid "Move database to selected databases"
 msgstr "Flytta databas till valda databaser"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
 msgid "Pass_word"
 msgstr "Lösen_ord"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
 msgid "Remove database from selected databases"
 msgstr "Ta bort databas från valda databaser"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
+msgid "Restore default fonts"
+msgstr "Återställ standardtypsnitt"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:13
 msgid "Search _all databases"
 msgstr "Sök i _alla databaser"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
 msgid "Search selected _databases"
 msgstr "Sök i valda _databaser"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
+msgid "Select a font"
+msgstr "Välj ett typsnitt"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
 msgid "Selected databases"
 msgstr "Valda databaser"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
 msgid "Server"
 msgstr "Server"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:13
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:18
 msgid "Server _requires authentication"
 msgstr "Servern _kräver autentisering"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:19
 msgid "This name will identify your dictionary uniquely and will appear in the application menu."
 msgstr "Det här namnet kommer unikt att identifiera din ordbok och visas i programmenyn."
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:20
 msgid "_Name:"
 msgstr "_Namn:"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:21
 msgid "_Port:"
 msgstr "_Port:"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:22
 msgid "_Server:"
 msgstr "_Server:"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:18
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:23
 msgid "_Username:"
 msgstr "_Användarnamn:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:24
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:20
+msgid "gtk-help"
+msgstr "Hjälp"
 
 #: ../data/fantasdic/glade/main_app.glade.h:1
 msgid "<i>Not found</i>"
@@ -100,7 +125,7 @@ msgid "Find: "
 msgstr "Sök: "
 
 #: ../data/fantasdic/glade/main_app.glade.h:4
-#: ../lib/fantasdic/ui/main_app.rb:268
+#: ../lib/fantasdic/ui/main_app.rb:276
 msgid "Matches"
 msgstr "Träffar"
 
@@ -113,94 +138,78 @@ msgid "_Previous"
 msgstr "_Föregående"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:1
-msgid "<b>Print</b>"
-msgstr "<b>Skriv ut</b>"
-
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:2
-msgid "<b>Results</b>"
-msgstr "<b>Resultat</b>"
-
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:3
 msgid "<b>SOCKS 5 Proxy</b>"
 msgstr "<b>SOCKS 5-proxy</b>"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:4
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:2
 msgid "<b>Startup</b>"
 msgstr "<b>Uppstart</b>"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:5
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:3
 msgid "<b>System tray</b>"
 msgstr "<b>Notifieringsyta</b>"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:6
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:4
 msgid "Dictionaries"
 msgstr "Ordböcker"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:7
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:5
 msgid "Do _not quit when main window is closed"
 msgstr "Avsluta inte när _huvudfönstret stängs"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:6
 msgid "Do not show main window at startup"
 msgstr "Visa inte huvudfönstret vid uppstart"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:7
 msgid "Enable proxy"
 msgstr "Aktivera proxy"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
 msgid "Fantasdic will stay in the system tray even if the window is closed."
 msgstr "Fantasdic kommer att stanna i notifieringsytan även om fönstret stängs."
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
-msgid "Fonts"
-msgstr "Typsnitt"
-
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
 msgid "Host:"
 msgstr "Värd:"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
-msgid "Password (opt.):"
-msgstr "Lösenord (valfritt):"
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
+msgid "Password:"
+msgstr "Lösenord:"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
 msgid "Port:"
 msgstr "Port:"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
 msgid "Preferences"
 msgstr "Inställningar"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
 msgid "Proxy"
 msgstr "Proxy"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
-msgid "Select a font"
-msgstr "Välj ett typsnitt"
-
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
 msgid "Startup"
 msgstr "Uppstart"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:19
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
 msgid "This option should be enabled if Fantasdic is started when the computer boots."
 msgstr "Det här alternativet ska aktiveras om Fantasdic ska startas när datorn startar upp."
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:20
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
 msgid "This proxy can for example be used to traverse firewalls."
 msgstr "Den här proxyn kan till exempel användas för att komma igenom brandväggar."
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:21
-msgid "Username (opt.):"
-msgstr "Användarnamn (valfritt):"
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
+msgid "Username:"
+msgstr "Användarnamn:"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:22
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
 msgid "_Look up last word at startup"
 msgstr "S_lå upp senaste ordet vid uppstart"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:23
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:19
 msgid "_Show Fantasdic in system tray"
 msgstr "_Visa Fantasdic i notifieringsytan"
 
@@ -247,7 +256,7 @@ msgstr "Fel: Kunde inte ansluta till %s"
 
 #: ../lib/fantasdic/command_line.rb:107
 #: ../lib/fantasdic/command_line.rb:144
-#: ../lib/fantasdic/ui/main_app.rb:267
+#: ../lib/fantasdic/ui/main_app.rb:275
 msgid "No match found."
 msgstr "Ingen träff hittades."
 
@@ -256,50 +265,45 @@ msgstr "Ingen träff hittades."
 msgid "Matches found: %d."
 msgstr "Träffar hittade: %d."
 
-#: ../lib/fantasdic.rb:73
+#: ../lib/fantasdic.rb:81
 msgid "Dictionary application (DICT client)."
 msgstr "Ordboksprogram (DICT-klient)."
 
-#: ../lib/fantasdic/ui/about_dialog.rb:47
-#: ../lib/fantasdic/ui/main_app.rb:806
-msgid "Could not open browser."
-msgstr "Kunde inte öppna webbläsaren."
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:91
-msgid "Fields missing"
-msgstr "Fält saknas"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:97
-#, c-format
-msgid "Dictionary %s exists already!"
-msgstr "Ordboken %s finns redan!"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:153
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:329
-msgid "Server missing"
-msgstr "Server saknas"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:158
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:334
-msgid "Port missing"
-msgstr "Port saknas"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:178
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:296
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:356
-#, c-format
-msgid "Could not connect to %s"
-msgstr "Kunde inte ansluta till %s"
-
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:241
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:108
 #, c-format
 msgid "Fetching informations from %s..."
 msgstr "Hämtar information från %s..."
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:351
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:163
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:235
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:325
+#, c-format
+msgid "Could not connect to %s"
+msgstr "Kunde inte ansluta till %s"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:208
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:299
+msgid "Server missing"
+msgstr "Server saknas"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:213
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:304
+msgid "Port missing"
+msgstr "Port saknas"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:230
 #, c-format
 msgid "About database %s"
 msgstr "Om databasen %s"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:363
+msgid "Fields missing"
+msgstr "Fält saknas"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:372
+#, c-format
+msgid "Dictionary %s exists already!"
+msgstr "Ordboken %s finns redan!"
 
 #: ../lib/fantasdic/ui/main_app.rb:76
 msgid "No dictionary configured"
@@ -315,135 +319,145 @@ msgstr "Ordboken \"%s\" finns inte längre"
 msgid "Waiting for %s..."
 msgstr "Väntar på %s..."
 
-#: ../lib/fantasdic/ui/main_app.rb:143
-#: ../lib/fantasdic/ui/main_app.rb:170
+#: ../lib/fantasdic/ui/main_app.rb:145
+#: ../lib/fantasdic/ui/main_app.rb:178
 msgid "Connection with server lost."
 msgstr "Anslutningen till servern förlorades."
 
-#: ../lib/fantasdic/ui/main_app.rb:193
+#: ../lib/fantasdic/ui/main_app.rb:201
 msgid "Can't connect to server"
 msgstr "Kan inte ansluta till server"
 
-#: ../lib/fantasdic/ui/main_app.rb:205
-#: ../lib/fantasdic/ui/main_app.rb:237
+#: ../lib/fantasdic/ui/main_app.rb:213
+#: ../lib/fantasdic/ui/main_app.rb:245
 #, c-format
 msgid "Transferring data from %s ..."
 msgstr "Överför data från %s ..."
 
-#: ../lib/fantasdic/ui/main_app.rb:225
+#: ../lib/fantasdic/ui/main_app.rb:233
 msgid "No definition found."
 msgstr "Ingen definition hittades."
 
-#: ../lib/fantasdic/ui/main_app.rb:229
+#: ../lib/fantasdic/ui/main_app.rb:237
 #, c-format
 msgid "Definitions found: %d."
 msgstr "Definitioner hittade: %d."
 
-#: ../lib/fantasdic/ui/main_app.rb:262
+#: ../lib/fantasdic/ui/main_app.rb:270
 msgid "1 match"
 msgstr "1 träff"
 
-#: ../lib/fantasdic/ui/main_app.rb:264
+#: ../lib/fantasdic/ui/main_app.rb:272
 #, c-format
 msgid "%d matches"
 msgstr "%d träffar"
 
-#: ../lib/fantasdic/ui/main_app.rb:525
+#: ../lib/fantasdic/ui/main_app.rb:531
 #, c-format
 msgid "Search %s"
 msgstr "Sök %s"
 
-#: ../lib/fantasdic/ui/main_app.rb:550
-#: ../lib/fantasdic/ui/main_app.rb:829
+#: ../lib/fantasdic/ui/main_app.rb:556
+#: ../lib/fantasdic/ui/main_app.rb:850
 msgid "Select _All"
 msgstr "Markera _allt"
 
-#: ../lib/fantasdic/ui/main_app.rb:665
+#: ../lib/fantasdic/ui/main_app.rb:680
 msgid "Save definition"
 msgstr "Spara definition"
 
-#: ../lib/fantasdic/ui/main_app.rb:816
+#: ../lib/fantasdic/ui/main_app.rb:837
 msgid "_Look Up"
 msgstr "_Slå upp"
 
-#: ../lib/fantasdic/ui/main_app.rb:819
+#: ../lib/fantasdic/ui/main_app.rb:840
 msgid "Print Set_up"
 msgstr "Utskriftskonfi_guration"
 
-#: ../lib/fantasdic/ui/main_app.rb:827
+#: ../lib/fantasdic/ui/main_app.rb:848
 msgid "_Edit"
 msgstr "R_edigera"
 
-#: ../lib/fantasdic/ui/main_app.rb:831
+#: ../lib/fantasdic/ui/main_app.rb:852
 msgid "Clear History"
 msgstr "Töm historik"
 
-#: ../lib/fantasdic/ui/main_app.rb:834
+#: ../lib/fantasdic/ui/main_app.rb:855
 msgid "Find N_ext"
 msgstr "Sök n_ästa"
 
-#: ../lib/fantasdic/ui/main_app.rb:836
+#: ../lib/fantasdic/ui/main_app.rb:857
 msgid "Find Pre_vious"
 msgstr "Sök fö_regående"
 
-#: ../lib/fantasdic/ui/main_app.rb:842
+#: ../lib/fantasdic/ui/main_app.rb:863
 msgid "_View"
 msgstr "_Visa"
 
-#: ../lib/fantasdic/ui/main_app.rb:843
+#: ../lib/fantasdic/ui/main_app.rb:864
 msgid "_Text size"
 msgstr "_Textstorlek"
 
-#: ../lib/fantasdic/ui/main_app.rb:848
+#: ../lib/fantasdic/ui/main_app.rb:869
 msgid "Zoom normal"
 msgstr "Normal zoom"
 
-#: ../lib/fantasdic/ui/main_app.rb:852
+#: ../lib/fantasdic/ui/main_app.rb:873
 msgid "_Go"
 msgstr "_Gå"
 
-#: ../lib/fantasdic/ui/main_app.rb:861
+#: ../lib/fantasdic/ui/main_app.rb:882
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: ../lib/fantasdic/ui/main_app.rb:862
+#: ../lib/fantasdic/ui/main_app.rb:883
+msgid "_Contents"
+msgstr "_Innehåll"
+
+#: ../lib/fantasdic/ui/main_app.rb:884
 msgid "Submit _Bug Report"
 msgstr "Skicka in _felrapport"
 
-#: ../lib/fantasdic/ui/main_app.rb:864
+#: ../lib/fantasdic/ui/main_app.rb:886
 msgid "About"
 msgstr "Om"
 
-#: ../lib/fantasdic/ui/main_app.rb:903
+#: ../lib/fantasdic/ui/main_app.rb:925
 msgid "Scan clipboard"
 msgstr "Sök av urklipp"
 
-#: ../lib/fantasdic/ui/main_app.rb:905
+#: ../lib/fantasdic/ui/main_app.rb:927
 msgid "_Matches"
 msgstr "Sö_kträffar"
 
-#: ../lib/fantasdic/ui/main_app.rb:907
+#: ../lib/fantasdic/ui/main_app.rb:929
 msgid "_Statusbar"
 msgstr "_Statusrad"
 
-#: ../lib/fantasdic/ui/main_app.rb:909
+#: ../lib/fantasdic/ui/main_app.rb:931
 msgid "_Toolbar"
 msgstr "_Verktygsrad"
 
-#: ../lib/fantasdic/ui/print.rb:191
+#: ../lib/fantasdic/ui/print.rb:188
 #, c-format
 msgid "Definitions for %s"
 msgstr "Definitioner för %s"
 
-#: ../lib/fantasdic/ui/print.rb:192
+#: ../lib/fantasdic/ui/print.rb:189
 #, c-format
 msgid "Page %d/%d"
 msgstr "Sida %d/%d"
 
-#: ../lib/fantasdic/ui/print.rb:203
+#: ../lib/fantasdic/ui/print.rb:200
 msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
 msgstr "Utskrivet med Fantasdic den %Y-%m-%d klockan %H.%M"
 
+#~ msgid "Password (opt.):"
+#~ msgstr "Lösenord (valfritt):"
+#~ msgid "Username (opt.):"
+#~ msgstr "Användarnamn (valfritt):"
+#~ msgid "Could not open browser."
+#~ msgstr "Kunde inte öppna webbläsaren."
 #~ msgid "Suggested results:"
 #~ msgstr "Föreslagna resultat:"
 #~ msgid "_History"
