@@ -288,10 +288,11 @@ module UI
                 iter[SOURCE_SHORT_NAME] = source.short_name
             end
 
+            # it means we are updating an existing dictionary
+            # as opposed to adding a new one
+            @update_dialog = true if @hash
+
             if @hash and @hash[:source]
-                # it means we are updating an existing dictionary
-                # as opposed to adding a new one
-                @update_dialog = true
                 self.selected_source = @hash[:source]
             elsif 
                 self.selected_source = Source::Base::DEFAULT_SOURCE
