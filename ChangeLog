@@ -1,3 +1,18 @@
+2007-09-30 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/source_base.rb: Beginning of multiple source backends
+    support... This works like a plugin system. Source::Base is a base class for
+    dictionary sources. It also keeps a list of available sources. Sources can
+    be system-wide (e.g. /usr/lib/ruby/1.8/fantasdic/sources/) or user-wide
+    ($HOME/.fantasdic/sources/). All sources should extend this class.
+    * lib/fantasdic/sources/dict_server.rb: DICT server source. All source code
+    which was specific to DICT was moved here.
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Multiple backend support.
+    main_app.rb still needs be modified!
+    * data/fantasdic/glade/add_dictionary_dialog.glade: Ditto.
+    * lib/fantasdic.rb: Include lib/fantasdic/source_base.rb.
+    * data/fantasdic/glade/server_infos_dialog.glade: Some minor tweaks.
+
 2007-09-23 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/add_dictionary_dialog.rb:
