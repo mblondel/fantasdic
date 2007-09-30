@@ -302,7 +302,7 @@ module UI
             set_source(selected_source)
         end
 
-        def update_db_list(dont_update_sel_dbs=false)
+        def update_db_list
             @general_infos_vbox.sensitive = false
             @databases_vbox.sensitive = false
 
@@ -330,8 +330,7 @@ module UI
                 end
 
                 # Add selected databases
-                if !@hash.nil? and !@hash[:sel_dbs].nil? and \
-                   !dont_update_sel_dbs and @hash[:source] == selected_source
+                if !@hash.nil? and !@hash[:sel_dbs].nil?
                     @hash[:sel_dbs].each do |name|
                         unless sel_db_desc[name].nil?
                             row = @sel_db_treeview.model.append
