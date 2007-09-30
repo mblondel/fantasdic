@@ -1,5 +1,10 @@
 2007-09-30 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/sources/dict_server.rb: Initialize data after initializing
+    signals.
+
+2007-09-30 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/source_base.rb: Beginning of multiple source backends
     support... This works like a plugin system. Source::Base is a base class for
     dictionary sources. It also keeps a list of available sources. Sources can

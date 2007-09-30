@@ -77,8 +77,8 @@ module Source
                 @hash = hash
                 @on_databases_changed_block = on_databases_changed_block
                 initialize_ui
-                initialize_signals
                 initialize_data
+                initialize_signals                
             end
 
             def initialize_ui
@@ -171,7 +171,7 @@ module Source
                 @last_login = @login_entry.text
                 @last_password = @password_entry.text
                 
-                [[@server_entry, @last_server], 
+                [[@server_entry, @last_server],
                 [@port_entry, @last_port],
                 [@login_entry, @last_login],
                 [@password_entry, @last_login]].each do |entry, last|
