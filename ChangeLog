@@ -1,3 +1,9 @@
+2007-10-02 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/sources/dict_server.rb: Ensures that database list has not
+    been updated already when focus-out-event is triggered. Generates the
+    config widget on config_widget, not on initialize.
+
 2007-09-30 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/add_dictionary_dialog.rb: Fixed a bug which prevented

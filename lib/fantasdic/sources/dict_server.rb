@@ -146,20 +146,15 @@ module Source
             end
 
             def initialize_signals
-                @server_entry.signal_connect("activate") do
-                    @on_databases_changed_block.call
-                end
-
-                @port_entry.signal_connect("activate") do
-                    @on_databases_changed_block.call
-                end
-
-                @login_entry.signal_connect("activate") do
-                    @on_databases_changed_block.call
-                end
-
-                @password_entry.signal_connect("activate") do
-                    @on_databases_changed_block.call
+                [@server_entry, @port_entry, @login_entry, @password_entry].
+                each do |entry|
+                    entry.signal_connect("activate") do
+                        @last_server = @server_entry.text
+                        @last_port = @port_entry.text
+                        @last_login = @login_entry.text
+                        @last_password = @password_entry.text
+                        @on_databases_changed_block.call
+                    end
                 end
 
                 @serv_auth_checkbutton.signal_connect("toggled") do
@@ -171,13 +166,13 @@ module Source
                 @last_login = @login_entry.text
                 @last_password = @password_entry.text
                 
-                [[@server_entry, @last_server],
-                [@port_entry, @last_port],
-                [@login_entry, @last_login],
-                [@password_entry, @last_login]].each do |entry, last|
+                [[@server_entry, "@last_server"],
+                 [@port_entry, "@last_port"],
+                 [@login_entry, "@last_login"],
+                 [@password_entry, "@last_login"]].each do |entry, last|
                     entry.signal_connect("focus-out-event") do |w, event|
-                        if last != entry.text
-                            last = entry.text
+                        if instance_variable_get(last) != entry.text
+                            instance_variable_set(last,entry.text)
                             @on_databases_changed_block.call
                         end
                         false
@@ -229,9 +224,6 @@ module Source
 
         def initialize(*args)
             super(*args)
-            @cw = ConfigWidget.new(@parent_dialog,
-                                   @hash,
-                                   @on_databases_changed_block)
         end
 
         def available_databases
@@ -315,7 +307,9 @@ module Source
         end
 
         def config_widget
-            @cw
+            @cw ||= ConfigWidget.new(@parent_dialog,
+                                     @hash,
+                                     @on_databases_changed_block)
         end
 
     end
