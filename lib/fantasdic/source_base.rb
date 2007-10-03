@@ -47,6 +47,8 @@ module Source
     class Base
         @registered_sources = []
         DEFAULT_SOURCE = "DictServer"
+        ALL_DATABASES = DICTClient::ALL_DATABASES
+        MAX_CACHE = 30
 
         class << self
             attr_reader :registered_sources
@@ -70,22 +72,15 @@ module Source
             end
 
             extend Fields
-            def_field :author, :version, :title, :description, :cache
-        end
-
-        [Config::SOURCE_DIR, Config::PERSONAL_SOURCE_DIR].each do |dir|
-            Dir["#{dir}/*.rb"].each { |f| load f }
+            def_field :author, :version, :title, :description
         end
 
         def initialize(hash)
             @hash = hash
+            @cache_queue = []
         end
 
-        # Override this method in your class if you need a config widget
-        def config_widget(parent_dialog, on_databases_changed_block)
-            nil
-        end
-
+        # Methods which should be implemented by children classes
         def available_databases
             {}
         end
@@ -98,10 +93,104 @@ module Source
             ""
         end
 
-        def to_hash
-            {}
+        def define(db, word)
+
         end
-    end
+
+        def match(db, strat, word)
+
+        end
+
+        # This class may be used to implement a config widget
+        class ConfigWidget < Gtk::VBox
+            def initialize(parent_dialog, hash, on_databases_changed_block)
+                super()
+                @parent_dialog
+                @hash = hash
+                @on_databases_changed_block = on_databases_changed_block
+            end
+
+            # Override this methods if some fields need be saved in config file
+            def to_hash
+                {}
+            end
+        end
+
+        # Methods below should not be overriden by children classes
+
+        def multiple_define(dbs, word)
+            definitions = []
+            dbs.each do |db|
+                definitions += define(db, word)
+            end
+            definitions
+        end
+
+        def cached_multiple_define(dbs, word)
+            cache = Cache.new
+            cache.key = [dbs, word]
+
+            i = @cache_queue.index(cache)
+            if i.nil?
+                res = multiple_define(dbs, word)
+                cache.value = res
+                update_cache(cache)
+                res
+            else
+                @cache_queue[i].value
+            end
+        end
+
+        def multiple_match(dbs, strategy, word)
+            matches = {}
+            dbs.each do |db|
+                m = match(db, strategy, word)
+                m.each_key do |found_db|   
+                    matches[found_db] = m[found_db]
+                end
+            end        
+            matches
+        end
+
+        def cached_multiple_match(dbs, strategy, word)
+            cache = Cache.new
+            cache.key = [dbs, strategy, word]
+
+            i = @cache_queue.index(cache)
+            if i.nil?
+                res = multiple_match(dbs, strategy, word)
+                cache.value = res
+                update_cache(cache)
+                res
+            else
+                @cache_queue[i].value
+            end
+        end
+
+        private
+
+        class Cache < Struct.new(:key, :value)
+            include Comparable
+
+            def <=>(cache)
+                self.key <=> cache.key
+            end
+        end
+
+        def update_cache(cache)
+            @cache_queue.unshift(cache)
+
+            if @cache_queue.length > MAX_CACHE
+                @cache_queue.pop
+            end
+        end
+
+        # Load found source plugins (system-wide and user-wide)
+        [Config::SOURCE_DIR, Config::PERSONAL_SOURCE_DIR].each do |dir|
+            Dir["#{dir}/*.rb"].each { |f| load f }
+        end
+
+    end # class Base
 
 end
 end

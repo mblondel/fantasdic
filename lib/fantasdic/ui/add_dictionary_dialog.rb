@@ -178,7 +178,11 @@ module UI
                     iter = tv.model.get_iter(path)
                     dbname = iter[NAME]
                     dg = DatabaseInfoDialog.new(dbname)
-                    dg.text = @source.database_info(dbname)
+                    begin
+                        dg.text = source.database_info(dbname)
+                    rescue Source::SourceError => e
+                        dg.text = e.to_s
+                    end
                 end
 
                 # Renderer which slice too long names
@@ -245,7 +249,7 @@ module UI
 
             # Merges configuration information from source
             begin
-                hash.merge!(@source.to_hash)
+                hash.merge!(@config_widget.to_hash)
             rescue Source::SourceError => e
                 ErrorDialog.new(@dialog, e)
                 return false
@@ -258,7 +262,7 @@ module UI
                 hash[:sel_dbs] << iter[NAME]
             end
 
-            hash[:avail_strats] = @source.available_strategies.map { |s| s[0] }
+            hash[:avail_strats] = source.available_strategies.map { |s| s[0] }
             hash[:sel_strat] = "define" # default strat
 
             hash[:results_font_name] = @results_fontbutton.font_name
@@ -303,6 +307,10 @@ module UI
             set_source(selected_source)
         end
 
+        def source
+            @source_class.new(@config_widget.to_hash)
+        end
+
         def update_db_list
             @general_infos_vbox.sensitive = false
             @databases_vbox.sensitive = false
@@ -313,8 +321,7 @@ module UI
             self.status_bar_msg = _("Fetching databases information...")
 
             begin
-                dbs = @source.available_databases
-
+                dbs = source.available_databases
                 sel_db_desc = {}
 
                 # Add available databases
@@ -361,13 +368,14 @@ module UI
                 @general_infos_vbox.remove(@config_widget)
             end
 
-            on_databases_changed_block = proc { Thread.new { update_db_list } }
-           
-            @source = Source::Base.get_source(src_str).new(@hash)
+            on_db_chgd_blk = proc { Thread.new { update_db_list } }
+
+            @source_class = Source::Base.get_source(src_str)
 
             # Sets the config widget
-            @config_widget = @source.config_widget(@dialog,
-                                                   on_databases_changed_block)
+            @config_widget = @source_class::ConfigWidget.new(@dialog,
+                                                             @hash,
+                                                             on_db_chgd_blk)
 
             if @config_widget
                 # pack_start(widget, expand, fill, padding)
@@ -375,7 +383,7 @@ module UI
                 @general_infos_vbox.show_all
             end
 
-            on_databases_changed_block.call
+            on_db_chgd_blk.call
         end
 
         def selected_source

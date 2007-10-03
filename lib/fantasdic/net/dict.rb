@@ -22,7 +22,6 @@ require 'md5'
 
 class DICTClient
 
-    MAX_CACHE = 30
     KEEP_CONNECTION_MAX_TIME = 60
 
     DATABASES_PRESENT = '110'
@@ -79,14 +78,6 @@ class DICTClient
     end
 
     class Definition < Struct.new(:word, :body, :database, :description)
-    end
-
-    class Cache < Struct.new(:key, :value)
-        include Comparable
-
-        def <=>(cache)
-            self.key <=> cache.key
-        end
     end
 
     # Class methods
@@ -161,9 +152,7 @@ class DICTClient
             printf("Msgid: %s\n", @msgid)
         end
 
-        @cache_queue = []
-        
-        @last_time = Time.now      
+        @last_time = Time.now
     end
 
     private
@@ -263,14 +252,6 @@ class DICTClient
         end
     end
 
-    def update_cache(cache)
-        @cache_queue.unshift(cache)
-
-        if @cache_queue.length > MAX_CACHE
-            @cache_queue.pop
-        end
-    end
-
     public
 
     # Instance methods
@@ -313,61 +294,12 @@ class DICTClient
         end
     end
 
-    def multiple_define(dbs, word)
-        definitions = []
-        dbs.each do |db|
-            definitions += define(db, word)
-        end
-        definitions
-    end
-
-    def cached_multiple_define(dbs, word)
-        cache = Cache.new
-        cache.key = [dbs, word]
-
-        i = @cache_queue.index(cache)
-        if i.nil?
-            res = multiple_define(dbs, word)
-            cache.value = res
-            update_cache(cache)
-            res
-        else            
-            @cache_queue[i].value
-        end
-    end
-
     def match(db, strategy, word)
         code, msg = exec_cmd('MATCH %s %s "%s"' % [ db, strategy, word])
         if error_response? code
             {}
         else
             get_hash_key_array_values(get_pairs)
-        end
-    end
-
-    def multiple_match(dbs, strategy, word)
-        matches = {}
-        dbs.each do |db|
-            m = match(db, strategy, word)
-            m.each_key do |found_db|   
-                matches[found_db] = m[found_db]
-            end
-        end        
-        matches
-    end
-
-    def cached_multiple_match(dbs, strategy, word)
-        cache = Cache.new
-        cache.key = [dbs, strategy, word]
-
-        i = @cache_queue.index(cache)
-        if i.nil?
-            res = multiple_match(dbs, strategy, word)
-            cache.value = res
-            update_cache(cache)
-            res
-        else
-            @cache_queue[i].value
         end
     end
 

@@ -1,3 +1,17 @@
+2007-10-04 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/net/dict.rb: Cache methods moved to source_base.rb. This
+    way, any source plugin can benefit from the cache system.
+
+    * lib/fantasdic/sources/dict_server.rb:
+    * lib/fantasdic/source_base.rb: Better separation of UI and non UI.
+    Implements define and match methods.
+
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Follow above changes.
+    
+    * lib/fantasdic/ui/main_app.rb: Multiple backends support. Overall it seems
+    to work fine but it needs further testing.
+
 2007-10-03 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/sources/dict_server.rb:

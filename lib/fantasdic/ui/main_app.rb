@@ -67,9 +67,7 @@ module UI
                     previous_thread.join
                 end
 
-                DICTClient.close_long_connections
-                
-                @search_entry.text = p[:word]           
+                @search_entry.text = p[:word]
                 @buf.clear          
     
                 if @dictionary_cb.model.nb_rows == 0
@@ -89,7 +87,7 @@ module UI
                     self.selected_strategy = p[:strategy]
                 end
 
-                infos = @prefs.dictionaries_infos[p[:dictionary]]
+                hash = @prefs.dictionaries_infos[p[:dictionary]]
                 @global_actions["Stop"].visible = true                
 
                 # Get connection
@@ -97,32 +95,31 @@ module UI
                     # This error is raised when a word is searched
                     # through the history while the associated dictionary
                     # does not exist anymore in the settings
-                    if infos.nil?
-                        raise DICTClient::ConnectionError,
+                    if !hash
+                        raise Source::SourceError,
                         _("Dictionary \"%s\" does not exist anymore") % \
                         p[:dictionary]
                     end
 
-                    self.status_bar_msg = _("Waiting for %s...") % \
-                    infos[:server]
+                    source = Source::Base.get_source(hash[:source]).new(hash)
 
-                    if infos[:auth]
-                        dict = DICTClient.get_connection(Fantasdic::TITLE,
-                                                         infos[:server],
-                                                         infos[:port],
-                                                         infos[:login],
-                                                         infos[:password])
-                    else
-                        dict = DICTClient.get_connection(Fantasdic::TITLE,
-                                                         infos[:server],
-                                                         infos[:port])
+                    # This error is raised when a plugin source doesn't exist
+                    # anymore
+                    if !source
+                        raise Source::SourceError,
+                        _("Dictionary source \"%s\" does not exist anymore") % \
+                        hash[:source]
                     end
 
-                rescue DICTClient::ConnectionError, Errno::ECONNRESET => e
-                    cant_connect_to_server(e)
+                    self.status_bar_msg = _("Waiting for %s...") % \
+                    "server"
+                    #infos[:server]
+
+                rescue Source::SourceError => e
+                    source_error(e)
                 end
 
-                set_font_name(infos[:results_font_name])
+                set_font_name(hash[:results_font_name])
 
                 if p[:strategy] and \
                     not ["define", "exact"].include? p[:strategy]
@@ -130,7 +127,7 @@ module UI
                     @matches_listview.model.clear
 
                     begin
-                        matches = match(dict, p)
+                        matches = match(source, p)
                         insert_matches(matches)
 
                         if matches.length > 0
@@ -141,9 +138,8 @@ module UI
                         end
 
                         @search_cb_entry.update(p)
-                    rescue DICTClient::ConnectionLost, Errno::EPIPE
-                        e = _("Connection with server lost.")
-                        cant_connect_to_server(e)
+                    rescue Source::SourceError => e
+                        source_error(e)
                     end
 
                     disable_print
@@ -152,7 +148,7 @@ module UI
                 else
                     # Define
                     begin
-                        definitions = define(dict, p)
+                        definitions = define(source, p)
                         insert_definitions(definitions)
 
                         unless p[:action] == Action::DEFINE_MATCH
@@ -174,9 +170,8 @@ module UI
                         end
 
                         update_pages_seen(p)
-                    rescue DICTClient::ConnectionLost, Errno::EPIPE
-                        e = _("Connection with server lost.")
-                        cant_connect_to_server(e)
+                    rescue Source::SourceError => e
+                        source_error(e)
                     end
                 end
 
@@ -190,36 +185,33 @@ module UI
         def kill_lookup_thread(thread=nil)
             thread = @lookup_thread if thread.nil?
             thread.kill if thread and thread.alive?
-            DICTClient.close_active_connection
-     
             @global_actions["Stop"].visible = false
             @buf.clear
             self.status_bar_msg = ""
         end
 
-        def cant_connect_to_server(e)
-            error = _("Can't connect to server")
-            @buf.insert_header(error + "\n")
+        def source_error(e)
+            @buf.insert_header(_("Source error") + "\n")
             @buf.insert_text(e.to_s)
-            self.status_bar_msg = error
+            self.status_bar_msg = e.to_s
             @global_actions["Stop"].visible = false
-            DICTClient.close_all_connections
             Thread.current.kill
         end
 
-        def define(dict, p)
-            infos = @prefs.dictionaries_infos[p[:dictionary]]
+        def define(source, p)
+            hash = @prefs.dictionaries_infos[p[:dictionary]]
 
             self.status_bar_msg = _("Transferring data from %s ...") %
-                                        dict.host
+            "server"
+            #                            dict.host
 
             if !p[:database].nil?
-                dict.cached_multiple_define([p[:database]], p[:word])
-            elsif infos[:all_dbs] == true
-                dict.cached_multiple_define([DICTClient::ALL_DATABASES],
+                source.cached_multiple_define([p[:database]], p[:word])
+            elsif hash[:all_dbs] == true
+                source.cached_multiple_define([Source::Base::ALL_DATABASES],
                                            p[:word])
             else
-                dict.cached_multiple_define(infos[:sel_dbs], p[:word])
+                source.cached_multiple_define(hash[:sel_dbs], p[:word])
             end
         end
 
@@ -239,18 +231,19 @@ module UI
             end
         end
 
-        def match(dict, p)  
-            infos = @prefs.dictionaries_infos[p[:dictionary]]
+        def match(source, p)  
+            hash = @prefs.dictionaries_infos[p[:dictionary]]
 
             self.status_bar_msg = _("Transferring data from %s ...") %
-                                        dict.host      
+            "server"
+            #                            dict.host      
 
-            if infos[:all_dbs] == true
-                dict.cached_multiple_match([DICTClient::ALL_DATABASES],
+            if hash[:all_dbs] == true
+                source.cached_multiple_match([Source::Base::ALL_DATABASES],
                                            p[:strategy],
                                            p[:word])
             else
-                dict.cached_multiple_match(infos[:sel_dbs],
+                source.cached_multiple_match(hash[:sel_dbs],
                                            p[:strategy],
                                            p[:word])
             end
@@ -728,7 +721,7 @@ module UI
                 @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
                 @scan_thread.kill if @scan_thread and @scan_thread.alive?
                 save_preferences
-                DICTClient.close_all_connections
+                #DICTClient.close_all_connections
                 Gtk.main_quit
             end
 
@@ -778,7 +771,7 @@ module UI
                 PreferencesDialog.new(@main_app,
                                       @statusicon) do
                     # This block is called when the dialog is closed
-                    DICTClient.close_all_connections  
+                    #DICTClient.close_all_connections  
                     update_dictionary_cb
                     update_strategy_cb
                     load_dictionary_preferences

@@ -64,22 +64,46 @@ module Source
             end
         end
 
-        class ConfigWidget < Gtk::VBox
+        class ConfigWidget < Base::ConfigWidget
             include GetText
             GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
             attr_accessor :server_entry, :port_entry, :serv_auth_checkbutton,
                           :login_entry, :password_entry
 
-            def initialize(parent_dialog, hash, on_databases_changed_block)
-                super()
-                @parent_dialog
-                @hash = hash
-                @on_databases_changed_block = on_databases_changed_block
+            def initialize(*arg)
+                super(*arg)
                 initialize_ui
                 initialize_data
                 initialize_signals                
             end
+
+            def to_hash
+                checks = [
+                    @server_entry.text.empty?,
+                    @port_entry.text.empty?,
+
+                    (@serv_auth_checkbutton.active? and
+                    @password_entry.text.empty? and
+                    @login_entry.text.empty?)
+                ]
+
+                checks.each do |expr|
+                    if expr == true
+                        raise Source::SourceError, _("Fields missing")
+                    end
+                end
+
+                hash = {}
+                hash[:server] = @server_entry.text
+                hash[:port] = @port_entry.text
+                hash[:auth] = @serv_auth_checkbutton.active?
+                hash[:login] = @login_entry.text
+                hash[:password] = @password_entry.text
+                hash
+            end
+
+            private
 
             def initialize_ui
                 self.spacing = 15
@@ -224,32 +248,21 @@ module Source
 
         def initialize(*args)
             super(*args)
+            initialize_connection
         end
 
         def available_databases
             begin
-                dict = DICTClient.new(@cw.server_entry.text,
-                                      @cw.port_entry.text,
-                                      $DEBUG)
-            rescue DICTClient::ConnectionError
-                raise SourceError,
-                      _("Could not connect to %s") % @cw.server_entry.text
+                @available_databases = @dict.show_db
+
+                @available_strategies = @dict.show_strat
+
+                return @available_databases
+            rescue DICTClient::ConnectionLost, Errno::EPIPE
+                DICTClient.close_active_connection
+                raise Source::SourceError,
+                      _("Could not connect to %s") % @hash[:server]
             end
-
-            if @cw.serv_auth_checkbutton.active?
-                unless @cw.login_entry.text.empty? or \
-                       @cw.password_entry.text.empty?
-                    dict.auth(@cw.login_entry.text, @cw.password_entry.text)
-                end
-            end
-
-            @available_databases = dict.show_db
-
-            @available_strategies = dict.show_strat
-
-            dict.disconnect
-
-            @available_databases
         end
 
         def available_strategies
@@ -258,58 +271,58 @@ module Source
         end
 
         def database_info(dbname)
-            res = ""
             begin
-                dict = DICTClient.new(@cw.server_entry.text,
-                                      @cw.port_entry.text,
-                                      $DEBUG)
-
-                if @cw.serv_auth_checkbutton.active?
-                    unless @cw.login_entry.text.empty? or \
-                           @cw.password_entry.text.empty?
-
-                        dict.auth(@cw.login_entry.text, @cw.password_entry.text)
-                    end
-                end
-
-                res += dict.show_info(dbname)
-
-                dict.disconnect
-            rescue DICTClient::ConnectionError
-                res += _("Could not connect to %s") % @cw.server_entry.text
+                res = @dict.show_info(dbname)
+                return res
+            rescue DICTClient::ConnectionLost, Errno::EPIPE
+                DICTClient.close_active_connection
+                raise Source::SourceError,
+                      _("Could not connect to %s") % @hash[:server]
             end
-            res
         end
 
-        def to_hash
-            checks = [
-                @cw.server_entry.text.empty?,
-                @cw.port_entry.text.empty?,
-
-                (@cw.serv_auth_checkbutton.active? and
-                @cw.password_entry.text.empty? and
-                @cw.login_entry.text.empty?)
-            ]
-
-            checks.each do |expr|
-                if expr == true
-                    raise Source::SourceError, _("Fields missing")
-                end
+        def define(db, word)
+            begin
+                return @dict.define(db, word)
+            rescue DICTClient::ConnectionLost, Errno::EPIPE
+                DICTClient.close_active_connection
+                raise Source::SourceError, _("Connection with server lost.")
             end
-
-            hash = {}
-            hash[:server] = @cw.server_entry.text
-            hash[:port] = @cw.port_entry.text
-            hash[:auth] = @cw.serv_auth_checkbutton.active?
-            hash[:login] = @cw.login_entry.text
-            hash[:password] = @cw.password_entry.text
-            hash
         end
 
-        def config_widget(parent_dialog, on_databases_changed_block)
-            @cw ||= ConfigWidget.new(parent_dialog,
-                                     @hash,
-                                     on_databases_changed_block)
+        def match(db, strat, word)
+            begin
+                return @dict.match(db, strat, word)
+            rescue DICTClient::ConnectionLost, Errno::EPIPE
+                DICTClient.close_active_connection
+                raise Source::SourceError, _("Connection with server lost.")
+            end
+        end
+
+        private
+
+        def initialize_connection
+            # The mechanism to hold connections is implememented in DICTClient.
+            # DICTClient::get_connection returns an active connection if
+            # available or create a new one.
+            DICTClient.close_long_connections
+
+            begin
+                if @hash[:auth]
+                    @dict = DICTClient.get_connection(Fantasdic::TITLE,
+                                                      @hash[:server],
+                                                      @hash[:port],
+                                                      @hash[:login],
+                                                      @hash[:password])
+                else 
+                    @dict = DICTClient.get_connection(Fantasdic::TITLE,
+                                                      @hash[:server],
+                                                      @hash[:port])
+                end
+            rescue DICTClient::ConnectionError, Errno::ECONNRESET => e
+                DICTClient.close_all_connections
+                raise Source::SourceError, e
+            end
         end
 
     end
