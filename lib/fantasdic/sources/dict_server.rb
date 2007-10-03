@@ -306,10 +306,10 @@ module Source
             hash
         end
 
-        def config_widget
-            @cw ||= ConfigWidget.new(@parent_dialog,
+        def config_widget(parent_dialog, on_databases_changed_block)
+            @cw ||= ConfigWidget.new(parent_dialog,
                                      @hash,
-                                     @on_databases_changed_block)
+                                     on_databases_changed_block)
         end
 
     end

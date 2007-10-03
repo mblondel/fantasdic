@@ -77,14 +77,12 @@ module Source
             Dir["#{dir}/*.rb"].each { |f| load f }
         end
 
-        def initialize(parent_dialog, hash, &on_databases_changed_block)
-            @parent_dialog = parent_dialog
+        def initialize(hash)
             @hash = hash
-            @on_databases_changed_block = on_databases_changed_block
         end
 
         # Override this method in your class if you need a config widget
-        def config_widget
+        def config_widget(parent_dialog, on_databases_changed_block)
             nil
         end
 

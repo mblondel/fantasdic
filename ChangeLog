@@ -1,3 +1,10 @@
+2007-10-03 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/sources/dict_server.rb:
+    * lib/fantasdic/source_base.rb:
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Pass parent dialog and
+    on_databases_updated callback to config_widget instead of constructor.
+
 2007-10-02 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/sources/dict_server.rb: Ensures that database list has not

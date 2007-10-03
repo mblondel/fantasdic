@@ -360,14 +360,14 @@ module UI
             if @config_widget
                 @general_infos_vbox.remove(@config_widget)
             end
+
+            on_databases_changed_block = proc { Thread.new { update_db_list } }
            
-            @source = Source::Base.get_source(src_str).new(@dialog, @hash) do
-                # This block is called when databases list needs be updated
-                Thread.new { update_db_list }
-            end
+            @source = Source::Base.get_source(src_str).new(@hash)
 
             # Sets the config widget
-            @config_widget = @source.config_widget
+            @config_widget = @source.config_widget(@dialog,
+                                                   on_databases_changed_block)
 
             if @config_widget
                 # pack_start(widget, expand, fill, padding)
@@ -375,7 +375,7 @@ module UI
                 @general_infos_vbox.show_all
             end
 
-            Thread.new { update_db_list }
+            on_databases_changed_block.call
         end
 
         def selected_source
