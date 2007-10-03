@@ -251,7 +251,7 @@ module UI
             begin
                 hash.merge!(@config_widget.to_hash)
             rescue Source::SourceError => e
-                ErrorDialog.new(@dialog, e)
+                ErrorDialog.new(@dialog, e.to_s)
                 return false
             end
 
@@ -355,7 +355,7 @@ module UI
                 @add_button.sensitive = true
             rescue Source::SourceError => e
                 @add_button.sensitive = false
-                self.status_bar_msg = e
+                self.status_bar_msg = e.to_s
             ensure                
                 @general_infos_vbox.sensitive = true
                 @databases_vbox.sensitive = true

@@ -1,5 +1,11 @@
 2007-10-04 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/sources/dict_server.rb:
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Crashed when server was not
+    reachable (exception not properly caught).
+
+2007-10-04 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/net/dict.rb: Cache methods moved to source_base.rb. This
     way, any source plugin can benefit from the cache system.
 

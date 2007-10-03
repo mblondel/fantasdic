@@ -320,8 +320,9 @@ module Source
                                                       @hash[:port])
                 end
             rescue DICTClient::ConnectionError, Errno::ECONNRESET => e
-                DICTClient.close_all_connections
-                raise Source::SourceError, e
+                DICTClient.close_all_connections                
+                raise Source::SourceError,
+                      _("Could not connect to %s") % @hash[:server]
             end
         end
 
