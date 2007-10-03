@@ -110,7 +110,7 @@ module Source
                 @on_databases_changed_block = on_databases_changed_block
             end
 
-            # Override this methods if some fields need be saved in config file
+            # Override this method if some fields need be saved in config file
             def to_hash
                 {}
             end
