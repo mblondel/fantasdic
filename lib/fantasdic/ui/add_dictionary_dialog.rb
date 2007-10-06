@@ -271,7 +271,7 @@ module UI
 
             # Merges configuration information from source
             begin
-                hash.merge!(@config_widget.to_hash)
+                hash.merge!(@config_widgets[selected_source].to_hash)
             rescue Source::SourceError => e
                 ErrorDialog.new(@dialog, e.to_s)
                 return false
@@ -330,7 +330,7 @@ module UI
         end
 
         def source
-            @src_class.new(@config_widget.to_hash)
+            @src_class.new(@config_widgets[selected_source].to_hash)
         end
 
         def update_db_list
@@ -385,23 +385,31 @@ module UI
         end
 
         def set_source(src_str)
+            # A hash containing config widgets for each source available
+            @config_widgets  ||= {}
+
             # Remove previous config widget if any
-            if @config_widget
-                @general_infos_vbox.remove(@config_widget)
+            if @last_config_widget
+                @general_infos_vbox.remove(@last_config_widget)
             end
 
             on_db_chgd_blk = proc { Thread.new { update_db_list } }
 
             @src_class = Source::Base.get_source(src_str)
 
-            # Sets the config widget
-            @config_widget = @src_class::ConfigWidget.new(@dialog,
-                                                             @hash,
-                                                             on_db_chgd_blk)
+            # Sets the config widget if not created yet
+            unless @config_widgets[src_str]
+                @config_widgets[src_str] = \
+                    @src_class::ConfigWidget.new(@dialog,
+                                                 @hash,
+                                                 on_db_chgd_blk)
+            end
+            @last_config_widget = @config_widgets[src_str]
 
-            if @config_widget
+            if @last_config_widget
                 # pack_start(widget, expand, fill, padding)
-                @general_infos_vbox.pack_start(@config_widget, false, false, 0)
+                @general_infos_vbox.pack_start(@last_config_widget,
+                                               false, false, 0)
                 @general_infos_vbox.show_all
             end
 

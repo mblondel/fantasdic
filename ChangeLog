@@ -1,5 +1,9 @@
 2007-10-06 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Remember config widget.
+
+2007-10-06 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * data/fantasdic/glade/add_dictionary_dialog.glade: About source plugin
     button. Hopefully this should encourage more developers to write source
     plugins :).
