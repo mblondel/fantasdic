@@ -33,6 +33,7 @@ module UI
             super("preferences_dialog.glade")
             @main_app = parent
             @preferences_dialog.transient_for = parent
+            @preferences_dialog.modal = true
             @statusicon = statusicon
             @prefs = Preferences.instance
             

@@ -39,7 +39,6 @@ Boston, MA 02111-1307, USA.
 EOL
 
         set_url_hook do |about, url|
-            prefs = Preferences.instance
             Fantasdic::UI::Browser::open_url(url)
         end
 
@@ -52,6 +51,7 @@ EOL
             self.authors = Fantasdic::AUTHORS
             self.documenters = Fantasdic::DOCUMENTERS
 
+            # Display translators for relevant locale
             GLib.language_names.each do |l|
                 if Fantasdic::TRANSLATORS[l]
                     self.translator_credits = \

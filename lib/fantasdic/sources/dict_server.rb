@@ -22,9 +22,11 @@ module Source
         include GetText
         GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
-        author "Mathieu Blondel"
+        authors ["Mathieu Blondel"]
         title  _("DICT dictionary server")
         description _("Look up words using a DICT dictionary server.")
+        license UI::AboutDialog::GPL
+        copyright "Copyright (C) 2006 - 2007 Mathieu Blondel"
 
         class ServerInfoDialog < UI::GladeBase
             include GetText

@@ -1,3 +1,16 @@
+2007-10-06 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * data/fantasdic/glade/add_dictionary_dialog.glade: About source plugin
+    button. Hopefully this should encourage more developers to write source
+    plugins :).
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Code to show the about dialog.
+    * lib/fantasdic/sources/dict_server.rb: Updates plugin metadata.
+    * lib/fantasdic/source_base.rb: More possible metadata.
+    * lib/fantasdic/ui/preferences_dialog.rb: Makes dialog modal.
+    
+    * lib/fantasdic/ui/about_dialog.rb: Removes unused variable, adds a useful
+    comment.
+
 2007-10-04 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/sources/dict_server.rb:

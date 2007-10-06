@@ -72,7 +72,8 @@ module Source
             end
 
             extend Fields
-            def_field :author, :version, :title, :description
+            def_field :authors, :version, :title, :description, :website,
+                      :license, :copyright
         end
 
         def initialize(hash)

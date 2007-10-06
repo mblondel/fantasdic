@@ -61,6 +61,8 @@ module UI
         def initialize(parent, dicname=nil, hash=nil, &callback_proc)
             super("add_dictionary_dialog.glade")
             @dialog.transient_for = parent
+            @dialog.modal = true
+            @dialog.type_hint = Gdk::Window::TypeHint::DIALOG
             @prefs = Preferences.instance
             @dicname = dicname
             @hash = hash
@@ -219,6 +221,26 @@ module UI
             @add_button.signal_connect("clicked") do
                 add_dictionary
             end
+
+            @about_button.signal_connect("clicked") do
+                show_about_dialog
+            end
+        end
+
+        def show_about_dialog
+            about = Gtk::AboutDialog.new
+            about.name = _("%s plugin") % @src_class.title if @src_class.title
+            about.version = @src_class.version if @src_class.version
+            about.copyright = @src_class.copyright if @src_class.copyright
+            about.comments = @src_class.description if @src_class.description
+            about.authors = @src_class.authors if @src_class.authors
+            about.website = @src_class.website if @src_class.website
+            about.license = @src_class.license if @src_class.license
+            about.transient_for = @dialog
+            about.modal = true
+            about.signal_connect('destroy') { about.destroy }
+            about.signal_connect('response') { about.destroy }
+            about.show
         end
 
         def add_dictionary
@@ -308,7 +330,7 @@ module UI
         end
 
         def source
-            @source_class.new(@config_widget.to_hash)
+            @src_class.new(@config_widget.to_hash)
         end
 
         def update_db_list
@@ -370,10 +392,10 @@ module UI
 
             on_db_chgd_blk = proc { Thread.new { update_db_list } }
 
-            @source_class = Source::Base.get_source(src_str)
+            @src_class = Source::Base.get_source(src_str)
 
             # Sets the config widget
-            @config_widget = @source_class::ConfigWidget.new(@dialog,
+            @config_widget = @src_class::ConfigWidget.new(@dialog,
                                                              @hash,
                                                              on_db_chgd_blk)
 
@@ -391,10 +413,10 @@ module UI
             @source_combobox.model.get_iter(n.to_s)[SOURCE_SHORT_NAME] if n >= 0
         end
 
-        def selected_source=(source)
+        def selected_source=(src)
             n = 0
             @source_combobox.model.each do |model, path, iter|
-                if iter[SOURCE_SHORT_NAME] == source
+                if iter[SOURCE_SHORT_NAME] == src
                     @source_combobox.active = n
                     break
                 end
