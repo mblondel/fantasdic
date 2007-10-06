@@ -101,15 +101,17 @@ module UI
                         p[:dictionary]
                     end
 
-                    source = Source::Base.get_source(hash[:source]).new(hash)
+                    source_class = Source::Base.get_source(hash[:source])
 
                     # This error is raised when a plugin source doesn't exist
                     # anymore
-                    if !source
+                    if !source_class
                         raise Source::SourceError,
                         _("Dictionary source \"%s\" does not exist anymore") % \
                         hash[:source]
                     end
+
+                    source = source_class.new(hash)
 
                     self.status_bar_msg = _("Waiting for %s...") % \
                     "server"

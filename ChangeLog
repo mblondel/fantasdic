@@ -1,5 +1,10 @@
 2007-10-06 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/main_app.rb: Fixes bug when source plugin doesn't exist
+    anymore.
+
+2007-10-06 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/sources/dict_server.rb: "available_strategies" now returns a
     hash. Follow this change.
     * lib/fantasdic/ui/add_dictionary_dialog.rb: Ditto.
