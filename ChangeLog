@@ -1,5 +1,16 @@
 2007-10-06 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/source_base.rb: Introducing open and close methods. They
+    will be useful for plugins that need to open and close streams. Introducing
+    connecting_to_source_str and transferring_data_str methods. This allows
+    source plugins to override the status bar messages.
+
+    * lib/fantasdic/sources/dict_server.rb: Following above changes
+    * lib/fantasdic/ui/main_app.rb: Ditto.
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Ditto.
+
+2007-10-06 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/main_app.rb: Fixes bug when source plugin doesn't exist
     anymore.
 

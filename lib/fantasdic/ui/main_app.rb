@@ -113,10 +113,9 @@ module UI
 
                     source = source_class.new(hash)
 
-                    self.status_bar_msg = _("Waiting for %s...") % \
-                    "server"
-                    #infos[:server]
+                    self.status_bar_msg = source.connecting_to_source_str
 
+                    source.open
                 rescue Source::SourceError => e
                     source_error(e)
                 end
@@ -177,6 +176,8 @@ module UI
                     end
                 end
 
+                source.close
+
                 @global_actions["Stop"].visible = false
 
             end # Thread
@@ -203,9 +204,7 @@ module UI
         def define(source, p)
             hash = @prefs.dictionaries_infos[p[:dictionary]]
 
-            self.status_bar_msg = _("Transferring data from %s ...") %
-            "server"
-            #                            dict.host
+            self.status_bar_msg = source.transferring_data_str
 
             if !p[:database].nil?
                 source.cached_multiple_define([p[:database]], p[:word])
@@ -236,9 +235,7 @@ module UI
         def match(source, p)  
             hash = @prefs.dictionaries_infos[p[:dictionary]]
 
-            self.status_bar_msg = _("Transferring data from %s ...") %
-            "server"
-            #                            dict.host      
+            self.status_bar_msg = source.transferring_data_str 
 
             if hash[:all_dbs] == true
                 source.cached_multiple_match([Source::Base::ALL_DATABASES],

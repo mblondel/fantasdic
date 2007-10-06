@@ -308,10 +308,10 @@ module UI
 
             # Update source list
             @source_combobox.model = Gtk::ListStore.new(String, String)
-            Source::Base.registered_sources.each do |source|
+            Source::Base.registered_sources.each do |src|
                 iter = @source_combobox.model.append
-                iter[SOURCE_TITLE] = source.title
-                iter[SOURCE_SHORT_NAME] = source.short_name
+                iter[SOURCE_TITLE] = src.title
+                iter[SOURCE_SHORT_NAME] = src.short_name
             end
 
             # it means we are updating an existing dictionary
@@ -330,7 +330,9 @@ module UI
         end
 
         def source
-            @src_class.new(@config_widgets[selected_source].to_hash)
+            src = @src_class.new(@config_widgets[selected_source].to_hash)
+            src.open
+            src
         end
 
         def update_db_list

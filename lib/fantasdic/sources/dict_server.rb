@@ -19,9 +19,6 @@ module Fantasdic
 module Source
 
     class DictServer < Base
-        include GetText
-        GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
-
         authors ["Mathieu Blondel"]
         title  _("DICT dictionary server")
         description _("Look up words using a DICT dictionary server.")
@@ -67,9 +64,6 @@ module Source
         end
 
         class ConfigWidget < Base::ConfigWidget
-            include GetText
-            GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
-
             attr_accessor :server_entry, :port_entry, :serv_auth_checkbutton,
                           :login_entry, :password_entry
 
@@ -249,8 +243,32 @@ module Source
         end        
 
         def initialize(*args)
-            super(*args)
-            initialize_connection
+            super(*args)            
+        end
+
+        def open
+            # The mechanism to hold connections is implememented in DICTClient.
+            # DICTClient::get_connection returns an active connection if
+            # available or create a new one.
+            DICTClient.close_long_connections
+            
+            begin
+                if @hash[:auth]
+                    @dict = DICTClient.get_connection(Fantasdic::TITLE,
+                                                      @hash[:server],
+                                                      @hash[:port],
+                                                      @hash[:login],
+                                                      @hash[:password])
+                else 
+                    @dict = DICTClient.get_connection(Fantasdic::TITLE,
+                                                      @hash[:server],
+                                                      @hash[:port])
+                end
+            rescue DICTClient::ConnectionError, Errno::ECONNRESET => e
+                DICTClient.close_all_connections                
+                raise Source::SourceError,
+                      _("Could not connect to %s") % @hash[:server]
+            end
         end
 
         def available_databases
@@ -305,31 +323,12 @@ module Source
             end
         end
 
-        private
+        def connecting_to_source_str
+            _("Waiting for %s...") % @hash[:server]
+        end
 
-        def initialize_connection
-            # The mechanism to hold connections is implememented in DICTClient.
-            # DICTClient::get_connection returns an active connection if
-            # available or create a new one.
-            DICTClient.close_long_connections
-
-            begin
-                if @hash[:auth]
-                    @dict = DICTClient.get_connection(Fantasdic::TITLE,
-                                                      @hash[:server],
-                                                      @hash[:port],
-                                                      @hash[:login],
-                                                      @hash[:password])
-                else 
-                    @dict = DICTClient.get_connection(Fantasdic::TITLE,
-                                                      @hash[:server],
-                                                      @hash[:port])
-                end
-            rescue DICTClient::ConnectionError, Errno::ECONNRESET => e
-                DICTClient.close_all_connections                
-                raise Source::SourceError,
-                      _("Could not connect to %s") % @hash[:server]
-            end
+        def transferring_data_str
+            _("Transferring data from %s ...") % @hash[:server]
         end
 
     end

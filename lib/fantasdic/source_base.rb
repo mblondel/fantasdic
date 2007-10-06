@@ -45,6 +45,9 @@ module Source
     class SourceError < Exception; end
 
     class Base
+        include GetText
+        GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
+
         @registered_sources = []
         DEFAULT_SOURCE = "DictServer"
         ALL_DATABASES = DICTClient::ALL_DATABASES
@@ -82,6 +85,15 @@ module Source
         end
 
         # Methods which should be implemented by children classes
+
+        # Mostly useful for opening/closing IO streams.
+        def open
+
+        end
+
+        def close
+
+        end
 
         # Returns a hash with available databases. Keys are databases short
         # names and values are databases long names.
@@ -127,6 +139,9 @@ module Source
 
         # This class may be inherited in order to implement a config widget.
         class ConfigWidget < Gtk::VBox
+            include GetText
+            GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
+
             def initialize(parent_dialog, hash, on_databases_changed_block)
                 super()
                 @parent_dialog
@@ -148,6 +163,14 @@ module Source
                 definitions += define(db, word)
             end
             definitions
+        end
+
+        def connecting_to_source_str
+            _("Connecting to source...")
+        end
+
+        def transferring_data_str
+            _("Transferring data from source ...")
         end
 
         # Methods below should not be overridden by children classes
