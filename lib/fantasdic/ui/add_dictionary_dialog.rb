@@ -369,7 +369,7 @@ module UI
                             row[DESC] = sel_db_desc[name]
                         end
                     end
-                    @sel_db_radiobutton.activate
+                    @sel_db_radiobutton.activate unless @hash[:sel_dbs].empty?
                 else
                     @all_db_radiobutton.activate
                 end

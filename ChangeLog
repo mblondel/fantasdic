@@ -1,5 +1,11 @@
 2007-10-06 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: When editing an existing
+    dictionary, "search selected databases" was selected although there weren't
+    selected databases.
+
+2007-10-06 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/add_dictionary_dialog.rb: Remember config widget.
 
 2007-10-06 Mathieu Blondel <mblondel@svn.gnome.org>
