@@ -1,5 +1,13 @@
 2007-10-06 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/sources/dict_server.rb: "available_strategies" now returns a
+    hash. Follow this change.
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Ditto.
+    * lib/fantasdic/source_base.rb: Documents methods which should be overridden
+    by source classes.   
+
+2007-10-06 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * data/fantasdic/glade/add_dictionary_dialog.glade: Uses "about" icon
     rather than "information" for the button next to the source combobox.
 

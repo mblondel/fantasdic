@@ -269,7 +269,11 @@ module Source
 
         def available_strategies
             available_databases if !@available_strategies
-            @available_strategies    
+            hash = {}
+            @available_strategies.each do |name, description|
+                hash[name] = description
+            end
+            hash
         end
 
         def database_info(dbname)

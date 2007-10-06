@@ -82,27 +82,50 @@ module Source
         end
 
         # Methods which should be implemented by children classes
+
+        # Returns a hash with available databases. Keys are databases short
+        # names and values are databases long names.
         def available_databases
             {}
         end
 
+        # Returns a hash with available strategies. Keys are strategies short
+        # names and values are strategies long names.
         def available_strategies
-            []
+            {}
         end
 
+        # Returns a string with information regarding database the short name
+        # of which is db.
         def database_info(db)
             ""
         end
 
+        # Definition object.
+        #   - word: the word the definition is for.
+        #   - body: the definition's body.
+        #   - database: the database the definiton belongs to.
+        #   - description: the database long name.
+        class Definition < Struct.new(:word, :body, :database, :description)
+        end
+
+        # Returns an array of Definition objects.
         def define(db, word)
-
+            []
         end
 
+        # Returns a hash of matches grouped by database.
+        # Keys are databases short names. Values are arrays of matches.
+        # E.g:
+        # {
+        # "db1" => ["match1", "match2"],
+        # "db2" => ["match3", "match4"]
+        # }
         def match(db, strat, word)
-
+            {}
         end
 
-        # This class may be used to implement a config widget
+        # This class may be inherited in order to implement a config widget.
         class ConfigWidget < Gtk::VBox
             def initialize(parent_dialog, hash, on_databases_changed_block)
                 super()
@@ -111,14 +134,14 @@ module Source
                 @on_databases_changed_block = on_databases_changed_block
             end
 
-            # Override this method if some fields need be saved in config file
+            # Override this method if some fields need be saved in config file.
             def to_hash
                 {}
             end
         end
 
-        # Methods below should not be overriden by children classes
-
+        # Defines an array of words. It may be useful to overridde this method
+        # for cases when calling "define" several times is not efficient.
         def multiple_define(dbs, word)
             definitions = []
             dbs.each do |db|
@@ -126,6 +149,8 @@ module Source
             end
             definitions
         end
+
+        # Methods below should not be overridden by children classes
 
         def cached_multiple_define(dbs, word)
             cache = Cache.new

@@ -284,7 +284,7 @@ module UI
                 hash[:sel_dbs] << iter[NAME]
             end
 
-            hash[:avail_strats] = source.available_strategies.map { |s| s[0] }
+            hash[:avail_strats] = source.available_strategies.keys
             hash[:sel_strat] = "define" # default strat
 
             hash[:results_font_name] = @results_fontbutton.font_name
