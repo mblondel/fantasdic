@@ -1,3 +1,9 @@
+2007-10-07 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Display more useful messages
+    than just "Fields missing" when fields are missing.
+    * lib/fantasdic/sources/dict_server.rb: Ditto.    
+
 2007-10-06 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/source_base.rb: Introducing open and close methods. They

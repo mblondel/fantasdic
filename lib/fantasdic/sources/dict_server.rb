@@ -76,17 +76,18 @@ module Source
 
             def to_hash
                 checks = [
-                    @server_entry.text.empty?,
-                    @port_entry.text.empty?,
+                    [@server_entry.text.empty?, _("Server missing.")],
+                    [@port_entry.text.empty?, _("Port missing.")],
 
-                    (@serv_auth_checkbutton.active? and
-                    @password_entry.text.empty? and
-                    @login_entry.text.empty?)
+                    [(@serv_auth_checkbutton.active? and
+                    @login_entry.text.empty?), _("Username missing.")],
+                    [(@serv_auth_checkbutton.active? and
+                      @password_entry.text.empty?), _("Password missing.")]
                 ]
 
-                checks.each do |expr|
+                checks.each do |expr, msg|
                     if expr == true
-                        raise Source::SourceError, _("Fields missing")
+                        raise Source::SourceError, msg
                     end
                 end
 
@@ -206,12 +207,12 @@ module Source
 
             def show_server_info_dialog
                 if @server_entry.text.empty?
-                    UI::ErrorDialog.new(@parent_dialog, _("Server missing"))
+                    UI::ErrorDialog.new(@parent_dialog, _("Server missing."))
                     return false
                 end
 
                 if @port_entry.text.empty?
-                    UI::ErrorDialog.new(@parent_dialog, _("Port missing"))
+                    UI::ErrorDialog.new(@parent_dialog, _("Port missing."))
                     return false
                 end
 
@@ -328,7 +329,7 @@ module Source
         end
 
         def transferring_data_str
-            _("Transferring data from %s ...") % @hash[:server]
+            _("Transferring data from %s...") % @hash[:server]
         end
 
     end

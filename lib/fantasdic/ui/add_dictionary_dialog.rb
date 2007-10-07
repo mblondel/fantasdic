@@ -245,15 +245,15 @@ module UI
 
         def add_dictionary
             checks = [
-                @name_entry.text.empty?,
+                [@name_entry.text.empty?, _("Name missing.")],
 
-                (@sel_db_radiobutton.active? and
-                @sel_db_treeview.model.empty?)
+                [(@sel_db_radiobutton.active? and
+                @sel_db_treeview.model.empty?), _("No database selected!")]
             ]
 
-            checks.each do |expr|
+            checks.each do |expr, msg|
                 if expr == true
-                    ErrorDialog.new(@dialog, _("Fields missing"))
+                    ErrorDialog.new(@dialog, msg)
                     return false
                 end
             end
