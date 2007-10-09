@@ -399,6 +399,14 @@ module UI
 
             @src_class = Source::Base.get_source(src_str)
 
+            if !@src_class
+                [@about_button, @add_button].each do |widget|
+                    widget.sensitive = false
+                end
+
+                return false
+            end
+
             # Sets the config widget if not created yet
             unless @config_widgets[src_str]
                 @config_widgets[src_str] = \
