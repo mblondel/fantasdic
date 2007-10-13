@@ -12,6 +12,8 @@ fantasdic.desktop
 lib/fantasdic/command_line.rb
 lib/fantasdic/preferences.rb
 lib/fantasdic.rb
+lib/fantasdic/sources/dict_server.rb
+lib/fantasdic/sources/google_translate.rb
 lib/fantasdic/ui/about_dialog.rb
 lib/fantasdic/ui/add_dictionary_dialog.rb
 lib/fantasdic/ui/alert_dialog.rb
