@@ -1,5 +1,49 @@
 2007-10-13 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * tools/dict-proxy.rb:
+    * tools/edict2dictd.rb:
+    * tools/epwing2dictd.rb:
+    * tools/jmdict2dictd.rb:
+    * tools/tanakacorpus2dictd.rb:
+    * tools/dict-server.rb:
+    * tools/stardict2dictd.rb:
+    * tools/jmnedict2dictd.rb:
+    * tools/kanjidic22dictd.rb:
+    * tools/dictfmt.rb:
+    * win32/gen_po.rb:
+    * win32/fantasdic.c:
+    * lib/fantasdic/ui.rb:
+    * lib/fantasdic/utils.rb:
+    * lib/fantasdic/preferences.rb:
+    * lib/fantasdic/sources/dict_server.rb:
+    * lib/fantasdic/sources/google_translate.rb:
+    * lib/fantasdic/gettext.rb:
+    * lib/fantasdic/net/dict.rb:
+    * lib/fantasdic/command_line.rb:
+    * lib/fantasdic/source_base.rb:
+    * lib/fantasdic/ui/preferences_dialog.rb:
+    * lib/fantasdic/ui/utils.rb:
+    * lib/fantasdic/ui/browser.rb:
+    * lib/fantasdic/ui/main_app.rb:
+    * lib/fantasdic/ui/alert_dialog.rb:
+    * lib/fantasdic/ui/glade_base.rb:
+    * lib/fantasdic/ui/about_dialog.rb:
+    * lib/fantasdic/ui/combobox_entry.rb:
+    * lib/fantasdic/ui/matches_listview.rb:
+    * lib/fantasdic/ui/ipc.rb:
+    * lib/fantasdic/ui/add_dictionary_dialog.rb:
+    * lib/fantasdic/ui/result_text_view.rb:
+    * lib/fantasdic/ui/print.rb:
+    * lib/fantasdic.rb:
+    * bin/pre-setup.rb:
+    * COPYRIGHT:
+    * COPYING:
+    * data/fantasdic/ui/toolbar.xml:
+    * data/fantasdic/ui/popups.xml:
+    * data/fantasdic/ui/menus.xml: Fixes FSF's address in headers.
+
+2007-10-13 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * po/POTFILES.in: Add lib/fantasdic/sources/dict_server.rb and
     lib/fantasdic/sources/google_translate.rb to the list.
 
