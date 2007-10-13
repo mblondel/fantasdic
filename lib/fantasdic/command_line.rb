@@ -87,19 +87,14 @@ def self.connect(dict)
     end
 
     begin
-        dict = DICTClient.new(infos[:server], infos[:port], $DEBUG)
-        dict.client(Fantasdic::TITLE)
-
-        unless infos[:login].empty? or infos[:password].empty?
-            dict.auth(infos[:login], infos[:password]) 
-        end
-
-    rescue DICTClient::ConnectionError
-        puts _("Error: Could not connect to %s") % infos[:server]
-        return
+        source_class = Source::Base.get_source(infos[:source])
+        source = source_class.new(infos)
+    rescue Source::SourceError => e
+        source = nil
+        puts e.to_s
     end
 
-    [dict, infos]
+    [source, infos]
 end
 
 def self.print_definitions(definitions)
@@ -125,18 +120,24 @@ def self.define(dict, word)
     dict, infos = connect(dict)
     return if dict.nil?
 
-    if infos[:all_dbs] == true
-        definitions = dict.define(DICTClient::ALL_DATABASES, word)
-    else
-        definitions = []
-        infos[:sel_dbs].each do |db|
-            definitions += dict.define(db, word)
+    begin
+        dict.open
+
+        if infos[:all_dbs] == true
+            definitions = dict.define(DICTClient::ALL_DATABASES, word)
+        else
+            definitions = []
+            infos[:sel_dbs].each do |db|
+                definitions += dict.define(db, word)
+            end
         end
-    end
 
-    dict.disconnect
+        dict.close
 
-    print_definitions(definitions)
+        print_definitions(definitions)
+    rescue Source::SourceError => e
+        puts e.to_s
+    end    
 end
 
 def self.print_matches(matches)
@@ -157,19 +158,25 @@ def self.match(dict, strat, word)
     dict, infos = connect(dict)
     return if dict.nil?
 
-    if infos[:all_dbs] == true
-        matches = dict.match(DICTClient::ALL_DATABASES, strat, word)
-    else
-        matches = {}
-        infos[:sel_dbs].each do |db|
-            m = dict.match(db, strat, word)
-            matches[db] = m[db] unless m[db].nil?
+    begin
+        dict.open
+
+        if infos[:all_dbs] == true
+            matches = dict.match(DICTClient::ALL_DATABASES, strat, word)
+        else
+            matches = {}
+            infos[:sel_dbs].each do |db|
+                m = dict.match(db, strat, word)
+                matches[db] = m[db] unless m[db].nil?
+            end
         end
+
+        dict.close
+
+        print_matches(matches)
+    rescue Source::SourceError => e
+        puts e.to_s
     end
-
-    dict.disconnect
-
-    print_matches(matches)
 end
 
 def self.dict_list
@@ -179,8 +186,14 @@ end
 def self.strat_list(dict)
     dict, infos = connect(dict)
     return if dict.nil?
-    dict.show_strat.each_key { |k| puts k }
-    dict.disconnect        
+    
+    begin
+        dict.open
+        dict.available_strategies.each_key { |k| puts k }
+        dict.close
+    rescue Source::SourceError => e
+        puts e.to_s
+    end    
 end
 
 end

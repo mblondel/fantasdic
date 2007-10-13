@@ -1,5 +1,9 @@
 2007-10-13 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/command_line.rb: Following the new API.
+
+2007-10-13 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * tools/dict-proxy.rb:
     * tools/edict2dictd.rb:
     * tools/epwing2dictd.rb:
