@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-11 00:51+0200\n"
-"PO-Revision-Date: 2007-10-11 00:51+0100\n"
+"POT-Creation-Date: 2007-10-13 23:16+0200\n"
+"PO-Revision-Date: 2007-10-13 23:17+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -82,11 +82,6 @@ msgstr "_Namn:"
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
 msgid "_Source:"
 msgstr "_Källa:"
-
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:18
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:20
-msgid "gtk-help"
-msgstr "Hjälp"
 
 #: ../data/fantasdic/glade/main_app.glade.h:1
 msgid "<i>Not found</i>"
@@ -225,18 +220,13 @@ msgstr "Visa version"
 msgid "Error: Dictionary does not exist in the settings"
 msgstr "Fel: Ordboken finns inte i inställningarna"
 
-#: ../lib/fantasdic/command_line.rb:98
-#, c-format
-msgid "Error: Could not connect to %s"
-msgstr "Fel: Kunde inte ansluta till %s"
-
-#: ../lib/fantasdic/command_line.rb:107
-#: ../lib/fantasdic/command_line.rb:144
+#: ../lib/fantasdic/command_line.rb:102
+#: ../lib/fantasdic/command_line.rb:145
 #: ../lib/fantasdic/ui/main_app.rb:267
 msgid "No match found."
 msgstr "Ingen träff hittades."
 
-#: ../lib/fantasdic/command_line.rb:109
+#: ../lib/fantasdic/command_line.rb:104
 #, c-format
 msgid "Matches found: %d."
 msgstr "Träffar hittade: %d."
@@ -244,6 +234,87 @@ msgstr "Träffar hittade: %d."
 #: ../lib/fantasdic.rb:81
 msgid "Dictionary application (DICT client)."
 msgstr "Ordboksprogram (DICT-klient)."
+
+#: ../lib/fantasdic/sources/dict_server.rb:23
+msgid "DICT dictionary server"
+msgstr "DICT-ordboksserver"
+
+#: ../lib/fantasdic/sources/dict_server.rb:24
+msgid "Look up words using a DICT dictionary server."
+msgstr "Slå upp ord mot en DICT-ordboksserver."
+
+#: ../lib/fantasdic/sources/dict_server.rb:34
+msgid "Server details"
+msgstr "Serverinformation"
+
+#: ../lib/fantasdic/sources/dict_server.rb:60
+#: ../lib/fantasdic/sources/dict_server.rb:271
+#: ../lib/fantasdic/sources/dict_server.rb:285
+#: ../lib/fantasdic/sources/dict_server.rb:305
+#, c-format
+msgid "Could not connect to %s"
+msgstr "Kunde inte ansluta till %s"
+
+#: ../lib/fantasdic/sources/dict_server.rb:79
+#: ../lib/fantasdic/sources/dict_server.rb:210
+msgid "Server missing."
+msgstr "Server saknas."
+
+#: ../lib/fantasdic/sources/dict_server.rb:80
+#: ../lib/fantasdic/sources/dict_server.rb:215
+msgid "Port missing."
+msgstr "Port saknas."
+
+#: ../lib/fantasdic/sources/dict_server.rb:83
+msgid "Username missing."
+msgstr "Användarnamn saknas."
+
+#: ../lib/fantasdic/sources/dict_server.rb:85
+msgid "Password missing."
+msgstr "Lösenord saknas."
+
+#: ../lib/fantasdic/sources/dict_server.rb:108
+msgid "_Server:"
+msgstr "_Server:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:120
+msgid "_Port:"
+msgstr "_Port:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:140
+msgid "Server _requires authentication"
+msgstr "Servern _kräver autentisering"
+
+#: ../lib/fantasdic/sources/dict_server.rb:145
+msgid "_Username:"
+msgstr "_Användarnamn:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:149
+msgid "Pass_word:"
+msgstr "Löse_nord:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:314
+#: ../lib/fantasdic/sources/dict_server.rb:323
+msgid "Connection with server lost."
+msgstr "Anslutningen till servern förlorades."
+
+#: ../lib/fantasdic/sources/dict_server.rb:328
+#, c-format
+msgid "Waiting for %s..."
+msgstr "Väntar på %s..."
+
+#: ../lib/fantasdic/sources/dict_server.rb:332
+#, c-format
+msgid "Transferring data from %s..."
+msgstr "Överför data från %s..."
+
+#: ../lib/fantasdic/sources/google_translate.rb:26
+msgid "Google Translate"
+msgstr "Google Translate"
+
+#: ../lib/fantasdic/sources/google_translate.rb:27
+msgid "Translate words using Google Translate."
+msgstr "Översätt ord med Google Translate."
 
 #: ../lib/fantasdic/ui/add_dictionary_dialog.rb:27
 #, c-format
@@ -263,9 +334,17 @@ msgstr "Ingen databas vald!"
 msgid "Dictionary %s exists already!"
 msgstr "Ordboken %s finns redan!"
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:345
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:361
 msgid "Fetching databases information..."
 msgstr "Hämtar databasinformation..."
+
+#: ../lib/fantasdic/ui/browser.rb:24
+msgid "Could not open browser."
+msgstr "Kunde inte öppna webbläsaren."
+
+#: ../lib/fantasdic/ui/browser.rb:29
+msgid "Could not find documentation."
+msgstr "Kunde inte hitta dokumentationen."
 
 #: ../lib/fantasdic/ui/main_app.rb:74
 msgid "No dictionary configured"
@@ -303,89 +382,89 @@ msgstr "1 träff"
 msgid "%d matches"
 msgstr "%d träffar"
 
-#: ../lib/fantasdic/ui/main_app.rb:523
+#: ../lib/fantasdic/ui/main_app.rb:529
 #, c-format
 msgid "Search %s"
 msgstr "Sök %s"
 
-#: ../lib/fantasdic/ui/main_app.rb:548
-#: ../lib/fantasdic/ui/main_app.rb:842
+#: ../lib/fantasdic/ui/main_app.rb:554
+#: ../lib/fantasdic/ui/main_app.rb:848
 msgid "Select _All"
 msgstr "Markera _allt"
 
-#: ../lib/fantasdic/ui/main_app.rb:672
+#: ../lib/fantasdic/ui/main_app.rb:678
 msgid "Save definition"
 msgstr "Spara definition"
 
-#: ../lib/fantasdic/ui/main_app.rb:829
+#: ../lib/fantasdic/ui/main_app.rb:835
 msgid "_Look Up"
 msgstr "_Slå upp"
 
-#: ../lib/fantasdic/ui/main_app.rb:832
+#: ../lib/fantasdic/ui/main_app.rb:838
 msgid "Print Set_up"
 msgstr "Utskriftskonfi_guration"
 
-#: ../lib/fantasdic/ui/main_app.rb:840
+#: ../lib/fantasdic/ui/main_app.rb:846
 msgid "_Edit"
 msgstr "R_edigera"
 
-#: ../lib/fantasdic/ui/main_app.rb:844
+#: ../lib/fantasdic/ui/main_app.rb:850
 msgid "Clear History"
 msgstr "Töm historik"
 
-#: ../lib/fantasdic/ui/main_app.rb:847
+#: ../lib/fantasdic/ui/main_app.rb:853
 msgid "Find N_ext"
 msgstr "Sök n_ästa"
 
-#: ../lib/fantasdic/ui/main_app.rb:849
+#: ../lib/fantasdic/ui/main_app.rb:855
 msgid "Find Pre_vious"
 msgstr "Sök fö_regående"
 
-#: ../lib/fantasdic/ui/main_app.rb:855
+#: ../lib/fantasdic/ui/main_app.rb:861
 msgid "_View"
 msgstr "_Visa"
 
-#: ../lib/fantasdic/ui/main_app.rb:856
+#: ../lib/fantasdic/ui/main_app.rb:862
 msgid "_Text size"
 msgstr "_Textstorlek"
 
-#: ../lib/fantasdic/ui/main_app.rb:861
+#: ../lib/fantasdic/ui/main_app.rb:867
 msgid "Zoom normal"
 msgstr "Normal zoom"
 
-#: ../lib/fantasdic/ui/main_app.rb:865
+#: ../lib/fantasdic/ui/main_app.rb:871
 msgid "_Go"
 msgstr "_Gå"
 
-#: ../lib/fantasdic/ui/main_app.rb:874
+#: ../lib/fantasdic/ui/main_app.rb:880
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: ../lib/fantasdic/ui/main_app.rb:875
+#: ../lib/fantasdic/ui/main_app.rb:881
 msgid "_Contents"
 msgstr "_Innehåll"
 
-#: ../lib/fantasdic/ui/main_app.rb:876
+#: ../lib/fantasdic/ui/main_app.rb:882
 msgid "Submit _Bug Report"
 msgstr "Skicka in _felrapport"
 
-#: ../lib/fantasdic/ui/main_app.rb:878
+#: ../lib/fantasdic/ui/main_app.rb:884
 msgid "About"
 msgstr "Om"
 
-#: ../lib/fantasdic/ui/main_app.rb:917
+#: ../lib/fantasdic/ui/main_app.rb:923
 msgid "Scan clipboard"
 msgstr "Sök av urklipp"
 
-#: ../lib/fantasdic/ui/main_app.rb:919
+#: ../lib/fantasdic/ui/main_app.rb:925
 msgid "_Matches"
 msgstr "Sö_kträffar"
 
-#: ../lib/fantasdic/ui/main_app.rb:921
+#: ../lib/fantasdic/ui/main_app.rb:927
 msgid "_Statusbar"
 msgstr "_Statusrad"
 
-#: ../lib/fantasdic/ui/main_app.rb:923
+#: ../lib/fantasdic/ui/main_app.rb:929
 msgid "_Toolbar"
 msgstr "_Verktygsrad"
 
@@ -403,40 +482,24 @@ msgstr "Sida %d/%d"
 msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
 msgstr "Utskrivet med Fantasdic den %Y-%m-%d klockan %H.%M"
 
+#~ msgid "gtk-help"
+#~ msgstr "Hjälp"
+#~ msgid "Error: Could not connect to %s"
+#~ msgstr "Fel: Kunde inte ansluta till %s"
 #~ msgid "Informations about server"
 #~ msgstr "Information om servern"
 #~ msgid "Most servers don't require authentication."
 #~ msgstr "De flesta servrar kräver inte autentisering."
 #~ msgid "Pass_word"
 #~ msgstr "Lösen_ord"
-#~ msgid "Server"
-#~ msgstr "Server"
-#~ msgid "Server _requires authentication"
-#~ msgstr "Servern _kräver autentisering"
-#~ msgid "_Port:"
-#~ msgstr "_Port:"
-#~ msgid "_Username:"
-#~ msgstr "_Användarnamn:"
-#~ msgid "Could not connect to %s"
-#~ msgstr "Kunde inte ansluta till %s"
-#~ msgid "Port missing"
-#~ msgstr "Port saknas"
 #~ msgid "Fields missing"
 #~ msgstr "Fält saknas"
-#~ msgid "Waiting for %s..."
-#~ msgstr "Väntar på %s..."
-#~ msgid "Connection with server lost."
-#~ msgstr "Anslutningen till servern förlorades."
 #~ msgid "Can't connect to server"
 #~ msgstr "Kan inte ansluta till server"
-#~ msgid "Transferring data from %s ..."
-#~ msgstr "Överför data från %s ..."
 #~ msgid "Password (opt.):"
 #~ msgstr "Lösenord (valfritt):"
 #~ msgid "Username (opt.):"
 #~ msgstr "Användarnamn (valfritt):"
-#~ msgid "Could not open browser."
-#~ msgstr "Kunde inte öppna webbläsaren."
 #~ msgid "Suggested results:"
 #~ msgstr "Föreslagna resultat:"
 #~ msgid "_History"
