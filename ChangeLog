@@ -1,5 +1,12 @@
 2007-10-13 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * data/fantasdic/glade/add_dictionary_dialog.glade: "gtk-help" must not be
+    translatable (bug of glade3, file edited manually).
+    * data/fantasdic/glade/preferences_dialog.glade: Ditto.
+    * po/POTFILES.in: Add lib/fantasdic/ui/browser.rb to the list of files.
+
+2007-10-13 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/command_line.rb: Following the new API.
 
 2007-10-13 Mathieu Blondel <mblondel@svn.gnome.org>
