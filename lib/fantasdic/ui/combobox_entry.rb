@@ -40,7 +40,11 @@ module UI
             self.set_cell_data_func(renderer) do |cel, renderer, model, iter|
                 if iter[Column::SEARCH_HASH]
                     text = iter[Column::SEARCH_HASH][:word]
-                    renderer.text = text
+                    if text.utf8_length > 30
+                        renderer.text = text.utf8_slice(0..30) + "..."
+                    else
+                        renderer.text = text
+                    end
                 end
             end
 

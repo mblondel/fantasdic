@@ -285,7 +285,7 @@ module UI
             end
 
             hash[:avail_strats] = source.available_strategies.keys
-            hash[:sel_strat] = "define" # default strat
+            hash[:sel_strat] = @src_class.default_strategy
 
             hash[:results_font_name] = @results_fontbutton.font_name
             hash[:print_font_name] = @print_fontbutton.font_name
@@ -333,6 +333,22 @@ module UI
             src = @src_class.new(@config_widgets[selected_source].to_hash)
             src.open
             src
+        end
+
+        def sensitize_databases
+            if @src_class.no_databases
+                @sel_db_vbox.visible = false
+                @databases_vbox.sensitive = false
+            else
+                if @src_class.disable_search_all_databases
+                    @all_db_radiobutton.sensitive = false
+                    @sel_db_radiobutton.activate
+                else
+                    @all_db_radiobutton.sensitive = true
+                end
+                @sel_db_vbox.visible = true
+                @databases_vbox.sensitive = true
+            end
         end
 
         def update_db_list
@@ -383,6 +399,7 @@ module UI
             ensure                
                 @general_infos_vbox.sensitive = true
                 @databases_vbox.sensitive = true
+                sensitize_databases
             end
         end
 

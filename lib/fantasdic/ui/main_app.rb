@@ -122,8 +122,8 @@ module UI
 
                 set_font_name(hash[:results_font_name])
 
-                if p[:strategy] and \
-                    not ["define", "exact"].include? p[:strategy]
+                if p[:strategy] and 
+                   p[:strategy] != source_class.default_strategy
                     # Search with match strategy.
                     @matches_listview.model.clear
 
@@ -440,24 +440,24 @@ module UI
 
         def update_strategy_cb
             @strategy_cb.model.clear
-            infos = @prefs.dictionaries_infos[selected_dictionary]
+            hash = @prefs.dictionaries_infos[selected_dictionary]
 
-            if infos
-                @strategy_cb.sensitive = true
-                strats = ["define"]
-                strats += infos[:avail_strats] unless infos[:avail_strats].nil?
-                
+            if hash
+                @strategy_cb.sensitive = true                
+                dflt_strat = default_strategy_of_selected_dictionary
+                strats = [dflt_strat]
+                strats += hash[:avail_strats] unless hash[:avail_strats].nil?
+                strats.uniq!
+
                 strats.each do |strat|
-                    unless strat == "exact" # exact is the same as define
-                        row = @strategy_cb.model.append
-                        row[0] = strat
-                    end
+                    row = @strategy_cb.model.append
+                    row[0] = strat    
                 end
 
-                if infos[:sel_strat]
-                    self.selected_strategy = infos[:sel_strat]
+                if hash[:sel_strat]
+                    self.selected_strategy = hash[:sel_strat]
                 else
-                    self.selected_strategy = "define"
+                    self.selected_strategy = dflt_strat
                 end
             else
                 @strategy_cb.sensitive = false
@@ -470,7 +470,7 @@ module UI
         end
 
         def selected_strategy=(strat)
-            strat = "define" if strat.nil?
+            strat = default_strategy_of_selected_dictionary if strat.nil?
             n = 0
             @strategy_cb.model.each do |model, path, iter|
                 if iter[0] == strat
@@ -497,6 +497,12 @@ module UI
             else
                 @dictionary_cb.sensitive = false
             end
+        end
+
+        def default_strategy_of_selected_dictionary
+            hash = @prefs.dictionaries_infos[selected_dictionary]
+            source_class = Source::Base.get_source(hash[:source])
+            source_class.default_strategy
         end
 
         def selected_dictionary
@@ -1028,7 +1034,8 @@ module UI
             @result_text_view.signal_connect("link_clicked") do
                 |w, db, word, event|
                 lookup(:dictionary => selected_dictionary,
-                       :word => word, :strategy => "define")
+                       :word => word,
+                       :strategy => default_strategy_of_selected_dictionary)
             end
 
             @result_text_view.signal_connect("button_press_event") do |w, ev|

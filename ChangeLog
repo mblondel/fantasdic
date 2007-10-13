@@ -1,3 +1,23 @@
+2007-10-13 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/source_base.rb: Added class method default_strategy. It
+    can be overridden by source plugin. Added convert_to_utf8 private method.
+    Added disable_search_all_databases and no_databases fields.
+
+    * lib/fantasdic/ui/main_app.rb: Don't add "define" but add default source
+    defined by source plugin instead.
+
+    * lib/fantasdic/sources/google_translate.rb: Translate using Google
+    Translate.
+      
+    * lib/fantasdic/ui/combobox_entry.rb: Slice too long words in the history.
+
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Use default_strategy instead
+    of "define". Sensitize databases as needed.
+
+    * data/fantasdic/glade/add_dictionary_dialog.glade: Move horizontal
+    separators to sel_db_vbox.
+
 2007-10-09 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/add_dictionary_dialog.rb: Don't crash if no plugin

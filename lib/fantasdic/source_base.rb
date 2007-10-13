@@ -77,6 +77,8 @@ module Source
             extend Fields
             def_field :authors, :version, :title, :description, :website,
                       :license, :copyright
+
+            def_field :disable_search_all_databases, :no_databases
         end
 
         def initialize(hash)
@@ -107,8 +109,12 @@ module Source
             {}
         end
 
-        # Returns a string with information regarding database the short name
-        # of which is db.
+        # Returns the string of the default strategy.
+        def self.default_strategy
+            "define"
+        end
+
+        # Returns a string with information regarding database db.
         def database_info(db)
             ""
         end
@@ -231,6 +237,14 @@ module Source
 
             if @cache_queue.length > MAX_CACHE
                 @cache_queue.pop
+            end
+        end
+
+        def convert_to_utf8(src_enc, str)
+            begin 
+                Iconv.new("utf-8", src_enc).iconv(str)
+            rescue Iconv::IllegalSequence
+                raise Source::SourceError, _("Can't convert encodings.")
             end
         end
 
