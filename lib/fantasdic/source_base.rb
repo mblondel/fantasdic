@@ -153,6 +153,7 @@ module Source
                 @parent_dialog
                 @hash = hash
                 @on_databases_changed_block = on_databases_changed_block
+                self.spacing = 15
             end
 
             # Override this method if some fields need be saved in config file.
@@ -161,7 +162,8 @@ module Source
             end
         end
 
-        # Defines an array of words. It may be useful to overridde this method
+        # Defines a word in an array of databases.
+        # It may be useful to overridde this method
         # for cases when calling "define" several times is not efficient.
         def multiple_define(dbs, word)
             definitions = []

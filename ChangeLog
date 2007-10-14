@@ -1,3 +1,11 @@
+2007-10-14 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/utils.rb: Added String#latin?, String#kana?, String#kanji?
+    and File::which helpers.
+    * lib/fantasdic/sources/dict_server.rb: Removed useless attr_accessors and
+    moved vbox internal spacing...
+    * lib/fantasdic/source_base.rb:... here. Fixed a comment.
+
 2007-10-13 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * data/fantasdic/glade/add_dictionary_dialog.glade: "gtk-help" must not be

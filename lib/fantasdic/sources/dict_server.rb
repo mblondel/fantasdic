@@ -64,9 +64,6 @@ module Source
         end
 
         class ConfigWidget < Base::ConfigWidget
-            attr_accessor :server_entry, :port_entry, :serv_auth_checkbutton,
-                          :login_entry, :password_entry
-
             def initialize(*arg)
                 super(*arg)
                 initialize_ui
@@ -103,8 +100,6 @@ module Source
             private
 
             def initialize_ui
-                self.spacing = 15
-
                 server_label = Gtk::Label.new(_("_Server:"), true)
                 server_label.xalign = 0
                 @server_entry = Gtk::Entry.new

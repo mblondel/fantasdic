@@ -23,6 +23,53 @@ class String
     def utf8_slice(range)
         self.unpack("U*")[range].pack("U*")
     end
+
+    def latin?
+        self.unpack("U*").each do |char|
+            if not (char >= 0 and char <= 0x00FF)
+                return false 
+            end
+        end
+        return true
+    end
+
+    def kanji?
+        self.unpack("U*").each do |char|
+            if not (
+                    (char >= 0x4E00 and char <= 0x9FBF) or
+                    (char >= 0x3400 and char <= 0x4DBF) or
+                    (char >= 0x20000 and char <= 0x2A6DF) or
+                    (char >= 0x3190 and char <= 0x319F) or
+                    (char >= 0xF900 and char <= 0xFAFF) or
+                    (char >= 0x2F800 and char <= 0x2FA1F)
+                   )
+                return false 
+            end
+        end
+        return true
+    end
+
+    def hiragana?
+        self.unpack("U*").each do |char|
+            if not (char >= 0x3040 and char <= 0x309F)
+                return false
+            end
+        end
+        return true
+    end
+  
+    def katakana?
+        self.unpack("U*").each do |char|
+            if not (char >= 0x30A0 and char <= 0x30FF)
+                return false
+            end
+        end
+        return true
+    end
+  
+    def kana?
+        self.hiragana? or self.katakana?
+    end
 end
 
 class Array
@@ -46,5 +93,15 @@ class Array
         else
             self.delete_at(self.length - 1)
         end
+    end
+end
+
+class File
+    def self.which(pgm)
+        ENV['PATH'].split(":").each do |dir|
+            path = File.join(dir, pgm)
+            return path if File.executable? path
+        end
+        return nil
     end
 end
