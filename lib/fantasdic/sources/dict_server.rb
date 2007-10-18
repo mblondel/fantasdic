@@ -269,11 +269,7 @@ module Source
 
         def available_databases
             begin
-                @available_databases = @dict.show_db
-
-                @available_strategies = @dict.show_strat
-
-                return @available_databases
+                return @dict.show_db
             rescue DICTClient::ConnectionLost, Errno::EPIPE
                 DICTClient.close_active_connection
                 raise Source::SourceError,
@@ -282,12 +278,18 @@ module Source
         end
 
         def available_strategies
-            available_databases if !@available_strategies
-            hash = {}
-            @available_strategies.each do |name, description|
-                hash[name] = description
+            begin
+                available_strategies = @dict.show_strat
+                hash = {}
+                available_strategies.each do |name, description|
+                    hash[name] = description
+                end
+                return hash
+            rescue DICTClient::ConnectionLost, Errno::EPIPE
+                DICTClient.close_active_connection
+                raise Source::SourceError,
+                      _("Could not connect to %s") % @hash[:server]
             end
-            hash
         end
 
         def database_info(dbname)

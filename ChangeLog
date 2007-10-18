@@ -1,5 +1,10 @@
 2007-10-18 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/sources/dict_server.rb: Method "available_strategies"
+    should not depend on method "available_databases".
+
+2007-10-18 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * po/POTFILES.in: Added lib/fantasdic/source_base.rb.
 
 2007-10-14 Mathieu Blondel <mblondel@svn.gnome.org>
