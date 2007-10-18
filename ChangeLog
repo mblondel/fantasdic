@@ -1,3 +1,7 @@
+2007-10-18 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * po/POTFILES.in: Added lib/fantasdic/source_base.rb.
+
 2007-10-14 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/utils.rb: Added String#latin?, String#kana?, String#kanji?
