@@ -3,10 +3,12 @@
 require 'fileutils'
 
 clean_files = [
-    'fantasdic.desktop',
     'bin/fantasdic',
     'lib/fantasdic/config.rb',
     'lib/fantasdic/version.rb',
+    'lib/fantasdic/authors.rb',
+    'lib/fantasdic/translators.rb',
+    'lib/fantasdic/documenters.rb'
     ]
 
 for file in clean_files

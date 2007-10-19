@@ -1,5 +1,9 @@
 2007-10-19 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * post-clean.rb: Added files that need to be cleaned.
+
+2007-10-19 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * data/pre-setup.rb: Don't copy .svn dirs.
 
 2007-10-18 Mathieu Blondel <mblondel@svn.gnome.org>
