@@ -310,7 +310,11 @@ class DICTClient
 
     def show_strat
         code, msg = exec_cmd('SHOW STRAT')
-        get_hash_key_value(get_pairs)
+        if error_response? code
+            {}
+        else
+            get_hash_key_value(get_pairs)
+        end
     end
 
     def show_info(db)

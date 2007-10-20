@@ -1,5 +1,10 @@
 2007-10-20 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/net/dict.rb: Handles the case when no strategies are
+    available.
+
+2007-10-20 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/utils.rb: Fixed String#kana? so that a string containing
     both hiragana and katakana returns true. Added String#japanese?.
     * lib/fantasdic/sources/edict_file.rb: Added a new source to look up words
