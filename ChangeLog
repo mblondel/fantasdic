@@ -1,3 +1,14 @@
+2007-10-20 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/utils.rb: Fixed String#kana? so that a string containing
+    both hiragana and katakana returns true. Added String#japanese?.
+    * lib/fantasdic/sources/edict_file.rb: Added a new source to look up words
+    in an EDICT file. The implementation uses egrep for performance. A pure
+    Ruby implementation needs be added for cases when egrep isn't available.
+    See http://www.csse.monash.edu.au/~jwb/j_edict.html for more information
+    about EDICT.
+    * po/POTFILES.in: Added edict_file.rb.
+
 2007-10-19 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * post-clean.rb: Added files that need to be cleaned.

@@ -68,7 +68,31 @@ class String
     end
   
     def kana?
-        self.hiragana? or self.katakana?
+        self.unpack("U*").each do |char|
+            if not ((char >= 0x30A0 and char <= 0x30FF) or
+                    (char >= 0x3040 and char <= 0x309F))
+                return false
+            end
+        end
+        return true
+    end
+
+    def japanese?
+        self.unpack("U*").each do |char|
+            if not (
+                    (char >= 0x4E00 and char <= 0x9FBF) or
+                    (char >= 0x3400 and char <= 0x4DBF) or
+                    (char >= 0x20000 and char <= 0x2A6DF) or
+                    (char >= 0x3190 and char <= 0x319F) or
+                    (char >= 0xF900 and char <= 0xFAFF) or
+                    (char >= 0x2F800 and char <= 0x2FA1F) or
+                    (char >= 0x30A0 and char <= 0x30FF) or
+                    (char >= 0x3040 and char <= 0x309F)
+                   )
+                return false 
+            end
+        end
+        return true
     end
 end
 

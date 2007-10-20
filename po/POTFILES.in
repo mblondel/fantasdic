@@ -14,6 +14,7 @@ lib/fantasdic/preferences.rb
 lib/fantasdic.rb
 lib/fantasdic/source_base.rb
 lib/fantasdic/sources/dict_server.rb
+lib/fantasdic/sources/edict_file.rb
 lib/fantasdic/sources/google_translate.rb
 lib/fantasdic/ui/about_dialog.rb
 lib/fantasdic/ui/add_dictionary_dialog.rb
