@@ -166,14 +166,14 @@ class DICTClient
     end
 
     def ok_response?(response)
-        response =~ /^#{OK}/
+        response =~ /^#{OK} ok/i
     end
 
     def word_def_response?(response)
         response =~ /^#{WORD_DEFINITION}/
     end
 
-    def end_of_msg?(line)
+    def is_dot_line?(line)
         line =~ /^\.\r$/ ? true : false
     end
 
@@ -269,25 +269,28 @@ class DICTClient
     def define(db, word)
         definitions = Array.new
     
-        df = Definition.new
-        df.body = ''
-
         resp_code, resp_msg = exec_cmd('DEFINE %s "%s"' % [ db, word ])
 
         if error_response? resp_code or matches_present_response? resp_code
             return [] 
         end
 
+        df = nil
+
         while line = get_line
-            return definitions if ok_response? line
+            if df and (word_def_response? line or ok_response? line)
+                df.body.pop if is_dot_line? df.body.last
+                df.body = df.body.join
+                definitions << df
+            end
 
             if word_def_response? line
+                df = Definition.new
+                df.body = []
                 df.word, df.database, df.description = \
                 /^\d\d\d\s"(.+?)"\s(\S+)\s"(.+)"(.*)\r$/.match(line)[1..3]
-            elsif end_of_msg? line
-                definitions << df
-                df = Definition.new
-                df.body = ''
+            elsif ok_response? line
+                return definitions
             else
                 df.body << line
             end

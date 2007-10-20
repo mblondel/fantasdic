@@ -1,5 +1,10 @@
 2007-10-20 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/net/dict.rb: Don't use the dotted line as the end of
+    definition marker. This is more reliable.
+
+2007-10-20 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/net/dict.rb: Handles the case when no strategies are
     available.
 
