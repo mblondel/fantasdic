@@ -49,6 +49,7 @@ module Source
         GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
         @registered_sources = []
+        
         DEFAULT_SOURCE = "DictServer"
         ALL_DATABASES = DICTClient::ALL_DATABASES
         MAX_CACHE = 30
@@ -74,6 +75,10 @@ module Source
                 end
             end
 
+            def cache_queue
+                @cache_queue ||= []
+            end
+
             extend Fields
             def_field :authors, :version, :title, :description, :website,
                       :license, :copyright
@@ -83,7 +88,6 @@ module Source
 
         def initialize(hash)
             @hash = hash
-            @cache_queue = []
         end
 
         # Methods which should be implemented by children classes
@@ -173,6 +177,18 @@ module Source
             definitions
         end
 
+        # Same as above
+        def multiple_match(dbs, strategy, word)
+            matches = {}
+            dbs.each do |db|
+                m = match(db, strategy, word)
+                m.each_key do |found_db|   
+                    matches[found_db] = m[found_db]
+                end
+            end        
+            matches
+        end
+
         def connecting_to_source_str
             _("Connecting to source...")
         end
@@ -187,40 +203,29 @@ module Source
             cache = Cache.new
             cache.key = [dbs, word]
 
-            i = @cache_queue.index(cache)
+            i = self.class.cache_queue.index(cache)
             if i.nil?
                 res = multiple_define(dbs, word)
                 cache.value = res
                 update_cache(cache)
                 res
             else
-                @cache_queue[i].value
+                self.class.cache_queue[i].value
             end
-        end
-
-        def multiple_match(dbs, strategy, word)
-            matches = {}
-            dbs.each do |db|
-                m = match(db, strategy, word)
-                m.each_key do |found_db|   
-                    matches[found_db] = m[found_db]
-                end
-            end        
-            matches
         end
 
         def cached_multiple_match(dbs, strategy, word)
             cache = Cache.new
             cache.key = [dbs, strategy, word]
 
-            i = @cache_queue.index(cache)
+            i = self.class.cache_queue.index(cache)
             if i.nil?
                 res = multiple_match(dbs, strategy, word)
                 cache.value = res
                 update_cache(cache)
                 res
             else
-                @cache_queue[i].value
+                self.class.cache_queue[i].value
             end
         end
 
@@ -235,10 +240,10 @@ module Source
         end
 
         def update_cache(cache)
-            @cache_queue.unshift(cache)
+            self.class.cache_queue.unshift(cache)
 
-            if @cache_queue.length > MAX_CACHE
-                @cache_queue.pop
+            if self.class.cache_queue.length > MAX_CACHE
+                self.class.cache_queue.pop
             end
         end
 

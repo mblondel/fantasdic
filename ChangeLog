@@ -1,5 +1,9 @@
 2007-10-21 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/source_base.rb: Fixed cache support.
+
+2007-10-21 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/main_app.rb: Don't update the search entry when a match
     is clicked in the match sidepane.
 
