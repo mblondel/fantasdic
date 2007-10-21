@@ -1,5 +1,10 @@
 2007-10-21 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: The source was not closed
+    after using it.
+
+2007-10-21 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/sources/edict_file.rb: Fixed crash when a word in kana is
     entered.
 

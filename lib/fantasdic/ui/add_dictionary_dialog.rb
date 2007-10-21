@@ -181,7 +181,10 @@ module UI
                     dbname = iter[NAME]
                     dg = DatabaseInfoDialog.new(dbname)
                     begin
+                        source = get_source
+                        source.open
                         dg.text = source.database_info(dbname)
+                        source.close
                     rescue Source::SourceError => e
                         dg.text = e.to_s
                     end
@@ -284,7 +287,10 @@ module UI
                 hash[:sel_dbs] << iter[NAME]
             end
 
+            source = get_source
+            source.open
             hash[:avail_strats] = source.available_strategies.keys
+            source.close
             hash[:sel_strat] = @src_class.default_strategy
 
             hash[:results_font_name] = @results_fontbutton.font_name
@@ -329,9 +335,8 @@ module UI
             set_source(selected_source)
         end
 
-        def source
+        def get_source
             src = @src_class.new(@config_widgets[selected_source].to_hash)
-            src.open
             src
         end
 
@@ -361,7 +366,10 @@ module UI
             self.status_bar_msg = _("Fetching databases information...")
 
             begin
+                source = get_source
+                source.open
                 dbs = source.available_databases
+                source.close
                 sel_db_desc = {}
 
                 # Add available databases
