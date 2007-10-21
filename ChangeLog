@@ -1,3 +1,8 @@
+2007-10-21 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/sources/edict_file.rb: Fixed crash when a word in kana is
+    entered.
+
 2007-10-20 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/net/dict.rb: Don't use the dotted line as the end of

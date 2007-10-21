@@ -199,7 +199,7 @@ if File.which("egrep") and File.which("iconv") and File.which("gunzip")
             db = File.basename(@hash[:filename])
             db_capitalize = db.capitalize
             find_with_regexp(word, regexp).each do |line|
-                defi = Source::Base::Definition.new
+                defi = Definition.new
                 defi.word = word
                 defi.body = line
                 defi.database = db
@@ -219,9 +219,7 @@ if File.which("egrep") and File.which("iconv") and File.which("gunzip")
 
             arr = arr_lines.map do |line|
                 found_word, found_reading, found_trans = get_fields(line)
-                if word.kana?
-                    found_reading
-                elsif word.japanese?
+                if word.kana? or word.japanese?
                     found_word
                 else
                     found_trans
