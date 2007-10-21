@@ -66,8 +66,7 @@ module UI
                     # wait for the thread to actually terminate
                     previous_thread.join
                 end
-
-                @search_entry.text = p[:word]
+                
                 @buf.clear          
     
                 if @dictionary_cb.model.nb_rows == 0
@@ -84,6 +83,7 @@ module UI
                 end
 
                 unless p[:action] == Action::DEFINE_MATCH
+                    @search_entry.text = p[:word]
                     self.selected_strategy = p[:strategy]
                 end
 

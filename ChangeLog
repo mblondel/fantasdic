@@ -1,5 +1,10 @@
 2007-10-21 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/main_app.rb: Don't update the search entry when a match
+    is clicked in the match sidepane.
+
+2007-10-21 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/add_dictionary_dialog.rb: The source was not closed
     after using it.
 
