@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-13 23:16+0200\n"
-"PO-Revision-Date: 2007-10-13 23:17+0100\n"
+"POT-Creation-Date: 2007-10-22 20:57+0200\n"
+"PO-Revision-Date: 2007-10-22 20:59+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -235,6 +235,18 @@ msgstr "Träffar hittade: %d."
 msgid "Dictionary application (DICT client)."
 msgstr "Ordboksprogram (DICT-klient)."
 
+#: ../lib/fantasdic/source_base.rb:193
+msgid "Connecting to source..."
+msgstr "Ansluter till källa..."
+
+#: ../lib/fantasdic/source_base.rb:197
+msgid "Transferring data from source ..."
+msgstr "Överför data från källa ..."
+
+#: ../lib/fantasdic/source_base.rb:254
+msgid "Can't convert encodings."
+msgstr "Kan inte konvertera kodningar."
+
 #: ../lib/fantasdic/sources/dict_server.rb:23
 msgid "DICT dictionary server"
 msgstr "DICT-ordboksserver"
@@ -248,65 +260,107 @@ msgid "Server details"
 msgstr "Serverinformation"
 
 #: ../lib/fantasdic/sources/dict_server.rb:60
-#: ../lib/fantasdic/sources/dict_server.rb:271
-#: ../lib/fantasdic/sources/dict_server.rb:285
-#: ../lib/fantasdic/sources/dict_server.rb:305
+#: ../lib/fantasdic/sources/dict_server.rb:266
+#: ../lib/fantasdic/sources/dict_server.rb:276
+#: ../lib/fantasdic/sources/dict_server.rb:291
+#: ../lib/fantasdic/sources/dict_server.rb:302
 #, c-format
 msgid "Could not connect to %s"
 msgstr "Kunde inte ansluta till %s"
 
-#: ../lib/fantasdic/sources/dict_server.rb:79
-#: ../lib/fantasdic/sources/dict_server.rb:210
+#: ../lib/fantasdic/sources/dict_server.rb:76
+#: ../lib/fantasdic/sources/dict_server.rb:205
 msgid "Server missing."
 msgstr "Server saknas."
 
-#: ../lib/fantasdic/sources/dict_server.rb:80
-#: ../lib/fantasdic/sources/dict_server.rb:215
+#: ../lib/fantasdic/sources/dict_server.rb:77
+#: ../lib/fantasdic/sources/dict_server.rb:210
 msgid "Port missing."
 msgstr "Port saknas."
 
-#: ../lib/fantasdic/sources/dict_server.rb:83
+#: ../lib/fantasdic/sources/dict_server.rb:80
 msgid "Username missing."
 msgstr "Användarnamn saknas."
 
-#: ../lib/fantasdic/sources/dict_server.rb:85
+#: ../lib/fantasdic/sources/dict_server.rb:82
 msgid "Password missing."
 msgstr "Lösenord saknas."
 
-#: ../lib/fantasdic/sources/dict_server.rb:108
+#: ../lib/fantasdic/sources/dict_server.rb:103
 msgid "_Server:"
 msgstr "_Server:"
 
-#: ../lib/fantasdic/sources/dict_server.rb:120
+#: ../lib/fantasdic/sources/dict_server.rb:115
 msgid "_Port:"
 msgstr "_Port:"
 
-#: ../lib/fantasdic/sources/dict_server.rb:140
+#: ../lib/fantasdic/sources/dict_server.rb:135
 msgid "Server _requires authentication"
 msgstr "Servern _kräver autentisering"
 
-#: ../lib/fantasdic/sources/dict_server.rb:145
+#: ../lib/fantasdic/sources/dict_server.rb:140
 msgid "_Username:"
 msgstr "_Användarnamn:"
 
-#: ../lib/fantasdic/sources/dict_server.rb:149
+#: ../lib/fantasdic/sources/dict_server.rb:144
 msgid "Pass_word:"
 msgstr "Löse_nord:"
 
-#: ../lib/fantasdic/sources/dict_server.rb:314
-#: ../lib/fantasdic/sources/dict_server.rb:323
+#: ../lib/fantasdic/sources/dict_server.rb:311
+#: ../lib/fantasdic/sources/dict_server.rb:320
 msgid "Connection with server lost."
 msgstr "Anslutningen till servern förlorades."
 
-#: ../lib/fantasdic/sources/dict_server.rb:328
+#: ../lib/fantasdic/sources/dict_server.rb:325
 #, c-format
 msgid "Waiting for %s..."
 msgstr "Väntar på %s..."
 
-#: ../lib/fantasdic/sources/dict_server.rb:332
+#: ../lib/fantasdic/sources/dict_server.rb:329
 #, c-format
 msgid "Transferring data from %s..."
 msgstr "Överför data från %s..."
+
+#: ../lib/fantasdic/sources/edict_file.rb:25
+msgid "EDICT file"
+msgstr "EDICT-fil"
+
+#: ../lib/fantasdic/sources/edict_file.rb:26
+msgid "Look up words in an EDICT file."
+msgstr "Slå upp ord i en EDICT-fil."
+
+#: ../lib/fantasdic/sources/edict_file.rb:55
+msgid "A file must be selected!"
+msgstr "En fil måste väljas!"
+
+#: ../lib/fantasdic/sources/edict_file.rb:69
+msgid "Select an EDICT file)"
+msgstr "Välj en EDICT-fil)"
+
+#: ../lib/fantasdic/sources/edict_file.rb:74
+msgid "All files"
+msgstr "Alla filer"
+
+#: ../lib/fantasdic/sources/edict_file.rb:80
+msgid "Gzip-compressed files"
+msgstr "Gzip-komprimerade filer"
+
+#: ../lib/fantasdic/sources/edict_file.rb:88
+msgid "_File:"
+msgstr "_Fil:"
+
+#: ../lib/fantasdic/sources/edict_file.rb:90
+msgid "_Encoding:"
+msgstr "_Kodning:"
+
+#: ../lib/fantasdic/sources/edict_file.rb:148
+#, c-format
+msgid "Cannot open file %s."
+msgstr "Kan inte öppna filen %s."
+
+#: ../lib/fantasdic/sources/edict_file.rb:168
+msgid "This file is not a valid EDICT file!"
+msgstr "Den här filen är inte en giltig EDICT-fil!"
 
 #: ../lib/fantasdic/sources/google_translate.rb:26
 msgid "Google Translate"
@@ -321,20 +375,20 @@ msgstr "Översätt ord med Google Translate."
 msgid "About database %s"
 msgstr "Om databasen %s"
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:248
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:251
 msgid "Name missing."
 msgstr "Namn saknas."
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:251
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:254
 msgid "No database selected!"
 msgstr "Ingen databas vald!"
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:265
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:268
 #, c-format
 msgid "Dictionary %s exists already!"
 msgstr "Ordboken %s finns redan!"
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:361
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:366
 msgid "Fetching databases information..."
 msgstr "Hämtar databasinformation..."
 
@@ -346,7 +400,7 @@ msgstr "Kunde inte öppna webbläsaren."
 msgid "Could not find documentation."
 msgstr "Kunde inte hitta dokumentationen."
 
-#: ../lib/fantasdic/ui/main_app.rb:74
+#: ../lib/fantasdic/ui/main_app.rb:73
 msgid "No dictionary configured"
 msgstr "Ingen ordbok konfigurerad"
 
