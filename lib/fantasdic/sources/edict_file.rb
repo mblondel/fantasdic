@@ -66,7 +66,7 @@ class EdictFile < Base
 
         def initialize_ui
             @file_chooser_button = Gtk::FileChooserButton.new(
-                _("Select an EDICT file)"),
+                _("Select an EDICT file"),
                 Gtk::FileChooser::ACTION_OPEN)
 
             filter = Gtk::FileFilter.new

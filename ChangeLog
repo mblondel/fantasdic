@@ -1,3 +1,7 @@
+2007-10-22 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/sources/edict_file.rb: Fixed typo.
+
 2007-10-21 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/source_base.rb: Fixed cache support.
