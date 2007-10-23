@@ -1,0 +1,539 @@
+# Arabic translations for PACKAGE package.
+# Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-10-23 22:49+0100\n"
+"PO-Revision-Date: 2007-10-23 23:17+0100\n"
+"Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
+"Language-Team: Arabeyes <doc@arabeyes.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Arabic\n"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
+msgid "<b>Print</b>"
+msgstr "<b>اطبع</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:2
+msgid "<b>Results</b>"
+msgstr "<b>النتائج</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:3
+msgid "Add dictionary"
+msgstr "أضف قاموس"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:4
+msgid "Available databases"
+msgstr "قواعد البيانات المتوفرة"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
+msgid "Databases"
+msgstr "قواعد البيانات"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
+msgid "Fonts"
+msgstr "خطوط"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
+msgid "Move database to selected databases"
+msgstr "انقل قاعدة البيانات إلى قواعد البيانات المختارة"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
+msgid "Remove database from selected databases"
+msgstr "احذف قاعدة البيانات من قواعد البيانات المختارة"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
+msgid "Restore default fonts"
+msgstr "اس_ترجع الخطوط الافتراضية"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
+msgid "Search _all databases"
+msgstr "بحث في _كل قواعد البيانات"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
+msgid "Search selected _databases"
+msgstr "بحث _قواعد البيانات المنتقاة"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
+msgid "Select a font"
+msgstr "إنتقي خط"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:13
+msgid "Selected databases"
+msgstr "قواعد البيانات المنتقاة"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
+msgid "Sources"
+msgstr "المصادر"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
+msgid "This name will identify your dictionary uniquely and will appear in the application menu."
+msgstr "سيتم تعريف قاموسك بهذا الإسم و سيظهر في قائمة التطبيقات."
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
+msgid "_Name:"
+msgstr "الإ_سم:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
+msgid "_Source:"
+msgstr "ال_مصدر:"
+
+#: ../data/fantasdic/glade/main_app.glade.h:1
+msgid "<i>Not found</i>"
+msgstr "<i>غير موجود</i>"
+
+#: ../data/fantasdic/glade/main_app.glade.h:2
+msgid "Fantasdic"
+msgstr "فانتاسديك"
+
+#: ../data/fantasdic/glade/main_app.glade.h:3
+msgid "Find: "
+msgstr "ايجاد:"
+
+#: ../data/fantasdic/glade/main_app.glade.h:4
+#: ../lib/fantasdic/ui/main_app.rb:268
+msgid "Matches"
+msgstr "مطابقات"
+
+#: ../data/fantasdic/glade/main_app.glade.h:5
+msgid "_Next"
+msgstr "ال_تالي"
+
+#: ../data/fantasdic/glade/main_app.glade.h:6
+msgid "_Previous"
+msgstr "_السابق"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:1
+msgid "<b>SOCKS 5 Proxy</b>"
+msgstr "<b>خادم وكيل SOCKS</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:2
+msgid "<b>Startup</b>"
+msgstr "<b>بدأ التشغيل</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:3
+msgid "<b>System tray</b>"
+msgstr "<b>مساحة التبليغ</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:4
+msgid "Dictionaries"
+msgstr "قواميس"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:5
+msgid "Do _not quit when main window is closed"
+msgstr "لا تخرج عندما تكون النافذة الرئيسية مغلقة"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:6
+msgid "Do not show main window at startup"
+msgstr "لا تظهر النافذة الرئيسية عند البدأ"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:7
+msgid "Enable proxy"
+msgstr "تمكين خادم وكيل"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
+msgid "Fantasdic will stay in the system tray even if the window is closed."
+msgstr "سيبقى فانتاسديك في مساحة التبليغ حتى عند غلق النافذة."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
+msgid "Host:"
+msgstr "المضيف:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
+msgid "Password:"
+msgstr "كلمة المرور:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
+msgid "Port:"
+msgstr "الميناء:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
+msgid "Preferences"
+msgstr "تفضيلات"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
+msgid "Proxy"
+msgstr "خادم وكيل"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
+msgid "Startup"
+msgstr "بدء تشغيل"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
+msgid "This option should be enabled if Fantasdic is started when the computer boots."
+msgstr "من المستحسن تفعيل هذا الإعداد إذا يتم تشغيل فانتاسديك عند تشغيل الحاسوب."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
+msgid "This proxy can for example be used to traverse firewalls."
+msgstr "يمكن استعمال خادم وكيل للنفاذ عبر حائط ناري."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
+msgid "Username:"
+msgstr "اسم المستخدم:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
+msgid "_Look up last word at startup"
+msgstr "اب_حث عن الكلمة الأخيرة عند البدأ"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:19
+msgid "_Show Fantasdic in system tray"
+msgstr "اظهر فانتاسديك في مساحة التبليغ"
+
+#: ../data/fantasdic/glade/server_infos_dialog.glade.h:1
+msgid "Server informations"
+msgstr "معلومات النادل"
+
+#: ../lib/fantasdic/command_line.rb:34
+msgid "Usage: fantasdic [options] [dictionary] [word]"
+msgstr "الإستعمال: fantasdic [options] [dictionary] [word]"
+
+#: ../lib/fantasdic/command_line.rb:37
+msgid "Print results to stdout"
+msgstr "اطبع المعلومات إلى stdout"
+
+#: ../lib/fantasdic/command_line.rb:42
+msgid "List dictionaries in settings"
+msgstr "اعرض قائمة القواميس في الإعدادات"
+
+#: ../lib/fantasdic/command_line.rb:47
+msgid "List strategies available for dictionary"
+msgstr "اعرض الإستراتيجيات المتوفرة للقاموس"
+
+#: ../lib/fantasdic/command_line.rb:52
+msgid "Use strategy to match words"
+msgstr "استعمل استراتيجية للبحث عن كلمات"
+
+#: ../lib/fantasdic/command_line.rb:56
+msgid "Show this message"
+msgstr "أظهر هذه الرسالة"
+
+#: ../lib/fantasdic/command_line.rb:61
+msgid "Show version"
+msgstr "اعرض الإصدار"
+
+#: ../lib/fantasdic/command_line.rb:85
+msgid "Error: Dictionary does not exist in the settings"
+msgstr "خطأ: القاموس غير موجود في الإعدادات"
+
+#: ../lib/fantasdic/command_line.rb:102
+#: ../lib/fantasdic/command_line.rb:145
+#: ../lib/fantasdic/ui/main_app.rb:267
+msgid "No match found."
+msgstr "لم يعثر على مطابقات"
+
+#: ../lib/fantasdic/command_line.rb:104
+#, c-format
+msgid "Matches found: %d."
+msgstr "مطابقات: %d."
+
+#: ../lib/fantasdic.rb:81
+msgid "Dictionary application (DICT client)."
+msgstr "تطبيق قاموسي"
+
+#: ../lib/fantasdic/source_base.rb:193
+msgid "Connecting to source..."
+msgstr "الإتصال بالمصدر..."
+
+#: ../lib/fantasdic/source_base.rb:197
+msgid "Transferring data from source ..."
+msgstr "نقل البيانات من المصدر..."
+
+#: ../lib/fantasdic/source_base.rb:254
+msgid "Can't convert encodings."
+msgstr "لا يمكن تحويل الترميزات"
+
+#: ../lib/fantasdic/sources/dict_server.rb:23
+msgid "DICT dictionary server"
+msgstr "نادل قاموس"
+
+#: ../lib/fantasdic/sources/dict_server.rb:24
+msgid "Look up words using a DICT dictionary server."
+msgstr "ابحث عن كلمات في نادل قواميس."
+
+#: ../lib/fantasdic/sources/dict_server.rb:34
+msgid "Server details"
+msgstr "تفاصيل النادل"
+
+#: ../lib/fantasdic/sources/dict_server.rb:60
+#: ../lib/fantasdic/sources/dict_server.rb:266
+#: ../lib/fantasdic/sources/dict_server.rb:276
+#: ../lib/fantasdic/sources/dict_server.rb:291
+#: ../lib/fantasdic/sources/dict_server.rb:302
+#, c-format
+msgid "Could not connect to %s"
+msgstr "لم يمكن الاتّصال بـ %s"
+
+#: ../lib/fantasdic/sources/dict_server.rb:76
+#: ../lib/fantasdic/sources/dict_server.rb:205
+msgid "Server missing."
+msgstr "نادل غير موجود"
+
+#: ../lib/fantasdic/sources/dict_server.rb:77
+#: ../lib/fantasdic/sources/dict_server.rb:210
+msgid "Port missing."
+msgstr "ميناء غير موجود"
+
+#: ../lib/fantasdic/sources/dict_server.rb:80
+msgid "Username missing."
+msgstr "اسم المستخدم غير موجود"
+
+#: ../lib/fantasdic/sources/dict_server.rb:82
+msgid "Password missing."
+msgstr "كلمة السر غير موجودة"
+
+#: ../lib/fantasdic/sources/dict_server.rb:103
+msgid "_Server:"
+msgstr "ال_خادم:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:115
+msgid "_Port:"
+msgstr "ال_منفذ:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:135
+msgid "Server _requires authentication"
+msgstr "يتطلب ال_خادم التوثّق"
+
+#: ../lib/fantasdic/sources/dict_server.rb:140
+msgid "_Username:"
+msgstr "إ_سم المستخدم:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:144
+msgid "Pass_word:"
+msgstr "كلمة الم_رور:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:311
+#: ../lib/fantasdic/sources/dict_server.rb:320
+msgid "Connection with server lost."
+msgstr "فُقد الاتصال بالخادم"
+
+#: ../lib/fantasdic/sources/dict_server.rb:325
+#, c-format
+msgid "Waiting for %s..."
+msgstr "في إنتطار %s..."
+
+#: ../lib/fantasdic/sources/dict_server.rb:329
+#, c-format
+msgid "Transferring data from %s..."
+msgstr "نقل البيانات من %s..."
+
+#: ../lib/fantasdic/sources/edict_file.rb:25
+msgid "EDICT file"
+msgstr "ملف EDICT"
+
+#: ../lib/fantasdic/sources/edict_file.rb:26
+msgid "Look up words in an EDICT file."
+msgstr "ابحث عن كلمات في ملف EDICT."
+
+#: ../lib/fantasdic/sources/edict_file.rb:55
+msgid "A file must be selected!"
+msgstr "يجب اختيار ملف!"
+
+#: ../lib/fantasdic/sources/edict_file.rb:69
+msgid "Select an EDICT file"
+msgstr "انتق ملف EDICT"
+
+#: ../lib/fantasdic/sources/edict_file.rb:74
+msgid "All files"
+msgstr "كلّ الملفات"
+
+#: ../lib/fantasdic/sources/edict_file.rb:80
+msgid "Gzip-compressed files"
+msgstr "الملفات المضغوطة"
+
+#: ../lib/fantasdic/sources/edict_file.rb:88
+msgid "_File:"
+msgstr "_ملف:"
+
+#: ../lib/fantasdic/sources/edict_file.rb:90
+msgid "_Encoding:"
+msgstr "_ترميز:"
+
+#: ../lib/fantasdic/sources/edict_file.rb:148
+#, c-format
+msgid "Cannot open file %s."
+msgstr "لا يمكن فتح الملف %s."
+
+#: ../lib/fantasdic/sources/edict_file.rb:168
+msgid "This file is not a valid EDICT file!"
+msgstr "هذا الملف ليس ملف EDICT صحيح!"
+
+#: ../lib/fantasdic/sources/google_translate.rb:26
+msgid "Google Translate"
+msgstr "مترجم جوجل"
+
+#: ../lib/fantasdic/sources/google_translate.rb:27
+msgid "Translate words using Google Translate."
+msgstr "ترجم باستعمال مترجم جوجل"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:27
+#, c-format
+msgid "About database %s"
+msgstr "حول قاعدة البيانات %s"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:251
+msgid "Name missing."
+msgstr "اسم مفقود."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:254
+msgid "No database selected!"
+msgstr "لم يتم انتقاء أيّة قاعدة بيانات!"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:268
+#, c-format
+msgid "Dictionary %s exists already!"
+msgstr "القاموس %s موجود مسبقا!"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:366
+msgid "Fetching databases information..."
+msgstr "جاري جلب معلومات قاعدة البيانات..."
+
+#: ../lib/fantasdic/ui/browser.rb:24
+msgid "Could not open browser."
+msgstr "لم يمكن فتح المتصفح."
+
+#: ../lib/fantasdic/ui/browser.rb:29
+msgid "Could not find documentation."
+msgstr "لم يمكن ايجاد المساعدة."
+
+#: ../lib/fantasdic/ui/main_app.rb:73
+msgid "No dictionary configured"
+msgstr "لم تتمّ تهيئة أيّ قاموس"
+
+#: ../lib/fantasdic/ui/main_app.rb:100
+#, c-format
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "القاموس \"%s\" غير موجود."
+
+#: ../lib/fantasdic/ui/main_app.rb:110
+#, c-format
+msgid "Dictionary source \"%s\" does not exist anymore"
+msgstr "مصدر القاموس \"%s\" غير موجود."
+
+#: ../lib/fantasdic/ui/main_app.rb:197
+msgid "Source error"
+msgstr "خطأ في المصدر"
+
+#: ../lib/fantasdic/ui/main_app.rb:226
+msgid "No definition found."
+msgstr "لم يُعثر على أي تعريف"
+
+#: ../lib/fantasdic/ui/main_app.rb:230
+#, c-format
+msgid "Definitions found: %d."
+msgstr "التعريفات: %d."
+
+#: ../lib/fantasdic/ui/main_app.rb:262
+msgid "1 match"
+msgstr "مطابقة"
+
+#: ../lib/fantasdic/ui/main_app.rb:264
+#, c-format
+msgid "%d matches"
+msgstr "%d مطابقات"
+
+#: ../lib/fantasdic/ui/main_app.rb:529
+#, c-format
+msgid "Search %s"
+msgstr "ابحث %s"
+
+#: ../lib/fantasdic/ui/main_app.rb:554
+#: ../lib/fantasdic/ui/main_app.rb:848
+msgid "Select _All"
+msgstr "اخت_ر الكل"
+
+#: ../lib/fantasdic/ui/main_app.rb:678
+msgid "Save definition"
+msgstr "احفظ التعريف"
+
+#: ../lib/fantasdic/ui/main_app.rb:835
+msgid "_Look Up"
+msgstr "ا_بحث"
+
+#: ../lib/fantasdic/ui/main_app.rb:838
+msgid "Print Set_up"
+msgstr "إ_عداد الطبع..."
+
+#: ../lib/fantasdic/ui/main_app.rb:846
+msgid "_Edit"
+msgstr "_حرّر"
+
+#: ../lib/fantasdic/ui/main_app.rb:850
+msgid "Clear History"
+msgstr "امسح التاريخ"
+
+#: ../lib/fantasdic/ui/main_app.rb:853
+msgid "Find N_ext"
+msgstr "ايجاد وصلات:"
+
+#: ../lib/fantasdic/ui/main_app.rb:855
+msgid "Find Pre_vious"
+msgstr "إيجاد ال_سابق"
+
+#: ../lib/fantasdic/ui/main_app.rb:861
+msgid "_View"
+msgstr "إ_عرض"
+
+#: ../lib/fantasdic/ui/main_app.rb:862
+msgid "_Text size"
+msgstr "حجم النص"
+
+#: ../lib/fantasdic/ui/main_app.rb:867
+msgid "Zoom normal"
+msgstr "الحجم الطبيعي"
+
+#: ../lib/fantasdic/ui/main_app.rb:871
+msgid "_Go"
+msgstr "إ_ذهب"
+
+#: ../lib/fantasdic/ui/main_app.rb:880
+msgid "_Help"
+msgstr "م_ساعدة"
+
+#: ../lib/fantasdic/ui/main_app.rb:881
+msgid "_Contents"
+msgstr "_المحتويات"
+
+#: ../lib/fantasdic/ui/main_app.rb:882
+msgid "Submit _Bug Report"
+msgstr "أرسِل تقرير _خلل"
+
+#: ../lib/fantasdic/ui/main_app.rb:884
+msgid "About"
+msgstr "عن البرنامج"
+
+#: ../lib/fantasdic/ui/main_app.rb:923
+msgid "Scan clipboard"
+msgstr "افحص الحافظة"
+
+#: ../lib/fantasdic/ui/main_app.rb:925
+msgid "_Matches"
+msgstr "الم_طابقات"
+
+#: ../lib/fantasdic/ui/main_app.rb:927
+msgid "_Statusbar"
+msgstr "شريط ال_حالة"
+
+#: ../lib/fantasdic/ui/main_app.rb:929
+msgid "_Toolbar"
+msgstr "شريط الأ_دوات"
+
+#: ../lib/fantasdic/ui/print.rb:188
+#, c-format
+msgid "Definitions for %s"
+msgstr "تعريفات لـ %s"
+
+#: ../lib/fantasdic/ui/print.rb:189
+#, c-format
+msgid "Page %d/%d"
+msgstr "الصّفحة %d من %d"
+
+#: ../lib/fantasdic/ui/print.rb:200
+msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
+msgstr "طبعت من طرف فانتاسديك في %Y/%m/%d %H:%M"
+
