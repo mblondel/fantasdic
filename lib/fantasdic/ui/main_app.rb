@@ -227,8 +227,9 @@ module UI
                 self.status_bar_msg = msg
                 @buf.insert_header(msg)
             else
-                self.status_bar_msg = _("Definitions found: %d.") %
-                            definitions.length
+                self.status_bar_msg = \
+                    ngettext("One definition found.", "Definitions found: %d.",
+                             definitions.length) % definitions.length
             end
         end
 
@@ -258,11 +259,8 @@ module UI
 
                 self.status_bar_msg = ""
 
-                if nb_match == 1
-                    @matches_label.text = _("1 match")
-                elsif nb_match > 0
-                    @matches_label.text = _("%d matches") % nb_match
-                end
+                @matches_label.text = \
+                    ngettext("1 match", "%d matches", nb_match) % nb_match
             else
                 msg = _("No match found.")
                 @matches_label.text = _("Matches")

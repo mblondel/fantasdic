@@ -1,5 +1,11 @@
 2007-10-24 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/command_line.rb: Now uses gettext's function for plural
+    forms. Reported by Djihed Afifi (#489593).
+    * lib/fantasdic/ui/main_app.rb: Ditto.
+
+2007-10-24 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/preferences_dialog.rb:
     * lib/fantasdic/ui/main_app.rb:
     * data/fantasdic/glade/preferences_dialog.glade: HTTP proxy preferences.
