@@ -55,6 +55,21 @@ module UI
                 @proxy_settings_table.sensitive = \
                     @enable_proxy_checkbutton.active?
             end
+
+            @enable_http_proxy_checkbutton.signal_connect("toggled") do
+                @http_proxy_settings_table.sensitive = \
+                    @enable_http_proxy_checkbutton.active?
+            end
+
+            @proxy_combobox.signal_connect("changed") do
+                if @proxy_combobox.active == 0 # SOCKS
+                    @socks_proxy_vbox.visible = true
+                    @http_proxy_vbox.visible = false
+                elsif @proxy_combobox.active == 1 # HTTP
+                    @socks_proxy_vbox.visible = false
+                    @http_proxy_vbox.visible = true
+                end
+            end
         end
 
         def initialize_startup_signals
@@ -101,6 +116,12 @@ module UI
                 @prefs.proxy_port = @proxy_port_entry.text
                 @prefs.proxy_username = @proxy_username_entry.text
                 @prefs.proxy_password = @proxy_password_entry.text
+
+                @prefs.enable_http_proxy = \
+                    @enable_http_proxy_checkbutton.active?
+                @prefs.http_proxy_host = @http_proxy_host_entry.text
+                @prefs.http_proxy_port = @http_proxy_port_entry.text
+
 
                 @callback_proc.call
                 @preferences_dialog.hide
@@ -177,10 +198,24 @@ module UI
             @enable_proxy_checkbutton.active = @prefs.enable_proxy
             @proxy_settings_table.sensitive = @prefs.enable_proxy
 
+            @enable_http_proxy_checkbutton.active = @prefs.enable_http_proxy
+            @http_proxy_settings_table.sensitive = @prefs.enable_http_proxy
+
+            @http_proxy_vbox.visible = false
+
+            @proxy_combobox.model = Gtk::ListStore.new(String)           
+            [_("SOCKS 5 proxy"), _("HTTP proxy")].each do |str|
+                row = @proxy_combobox.model.append
+                row[0] = str
+            end
+            @proxy_combobox.active = 0
+
             [[@proxy_host_entry, @prefs.proxy_host],
              [@proxy_port_entry, @prefs.proxy_port],
              [@proxy_username_entry, @prefs.proxy_username],
-             [@proxy_password_entry, @prefs.proxy_password]
+             [@proxy_password_entry, @prefs.proxy_password],
+             [@http_proxy_host_entry, @prefs.http_proxy_host],
+             [@http_proxy_port_entry, @prefs.http_proxy_port]
             ].each do |entry,pref|
                 entry.text = pref if pref and !pref.strip.empty?
             end

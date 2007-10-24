@@ -367,6 +367,7 @@ module UI
         end
 
         def load_proxy_preferences
+            # SOCKS
             if @prefs.enable_proxy
                 if @prefs.proxy_host and @prefs.proxy_port
                     ENV['SOCKS_SERVER'] = "%s:%s" % [@prefs.proxy_host,
@@ -380,6 +381,13 @@ module UI
                 ['SOCKS_SERVER', 'SOCKS_USER', 'SOCKS_PASSWORD'].each do |k|
                     ENV.delete(k)
                 end
+            end
+            # HTTP
+            if @prefs.enable_http_proxy
+                ENV['http_proxy'] = "http://%s:%s" % [@prefs.http_proxy_host,
+                                                      @prefs.http_proxy_port]
+            else
+                ENV.delete('http_proxy')
             end
         end
 
