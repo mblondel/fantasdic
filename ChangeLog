@@ -1,3 +1,9 @@
+2007-10-24 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: First click on "cancel" now
+    kills the "search available databases" thread if it's still running. In
+    that case, a second click is needed to close the window.
+
 2007-10-22 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/sources/edict_file.rb: Fixed typo.

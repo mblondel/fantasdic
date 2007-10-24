@@ -87,7 +87,12 @@ module UI
         end
 
         def close!
-            @dialog.hide
+            if @thread and @thread.alive?
+                @thread.kill
+                self.status_bar_msg = ""
+            else
+                @dialog.hide
+            end
         end
 
         def sensitize_move_up
@@ -420,7 +425,7 @@ module UI
                 @general_infos_vbox.remove(@last_config_widget)
             end
 
-            on_db_chgd_blk = proc { Thread.new { update_db_list } }
+            on_db_chgd_blk = proc { @thread = Thread.new { update_db_list } }
 
             @src_class = Source::Base.get_source(src_str)
 
