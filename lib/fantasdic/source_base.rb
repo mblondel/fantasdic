@@ -202,7 +202,7 @@ module Source
 
         def cached_multiple_define(dbs, word)
             cache = Cache.new
-            cache.key = [dbs, word]
+            cache.key = [@hash.object_id, dbs, word]
 
             i = self.class.cache_queue.index(cache)
             if i.nil?
@@ -217,7 +217,7 @@ module Source
 
         def cached_multiple_match(dbs, strategy, word)
             cache = Cache.new
-            cache.key = [dbs, strategy, word]
+            cache.key = [@hash.object_id, dbs, strategy, word]
 
             i = self.class.cache_queue.index(cache)
             if i.nil?

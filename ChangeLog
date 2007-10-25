@@ -1,5 +1,9 @@
 2007-10-25 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/source_base.rb: Yet another problem with cache fixed.
+
+2007-10-25 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * data/fantasdic/config/default.yaml: Change window's size in initial
     config file. Add es.dict.org and nihongobenkyo.org to dictionaries.
 
