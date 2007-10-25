@@ -34,6 +34,46 @@ dictionaries_infos:
     - re
     - suffix
     :password: ""
+  Spanish:
+    :auth: false
+    :port: "2628"
+    :sel_strat: define
+    :all_dbs: true
+    :server: es.dict.org
+    :selected: 1
+    :sel_dbs: []
+    :login: ""
+    :avail_strats:
+    - prefix
+    - soundex
+    - regexp
+    - exact
+    - word
+    - substring
+    - lev
+    - re
+    - suffix
+    :password: ""
+  Japanese:
+    :auth: false
+    :port: "2628"
+    :sel_strat: define
+    :all_dbs: true
+    :server: nihongobenkyo.org
+    :selected: 1
+    :sel_dbs: []
+    :login: ""
+    :avail_strats:
+    - prefix
+    - soundex
+    - regexp
+    - exact
+    - word
+    - substring
+    - lev
+    - re
+    - suffix
+    :password: ""
   English <-> French:
     :auth: false
     :port: "2628"
@@ -58,8 +98,8 @@ dictionaries_infos:
     :password: ""
 view_toolbar: true
 window_size:
-- 655
-- 575
+- 550
+- 500
 last_search:
 view_statusbar: true
 view_history: true
@@ -69,3 +109,5 @@ dont_show_at_startup: false
 dictionaries:
 - English
 - English <-> French
+- Spanish
+- Japanese
