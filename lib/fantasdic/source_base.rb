@@ -21,7 +21,8 @@ module Config
     SOURCE_DIR = File.join(LIB_DIR, "fantasdic/sources")
     PERSONAL_SOURCE_DIR = File.join(CONFIG_DIR, "sources")
     unless File.exist? PERSONAL_SOURCE_DIR
-        Dir.mkdir PERSONAL_SOURCE_DIR
+        require "fileutils"
+        FileUtils.mkdir_p PERSONAL_SOURCE_DIR
     end
 end
 

@@ -1,5 +1,10 @@
 2007-10-25 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/source_base.rb: Now uses mkdir_p to make
+    ~/.fantasdic/sources/.
+
+2007-10-25 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/main_app.rb: Add shortcuts for "Print" and "Print
     Preview"...
 
