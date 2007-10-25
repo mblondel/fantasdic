@@ -843,9 +843,9 @@ module UI
                 ["Save", Gtk::Stock::SAVE, nil, nil, nil, on_save],
                 ["PrintSetup", Icon::PRINT_SETUP, _("Print Set_up"), nil, nil,
                  on_print_setup],
-                ["Print", Gtk::Stock::PRINT, nil, nil, nil, on_print],
-                ["PrintPreview", Gtk::Stock::PRINT_PREVIEW, nil, nil, nil,
-                 on_print_preview],
+                ["Print", Gtk::Stock::PRINT, nil, "<ctrl>P", nil, on_print],
+                ["PrintPreview", Gtk::Stock::PRINT_PREVIEW, nil,
+                 "<ctrl><shift>P", nil, on_print_preview],
                 ["Quit", Gtk::Stock::QUIT, nil, nil, nil, on_quit],
 
                 #Edit

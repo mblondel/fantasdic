@@ -1,3 +1,8 @@
+2007-10-25 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb: Add shortcuts for "Print" and "Print
+    Preview"...
+
 2007-10-24 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/command_line.rb: Now uses gettext's function for plural
