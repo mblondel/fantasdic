@@ -1,5 +1,10 @@
 2007-10-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/browser.rb: Invoke yelp directly if libgnome2-ruby is
+    not present but yelp is available.
+
+2007-10-27 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/main_app.rb: Now saves the "scan clipboard" option in
     the config file. Adds ctrl + shift + S as keyboard shortcut. Reported
     by Dmitry Rutsky (Debian bug #442336).

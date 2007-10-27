@@ -110,11 +110,34 @@ def self.open_html_help(para)
     could_not_find_documentation if not found
 end
 
+# Display help using yelp
+def self.open_yelp_help(para)
+    base_path = File.join(Fantasdic::Config::MAIN_DATA_DIR,
+                          "gnome", "help", "fantasdic")
+
+    found = false
+    GLib.language_names.each do |l|
+        path = File.join(base_path, l, "fantasdic.xml")
+        if File.exist? path
+            found = true
+            url = "ghelp://%s" % path
+            url += "?" + para if para
+            Thread.new { system("yelp #{url}") }
+            break
+        end
+    end
+    could_not_find_documentation if not found
+end
+
 def self.open_help(para=nil)
     if HAVE_GNOME2
         open_gnome_help(para)
     else
-        open_html_help(para)
+        if File.which("yelp")
+            open_yelp_help(para)
+        else
+            open_html_help(para)
+        end
     end
 end
 
