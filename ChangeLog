@@ -1,5 +1,13 @@
 2007-10-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/sources/edict_file.rb: Added a pure-ruby implementation. It
+    shares as much code as possible with the egrep implementation. FIXME: Find a
+    way to look up words in EUC-JP with reasonable performance in the pure
+    Ruby implementation... Search in EUC-JP-encoded files disabled for now in
+    this implementation.
+
+2007-10-27 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/source_base.rb: Added convert_utf8_to(dest_enc, str) helper
     method.
 

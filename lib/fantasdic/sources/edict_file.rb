@@ -42,6 +42,10 @@ class EdictFile < Base
     REGEXP = Regexp.new('^' + REGEXP_WORD + REGEXP_READING +
                          REGEXP_TRANSLATIONS)
 
+    HAVE_EGREP = (File.which("egrep") and File.which("iconv") and
+                  File.which("gunzip"))
+
+
     class ConfigWidget < Base::ConfigWidget
         def initialize(*arg)
             super(*arg)
@@ -84,6 +88,10 @@ class EdictFile < Base
             @encoding_combobox = Gtk::ComboBox.new(true)
             @encoding_combobox.append_text("UTF-8")
             @encoding_combobox.append_text("EUC-JP")
+
+            unless HAVE_EGREP
+                @encoding_combobox.sensitive = false
+            end
 
             file_label = Gtk::Label.new(_("_File:"), true)
             file_label.xalign = 0
@@ -143,6 +151,131 @@ class EdictFile < Base
     end # class ConfigWidget
 
     def check_validity
+        n_errors = 0
+        n_lines = 0
+        edict_file_open do |file|
+            file.each_line do |line|
+                if @hash[:encoding] and @hash[:encoding] != "UTF-8"
+                    line = convert_to_utf8(@hash[:encoding], line)
+                end
+                n_errors += 1 if REGEXP.match(line).nil?
+                n_lines += 1
+                break if n_lines >= 20
+            end
+        end
+        if (n_errors.to_f / n_lines) >= 0.2
+            raise Source::SourceError,
+                    _("This file is not a valid EDICT file!")
+        end
+    end
+
+    def available_strategies
+        STRATEGIES_DESC
+    end
+
+    def define(db, word)
+        wesc = escape_string(word)
+
+        if word.latin?
+            regexp = "\/#{wesc}\/"
+        elsif word.kana?
+            regexp = "^#{wesc} |\[#{wesc}\]"
+        elsif word.japanese?
+            regexp = /^#{wesc} /
+        else
+            regexp = "^#{wesc}|\[#{wesc}\]|\/#{wesc}\/"
+        end
+        
+        db = File.basename(@hash[:filename])
+        db_capitalize = db.capitalize
+
+        match_with_regexp(regexp).map do |line|
+            defi = Definition.new
+            defi.word = word
+            defi.body = line
+            defi.database = db
+            defi.description = db_capitalize
+            defi
+        end
+    end
+
+    def match(db, strat, word)
+        arr_lines = case strat
+            when "prefix", "suffix", "substring", "word"
+                send("match_#{strat}", db, word)
+            else
+                []
+        end
+
+        arr = arr_lines.map do |line|
+            found_word, found_reading, found_trans = get_fields(line)
+            if word.kana? or word.japanese?
+                found_word
+            else
+                found_trans
+            end
+        end
+
+        hsh = {}
+        db = File.basename(@hash[:filename])
+        hsh[db] = arr unless arr.empty?
+        hsh
+    end
+
+    private
+
+    def match_word(db, word)
+        arr = []
+        match_suffix(db, word).each do |line|
+            get_fields(line).each do |field|
+                field.split(" ").each do |w|
+                    if w ==  word
+                        arr << line
+                        break
+                    end
+                end if field
+            end
+        end
+        arr.uniq!
+        arr
+    end
+
+    def match_prefix(db, word)
+        wesc = escape_string(word)
+        if word.latin?
+            regexp = "\/#{wesc}[^\/]*\/"
+        elsif word.kana?
+            regexp = "^#{wesc}|\[#{wesc}[^\]]*\]"
+        elsif word.japanese?
+            regexp = "^#{wesc}"
+        else
+            regexp = "^#{wesc}|\[#{wesc}[^\]]*\]|\/#{wesc}[^\/]*\/"
+        end
+
+        match_with_regexp(regexp)
+    end
+
+    def match_suffix(db, word)
+        wesc = escape_string(word)
+        if word.latin?
+            regexp = "\/[^\/]*#{wesc}\/"
+        elsif word.kana?
+            regexp = "^[^\[]*#{wesc} |\[[^\]]*#{wesc}\]"
+        elsif word.japanese?
+            regexp = "^[^\[]*#{wesc} "
+        else
+            regexp = "^[^\[]*#{wesc} |\[[^\]]*#{wesc}\]|\/[^\/]*#{wesc}\/"
+        end
+
+        match_with_regexp(regexp)
+    end
+
+    def match_substring(db, word)
+        wesc = escape_string(word)
+        match_with_regexp(wesc)
+    end
+
+    def edict_file_open
         if !File.readable? @hash[:filename]
             raise Source::SourceError,
                     _("Cannot open file %s.") % @hash[:filename]
@@ -153,33 +286,24 @@ class EdictFile < Base
             file = File.new(@hash[:filename])
         end
 
-        n_errors = 0
-        n_lines = 0
-        file.each_line do |line|
-            if @hash[:encoding] and @hash[:encoding] != "UTF-8"
-                line = convert_to_utf8(@hash[:encoding], line)
-            end
-            n_errors += 1 if REGEXP.match(line).nil?
-            n_lines += 1
-            break if n_lines >= 20
+        if block_given?
+            ret = yield(file)
+
+            file.close
+
+            ret
+        else
+            file
         end
-        if (n_errors.to_f / n_lines) >= 0.2
-            raise Source::SourceError,
-                    _("This file is not a valid EDICT file!")
-        end
-
-        file.close
     end
-
-    def available_strategies
-        STRATEGIES_DESC
-    end
-
-    private
 
     def get_fields(line)
         m = REGEXP.match(line)
-        [m[1], m[3], m[4]]
+        if m
+            [m[1], m[3], m[4]]
+        else
+            nil
+        end
     end
 
     def escape_string(str)
@@ -188,88 +312,13 @@ class EdictFile < Base
 
 end # class EdictFile
 
-if File.which("egrep") and File.which("iconv") and File.which("gunzip")
-    # Implementation if egrep, iconv and gunzip can be found on the system
-    # This is super fast!
+if EdictFile::HAVE_EGREP
+    # Using egrep. This is significantly faster!
     class EdictFile
-        def define(db, word)
-            wesc = escape_string(word)
-            regexp = '^' + wesc + ' |\[' + wesc + '\]|/' + wesc + '/'
-            defis = []
-            db = File.basename(@hash[:filename])
-            db_capitalize = db.capitalize
-            find_with_regexp(word, regexp).each do |line|
-                defi = Definition.new
-                defi.word = word
-                defi.body = line
-                defi.database = db
-                defi.description = db_capitalize
-                defis << defi
-            end
-            defis
-        end
-
-        def match(db, strat, word)
-            arr_lines = case strat
-                when "prefix", "suffix", "substring", "word"
-                    send("match_#{strat}", db, word)
-                else
-                    []
-            end
-
-            arr = arr_lines.map do |line|
-                found_word, found_reading, found_trans = get_fields(line)
-                if word.kana? or word.japanese?
-                    found_word
-                else
-                    found_trans
-                end
-            end
-
-            hsh = {}
-            db = File.basename(@hash[:filename])            
-            hsh[db] = arr unless arr.empty?
-            hsh
-        end
 
         private
 
-        def match_prefix(db, word)
-            wesc = escape_string(word)
-            regexp = '^' + wesc + '[^\[]* |\[' + wesc + \
-                     '[^\]]*\]|/' + wesc + '[^\/]*/'
-            find_with_regexp(word, regexp)
-        end
-
-        def match_suffix(db, word)
-            wesc = escape_string(word)
-            regexp = '^[^\[]*' + wesc + ' |\[[^\]]*' + wesc + \
-            '\]|/[^\/]*' + wesc + '/'
-            find_with_regexp(word, regexp)
-        end
-
-        def match_substring(db, word)
-            wesc = escape_string(word)
-            find_with_regexp(word, wesc)
-        end
-
-        def match_word(db, word)
-            arr = []
-            match_substring(db, word).each do |line|   
-                get_fields(line).each do |field|
-                    field.split(" ").each do |w|
-                        if w ==  word
-                            arr << line
-                            break
-                        end
-                    end if field
-                end
-            end
-            arr.uniq!
-            arr
-        end
-
-        def find_with_regexp(word, regexp)
+        def match_with_regexp(regexp)
             cmd = get_command(regexp)            
             IO.popen(cmd).readlines
         end
@@ -283,15 +332,36 @@ if File.which("egrep") and File.which("iconv") and File.which("gunzip")
 
             if @hash[:encoding] and @hash[:encoding] != "UTF-8"
                 cmd += " | iconv -f #{@hash[:encoding]} -t UTF-8"
-            end            
+            end  
             cmd
         end
 
-    end # class EdictFile
+    end
 
-end # if File.which("egrep") and File.which("iconv") and File.which("gunzip")
+else
+    # Pure Ruby
+    class EdictFile
+        def initialize(*args)
+            super(*args)
+            if @hash and @hash[:encoding] != "UTF-8"
+                # FIXME: Find a way to look up words in EUC-JP with reasonable
+                # performance...
+                raise Source::SourceError,
+                      _("Encoding not supported.")
+            end
+        end
+
+        private
+
+        def match_with_regexp(regexp)
+            edict_file_open do |file|
+                file.grep(Regexp.new(regexp))
+            end
+        end
+
+    end
+
+end # if EdictFile::HAVE_EGREP
 
 end
 end
-
-
