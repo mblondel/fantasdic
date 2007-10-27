@@ -315,6 +315,10 @@ end # class EdictFile
 if EdictFile::HAVE_EGREP
     # Using egrep. This is significantly faster!
     class EdictFile
+        def initialize(*args)
+            super(*args)
+            edict_file_open.close # Tries to open file to ensure it exists
+        end
 
         private
 

@@ -1,5 +1,10 @@
 2007-10-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/sources/edict_file.rb: Tries to open the file to ensure it
+    exists (egrep implementation).
+
+2007-10-27 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/sources/edict_file.rb: Added a pure-ruby implementation. It
     shares as much code as possible with the egrep implementation. FIXME: Find a
     way to look up words in EUC-JP with reasonable performance in the pure
