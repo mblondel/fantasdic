@@ -70,7 +70,7 @@ module Fantasdic
     TEXTDOMAIN = 'fantasdic'
     extend GetText
     bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
-    DESCRIPTION = _("Dictionary application (DICT client).")
+    DESCRIPTION = _("Look up words in various dictionary sources")
 
     def self.main
         options = CommandLineOptions.instance

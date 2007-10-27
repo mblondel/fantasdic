@@ -1,5 +1,12 @@
 2007-10-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * README: Update projects metadata, since Fantasdic now supports multiple
+    dictionary sources.
+    * fantasdic.desktop: Ditto.
+    * lib/fantasdic.rb: Ditto.
+
+2007-10-27 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic.rb: Don't rescue "require 'gettext'" here anymore.
     * lib/fantasdic/gettext.rb: Rescue it here. And add ngettext method for the
     replacement module.

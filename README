@@ -1,19 +1,21 @@
 Fantasdic
 =========
 
-    Fantasdic is a dictionary application (client for the DICT protocol,
-    RFC 2229).
+    Fantasdic is a dictionary application.
 
     Fantasdic:
 
       * Works under Windows, Linux and other Unix operating systems.
-      * Can use multiple servers at the same time and filter databases.
+      * Can look up words in various dictionary sources:
+        -> DICT servers,
+        -> Google Translate,
+        -> EDICT files.
       * Can look up words in the clipboard.
       * Keeps an history of searched words.
       * Supports printing.
-      * Supports SOCKS 5 proxies.
+      * Supports SOCKS 5 and HTTP proxies.
       * Can stay in the system tray.
-      * Is available in several languages.
+      * Is translated in several languages.
 
 
 Requirements

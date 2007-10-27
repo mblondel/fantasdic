@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=Fantasdic dictionary
 GenericName=Dictionary application
-Comment=DICT client
+Comment=Look up words in various dictionary sources
 Exec=/usr/bin/fantasdic
 Terminal=false
 Type=Application
