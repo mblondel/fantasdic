@@ -1,5 +1,10 @@
 2007-10-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/source_base.rb: Added convert_utf8_to(dest_enc, str) helper
+    method.
+
+2007-10-27 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * README: Update projects metadata, since Fantasdic now supports multiple
     dictionary sources.
     * fantasdic.desktop: Ditto.

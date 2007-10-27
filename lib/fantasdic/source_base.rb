@@ -256,6 +256,14 @@ module Source
             end
         end
 
+        def convert_utf8_to(dest_enc, str)
+            begin 
+                Iconv.new(dest_enc, "utf-8").iconv(str)
+            rescue Iconv::IllegalSequence
+                raise Source::SourceError, _("Can't convert encodings.")
+            end
+        end
+
         # Load found source plugins (system-wide and user-wide)
         [Config::SOURCE_DIR, Config::PERSONAL_SOURCE_DIR].each do |dir|
             Dir["#{dir}/*.rb"].each { |f| load f }
