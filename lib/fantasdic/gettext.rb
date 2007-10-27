@@ -15,15 +15,27 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-# Used to make Ruby/Gettext optional
-
-module GetText
-    module_function
-
-    def _(str)
-        str
+begin
+    require 'gettext'
+rescue LoadError
+    if Fantasdic::HAVE_CONSOLE
+        $stderr.puts 'WARNING : Ruby/Gettext was not found.'
+        $stderr.puts 'The interface will therefore remain in English.'
     end
 
-    def bindtextdomain(domainname, path = nil, locale = nil, charset = nil)
+    module GetText
+        module_function
+
+        def _(str)
+            str
+        end
+
+        def ngettext(str1, str2, n=nil)
+            str2
+        end
+
+        def bindtextdomain(domainname, path = nil, locale = nil, charset = nil)
+        end
     end
+
 end

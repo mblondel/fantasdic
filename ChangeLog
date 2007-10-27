@@ -1,5 +1,11 @@
 2007-10-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic.rb: Don't rescue "require 'gettext'" here anymore.
+    * lib/fantasdic/gettext.rb: Rescue it here. And add ngettext method for the
+    replacement module.
+
+2007-10-27 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/browser.rb: Invoke yelp directly if libgnome2-ruby is
     not present but yelp is available.
 

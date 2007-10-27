@@ -63,15 +63,7 @@ module Fantasdic
     end 
 end
 
-begin
-    require 'gettext'
-rescue LoadError
-    require 'fantasdic/gettext'
-    if Fantasdic::HAVE_CONSOLE
-        $stderr.puts 'WARNING : Ruby/Gettext was not found.'
-        $stderr.puts 'The interface will therefore remain in English.'
-    end
-end
+require 'fantasdic/gettext'
 
 module Fantasdic
     TITLE = 'Fantasdic'
