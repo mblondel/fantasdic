@@ -389,11 +389,16 @@ module UI
             end
         end
 
+        def load_misc_preferences
+            @global_actions["ScanClipboard"].active = @prefs.scan_clipboard
+        end
+
         def load_preferences            
             load_window_preferences
             load_print_preferences if HAVE_PRINT
             load_dictionary_preferences
             load_proxy_preferences
+            load_misc_preferences
             load_last_searches
         end
 
@@ -429,11 +434,16 @@ module UI
             @prefs.selected_dictionary = selected_dictionary
         end
 
+        def save_misc_preferences
+            @prefs.scan_clipboard = @global_actions["ScanClipboard"].active?
+        end
+
         def save_preferences
             save_window_preferences
             save_last_searches
             save_dictionary_preferences
             save_print_preferences if HAVE_PRINT
+            save_misc_preferences
             @prefs.save!
         end
 
@@ -926,8 +936,8 @@ module UI
 
             # [[name, stock_id, label, accel, tooltip, proc, is_active],... ]
             toggle_actions = [
-                ["ScanClipboard", nil, _("Scan clipboard"), nil, nil,
-                 on_toggle_scan_clipboard, false],
+                ["ScanClipboard", nil, _("Scan clipboard"), "<ctrl><shift>S",
+                 nil, on_toggle_scan_clipboard, false],
                 ["MatchesSidepane", nil, _("_Matches"), "F9", nil,
                  on_toggle_matches_sidepane, false],
                 ["Statusbar", nil, _("_Statusbar"), nil, nil,
