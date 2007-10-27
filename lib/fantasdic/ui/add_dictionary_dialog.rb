@@ -362,13 +362,15 @@ module UI
         end
 
         def update_db_list
-            @general_infos_vbox.sensitive = false
-            @databases_vbox.sensitive = false
+            Gtk.thread_protect do
+                @general_infos_vbox.sensitive = false
+                @databases_vbox.sensitive = false
 
-            @avail_db_treeview.model.clear
-            @sel_db_treeview.model.clear
+                @avail_db_treeview.model.clear
+                @sel_db_treeview.model.clear
 
-            self.status_bar_msg = _("Fetching databases information...")
+                self.status_bar_msg = _("Fetching databases information...")
+            end
 
             begin
                 source = get_source
@@ -377,42 +379,50 @@ module UI
                 source.close
                 sel_db_desc = {}
 
-                # Add available databases
-                dbs.keys.sort.each do |name|
-                    row = @avail_db_treeview.model.append
+                Gtk.thread_protect do
+                    # Add available databases
+                    dbs.keys.sort.each do |name|
+                        row = @avail_db_treeview.model.append
 
-                    row[NAME] = name
-                    row[DESC] = dbs[name]
+                        row[NAME] = name
+                        row[DESC] = dbs[name]
 
-                    if !@hash.nil? and !@hash[:sel_dbs].nil? and \
-                        @hash[:sel_dbs].include? name
-                        sel_db_desc[name] = row[DESC]
-                    end
-                end
-
-                # Add selected databases
-                if !@hash.nil? and !@hash[:sel_dbs].nil?
-                    @hash[:sel_dbs].each do |name|
-                        unless sel_db_desc[name].nil?
-                            row = @sel_db_treeview.model.append
-        
-                            row[NAME] = name
-                            row[DESC] = sel_db_desc[name]
+                        if !@hash.nil? and !@hash[:sel_dbs].nil? and \
+                            @hash[:sel_dbs].include? name
+                            sel_db_desc[name] = row[DESC]
                         end
                     end
-                    @sel_db_radiobutton.activate unless @hash[:sel_dbs].empty?
-                else
-                    @all_db_radiobutton.activate
+
+                    # Add selected databases
+                    if !@hash.nil? and !@hash[:sel_dbs].nil?
+                        @hash[:sel_dbs].each do |name|
+                            unless sel_db_desc[name].nil?
+                                row = @sel_db_treeview.model.append
+            
+                                row[NAME] = name
+                                row[DESC] = sel_db_desc[name]
+                            end
+                        end
+                        unless @hash[:sel_dbs].empty?
+                            @sel_db_radiobutton.activate
+                        end
+                    else
+                        @all_db_radiobutton.activate
+                    end
+                    self.status_bar_msg = ""
+                    @add_button.sensitive = true
                 end
-                self.status_bar_msg = ""
-                @add_button.sensitive = true
             rescue Source::SourceError => e
-                @add_button.sensitive = false
-                self.status_bar_msg = e.to_s
-            ensure                
-                @general_infos_vbox.sensitive = true
-                @databases_vbox.sensitive = true
-                sensitize_databases
+                Gtk.thread_protect do
+                    @add_button.sensitive = false
+                    self.status_bar_msg = e.to_s
+                end
+            ensure
+                Gtk.thread_protect do
+                    @general_infos_vbox.sensitive = true
+                    @databases_vbox.sensitive = true
+                    sensitize_databases
+                end
             end
         end
 

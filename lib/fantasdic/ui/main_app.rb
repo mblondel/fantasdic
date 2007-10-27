@@ -63,32 +63,38 @@ module UI
                 # Kill previous thread if still alive
                 if previous_thread and previous_thread.alive?
                     kill_lookup_thread(previous_thread)
-                    # wait for the thread to actually terminate
-                    previous_thread.join
                 end
                 
-                @buf.clear          
+                Gtk.thread_protect { @buf.clear }
     
                 if @dictionary_cb.model.nb_rows == 0
-                    msg = _("No dictionary configured")
-                    self.status_bar_msg = msg
-                    @buf.insert_header(msg + "\n")
+                    Gtk.thread_protect do
+                        msg = _("No dictionary configured")
+                        self.status_bar_msg = msg
+                        @buf.insert_header(msg + "\n")
+                    end
                     Thread.current.kill
+                    Gtk.thread_flush
                 end
                     
                 if p[:dictionary]
-                    self.selected_dictionary = p[:dictionary]
+                    Gtk.thread_protect do
+                        self.selected_dictionary = p[:dictionary]
+                    end
                 else 
                     p[:dictionary] = selected_dictionary
                 end
 
                 unless p[:action] == Action::DEFINE_MATCH
-                    @search_entry.text = p[:word]
-                    self.selected_strategy = p[:strategy]
+                    Gtk.thread_protect do
+                        @search_entry.text = p[:word]
+                        self.selected_strategy = p[:strategy]
+                    end
                 end
 
                 hash = @prefs.dictionaries_infos[p[:dictionary]]
-                @global_actions["Stop"].visible = true                
+                
+                Gtk.thread_protect { @global_actions["Stop"].visible = true }
 
                 # Get connection
                 begin
@@ -120,57 +126,66 @@ module UI
                     source_error(e)
                 end
 
-                set_font_name(hash[:results_font_name])
+                Gtk.thread_protect { set_font_name(hash[:results_font_name]) }
 
                 if p[:strategy] and 
                    p[:strategy] != source_class.default_strategy
                     # Search with match strategy.
-                    @matches_listview.model.clear
+
+                    Gtk.thread_protect { @matches_listview.model.clear }
 
                     begin
                         matches = match(source, p)
-                        insert_matches(matches)
+                        Gtk.thread_protect do
+                            insert_matches(matches) 
 
-                        if matches.length > 0
-                            @matches_listview.select_first
-                            @global_actions["MatchesSidepane"].active = true
-                        else
-                            @global_actions["MatchesSidepane"].active = false
+                            if matches.length > 0
+                                @matches_listview.select_first
+                                @global_actions["MatchesSidepane"].active = true
+                            else                            
+                                @global_actions["MatchesSidepane"].active = \
+                                    false
+                            end
+
+                            @search_cb_entry.update(p)
                         end
-
-                        @search_cb_entry.update(p)
                     rescue Source::SourceError => e
                         source_error(e)
                     end
 
-                    disable_print
-
-                    clear_pages_seen
+                    Gtk.thread_protect do
+                        disable_print
+                        clear_pages_seen
+                    end
                 else
                     # Define
                     begin
                         definitions = define(source, p)
-                        insert_definitions(definitions)
+                        Gtk.thread_protect do
+                            insert_definitions(definitions)
 
-                        unless p[:action] == Action::DEFINE_MATCH
-                            @search_cb_entry.update(p)
-                            @global_actions["MatchesSidepane"].active = false
-                        else
-                            @global_actions["MatchesSidepane"].active = true
-                            @matches_listview.select_match(p[:word])
+                            unless p[:action] == Action::DEFINE_MATCH
+                                @search_cb_entry.update(p)
+                                @global_actions["MatchesSidepane"].active = \
+                                    false
+                            else                            
+                                @global_actions["MatchesSidepane"].active = true
+                                @matches_listview.select_match(p[:word])
+                            end
+
+
+                            @result_text_view.grab_focus
+
+                            if definitions.empty?
+                                disable_print
+                                disable_save
+                            else
+                                enable_print
+                                enable_save
+                            end
+
+                            update_pages_seen(p)
                         end
-
-                        @result_text_view.grab_focus
-
-                        if definitions.empty?
-                            disable_print
-                            disable_save
-                        else
-                            enable_print
-                            enable_save
-                        end
-
-                        update_pages_seen(p)
                     rescue Source::SourceError => e
                         source_error(e)
                     end
@@ -178,7 +193,7 @@ module UI
 
                 source.close
 
-                @global_actions["Stop"].visible = false
+                Gtk.thread_protect { @global_actions["Stop"].visible = false }
 
             end # Thread
         end
@@ -188,23 +203,31 @@ module UI
         def kill_lookup_thread(thread=nil)
             thread = @lookup_thread if thread.nil?
             thread.kill if thread and thread.alive?
-            @global_actions["Stop"].visible = false
-            @buf.clear
-            self.status_bar_msg = ""
+            Gtk.thread_protect do
+                @global_actions["Stop"].visible = false
+                @buf.clear
+                self.status_bar_msg = ""
+            end
+            Gtk.thread_flush
         end
 
         def source_error(e)
-            @buf.insert_header(_("Source error") + "\n")
-            @buf.insert_text(e.to_s)
-            self.status_bar_msg = e.to_s
-            @global_actions["Stop"].visible = false
+            Gtk.thread_protect do
+                @buf.insert_header(_("Source error") + "\n")
+                @buf.insert_text(e.to_s)
+                self.status_bar_msg = e.to_s
+                @global_actions["Stop"].visible = false
+            end
             Thread.current.kill
+            Gtk.thread_flush
         end
 
         def define(source, p)
             hash = @prefs.dictionaries_infos[p[:dictionary]]
 
-            self.status_bar_msg = source.transferring_data_str
+            Gtk.thread_protect do
+                self.status_bar_msg = source.transferring_data_str
+            end
 
             if !p[:database].nil?
                 source.cached_multiple_define([p[:database]], p[:word])
@@ -236,7 +259,9 @@ module UI
         def match(source, p)  
             hash = @prefs.dictionaries_infos[p[:dictionary]]
 
-            self.status_bar_msg = source.transferring_data_str 
+            Gtk.thread_protect do
+                self.status_bar_msg = source.transferring_data_str
+            end
 
             if hash[:all_dbs] == true
                 source.cached_multiple_match([Source::Base::ALL_DATABASES],
@@ -641,6 +666,8 @@ module UI
         # Initialize
 
         def initialize_ui
+            Gtk.init_thread_protect
+
             # Tray icon
             if HAVE_STATUS_ICON
                 @main_app.destroy_with_parent = false                
@@ -741,6 +768,7 @@ module UI
             on_quit = Proc.new do
                 @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
                 @scan_thread.kill if @scan_thread and @scan_thread.alive?
+                Gtk.thread_flush
                 save_preferences
                 #DICTClient.close_all_connections
                 Gtk.main_quit
@@ -918,6 +946,7 @@ module UI
                     scan_clipboard
                 else
                     @scan_thread.kill
+                    Gtk.thread_flush
                 end
             end
 
