@@ -89,6 +89,7 @@ module UI
         def close!
             if @thread and @thread.alive?
                 @thread.kill
+                Gtk.thread_flush
                 self.status_bar_msg = ""
             else
                 @dialog.hide
