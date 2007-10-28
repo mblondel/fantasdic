@@ -1,3 +1,7 @@
+2007-10-28 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/sources/edict_file.rb: Fixed typo.
+
 2007-10-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/utils.rb: Code to do GUI stuff inside Ruby threads

@@ -181,7 +181,7 @@ class EdictFile < Base
         elsif word.kana?
             regexp = "^#{wesc} |\[#{wesc}\]"
         elsif word.japanese?
-            regexp = /^#{wesc} /
+            regexp = "^#{wesc} "
         else
             regexp = "^#{wesc}|\[#{wesc}\]|\/#{wesc}\/"
         end
