@@ -43,7 +43,7 @@ class EdictFile < Base
                          REGEXP_TRANSLATIONS)
 
     HAVE_EGREP = (File.which("egrep") and File.which("iconv") and
-                  File.which("gunzip"))
+                  File.which("gunzip") and File.which("cat"))
 
 
     class ConfigWidget < Base::ConfigWidget
@@ -328,16 +328,21 @@ if EdictFile::HAVE_EGREP
         end
 
         def get_command(regexp)
+            cmd = []
+
+            cmd << "cat #{@hash[:filename]}"
+
             if @hash[:filename] =~ /.gz$/
-                cmd = "gunzip -c #{@hash[:filename]} | egrep '#{regexp}'"
-            else
-                cmd = "egrep \"#{regexp}\" #{@hash[:filename]}"
+                cmd << "gunzip -c"
             end
 
             if @hash[:encoding] and @hash[:encoding] != "UTF-8"
-                cmd += " | iconv -f #{@hash[:encoding]} -t UTF-8"
-            end  
-            cmd
+                cmd << "iconv -f #{@hash[:encoding]} -t UTF-8"
+            end
+
+            cmd << "egrep \"#{regexp}\""
+            
+            cmd.join(" | ")
         end
 
     end
