@@ -1,0 +1,587 @@
+# Finnish messages for fantasdic 
+# Copyright (C) 2006 Ilkka Tuohela
+# This file is distributed under the same license as the fantasdic package.
+# Ilkka Tuohela <hile@iki.fi> 2006-2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fantasdic\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-10-30 11:17+0300\n"
+"PO-Revision-Date: 2007-06-13 17:48+0300\n"
+"Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
+"Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
+msgid "<b>Print</b>"
+msgstr "<b>Tulosta</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:2
+msgid "<b>Results</b>"
+msgstr "<b>Tulokset</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:3
+msgid "Add dictionary"
+msgstr "Lisää sanakirja"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:4
+msgid "Available databases"
+msgstr "Saatavilla olevat tietokannat"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
+msgid "Databases"
+msgstr "Tietokannat"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
+msgid "Fonts"
+msgstr "Kirjasimet"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
+msgid "Move database to selected databases"
+msgstr "Siirrä tietokanta valittuihin tietokantoihin"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
+msgid "Remove database from selected databases"
+msgstr "Poista tietokanta valituista tietokannoista"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
+msgid "Restore default fonts"
+msgstr "Palauta oletuskirjasimet"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
+msgid "Search _all databases"
+msgstr "Etsi k_aikista tietokannoista"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
+msgid "Search selected _databases"
+msgstr "Etsi _valituista tietokannoista"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
+msgid "Select a font"
+msgstr "Valitse kirjasin"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:13
+msgid "Selected databases"
+msgstr "Valitut tietokannat"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
+msgid "Sources"
+msgstr "Lähteet"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
+msgid ""
+"This name will identify your dictionary uniquely and will appear in the "
+"application menu."
+msgstr ""
+"Tätä nimeä käytetään yksilöimään sanakirjasi, ja se näytetään myös "
+"sovellusvalikossa."
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
+msgid "_Name:"
+msgstr "_Nimi:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
+msgid "_Source:"
+msgstr "_Lähde:"
+
+#: ../data/fantasdic/glade/main_app.glade.h:1
+msgid "<i>Not found</i>"
+msgstr "<i>Ei löytynyt</i>"
+
+#: ../data/fantasdic/glade/main_app.glade.h:2
+msgid "Fantasdic"
+msgstr "Fantasdic"
+
+#: ../data/fantasdic/glade/main_app.glade.h:3
+msgid "Find: "
+msgstr "Etsi: "
+
+#: ../data/fantasdic/glade/main_app.glade.h:4
+#: ../lib/fantasdic/ui/main_app.rb:291
+msgid "Matches"
+msgstr "Osumat"
+
+#: ../data/fantasdic/glade/main_app.glade.h:5
+msgid "_Next"
+msgstr "_Seuraava"
+
+#: ../data/fantasdic/glade/main_app.glade.h:6
+msgid "_Previous"
+msgstr "_Edellinen"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:1
+msgid "<b>Startup</b>"
+msgstr "<b>Käynnistys</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:2
+msgid "<b>System tray</b>"
+msgstr "<b>Ilmoitusalue</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:3
+msgid "Dictionaries"
+msgstr "Sanakirjat"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:4
+msgid "Do _not quit when main window is closed"
+msgstr "Älä _lopeta, kun pääikkuna suljetaan"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:5
+msgid "Do not show main window at startup"
+msgstr "Älä näytä pääikkunaa käynnistettäessä"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:6
+msgid "Enable proxy"
+msgstr "Käytä välipalvelinta"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:7
+msgid "Fantasdic will stay in the system tray even if the window is closed."
+msgstr "Fantasdic pysyy ilmoitusalueella, vaikka ikkuna suljetaan."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
+msgid "Host:"
+msgstr "Verkkonimi:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
+msgid "Password:"
+msgstr "Salasana:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
+msgid "Port:"
+msgstr "Portti:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
+msgid "Preferences"
+msgstr "Asetukset"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
+msgid "Proxy"
+msgstr "Välipalvelin"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
+msgid "Startup"
+msgstr "Käynnistys"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
+msgid ""
+"This option should be enabled if Fantasdic is started when the computer "
+"boots."
+msgstr ""
+"Tämä valitsin tulee valita, jos fantasdic käynnistetään tietokoneen "
+"käynnistyessä."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
+msgid "This proxy can for example be used to traverse firewalls."
+msgstr "Tällä välipalvelimella voidaan muun muassa päästä palomuureista läpi."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
+msgid "Username:"
+msgstr "Käyttäjätunnus:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
+msgid "_Look up last word at startup"
+msgstr "_Etsi viimeisin sana käynnistettäessä"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
+msgid "_Show Fantasdic in system tray"
+msgstr "_Näytä fantasdic ilmoitusalueella"
+
+#: ../data/fantasdic/glade/server_infos_dialog.glade.h:1
+msgid "Server informations"
+msgstr "Tietoja palvelimesta"
+
+#: ../lib/fantasdic/command_line.rb:34
+msgid "Usage: fantasdic [options] [dictionary] [word]"
+msgstr "Käyttö: fantasdic [valitsimet] [sanakirja] [sana]"
+
+#: ../lib/fantasdic/command_line.rb:37
+msgid "Print results to stdout"
+msgstr "Tulosta tulokset oletustulosteeseen"
+
+#: ../lib/fantasdic/command_line.rb:42
+msgid "List dictionaries in settings"
+msgstr "Näytä asetuksissa olevat sanakirjat"
+
+#: ../lib/fantasdic/command_line.rb:47
+msgid "List strategies available for dictionary"
+msgstr "Näytä sanakirjalle määritellyt hakutavat"
+
+#: ../lib/fantasdic/command_line.rb:52
+msgid "Use strategy to match words"
+msgstr "Käytä hakutapaa sanojen täsmäämiseen"
+
+#: ../lib/fantasdic/command_line.rb:56
+msgid "Show this message"
+msgstr "Näytä tämä viesti"
+
+#: ../lib/fantasdic/command_line.rb:61
+msgid "Show version"
+msgstr "Näytä versio"
+
+#: ../lib/fantasdic/command_line.rb:85
+msgid "Error: Dictionary does not exist in the settings"
+msgstr "Virhe: sanakirjaa ei löydy asetuksista"
+
+#: ../lib/fantasdic/command_line.rb:102 ../lib/fantasdic/command_line.rb:146
+#: ../lib/fantasdic/ui/main_app.rb:290
+msgid "No match found."
+msgstr "Osumaa ei löytynyt"
+
+#: ../lib/fantasdic/command_line.rb:104
+#, c-format
+msgid "One match found."
+msgid_plural "Matches found: %d."
+msgstr[0] "Löytyi yksi osuma."
+msgstr[1] "Löytyi %d osumaa."
+
+#: ../lib/fantasdic.rb:73
+msgid "Look up words in various dictionary sources"
+msgstr "Etsi sanoja useista sanakirjalähteistä"
+
+#: ../lib/fantasdic/source_base.rb:194
+msgid "Connecting to source..."
+msgstr "Yhdistetään lähteeseen..."
+
+#: ../lib/fantasdic/source_base.rb:198
+msgid "Transferring data from source ..."
+msgstr "Siirretään tietoja lähteestä..."
+
+#: ../lib/fantasdic/source_base.rb:255 ../lib/fantasdic/source_base.rb:263
+msgid "Can't convert encodings."
+msgstr "Merkistöjä ei voi muuntaa."
+
+#: ../lib/fantasdic/sources/dict_server.rb:23
+msgid "DICT dictionary server"
+msgstr "DICT-sanakirjapalvelin"
+
+#: ../lib/fantasdic/sources/dict_server.rb:24
+msgid "Look up words using a DICT dictionary server."
+msgstr "Etsiä sanoja DICT-sanakirjapalvelimelta."
+
+#: ../lib/fantasdic/sources/dict_server.rb:34
+msgid "Server details"
+msgstr "Palvelimen yksityiskohdat"
+
+#: ../lib/fantasdic/sources/dict_server.rb:60
+#: ../lib/fantasdic/sources/dict_server.rb:266
+#: ../lib/fantasdic/sources/dict_server.rb:276
+#: ../lib/fantasdic/sources/dict_server.rb:291
+#: ../lib/fantasdic/sources/dict_server.rb:302
+#, c-format
+msgid "Could not connect to %s"
+msgstr "Ei saatu yhteyttä palvelimeen %s"
+
+#: ../lib/fantasdic/sources/dict_server.rb:76
+#: ../lib/fantasdic/sources/dict_server.rb:205
+msgid "Server missing."
+msgstr "Palvelin puuttuu."
+
+#: ../lib/fantasdic/sources/dict_server.rb:77
+#: ../lib/fantasdic/sources/dict_server.rb:210
+msgid "Port missing."
+msgstr "Portti puuttuu."
+
+#: ../lib/fantasdic/sources/dict_server.rb:80
+msgid "Username missing."
+msgstr "Käyttäjätunnus puuttuu."
+
+#: ../lib/fantasdic/sources/dict_server.rb:82
+msgid "Password missing."
+msgstr "Salasana puuttuu."
+
+#: ../lib/fantasdic/sources/dict_server.rb:103
+msgid "_Server:"
+msgstr "P_alvelin:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:115
+msgid "_Port:"
+msgstr "_Portti:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:135
+msgid "Server _requires authentication"
+msgstr "Palvelin vaatii _tunnistautumisen"
+
+#: ../lib/fantasdic/sources/dict_server.rb:140
+msgid "_Username:"
+msgstr "_Käyttäjätunnus:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:144
+msgid "Pass_word:"
+msgstr "_Salasana:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:311
+#: ../lib/fantasdic/sources/dict_server.rb:320
+msgid "Connection with server lost."
+msgstr "Yhteys palvelimeen hukattiin."
+
+#: ../lib/fantasdic/sources/dict_server.rb:325
+#, c-format
+msgid "Waiting for %s..."
+msgstr "Odotetaan palvelinta %s..."
+
+#: ../lib/fantasdic/sources/dict_server.rb:329
+#, c-format
+msgid "Transferring data from %s..."
+msgstr "Siirretään tietoja lähteestä %s ..."
+
+#: ../lib/fantasdic/sources/edict_file.rb:25
+msgid "EDICT file"
+msgstr "EDICt-tiedosto"
+
+#: ../lib/fantasdic/sources/edict_file.rb:26
+msgid "Look up words in an EDICT file."
+msgstr "Etsi sanoja EDICT-tiedostosta."
+
+#: ../lib/fantasdic/sources/edict_file.rb:59
+msgid "A file must be selected!"
+msgstr "Tiedosto täytyy valita!"
+
+#: ../lib/fantasdic/sources/edict_file.rb:73
+msgid "Select an EDICT file"
+msgstr "Valitse EDICT-tiedosto"
+
+#: ../lib/fantasdic/sources/edict_file.rb:78
+msgid "All files"
+msgstr "Kaikki tiedostot"
+
+#: ../lib/fantasdic/sources/edict_file.rb:84
+msgid "Gzip-compressed files"
+msgstr "Gzip-pakatut tiedostot"
+
+#: ../lib/fantasdic/sources/edict_file.rb:96
+msgid "_File:"
+msgstr "_Tiedosto:"
+
+#: ../lib/fantasdic/sources/edict_file.rb:98
+msgid "_Encoding:"
+msgstr "_Merkistökoodaus:"
+
+#: ../lib/fantasdic/sources/edict_file.rb:168
+msgid "This file is not a valid EDICT file!"
+msgstr "Tämä tiedosto ei ole kelvollinen EDICT-tiedosto!"
+
+#: ../lib/fantasdic/sources/edict_file.rb:281
+#, c-format
+msgid "Cannot open file %s."
+msgstr "Tiedostoa \"%s\" ei voi avata."
+
+#: ../lib/fantasdic/sources/edict_file.rb:359
+msgid "Encoding not supported."
+msgstr "Merkistökoodaus ei ole tuettu."
+
+#: ../lib/fantasdic/sources/google_translate.rb:26
+msgid "Google Translate"
+msgstr "Google Translate"
+
+#: ../lib/fantasdic/sources/google_translate.rb:27
+msgid "Translate words using Google Translate."
+msgstr "Käännä sanoja käyttäen Google Translate-palvelua."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:27
+#, c-format
+msgid "About database %s"
+msgstr "Tietoja tietokannasta %s"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:257
+msgid "Name missing."
+msgstr "Nimi puuttuu."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:260
+msgid "No database selected!"
+msgstr "Tietokantaa ei ole valittu!"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:274
+#, c-format
+msgid "Dictionary %s exists already!"
+msgstr "Sanakirja %s on jo määritelty!"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:373
+msgid "Fetching databases information..."
+msgstr "Noudetaan tietoja tietokannoista..."
+
+#: ../lib/fantasdic/ui/browser.rb:24
+msgid "Could not open browser."
+msgstr "Selainta ei voitu avata."
+
+#: ../lib/fantasdic/ui/browser.rb:29
+msgid "Could not find documentation."
+msgstr "Ohjetta ei löytynyt."
+
+#: ../lib/fantasdic/ui/main_app.rb:72
+msgid "No dictionary configured"
+msgstr "Sanakirjaa ei ole määritelty"
+
+#: ../lib/fantasdic/ui/main_app.rb:106
+#, c-format
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "Sanakirjaa \"%s\" ei ole enää olemassa"
+
+#: ../lib/fantasdic/ui/main_app.rb:116
+#, c-format
+msgid "Dictionary source \"%s\" does not exist anymore"
+msgstr "Sanakirjalähdettä \"%s\" ei ole enää olemassa"
+
+#: ../lib/fantasdic/ui/main_app.rb:216
+msgid "Source error"
+msgstr "Lähdevirhe"
+
+#: ../lib/fantasdic/ui/main_app.rb:249
+msgid "No definition found."
+msgstr "Ei määrittelyä löytynyt."
+
+#: ../lib/fantasdic/ui/main_app.rb:254
+#, c-format
+msgid "One definition found."
+msgid_plural "Definitions found: %d."
+msgstr[0] "Löytyi yksi määrittely."
+msgstr[1] "Löytyi %d määrittelyä."
+
+#: ../lib/fantasdic/ui/main_app.rb:288
+#, c-format
+msgid "1 match"
+msgid_plural "%d matches"
+msgstr[0] "1 osuma"
+msgstr[1] "%d osumaa"
+
+#: ../lib/fantasdic/ui/main_app.rb:570
+#, c-format
+msgid "Search %s"
+msgstr "Etsitään: %s"
+
+#: ../lib/fantasdic/ui/main_app.rb:595 ../lib/fantasdic/ui/main_app.rb:892
+msgid "Select _All"
+msgstr "Valitse k_aikki"
+
+#: ../lib/fantasdic/ui/main_app.rb:721
+msgid "Save definition"
+msgstr "Tallenna määrittely"
+
+#: ../lib/fantasdic/ui/main_app.rb:879
+msgid "_Look Up"
+msgstr "_Etsi"
+
+#: ../lib/fantasdic/ui/main_app.rb:882
+msgid "Print Set_up"
+msgstr "Tulostuksen _asetukset"
+
+#: ../lib/fantasdic/ui/main_app.rb:890
+msgid "_Edit"
+msgstr "_Muokkaa"
+
+#: ../lib/fantasdic/ui/main_app.rb:894
+msgid "Clear History"
+msgstr "Tyhjennä historia"
+
+#: ../lib/fantasdic/ui/main_app.rb:897
+msgid "Find N_ext"
+msgstr "Etsi _seuraava"
+
+#: ../lib/fantasdic/ui/main_app.rb:899
+msgid "Find Pre_vious"
+msgstr "Etsi _edellinen"
+
+#: ../lib/fantasdic/ui/main_app.rb:905
+msgid "_View"
+msgstr "_Näytä"
+
+#: ../lib/fantasdic/ui/main_app.rb:906
+msgid "_Text size"
+msgstr "_Tekstin koko"
+
+#: ../lib/fantasdic/ui/main_app.rb:911
+msgid "Zoom normal"
+msgstr "Tavallinen koko"
+
+#: ../lib/fantasdic/ui/main_app.rb:915
+msgid "_Go"
+msgstr "_Siirry"
+
+#: ../lib/fantasdic/ui/main_app.rb:924
+msgid "_Help"
+msgstr "O_hje"
+
+#: ../lib/fantasdic/ui/main_app.rb:925
+msgid "_Contents"
+msgstr "_Sisältö"
+
+#: ../lib/fantasdic/ui/main_app.rb:926
+msgid "Submit _Bug Report"
+msgstr "Lähetä _vikaraportti"
+
+#: ../lib/fantasdic/ui/main_app.rb:928
+msgid "About"
+msgstr "Tietoja"
+
+#: ../lib/fantasdic/ui/main_app.rb:968
+msgid "Scan clipboard"
+msgstr "Tutki leikepöytää"
+
+#: ../lib/fantasdic/ui/main_app.rb:970
+msgid "_Matches"
+msgstr "_Osumat"
+
+#: ../lib/fantasdic/ui/main_app.rb:972
+msgid "_Statusbar"
+msgstr "_Tilarivi"
+
+#: ../lib/fantasdic/ui/main_app.rb:974
+msgid "_Toolbar"
+msgstr "_Työkalupalkki"
+
+#: ../lib/fantasdic/ui/preferences_dialog.rb:207
+msgid "SOCKS 5 proxy"
+msgstr "SOCKS 5 -välipalvelin"
+
+#: ../lib/fantasdic/ui/preferences_dialog.rb:207
+msgid "HTTP proxy"
+msgstr "HTTP-välipalvelin"
+
+#: ../lib/fantasdic/ui/print.rb:188
+#, c-format
+msgid "Definitions for %s"
+msgstr "Termin %s määrittely"
+
+#: ../lib/fantasdic/ui/print.rb:189
+#, c-format
+msgid "Page %d/%d"
+msgstr "Sivu %d/%d"
+
+#: ../lib/fantasdic/ui/print.rb:200
+msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
+msgstr "Tulostettu fantasticilla %Y-%m-%d kello %H:%M"
+
+#~ msgid "Informations about server"
+#~ msgstr "Tietoja palvelimesta"
+
+#~ msgid "Most servers don't require authentication."
+#~ msgstr "Useimmat palvelimet eivät vaadi tunnistautumista."
+
+#~ msgid "Server"
+#~ msgstr "Palvelin"
+
+#~ msgid "Password (opt.):"
+#~ msgstr "Salasana (val.):"
+
+#~ msgid "Username (opt.):"
+#~ msgstr "Käyttäjätunnus (val.):"
+
+#~ msgid "Error: Could not connect to %s"
+#~ msgstr "Virhe: ei saatu yhteyttä palvelimeen %s"
+
+#~ msgid "Matches found: %d."
+#~ msgstr "Löytyui %d osumaa."
+
+#~ msgid "Dictionary application (DICT client)."
+#~ msgstr "Sanakirjaohjelma (DICT-asiakas)."
+
+#~ msgid "Can't connect to server"
+#~ msgstr "Ei voitu yhdistää palvelimeen"
+
+#~ msgid "Definitions found: %d."
+#~ msgstr "Löytyi %d määrittelyä."
+
+#~ msgid "%d matches"
+#~ msgstr "%d osumaa"
