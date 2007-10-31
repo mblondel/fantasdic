@@ -569,7 +569,7 @@ module UI
             # Search menu items
             @dictionary_cb.model.each do |model, path, iter|
                 name = iter[0]              
-                item = Gtk::MenuItem.new(_("Search %s" % name))
+                item = Gtk::MenuItem.new(_("Search %s") % name)
                 item.signal_connect("activate") do
                     lookup(:word => word, :dictionary => name)
                 end
@@ -579,7 +579,7 @@ module UI
 
             # Zoom            
             if word.strip.utf8_length == 1
-                item = Gtk::ImageMenuItem.new("Zoom over character")
+                item = Gtk::ImageMenuItem.new(_("Zoom over character"))
                 item.signal_connect("activate") do |mitem|
                     CharacterZoomWindow.new(@main_app, word.strip)
                 end
