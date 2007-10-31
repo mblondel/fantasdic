@@ -346,6 +346,7 @@ module UI
             @global_actions["Statusbar"].active = @prefs.view_statusbar
             @global_actions["Toolbar"].active = @prefs.view_toolbar
             @matches_sidepane.position = @prefs.sidepane_position
+            @global_actions["KeepAbove"].active = @prefs.keep_above
         end
 
         def load_last_searches
@@ -434,6 +435,7 @@ module UI
             @prefs.window_maximized = @maximized
             @prefs.window_size = @main_app.size
             @prefs.window_position = @main_app.position
+            @prefs.keep_above = @global_actions["KeepAbove"].active?
         end
 
         def save_last_searches
@@ -963,6 +965,10 @@ module UI
                 @toolbar.visible = @global_actions["Toolbar"].active?
             end
 
+            on_toggle_keep_above = Proc.new do
+                @main_app.keep_above = @global_actions["KeepAbove"].active?
+            end
+
             # [[name, stock_id, label, accel, tooltip, proc, is_active],... ]
             toggle_actions = [
                 ["ScanClipboard", nil, _("Scan clipboard"), "<ctrl><shift>S",
@@ -972,7 +978,9 @@ module UI
                 ["Statusbar", nil, _("_Statusbar"), nil, nil,
                  on_toggle_statusbar, true],
                 ["Toolbar", nil, _("_Toolbar"), nil, nil, on_toggle_toolbar,
-                 true]
+                 true],
+                ["KeepAbove", nil, _("_Keep above"),
+                 "<ctrl><shift>K", nil, on_toggle_keep_above, false]
             ]
 
             @global_actions = Gtk::ActionGroup.new("Standard actions")

@@ -1,3 +1,9 @@
+2007-10-31 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb: Keep above option in the "View menu".
+    Feature request by by Dmitry Rutsky (Debian bug #442340).
+    * data/fantasdic/ui/menus.xml: Ditto.
+
 2007-10-28 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/sources/edict_file.rb: Fixed bug with gzip-compressed files

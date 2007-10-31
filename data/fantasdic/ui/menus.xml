@@ -54,6 +54,8 @@
             <menuitem action="MatchesSidepane"/>
             <menuitem action="Statusbar"/>
             <menuitem action="Toolbar"/>
+            <separator/>
+            <menuitem action="KeepAbove"/>
         </menu>
         <menu action="GoMenu">
             <menuitem action="GoBack"/>
