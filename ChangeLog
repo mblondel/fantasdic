@@ -1,5 +1,9 @@
 2007-11-01 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * TODO: Updated. This is quite a large TODO list ;-).
+
+2007-11-01 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/utils.rb: Added String#utf8_reverse.
     * lib/fantasdic/ui/utils.rb: Added
     Gtk::TextIter#backward_case_insensitive_search and
