@@ -414,7 +414,7 @@ module UI
                 iter = self.buffer.get_iter_at_mark(last_search)
             end
 
-            match_start, match_end = iter.backward_search(
+            match_start, match_end = iter.backward_case_insensitive_search(
                                        str, 
                                        Gtk::TextIter::SEARCH_TEXT_ONLY |
                                        Gtk::TextIter::SEARCH_VISIBLE_ONLY,
@@ -453,7 +453,7 @@ module UI
                 iter = self.buffer.get_iter_at_mark(last_search)
             end
 
-            match_start, match_end = iter.forward_search(
+            match_start, match_end = iter.forward_case_insensitive_search(
                                        str, 
                                        Gtk::TextIter::SEARCH_TEXT_ONLY |
                                        Gtk::TextIter::SEARCH_VISIBLE_ONLY,

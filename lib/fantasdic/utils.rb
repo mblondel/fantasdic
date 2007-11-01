@@ -24,6 +24,10 @@ class String
         self.unpack("U*")[range].pack("U*")
     end
 
+    def utf8_reverse
+        self.unpack("U*").reverse.pack("U*")
+    end
+
     def latin?
         self.unpack("U*").each do |char|
             if not (char >= 0 and char <= 0x00FF)

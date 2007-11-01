@@ -1,5 +1,13 @@
 2007-11-01 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/utils.rb: Added String#utf8_reverse.
+    * lib/fantasdic/ui/utils.rb: Added
+    Gtk::TextIter#backward_case_insensitive_search and
+    Gtk::TextIter#forward_case_insensitive_search.
+    * lib/fantasdic/ui/result_text_view.rb: Use the above two methods.
+
+2007-11-01 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/sources/google_translate.rb: Rescue URI::InvalidURIError.
 
 2007-10-31 Mathieu Blondel <mblondel@svn.gnome.org>

@@ -131,3 +131,37 @@ class Pango::FontDescription
         self.size = size * Pango::SCALE
     end
 end
+
+class Gtk::TextIter
+    def backward_case_insensitive_search(str, flags, limit=nil)
+        unless limit
+            limit = self.buffer.start_iter
+        end
+
+        txt = self.buffer.get_slice(limit, self)
+
+        match = /(#{Regexp.escape(str.utf8_reverse)})/i.match(txt.utf8_reverse)
+
+        if match
+            backward_search(match[0].utf8_reverse, flags, limit)
+        else
+            nil
+        end
+    end
+
+    def forward_case_insensitive_search(str, flags, limit=nil)
+        unless limit
+            limit = self.buffer.end_iter
+        end
+
+        txt = get_slice(limit)
+
+        match = /(#{Regexp.escape(str)})/i.match(txt)
+
+        if match
+            forward_search(match[0], flags, limit)
+        else
+            nil
+        end
+    end
+end
