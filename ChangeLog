@@ -1,3 +1,7 @@
+2007-11-01 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/sources/google_translate.rb: Rescue URI::InvalidURIError.
+
 2007-10-31 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb: Fixed two typos.

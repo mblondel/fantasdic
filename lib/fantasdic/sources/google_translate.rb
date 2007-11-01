@@ -96,7 +96,7 @@ module Source
                             []
                     end
                 end
-            rescue SocketError => e
+            rescue SocketError, URI::InvalidURIError => e
                 raise Source::SourceError, e.to_s
             end
         end
