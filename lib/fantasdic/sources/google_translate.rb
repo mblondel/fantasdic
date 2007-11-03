@@ -29,7 +29,7 @@ module Source
         copyright "Copyright (C) 2007 Mathieu Blondel"
         disable_search_all_databases true
 
-        START_MARKUP = "<div id=result_box dir=ltr>"
+        START_MARKUP = "<div id=result_box dir=(ltr|rtl)>"
         END_MARKUP = "</div>"
         URL = "http://translate.google.com/translate_t" + \
               "?ie=UTF8&langpair=%s&text=%s"
@@ -78,9 +78,9 @@ module Source
                 Kernel::open(URL % [db_escaped, word_escaped]) do |buffer|
                     case buffer.read
                         when /#{START_MARKUP}(.*)/
-                            pos = $1.index(END_MARKUP)                        
+                            pos = $2.index(END_MARKUP)
                             if pos
-                                res = $1[0..pos-1]
+                                res = $2[0..pos-1]
                                 res = CGI.unescapeHTML(res)
                                 res = convert_to_utf8(buffer.charset, res)
                                 defi = Definition.new

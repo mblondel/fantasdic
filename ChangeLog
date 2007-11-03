@@ -1,3 +1,8 @@
+2007-11-04 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/sources/google_translate.rb: Fixed bug with right-to-left
+    languages.
+
 2007-11-03 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/result_text_view.rb: Improved the handling of links.
