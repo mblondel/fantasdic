@@ -430,6 +430,7 @@ module UI
 
             if last_search.nil? or str != @last_str
                 iter = start_iter
+                # Place the cursor at the start when a new search is started
                 self.buffer.place_cursor(start_iter)
             else
                 iter = self.buffer.get_iter_at_mark(last_search)
