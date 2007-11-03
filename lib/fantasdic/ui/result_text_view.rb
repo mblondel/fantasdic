@@ -113,8 +113,7 @@ module UI
                 delete_mark(mark) unless get_mark(mark).nil?
             end
             @entries = []
-            @iter = get_iter_at_offset(0)
-            delete_link_tags
+            @iter = get_iter_at_offset(0)            
             # Make the scroll go up
             #@scrolled_window.vadjustment.value = \
             #    @scrolled_window.vadjustment.lower            
@@ -131,21 +130,11 @@ module UI
             insert(@iter, txt, "text")
         end
 
-        def insert_link(database, word)
+        def insert_link(word)
             # Removes bad chars that may appear in links
             word = word.gsub(/(\n|\r)/, "").gsub(/(\s)+/, " ")
-            @entries << [LINK, word, database]
-            text_tag = self.tag_table.lookup("text")
-            tag = create_tag(nil,
-                              {
-                                'foreground' => 'blue',
-                                'underline' => Pango::AttrUnderline::SINGLE,
-                                'size_points' => text_tag.size_points
-                              })
-            tag.database = database
-            tag.word = word
-
-            insert(@iter, word, tag)
+            @entries << [LINK, word]
+            insert(@iter, word, "link")
         end
 
         def insert_definitions(definitions)
@@ -160,32 +149,16 @@ module UI
                 else
                     insert_header("\n__________\n")
                 end
-                insert_with_links(d.database, d.body.strip)
+                insert_with_links(d.body.strip)
             end
         end
 
-        def insert_matches(matches)
-            @matches = matches
-            matches.each do |db, words|
-                insert_header(db + "\n")
-                insert_text(words.join(", "))
-                # Print matches with links (but slow)    
-                # i = 0
-                # words.each do |w|
-                #     @buf.insert_link(db, w)
-                #     @buf.insert_text(", ") unless i == words.length
-                #     i += 1
-                # end
-                insert_header("\n")
-            end
-        end
-
-        def insert_with_links(db, text)
+        def insert_with_links(text)
             non_links = text.split(/\{[\w\s\-]+\}/)
             links = text.scan(/\{[\w\s\-]+\}/)
             non_links.each_with_index do |sentence, idx|
                 insert_text(sentence)
-                insert_link(db, links[idx].slice(1..-2)) \
+                insert_link(links[idx].slice(1..-2)) \
                     unless idx == non_links.length - 1
             end
         end
@@ -268,12 +241,9 @@ module UI
 
             create_tag("text", :foreground => '#000000',
                                :font_desc => DEFAULT_FONT)
-        end
 
-        def delete_link_tags
-            self.tag_table.each do |tag|
-                self.tag_table.remove(tag) if tag.name.nil?
-            end
+            create_tag("link", :foreground => 'blue',
+                               :underline  => Pango::AttrUnderline::SINGLE)
         end
 
         def header_font_size(font_size)
@@ -283,14 +253,14 @@ module UI
         def redisplay
             entries = @entries.dup
             self.clear
-            entries.each do |type, txt, db|
+            entries.each do |type, txt|
                 case type
                     when HEADER
                         insert_header(txt)
                     when TEXT
                         insert_text(txt)
                     when LINK
-                        insert_link(db, txt)
+                        insert_link(txt)
                 end
             end
         end
@@ -307,7 +277,6 @@ module UI
                         nil,
                         GLib::Type["void"],
                         GLib::Type["VALUE"],
-                        GLib::Type["VALUE"],
                         GLib::Type["VALUE"])
         
         def initialize
@@ -323,6 +292,15 @@ module UI
             @hovering = false
 
             @press = nil
+
+            initialize_signals
+
+            show_all
+        end
+
+        private
+
+        def initialize_signals
             signal_connect("button_press_event") do |w, event|
                 @press = event.event_type
                 false
@@ -358,16 +336,18 @@ module UI
                             Gtk::TextView::WINDOW_WIDGET, wx, wy)
                 set_cursor_if_appropriate(bx, by)
                 false    
-            end
-
-            show_all
+            end            
         end
 
         def follow_if_link(iter, event)
             iter.tags.each do |t|
-                if t.word
+                if t.name == "link"
+                    start, limit = iter.dup, iter.dup
+                    start.backward_to_tag_toggle(t)
+                    limit.forward_to_tag_toggle(t)
+                    word = start.get_text(limit)
                     Gtk.idle_add do
-                        signal_emit("link_clicked", t.database, t.word, event)
+                        signal_emit("link_clicked", word, event)
                     end
                     break
                 end
@@ -382,7 +362,7 @@ module UI
 
             tags = iter.tags
             tags.each do |t|
-                if t.word
+                if t.name == "link"
                     hovering = true
                     break
                 end
@@ -400,6 +380,8 @@ module UI
                 end
             end
         end
+
+        public
         
         def find_backward(str)
             return false if str.empty?
@@ -476,10 +458,4 @@ module UI
     end
 end
 
-end
-
-module Gtk
-    class TextTag
-        attr_accessor :word, :database
-    end
 end

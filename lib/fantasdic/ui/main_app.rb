@@ -1085,7 +1085,7 @@ module UI
             end
 
             @result_text_view.signal_connect("link_clicked") do
-                |w, db, word, event|
+                |widget, word, event|
                 lookup(:dictionary => selected_dictionary,
                        :word => word,
                        :strategy => default_strategy_of_selected_dictionary)

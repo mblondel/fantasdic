@@ -1,3 +1,10 @@
+2007-11-03 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/ui/result_text_view.rb: Improved the handling of links.
+    There's no longer the need for one tag per link.
+    * lib/fantasdic/ui/main_app.rb: The "link_clicked" signal doesn't provide a
+    database as parameter anymore.
+
 2007-11-01 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * TODO: Updated. This is quite a large TODO list ;-).
