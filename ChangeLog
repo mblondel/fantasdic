@@ -1,3 +1,8 @@
+2007-11-06 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb (on_print_setup): Was not passing the right
+    variable as parent window.
+
 2007-11-04 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/sources/google_translate.rb: Fixed bug with right-to-left

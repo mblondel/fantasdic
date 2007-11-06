@@ -738,7 +738,7 @@ module UI
             end
 
             on_print_setup = Proc.new do
-                @page_setup = Print::run_page_setup_dialog(@parent_window,
+                @page_setup = Print::run_page_setup_dialog(@main_app,
                                                            @page_setup)
             end
 
