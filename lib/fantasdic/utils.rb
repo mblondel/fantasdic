@@ -133,3 +133,9 @@ class File
         return nil
     end
 end
+
+class Symbol
+    def to_proc
+        Proc.new { |*args| args.shift.send(self, *args) }
+    end
+end

@@ -15,8 +15,21 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+if Fantasdic::WIN32
+    require 'win32ole'
+else
+    begin
+        require "gconf2"
+    rescue LoadError
+        Fantasdic.missing_dependency('Ruby/Gconf2')
+    end
+end
+
 module Fantasdic
 module UI
+
+HAVE_GCONF2 = Object.const_defined? "GConf"
+
 module Browser
 
 def self.could_not_open_browser(url)
@@ -33,14 +46,12 @@ end
 def self.get_browser
     # First try with gconf in order to get the default browser set in
     # System > Preferences > My favourite applications
-    begin
-        require "gconf2"
+    if HAVE_GCONF2        
         client = GConf::Client.default
         dir = "/desktop/gnome/url-handlers/http/"
         if client[dir + "enabled"]
             return client[dir + "command"]
-        end
-    rescue LoadError
+        end        
     end
 
     # Second, see if user has not set a browser in the prefs file
@@ -66,8 +77,7 @@ end
 
 # Opens url in browser and returns true if succeeded
 def self.open_url(url)
-    if WIN32
-        require 'win32ole'
+    if WIN32        
         wsh = WIN32OLE.new('Shell.Application')
         wsh.Open(url)
         return true

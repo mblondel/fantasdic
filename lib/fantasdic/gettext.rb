@@ -18,10 +18,7 @@
 begin
     require 'gettext'
 rescue LoadError
-    if Fantasdic::HAVE_CONSOLE
-        $stderr.puts 'WARNING : Ruby/Gettext was not found.'
-        $stderr.puts 'The interface will therefore remain in English.'
-    end
+    Fantasdic.missing_dependency('Ruby/Gettext')
 
     module GetText
         module_function

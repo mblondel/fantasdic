@@ -17,18 +17,18 @@
 
 require 'libglade2'
 begin
-    require 'gnome2'
-    HAVE_GNOME2 = TRUE
-rescue LoadError
+    require 'gnome2' 
+rescue LoadError    
     require 'gtk2'
-    HAVE_GNOME2 = FALSE
+    Fantasdic.missing_dependency('Ruby/GNOME2')
 end
 
 module Fantasdic
 module UI
 
-    HAVE_STATUS_ICON = defined? Gtk::StatusIcon
-    HAVE_PRINT = defined? Gtk::PrintOperation
+    HAVE_GNOME2 = Object.const_defined? "Gnome"
+    HAVE_STATUS_ICON = Gtk.const_defined? "StatusIcon"
+    HAVE_PRINT = Gtk.const_defined? "PrintOperation"
 
     def self.main
         options = CommandLineOptions.instance

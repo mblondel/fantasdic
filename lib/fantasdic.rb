@@ -60,7 +60,21 @@ module Fantasdic
         end
     else
         HAVE_CONSOLE = true
-    end 
+    end
+
+    def self.missing_dependency(txt)
+        @missing_deps ||= []
+        @missing_deps << txt
+    end
+
+    def self.display_missing_dependencies
+        if @missing_deps
+            $stderr.puts "-" * 60
+            $stderr.puts "The following optional dependencies were not found."
+            @missing_deps.map(&$stderr.method(:puts)) 
+            $stderr.puts "-" * 60
+        end
+    end
 end
 
 require 'fantasdic/gettext'
@@ -91,6 +105,8 @@ module Fantasdic
             end
             exit!
         end
+
+        Fantasdic.display_missing_dependencies if HAVE_CONSOLE
 
         Fantasdic::UI.main
     end
