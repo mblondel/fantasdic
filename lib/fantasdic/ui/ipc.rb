@@ -59,23 +59,21 @@ module IPC
         end    
 
         def initialize(uri, &block)
-            Thread.new do
-                pserver = Pipe.new_server(uri, Pipe::NOWAIT)
-                pserver.connect
-                while true
-                    ok = pserver.read
-                    if ok
-                        params = Marshal.load(Base64.decode64(pserver.buffer))
-                        block.call(params)
-                        #pserver.write("") # send data to client
-                        pserver.close
-                        pserver.connect
-                    end                    
-                    sleep 0.5
-                end                
-            end # Thread
+            pserver = Pipe.new_server(uri, Pipe::NOWAIT)
+            pserver.connect        
+            GLib::Timeout.add(800) do
+                ok = pserver.read
+                if ok
+                    params = Marshal.load(Base64.decode64(pserver.buffer))
+                    block.call(params)
+                    #pserver.write("") # send data to client
+                    pserver.close
+                    pserver.connect
+                end      
+                true
+            end
         end
-    end
+    end # class Instance
 
 end
 end

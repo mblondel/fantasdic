@@ -1,5 +1,9 @@
 2007-11-18 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/ipc.rb: Rewrote IPC for win32 using GLib::Timeout.
+
+2007-11-18 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/main_app.rb: Rewrote scan_clipboard using GLib::Timeout.
 
 2007-11-17 Mathieu Blondel <mblondel@svn.gnome.org>
