@@ -302,33 +302,28 @@ module UI
             @result_text_view.buffer.font_name = font_name
         end
 
-        def scan_clipboard
-            @scan_thread = Thread.new(@search_entry) do |entry|
-                
-                last_selection = nil
-                clipboard = Gtk::Clipboard.get(Gdk::Selection::CLIPBOARD)
-                clipboard.request_text do |cb, text|
-                    last_selection = text
-                end
+        def scan_clipboard            
+            last_selection = nil
+            clipboard = Gtk::Clipboard.get(Gdk::Selection::CLIPBOARD)
+            clipboard.request_text do |cb, text|
+                last_selection = text
+            end
 
-                # FIXME: Rewrite this portion using
-                # GLib::Timeout.add and returning false to stop
-                while true
-                    clipboard.request_text do |cb, text|
-                        if text != last_selection
-                            unless text.nil? or text.empty?                   
-                                unless text =~ /^(http|ftp|file)/
-                                    last_selection = text
-                                    lookup(:word => text)
-                                    @main_app.show \
-                                        unless @main_app.visible?
-                                    @main_app.present
-                                end
-                            end
+            GLib::Timeout.add(800) do
+                clipboard.request_text do |cb, text|
+                    if text != last_selection
+                        unless text.nil? or text.empty? or \
+                               text == @search_entry.text or \
+                               text =~ /^(http|ftp|file)/
+
+                            last_selection = text
+                            lookup(:word => text)
+                            @main_app.show unless @main_app.visible?
+                            @main_app.present
                         end
                     end
-                    sleep(0.8)
                 end
+                @scan_clipboard
             end
         end        
 
@@ -769,10 +764,8 @@ module UI
 
             on_quit = Proc.new do
                 @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
-                @scan_thread.kill if @scan_thread and @scan_thread.alive?
                 Gtk.thread_flush
                 save_preferences
-                #DICTClient.close_all_connections
                 Gtk.main_quit
             end
 
@@ -943,13 +936,9 @@ module UI
 
             # Toggle actions
 
-            on_toggle_scan_clipboard = Proc.new do
-                if @global_actions["ScanClipboard"].active?
-                    scan_clipboard
-                else
-                    @scan_thread.kill
-                    Gtk.thread_flush
-                end
+            on_toggle_scan_clipboard = Proc.new do                
+                @scan_clipboard = @global_actions["ScanClipboard"].active?
+                scan_clipboard if @scan_clipboard
             end
 
             on_toggle_matches_sidepane = Proc.new do

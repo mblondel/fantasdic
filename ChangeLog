@@ -1,3 +1,7 @@
+2007-11-18 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb: Rewrote scan_clipboard using GLib::Timeout.
+
 2007-11-17 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic.rb: Display useful warnings when optional dependencies are
