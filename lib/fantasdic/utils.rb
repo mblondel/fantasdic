@@ -131,8 +131,7 @@ class File
         LOAD_PATH_SEPARATOR = ":"
     end
 
-    def self.which(pgm)
-        
+    def self.which(pgm)        
         ENV['PATH'].split(LOAD_PATH_SEPARATOR).each do |dir|
             path = File.join(dir, pgm)
             return path if File.executable? path
