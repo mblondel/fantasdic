@@ -1,3 +1,12 @@
+2007-11-22 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * setup.rb: Switched to trunk version. Stable version had a bug with
+    add_bool_config.
+    * metaconfig: Adds a "without-scrollkeeper" option. Distributions should
+    build packages of Fantasdic with this option and run scrollkeeper when the
+    package is installed.
+    * data/omf/fantasdic/post-install.rb: Uses the above option.
+
 2007-11-18 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/ipc.rb: Rewrote IPC for win32 using GLib::Timeout.

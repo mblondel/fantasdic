@@ -12,8 +12,11 @@ end
 
 sk = which("scrollkeeper-update")
 if sk
-    Dir.glob("*.omf").each do |file|
-        system("scrollkeeper-update -q #{file}")
+    if config("without-scrollkeeper") != "yes"
+        $stderr.puts "Running scrollkeeper-update"
+        Dir.glob("*.omf").each do |file|
+            system("scrollkeeper-update -q #{file}")
+        end
     end
 else
     $stderr.puts "scrollkeeper-update cannot be found," + \

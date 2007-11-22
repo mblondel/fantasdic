@@ -1,7 +1,7 @@
 #
 # setup.rb
 #
-# Copyright (c) 2000-2005 Minero Aoki
+# Copyright (c) 2000-2006 Minero Aoki
 #
 # This program is free software.
 # You can distribute/modify this program under the terms of
@@ -55,7 +55,6 @@ class ConfigTable
     @config_opt = nil
     @verbose = true
     @no_harm = false
-    @libsrc_pattern = '*.rb'
   end
 
   attr_accessor :install_prefix
@@ -72,8 +71,6 @@ class ConfigTable
   def no_harm?
     @no_harm
   end
-
-  attr_accessor :libsrc_pattern
 
   def [](key)
     lookup(key).resolve(self)
@@ -150,7 +147,7 @@ class ConfigTable
   def standard_entries(rbconfig)
     c = rbconfig
 
-    rubypath = c['bindir'] + '/' + c['ruby_install_name']
+    rubypath = File.join(c['bindir'], c['ruby_install_name'] + c['EXEEXT'])
 
     major = c['MAJOR'].to_i
     minor = c['MINOR'].to_i
@@ -192,7 +189,8 @@ class ConfigTable
       path.sub(/\A#{Regexp.quote(c['prefix'])}/, '$prefix')
     }
 
-    if arg = c['configure_args'].split.detect {|arg| /--with-make-prog=/ =~ arg }
+    if arg = c['configure_args'].split.detect {|arg| /--with-make-prog=/ =~ arg
+}
       makeprog = arg.sub(/'/, '').split(/=/, 2)[1]
     else
       makeprog = 'make'
@@ -200,7 +198,8 @@ class ConfigTable
 
     [
       ExecItem.new('installdirs', 'std/site/home',
-                   'std: install under libruby; site: install under site_ruby; home: install under $HOME')\
+                   'std: install under libruby; site: install under site_ruby;
+home: install under $HOME')\
           {|val, table|
             case val
             when 'std'
@@ -228,7 +227,8 @@ class ConfigTable
                    'the directory for man pages'),
       PathItem.new('sysconfdir', 'path', parameterize.call(c['sysconfdir']),
                    'the directory for system configuration files'),
-      PathItem.new('localstatedir', 'path', parameterize.call(c['localstatedir']),
+      PathItem.new('localstatedir', 'path',
+parameterize.call(c['localstatedir']),
                    'the directory for local state data'),
       PathItem.new('libruby', 'path', libruby,
                    'the directory for ruby libraries'),
@@ -299,13 +299,15 @@ class ConfigTable
     ALIASES.each do |ali, name|
       @table[ali] = @table[name]
     end
-    @items.freeze
-    @table.freeze
-    @options_re = /\A--(#{@table.keys.join('|')})(?:=(.*))?\z/
+  end
+
+  def options_re
+    /\A--(#{@table.keys.join('|')})(?:=(.*))?\z/
   end
 
   def parse_opt(opt)
-    m = @options_re.match(opt) or setup_rb_error "config: unknown option #{opt}"
+    m = options_re().match(opt) or setup_rb_error "config: unknown option
+#{opt}"
     m.to_a[1,2]
   end
 
@@ -373,10 +375,12 @@ class ConfigTable
 
     def check(val)
       return 'yes' unless val
-      unless /\A(y(es)?|n(o)?|t(rue)?|f(alse))\z/i =~ val
+      case val
+      when /\Ay(es)?\z/i, /\At(rue)?\z/i then 'yes'
+      when /\An(o)?\z/i, /\Af(alse)\z/i  then 'no'
+      else
         setup_rb_error "config: --#{@name} accepts only yes/no for argument"
       end
-      (/\Ay(es)?|\At(rue)/i =~ value) ? 'yes' : 'no'
     end
   end
 
@@ -472,7 +476,7 @@ class ConfigTable
   end
 
   class MetaConfigEnvironment
-    def intiailize(config, installer)
+    def initialize(config, installer)
       @config = config
       @installer = installer
     end
@@ -519,13 +523,15 @@ class ConfigTable
 
     # For only multipackage
     def packages
-      raise '[setup.rb fatal] multi-package metaconfig API packages() called for single-package; contact application package vendor' unless @installer
+      raise '[setup.rb fatal] multi-package metaconfig API packages() called for
+single-package; contact application package vendor' unless @installer
       @installer.packages
     end
 
     # For only multipackage
     def declare_packages(list)
-      raise '[setup.rb fatal] multi-package metaconfig API declare_packages() called for single-package; contact application package vendor' unless @installer
+      raise '[setup.rb fatal] multi-package metaconfig API declare_packages()
+called for single-package; contact application package vendor' unless @installer
       @installer.packages = list
     end
   end
@@ -751,8 +757,8 @@ end
 
 class ToplevelInstaller
 
-  Version   = '3.4.0'
-  Copyright = 'Copyright (c) 2000-2005 Minero Aoki'
+  Version   = '3.4.1'
+  Copyright = 'Copyright (c) 2000-2006 Minero Aoki'
 
   TASKS = [
     [ 'all',      'do config, setup, then install' ],
@@ -892,6 +898,7 @@ class ToplevelInstaller
 
   def parsearg_no_options
     unless ARGV.empty?
+      task = caller(0).first.slice(%r<`parsearg_(\w+)'>, 1)
       setup_rb_error "#{task}: unknown options: #{ARGV.join(' ')}"
     end
   end
@@ -953,7 +960,8 @@ class ToplevelInstaller
     out.puts
     out.puts 'Detailed Usage:'
     out.puts "  ruby #{File.basename $0} <global option>"
-    out.puts "  ruby #{File.basename $0} [<global options>] <task> [<task options>]"
+    out.puts "  ruby #{File.basename $0} [<global options>] <task> [<task
+options>]"
 
     fmt = "  %-24s %s\n"
     out.puts
@@ -1173,6 +1181,9 @@ class Installer
     "#<#{self.class} #{File.basename(@srcdir)}>"
   end
 
+  def noop(rel)
+  end
+
   #
   # Hook Script API base methods
   #
@@ -1220,27 +1231,19 @@ class Installer
     exec_task_traverse 'config'
   end
 
-  def config_dir_bin(rel)
-  end
-
-  def config_dir_lib(rel)
-  end
-
-  def config_dir_man(rel)
-  end
+  alias config_dir_bin noop
+  alias config_dir_lib noop
 
   def config_dir_ext(rel)
     extconf if extdir?(curr_srcdir())
   end
 
+  alias config_dir_data noop
+  alias config_dir_conf noop
+  alias config_dir_man noop
+
   def extconf
     ruby "#{curr_srcdir()}/extconf.rb", *@config.config_opt
-  end
-
-  def config_dir_data(rel)
-  end
-
-  def config_dir_conf(rel)
   end
 
   #
@@ -1253,43 +1256,90 @@ class Installer
 
   def setup_dir_bin(rel)
     files_of(curr_srcdir()).each do |fname|
-      adjust_shebang "#{curr_srcdir()}/#{fname}"
+      update_shebang_line "#{curr_srcdir()}/#{fname}"
     end
   end
 
-  def adjust_shebang(path)
-    return if no_harm?
-    tmpfile = File.basename(path) + '.tmp'
-    begin
-      File.open(path, 'rb') {|r|
-        first = r.gets
-        return unless File.basename(first.sub(/\A\#!/, '').split[0].to_s) == 'ruby'
-        $stderr.puts "adjusting shebang: #{File.basename(path)}" if verbose?
-        File.open(tmpfile, 'wb') {|w|
-          w.print first.sub(/\A\#!\s*\S+/, '#! ' + config('rubypath'))
-          w.write r.read
-        }
-      }
-      move_file tmpfile, File.basename(path)
-    ensure
-      File.unlink tmpfile if File.exist?(tmpfile)
-    end
-  end
-
-  def setup_dir_lib(rel)
-  end
-
-  def setup_dir_man(rel)
-  end
+  alias setup_dir_lib noop
 
   def setup_dir_ext(rel)
     make if extdir?(curr_srcdir())
   end
 
-  def setup_dir_data(rel)
+  alias setup_dir_data noop
+  alias setup_dir_conf noop
+  alias setup_dir_man noop
+
+  def update_shebang_line(path)
+    return if no_harm?
+    return if config('shebang') == 'never'
+    old = Shebang.load(path)
+    if old
+      $stderr.puts "warning: #{path}: Shebang line includes too many args.  It
+is not portable and your program may not work." if old.args.size > 1
+      new = new_shebang(old)
+      return if new.to_s == old.to_s
+    else
+      return unless config('shebang') == 'all'
+      new = Shebang.new(config('rubypath'))
+    end
+    $stderr.puts "updating shebang: #{File.basename(path)}" if verbose?
+    open_atomic_writer(path) {|output|
+      File.open(path, 'rb') {|f|
+        f.gets if old   # discard
+        output.puts new.to_s
+        output.print f.read
+      }
+    }
   end
 
-  def setup_dir_conf(rel)
+  def new_shebang(old)
+    if /\Aruby/ =~ File.basename(old.cmd)
+      Shebang.new(config('rubypath'), old.args)
+    elsif File.basename(old.cmd) == 'env' and old.args.first == 'ruby'
+      Shebang.new(config('rubypath'), old.args[1..-1])
+    else
+      return old unless config('shebang') == 'all'
+      Shebang.new(config('rubypath'))
+    end
+  end
+
+  def open_atomic_writer(path, &block)
+    tmpfile = File.basename(path) + '.tmp'
+    begin
+      File.open(tmpfile, 'wb', &block)
+      File.rename tmpfile, File.basename(path)
+    ensure
+      File.unlink tmpfile if File.exist?(tmpfile)
+    end
+  end
+
+  class Shebang
+    def Shebang.load(path)
+      line = nil
+      File.open(path) {|f|
+        line = f.gets
+      }
+      return nil unless /\A#!/ =~ line
+      parse(line)
+    end
+
+    def Shebang.parse(line)
+      cmd, *args = *line.strip.sub(/\A\#!/, '').split(' ')
+      new(cmd, args)
+    end
+
+    def initialize(cmd, args = [])
+      @cmd = cmd
+      @args = args
+    end
+
+    attr_reader :cmd
+    attr_reader :args
+
+    def to_s
+      "#! #{@cmd}" + (@args.empty? ? '' : " #{@args.join(' ')}")
+    end
   end
 
   #
@@ -1302,18 +1352,22 @@ class Installer
   end
 
   def install_dir_bin(rel)
-    install_files targetfiles(), "#{config('bindir')}/#{rel}", 0755
+    install_files targetfiles(), "#{config('bindir')}/#{rel}", 0755, strip_ext?
+  end
+
+  def strip_ext?
+    /mswin|mingw/ !~ RUBY_PLATFORM
   end
 
   def install_dir_lib(rel)
-    install_files rubyscripts(), "#{config('rbdir')}/#{rel}", 0644
+    install_files libfiles(), "#{config('rbdir')}/#{rel}", 0644
   end
 
   def install_dir_ext(rel)
     return unless extdir?(curr_srcdir())
-     install_files rubyextentions('.'),
-                   "#{config('sodir')}/#{File.dirname(rel)}",
-                   0555
+    install_files rubyextentions('.'),
+                  "#{config('sodir')}/#{File.dirname(rel)}",
+                  0555
   end
 
   def install_dir_data(rel)
@@ -1330,15 +1384,20 @@ class Installer
     install_files targetfiles(), "#{config('mandir')}/#{rel}", 0644
   end
 
-  def install_files(list, dest, mode)
+  def install_files(list, dest, mode, stripext = false)
     mkdir_p dest, @config.install_prefix
     list.each do |fname|
-      install fname, dest, mode, @config.install_prefix
+      if stripext
+        install fname, "#{dest}/#{File.basename(fname, '.*')}",
+                mode, @config.install_prefix
+      else
+        install fname, dest, mode, @config.install_prefix
+      end
     end
   end
 
-  def rubyscripts
-    glob_select(@config.libsrc_pattern, targetfiles())
+  def libfiles
+    glob_reject(%w(*.y *.output), targetfiles())
   end
 
   def rubyextentions(dir)
@@ -1377,7 +1436,7 @@ class Installer
 
   def hookfiles
     %w( pre-%s post-%s pre-%s.rb post-%s.rb ).map {|fmt|
-      %w( config setup install clean ).map {|t| sprintf(fmt, t) }
+      %w( config setup install clean distclean ).map {|t| sprintf(fmt, t) }
     }.flatten
   end
 
@@ -1416,7 +1475,12 @@ class Installer
       return
     end
     $stderr.puts 'Running tests...' if verbose?
-    require 'test/unit'
+    begin
+      require 'test/unit'
+    rescue LoadError
+      setup_rb_error 'test/unit cannot loaded.  You need Ruby 1.8 or later to
+invoke this task.'
+    end
     runner = Test::Unit::AutoRunner.new(true)
     runner.to_run << TESTDIR
     runner.run
@@ -1432,21 +1496,15 @@ class Installer
     rm_f 'InstalledFiles'
   end
 
-  def clean_dir_bin(rel)
-  end
-
-  def clean_dir_lib(rel)
-  end
+  alias clean_dir_bin noop
+  alias clean_dir_lib noop
+  alias clean_dir_data noop
+  alias clean_dir_conf noop
+  alias clean_dir_man noop
 
   def clean_dir_ext(rel)
     return unless extdir?(curr_srcdir())
     make 'clean' if File.file?('Makefile')
-  end
-
-  def clean_dir_data(rel)
-  end
-
-  def clean_dir_conf(rel)
   end
 
   #
@@ -1459,31 +1517,26 @@ class Installer
     rm_f 'InstalledFiles'
   end
 
-  def distclean_dir_bin(rel)
-  end
-
-  def distclean_dir_lib(rel)
-  end
+  alias distclean_dir_bin noop
+  alias distclean_dir_lib noop
 
   def distclean_dir_ext(rel)
     return unless extdir?(curr_srcdir())
     make 'distclean' if File.file?('Makefile')
   end
 
-  def distclean_dir_data(rel)
-  end
-
-  def distclean_dir_conf(rel)
-  end
+  alias distclean_dir_data noop
+  alias distclean_dir_conf noop
+  alias distclean_dir_man noop
 
   #
-  # lib
+  # Traversing
   #
 
   def exec_task_traverse(task)
     run_hook "pre-#{task}"
     FILETYPES.each do |type|
-      if config('without-ext') == 'yes' and type == 'ext'
+      if type == 'ext' and config('without-ext') == 'yes'
         $stderr.puts 'skipping ext/* by user option' if verbose?
         next
       end
@@ -1522,6 +1575,7 @@ class Installer
     path = [ "#{curr_srcdir()}/#{id}",
              "#{curr_srcdir()}/#{id}.rb" ].detect {|cand| File.file?(cand) }
     return unless path
+    $stderr.puts "invoking hook script #{path}" if verbose?
     begin
       instance_eval File.read(path), path, 1
     rescue

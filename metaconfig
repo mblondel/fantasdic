@@ -1,0 +1,1 @@
+add_bool_config 'without-scrollkeeper', false, 'Don\'t run scrollkeeper-update'
