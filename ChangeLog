@@ -1,5 +1,10 @@
 2007-11-22 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/utils.rb (File.which): The load path separator is ";" on
+    WIN32, not ":".
+
+2007-11-22 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * setup.rb: Switched to trunk version. Stable version had a bug with
     add_bool_config.
     * metaconfig: Adds a "without-scrollkeeper" option. Distributions should

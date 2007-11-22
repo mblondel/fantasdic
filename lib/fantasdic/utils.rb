@@ -125,8 +125,15 @@ class Array
 end
 
 class File
+    if /mingw|mswin|win32/ =~ RUBY_PLATFORM
+        LOAD_PATH_SEPARATOR = ";"
+    else
+        LOAD_PATH_SEPARATOR = ":"
+    end
+
     def self.which(pgm)
-        ENV['PATH'].split(":").each do |dir|
+        
+        ENV['PATH'].split(LOAD_PATH_SEPARATOR).each do |dir|
             path = File.join(dir, pgm)
             return path if File.executable? path
         end
