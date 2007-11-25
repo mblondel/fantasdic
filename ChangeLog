@@ -1,3 +1,11 @@
+2007-11-25 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic.rb: Defines Fantasdic::GPL constant.
+    * lib/fantasdic/sources/edict_file.rb: Use it.
+    * lib/fantasdic/sources/dict_server.rb: Likewise.
+    * lib/fantasdic/sources/google_translate.rb: Likewise.
+    * lib/fantasdic/ui/about_dialog.rb: Likewise.
+
 2007-11-22 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/utils.rb (File.which): The load path separator is ";" on

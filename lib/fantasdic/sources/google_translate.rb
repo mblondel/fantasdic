@@ -25,7 +25,7 @@ module Source
         authors ["Mathieu Blondel"]
         title  _("Google Translate")
         description _("Translate words using Google Translate.")
-        license UI::AboutDialog::GPL
+        license Fantasdic::GPL
         copyright "Copyright (C) 2007 Mathieu Blondel"
         disable_search_all_databases true
 

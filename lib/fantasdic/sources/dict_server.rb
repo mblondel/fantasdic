@@ -22,7 +22,7 @@ module Source
         authors ["Mathieu Blondel"]
         title  _("DICT dictionary server")
         description _("Look up words using a DICT dictionary server.")
-        license UI::AboutDialog::GPL
+        license Fantasdic::GPL
         copyright "Copyright (C) 2006 - 2007 Mathieu Blondel"
 
         class ServerInfoDialog < UI::GladeBase

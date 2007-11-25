@@ -24,7 +24,7 @@ class EdictFile < Base
     authors ["Mathieu Blondel"]
     title  _("EDICT file")
     description _("Look up words in an EDICT file.")
-    license UI::AboutDialog::GPL
+    license Fantasdic::GPL
     copyright "Copyright (C) 2007 Mathieu Blondel"
     no_databases true
 
