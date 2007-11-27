@@ -1,5 +1,10 @@
 2007-11-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
+	* fr/figures/*.png: Localized screenshots.
+	* fr/fr.po: Updated French translation.
+
+2007-11-27 Mathieu Blondel <mblondel@svn.gnome.org>
+
 	* C/figures/*.png: Updated and added screenshots.
 	* C/fantasdic.xml: Fixed typos and updated the Usage, Preferences and
 	Dictionaries sections.
