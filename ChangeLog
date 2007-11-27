@@ -1,3 +1,8 @@
+2007-11-27 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * data/fantasdic/glade/preferences_dialog.glade: Clearly distinguish
+    "enable http proxy" and "enable socks 5 proxy".
+
 2007-11-25 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic.rb: Defines Fantasdic::GPL constant.
