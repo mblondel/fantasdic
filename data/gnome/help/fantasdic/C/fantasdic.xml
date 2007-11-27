@@ -405,7 +405,7 @@ fileref="figures/fantasdic-preferences-startup.png"
             </thead>
             <tbody>
                 <row valign="top">
-                    <entry><para>DICT dictionary Server</para></entry>
+                    <entry><para>DICT dictionary server</para></entry>
                     <entry>
                         <para>Hostname: the hostname of the dictionary
                         server</para>
@@ -491,9 +491,9 @@ fileref="figures/fantasdic-dictionaries-fonts.png"
     
     <orderedlist>
         <listitem><para>Click on the <guilabel>Font</guilabel>
-                button</para></listitem>
-        <listitem><para>Select the desired font and size</para></listitem>
-        <listitem><para>Click <guibutton>Ok</guibutton></para></listitem>
+                button.</para></listitem>
+        <listitem><para>Select the desired font and size.</para></listitem>
+        <listitem><para>Click <guibutton>Ok</guibutton>.</para></listitem>
       </orderedlist>
 </sect2>
 
