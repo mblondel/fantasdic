@@ -80,6 +80,9 @@ module Source
                 @cache_queue ||= []
             end
 
+            include GetText
+            GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
+
             extend Fields
             def_field :authors, :version, :title, :description, :website,
                       :license, :copyright

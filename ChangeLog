@@ -1,3 +1,9 @@
+
+2007-11-28 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/source_base.rb: Include the Gettext module in class<<self
+    of Source::Base.
+
 2007-11-28 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * win32/README: Updated instructions.
