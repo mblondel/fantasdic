@@ -28,11 +28,18 @@ http://developer.gnome.org/projects/gdp
 
 <revhistory>
 <revision> 
-<revnumber>&app; Manual</revnumber>
+<revnumber>Initial &app; Manual</revnumber>
 <date>2007-09-16</date>
 <revdescription> 
 <para role="author">Mathieu Blondel</para>
 </revdescription> 
+</revision>
+<revision>
+    <revnumber>typos, usage, preferences, dictionaries</revnumber>
+    <date>2007-11-27</date>
+    <revdescription>
+        <para role="author">Mathieu Blondel</para>
+    </revdescription>
 </revision>
 </revhistory>
 
@@ -75,7 +82,7 @@ This documentation is for version &appversion; of &app;.
 <title>Introduction</title>
 
 <para><application>&app;</application> is a dictionary application. It enables
-to look up words using dictionary servers.
+to look up words in various dictionary sources.
 </para>
 
 </sect1>
@@ -131,12 +138,12 @@ ways:</para>
 
 <para>To look up a word, type it into the <guilabel>entry field</guilabel>
 and press <keycap>Enter</keycap>. It is possible to change the match strategy
-by using the <guilabel>left combo box</guilabel>. It it possible to change the
-dictionary used to look up words by using the <guilabel>right combo
+by using the <guilabel>left combo box</guilabel> and the dictionary used to look
+up words by using the <guilabel>right combo
 box</guilabel>.
 
-<tip><para>Dictionaries can be added and changed in the preferences. Available
-match strategies depend on the dictionary selected.</para></tip>
+<tip><para>Dictionaries can be added and changed at any time in the preferences.
+Available match strategies depend on the dictionary selected.</para></tip>
 </para>
 
 <para>If some definition for the word is found, it will appear inside the main
@@ -176,9 +183,9 @@ window area:</para>
     
     <para>To print the results of a look up, choose
 <menuchoice><guimenu>Fantasdic</guimenu>
-<guimenuitem>Print</guimenuitem></menuchoice >.</para>
+<guimenuitem>Print</guimenuitem></menuchoice>.</para>
     
-<para>Inside the <guilabel>Print</guilabel> dialog you can select the        
+<para>Inside the <guilabel>Print</guilabel> dialog, select the
 printer to use, the paper format, the number of copies.</para>
 
 <para>To see a preview of what will be printed, click
@@ -210,13 +217,50 @@ printer to use, the paper format, the number of copies.</para>
         <listitem><para>Choose <menuchoice> <guimenu>Edit</guimenu>
         <guimenuitem>Find</guimenuitem> </menuchoice> to display the
         <guilabel>Find</guilabel> pane.</para></listitem>
-        <listitem><para>Type the text you want to find inside the
+        <listitem><para>Type the text to find inside the
                 <guilabel>Search</guilabel> entry.</para></listitem>
         <listitem><para>To find the next occurrence of the text, click
         <guibutton>Next</guibutton>.
         To find the previous occurrence of the text, click
         <guibutton>Previous</guibutton>.</para></listitem>
       </orderedlist>
+
+    <para>The <guilabel>find pane</guilabel> can be quickly closed by pressing
+        <keycap>Escape</keycap>.</para>
+  
+</sect2>
+
+<sect2 id="fantasdic-scanning-clipboard">
+    <title>Scanning the clipboard</title>
+    
+    <para>When the <guimenuitem>Scan clipboard</guimenuitem> option is
+        enabled, words copied to the clipboard are automatically looked
+        up by Fantasdic. To enable this option, choose
+        <menuchoice><guimenu>Edit</guimenu>
+        <guimenuitem>Scan clipboard</guimenuitem></menuchoice>.</para>
+
+</sect2>
+
+<sect2 id="fantasdic-system-tray">
+    <title>System tray</title>
+    
+    <para>Optionally, Fantasdic can stay in the system tray. To
+quickly close Fantasdic, press <keycap>Escape</keycap>. To bring
+Fantasdic back, click on the <guiicon>Fantasdic icon</guiicon>.</para>
+
+    <figure id="fantasdic-system-tray-fig">
+        <title>Fantasdic in the system tray</title>
+        <screenshot>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="figures/fantasdic-system-tray.png"
+                            format="PNG"/>
+                </imageobject>
+                <textobject><phrase>Shows Fantasdic in
+                        the system tray.</phrase></textobject>
+            </mediaobject>
+        </screenshot>
+    </figure>    
     
 </sect2>
 
@@ -228,12 +272,231 @@ printer to use, the paper format, the number of copies.</para>
 <para>To change the application preferences, choose
 <menuchoice><guimenu>Edit</guimenu><guimenuitem>Preferences</guimenuitem>
 </menuchoice>.</para>
+
+<sect2 id="fantasdic-preferences-dictionaries">
+    <title>Dictionaries</title>
+
+    <figure id="fantasdic-preferences-dictionaries-fig">
+        <title>Dictionaries tab</title>
+        <screenshot>
+            <mediaobject>
+                <imageobject>
+                    <imagedata
+                        fileref="figures/fantasdic-preferences-dictionaries.png"
+                        format="PNG"/>
+                </imageobject>
+                <textobject><phrase>Shows the Dictionaries
+                tab</phrase></textobject>
+            </mediaobject>
+        </screenshot>
+    </figure>    
+    
+    <para>To add a dictionary, choose <guibutton>Add</guibutton>.</para>
+
+    <para>To change an existing dictionary, select the desired dictionary
+    and choose <guibutton>Properties</guibutton>. To remove an existing
+    dictionary, choose <guibutton>Remove</guibutton>.</para>
+
+    <warning><para>If a dictionary is removed, it will be permanently
+    deleted from the list of available dictionaries.</para></warning>
+
+    <para>For further details, see the <link   
+    linkend="fantasdic-dictionaries">dictionaries section</link>.</para>
+
+</sect2>
+
+<sect2 id="fantasdic-preferences-startup">
+    <title>Startup</title>
+    
+    <figure id="fantasdic-preferences-startup-fig">
+        <title>Startup tab</title>
+        <screenshot>
+            <mediaobject>
+                <imageobject>
+                    <imagedata
+                             
+fileref="figures/fantasdic-preferences-startup.png"
+                              format="PNG"/>
+                </imageobject>
+                <textobject><phrase>Shows the Startup
+                        tab</phrase></textobject>
+            </mediaobject>
+        </screenshot>
+    </figure>    
+</sect2>
+
+<sect2 id="fantasdic-preferences-proxy">
+    <title>Proxy</title>
+    
+    <figure id="fantasdic-preferences-proxy-fig">
+        <title>Proxy tab</title>
+        <screenshot>
+            <mediaobject>
+                <imageobject>
+                    <imagedata
+                              
+                              fileref="figures/fantasdic-preferences-proxy.png"
+                              format="PNG"/>
+                </imageobject>
+                <textobject><phrase>Shows the Proxy
+                        tab</phrase></textobject>
+            </mediaobject>
+        </screenshot>
+    </figure>
+    
+    <para>To configure a proxy:</para>
+    
+    <orderedlist>
+        <listitem><para>Choose the type of proxy.</para></listitem>
+        <listitem><para>Enable the proxy checkbutton.</para></listitem>
+        <listitem><para>Define the required fields.</para></listitem>        
+    </orderedlist>
+        
+</sect2>
+
+
 </sect1>
 
 <sect1 id="fantasdic-dictionaries">
 <title>Dictionaries</title>
-<para>To add or change dictionaries used to look up words, choose the
-"Dictionaries" tab in the preferences window.</para>
+
+<sect2 id="fantasdic-dictionaries-source">
+    <title>Source</title>
+    
+    <figure id="fantasdic-dictionaries-source-fig">
+        <title>Source tab</title>
+        <screenshot>
+            <mediaobject>
+                <imageobject>
+                    <imagedata                             
+                            fileref="figures/fantasdic-dictionaries-source.png"
+                            format="PNG"/>
+                </imageobject>
+                <textobject><phrase>Shows the Source 
+                        tab</phrase></textobject>
+            </mediaobject>
+        </screenshot>
+    </figure>
+
+    <para>To add a dictionary:</para>
+
+    <orderedlist>
+        <listitem><para>Edit the <guilabel>Name</guilabel>
+        entry.</para></listitem>
+        <listitem><para>Choose the source type using the
+        <guilabel>source</guilabel> combobox.</para></listitem>
+        <listitem><para>Choose between <guilabel>Search all databases</guilabel>
+        and <guilabel>Search selected databases</guilabel>.</para></listitem>
+        <listitem><para>Edit the attributes of the selected
+        source.</para></listitem>
+    </orderedlist>
+
+    <para>Different source types use different attributes. This
+        is the list of available attributes per source type:</para>
+    
+    <informaltable frame="all">
+        <tgroup cols="2" colsep="1" rowsep="1">
+            <thead>
+                <row valign="top">
+                    <entry><para>Source</para></entry>
+                    <entry><para>Attributes</para></entry>
+                    <entry><para>Related links</para></entry>
+                </row>
+            </thead>
+            <tbody>
+                <row valign="top">
+                    <entry><para>DICT dictionary Server</para></entry>
+                    <entry>
+                        <para>Hostname: the hostname of the dictionary
+                        server</para>
+                        <para>Port: the port of the dictionary server</para>
+                        <para>Username: an optional username</para>
+                        <para>Password: an optional password</para>
+                    </entry>
+                    <entry><para><ulink url="http://www.dict.org"
+                    >dict.org</ulink></para></entry>
+                </row>
+                <row valign="top">
+                    <entry><para>EDICT file</para></entry>
+                    <entry>
+                        <para>File: the path of the EDICT file</para>
+                        <para>Encoding: the encoding of the EDICT file</para>
+                    </entry>
+                    <entry><para><ulink
+url="http://www.csse.monash.edu.au/~jwb/j_edict.html"
+                                        >EDICT</ulink></para></entry>
+                </row>
+                <row valign="top">
+                    <entry><para>Google Translate</para></entry>
+                    <entry><para>none</para></entry>
+                    <entry></entry>
+                </row>
+            </tbody>
+    </tgroup>
+      </informaltable>
+</sect2>
+
+<sect2 id="fantasdic-dictionaries-databases">
+    <title>Databases</title>
+    
+    <figure id="fantasdic-dictionaries-databases-fig">
+        <title>Databases</title>
+        <screenshot>
+            <mediaobject>
+                <imageobject>
+                    <imagedata
+                             
+fileref="figures/fantasdic-dictionaries-databases.png"
+                              format="PNG"/>
+                </imageobject>
+                <textobject><phrase>Shows the Databases
+                        tab</phrase></textobject>
+            </mediaobject>
+        </screenshot>
+    </figure>
+
+    <para>It is possible to select the databases to use when a word is
+    looked up using the dictionary.</para>
+
+    <orderedlist>
+        <listitem><para>Select one or more databases in <guilabel>Available
+        databases</guilabel>.</para></listitem>
+        <listitem><para>Move them to <guilabel>Selected
+        databases</guilabel>.</para></listitem>        
+      </orderedlist>
+    
+</sect2>
+
+<sect2 id="fantasdic-dictionaries-fonts">
+    <title>Fonts</title>
+    
+    <figure id="fantasdic-dictionaries-fonts-fig">
+        <title>Fonts tab</title>
+        <screenshot>
+            <mediaobject>
+                <imageobject>
+                    <imagedata
+                             
+fileref="figures/fantasdic-dictionaries-fonts.png"
+                              format="PNG"/>
+                </imageobject>
+                <textobject><phrase>Shows the Fonts
+                        tab</phrase></textobject>
+            </mediaobject>
+        </screenshot>
+    </figure>
+
+    <para>To change the font name and size used for displaying the results and
+    for printing, perform the following steps:</para>
+    
+    <orderedlist>
+        <listitem><para>Click on the <guilabel>Font</guilabel>
+                button</para></listitem>
+        <listitem><para>Select the desired font and size</para></listitem>
+        <listitem><para>Click <guibutton>Ok</guibutton></para></listitem>
+      </orderedlist>
+</sect2>
+
 </sect1>
 
 <sect1 id="fantasdic-about">
