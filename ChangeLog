@@ -1,3 +1,7 @@
+2007-11-28 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * win32/README: Updated instructions.
+
 2007-11-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * data/omf/fantasdic/fantasdic-fr.omf: Removed release-specific information.
