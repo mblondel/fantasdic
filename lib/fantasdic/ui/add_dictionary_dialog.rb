@@ -404,7 +404,7 @@ module UI
                                 row[DESC] = sel_db_desc[name]
                             end
                         end
-                        unless @hash[:sel_dbs].empty?
+                        unless @hash[:sel_dbs].empty? or @hash[:all_dbs]
                             @sel_db_radiobutton.activate
                         end
                     else
