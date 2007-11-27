@@ -66,6 +66,8 @@ Fantasdic
 - "../../ruby/bin/ruby" pre-setup.rb
 - cd ../lib/fantasdic
 - "../../../ruby/bin/ruby" pre-setup.rb
+- cd ../../data/
+- "../../ruby/bin/ruby" pre-setup.rb
 
 - Edit bin/fantasdic and add the lines below at the top of the file:
 [
