@@ -3,10 +3,19 @@ This directory
 
 This directory contains the documentation for Fantasdic. Members from the
 GNOME Documentation project can commit changes without the maintainer's
-permission. Don't forget to add your name to AUTHORS.
+permission.
 
 How to contribute documentation ?
 ---------------------------------
+
+- Create a translation file data/gnome/help/fantasdic/LANG/LANG.po
+- Create a localized copy of the figures in
+  data/gnome/help/fantasdic/LANG/figures/
+- Add your name to data/gnome/help/fantasdic/AUTHORS
+- Create a OMF file data/omf/fantasdic/fantasdic-LANG.omf
+
+Some useful commands
+---------------------
 
 Check the validity of your document:
 $ xmllint --noout --noent --valid fantasdic.xml

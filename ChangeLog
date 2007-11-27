@@ -1,5 +1,11 @@
 2007-11-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * data/omf/fantasdic/fantasdic-fr.omf: Removed release-specific information.
+    * data/omf/fantasdic/fantasdic-C.omf: Ditto.
+    * data/gnome/help/fantasdic/README: Updated instructions.
+
+2007-11-27 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * data/fantasdic/glade/add_dictionary_dialog.glade: Typo (sources =>
     source).
 
