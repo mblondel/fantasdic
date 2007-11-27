@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.2 on Sat Oct 13 02:18:08 2007 by mathieu@mathieulaptop-->
+<!--Generated with glade3 3.2.2 on Tue Nov 27 18:43:04 2007 by mathieu@mathieulaptop-->
 <glade-interface>
   <widget class="GtkWindow" id="dialog">
     <property name="width_request">430</property>
@@ -34,6 +34,47 @@
                         <property name="n_columns">2</property>
                         <property name="column_spacing">12</property>
                         <property name="row_spacing">6</property>
+                        <child>
+                          <widget class="GtkLabel" id="name_label">
+                            <property name="visible">True</property>
+                            <property name="tooltip" translatable="yes">This name will identify your dictionary uniquely and will appear in the application menu.</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">_Name:</property>
+                            <property name="use_underline">True</property>
+                            <property name="mnemonic_widget">name_entry</property>
+                          </widget>
+                          <packing>
+                            <property name="x_options">GTK_FILL</property>
+                            <property name="y_options"></property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="source_label">
+                            <property name="visible">True</property>
+                            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">_Source:</property>
+                            <property name="use_underline">True</property>
+                          </widget>
+                          <packing>
+                            <property name="top_attach">1</property>
+                            <property name="bottom_attach">2</property>
+                            <property name="x_options">GTK_FILL</property>
+                            <property name="y_options">GTK_FILL</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkEntry" id="name_entry">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="invisible_char">*</property>
+                          </widget>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="right_attach">2</property>
+                            <property name="y_options"></property>
+                          </packing>
+                        </child>
                         <child>
                           <widget class="GtkHBox" id="hbox2">
                             <property name="visible">True</property>
@@ -73,47 +114,6 @@
                             <property name="right_attach">2</property>
                             <property name="top_attach">1</property>
                             <property name="bottom_attach">2</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="GtkEntry" id="name_entry">
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="invisible_char">*</property>
-                          </widget>
-                          <packing>
-                            <property name="left_attach">1</property>
-                            <property name="right_attach">2</property>
-                            <property name="y_options"></property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="GtkLabel" id="source_label">
-                            <property name="visible">True</property>
-                            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="xalign">0</property>
-                            <property name="label" translatable="yes">_Source:</property>
-                            <property name="use_underline">True</property>
-                          </widget>
-                          <packing>
-                            <property name="top_attach">1</property>
-                            <property name="bottom_attach">2</property>
-                            <property name="x_options">GTK_FILL</property>
-                            <property name="y_options">GTK_FILL</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="GtkLabel" id="name_label">
-                            <property name="visible">True</property>
-                            <property name="tooltip" translatable="yes">This name will identify your dictionary uniquely and will appear in the application menu.</property>
-                            <property name="xalign">0</property>
-                            <property name="label" translatable="yes">_Name:</property>
-                            <property name="use_underline">True</property>
-                            <property name="mnemonic_widget">name_entry</property>
-                          </widget>
-                          <packing>
-                            <property name="x_options">GTK_FILL</property>
-                            <property name="y_options"></property>
                           </packing>
                         </child>
                       </widget>
@@ -187,9 +187,6 @@
                   </widget>
                 </child>
               </widget>
-              <packing>
-                <property name="tab_expand">False</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkHBox" id="source_nb_hbox">
@@ -206,7 +203,7 @@
                 <child>
                   <widget class="GtkLabel" id="label25">
                     <property name="visible">True</property>
-                    <property name="label" translatable="yes">Sources</property>
+                    <property name="label" translatable="yes">Source</property>
                   </widget>
                   <packing>
                     <property name="position">1</property>
@@ -215,7 +212,6 @@
               </widget>
               <packing>
                 <property name="type">tab</property>
-                <property name="tab_expand">False</property>
                 <property name="tab_fill">False</property>
               </packing>
             </child>
@@ -350,7 +346,6 @@
               </widget>
               <packing>
                 <property name="position">1</property>
-                <property name="tab_expand">False</property>
               </packing>
             </child>
             <child>
@@ -378,7 +373,6 @@
               <packing>
                 <property name="type">tab</property>
                 <property name="position">1</property>
-                <property name="tab_expand">False</property>
                 <property name="tab_fill">False</property>
               </packing>
             </child>
@@ -508,7 +502,6 @@
               </widget>
               <packing>
                 <property name="position">2</property>
-                <property name="tab_expand">False</property>
               </packing>
             </child>
             <child>
@@ -536,7 +529,6 @@
               <packing>
                 <property name="type">tab</property>
                 <property name="position">2</property>
-                <property name="tab_expand">False</property>
                 <property name="tab_fill">False</property>
               </packing>
             </child>
@@ -564,7 +556,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                <property name="label" translatable="no">gtk-help</property>
+                <property name="label">gtk-help</property>
                 <property name="use_stock">True</property>
                 <property name="response_id">0</property>
               </widget>

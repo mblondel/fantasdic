@@ -1,5 +1,10 @@
 2007-11-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * data/fantasdic/glade/add_dictionary_dialog.glade: Typo (sources =>
+    source).
+
+2007-11-27 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/add_dictionary_dialog.rb: When editing an existing
     dictionary, the "all databases" button was not selected when needed.
 
