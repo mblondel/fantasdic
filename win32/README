@@ -90,7 +90,7 @@ end
 module Fantasdic
     module Config
         LIB_DIR = 'lib/fantasdic/lib'
-        MAIN_DATA_DIR = 'lib/fantasdic/data/'
+        MAIN_DATA_DIR = File.join(Dir.pwd, 'lib/fantasdic/data/')
         DATA_DIR = 'lib/fantasdic/data/fantasdic/'
     end
 end
