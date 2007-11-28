@@ -153,16 +153,22 @@ class EdictFile < Base
     def check_validity
         n_errors = 0
         n_lines = 0
-        edict_file_open do |file|
-            file.each_line do |line|
-                if @hash[:encoding] and @hash[:encoding] != "UTF-8"
-                    line = convert_to_utf8(@hash[:encoding], line)
+        begin
+            edict_file_open do |file|
+                file.each_line do |line|
+                    if @hash[:encoding] and @hash[:encoding] != "UTF-8"
+                        line = convert_to_utf8(@hash[:encoding], line)
+                    end
+                    n_errors += 1 if REGEXP.match(line).nil?
+                    n_lines += 1
+                    break if n_lines >= 20
                 end
-                n_errors += 1 if REGEXP.match(line).nil?
-                n_lines += 1
-                break if n_lines >= 20
             end
+        rescue Zlib::GzipFile::Error => e
+            raise Source::SourceError,
+                    _("This file is not a valid EDICT file!")
         end
+
         if (n_errors.to_f / n_lines) >= 0.2
             raise Source::SourceError,
                     _("This file is not a valid EDICT file!")
@@ -281,7 +287,12 @@ class EdictFile < Base
                     _("Cannot open file %s.") % @hash[:filename]
         end
         if @hash[:filename] =~ /.gz$/
-            file = Zlib::GzipReader.new(File.new(@hash[:filename]))
+            begin
+                file = Zlib::GzipReader.new(File.new(@hash[:filename]))
+            rescue Zlib::GzipFile::Error => e
+                raise Source::SourceError,
+                    _("This file is not a valid EDICT file!")
+            end
         else
             file = File.new(@hash[:filename])
         end
