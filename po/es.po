@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-31 21:48+0000\n"
-"PO-Revision-Date: 2007-11-01 21:50+0100\n"
+"POT-Creation-Date: 2007-11-27 17:38+0000\n"
+"PO-Revision-Date: 2007-11-28 17:58+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -70,8 +70,8 @@ msgid "Selected databases"
 msgstr "Bases de datos seleccionadas"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
-msgid "Sources"
-msgstr "Fuentes"
+msgid "Source"
+msgstr "Fuente"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
 msgid ""
@@ -135,38 +135,42 @@ msgid "Do not show main window at startup"
 msgstr "No mostrar la ventana principal al inicio"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:6
-msgid "Enable proxy"
-msgstr "Activar proxy"
+msgid "Enable HTTP proxy"
+msgstr "Activar proxy HTTP"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:7
+msgid "Enable SOCKS 5 proxy"
+msgstr "Activar proxy SOCKS 5"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
 msgid "Fantasdic will stay in the system tray even if the window is closed."
 msgstr "Fantasdic estará en la bandeja del sistema aún si se cierra la ventana."
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
 msgid "Host:"
 msgstr "Equipo:"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
 msgid "Password:"
 msgstr "Contraseña:"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
 msgid "Port:"
 msgstr "Puerto:"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
 msgid "Proxy"
 msgstr "Proxy"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
 msgid "Startup"
 msgstr "Inicio"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
 msgid ""
 "This option should be enabled if Fantasdic is started when the computer "
 "boots."
@@ -174,19 +178,19 @@ msgstr ""
 "Esta opción debería activarse si Fantasdic se inicia cuando se arranca el "
 "equipo."
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
 msgid "This proxy can for example be used to traverse firewalls."
 msgstr "Este proxy puede usarse para pasar a através de cortafuegos."
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
 msgid "Username:"
 msgstr "Usuario:"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
 msgid "_Look up last word at startup"
 msgstr "_Buscar la última palabra al iniciar"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:19
 msgid "_Show Fantasdic in system tray"
 msgstr "Mo_strar fantasdic en la bandeja del sistema"
 
@@ -238,7 +242,7 @@ msgid_plural "Matches found: %d."
 msgstr[0] "Se encontró una coincidencia."
 msgstr[1] "Coincidencias encontradas: %d."
 
-#: ../lib/fantasdic.rb:73
+#: ../lib/fantasdic.rb:103
 msgid "Look up words in various dictionary sources"
 msgstr "Buscar palabras en varias fuentes de diccionarios"
 
@@ -403,11 +407,11 @@ msgstr "El diccionario %s ya existe"
 msgid "Fetching databases information..."
 msgstr "Obteniendo información de las bases de datos..."
 
-#: ../lib/fantasdic/ui/browser.rb:24
+#: ../lib/fantasdic/ui/browser.rb:37
 msgid "Could not open browser."
 msgstr "No se pudo abrir el navegador."
 
-#: ../lib/fantasdic/ui/browser.rb:29
+#: ../lib/fantasdic/ui/browser.rb:42
 msgid "Could not find documentation."
 msgstr "No se pudo encontrar la documentación."
 
@@ -447,98 +451,98 @@ msgid_plural "%d matches"
 msgstr[0] "1 coincidencia"
 msgstr[1] "%d coincidencias"
 
-#: ../lib/fantasdic/ui/main_app.rb:572
+#: ../lib/fantasdic/ui/main_app.rb:567
 #, c-format
 msgid "Search %s"
 msgstr "Buscar %s"
 
-#: ../lib/fantasdic/ui/main_app.rb:582
+#: ../lib/fantasdic/ui/main_app.rb:577
 msgid "Zoom over character"
-msgstr ""
+msgstr "Ampliar sobre el carácter"
 
-#: ../lib/fantasdic/ui/main_app.rb:597 ../lib/fantasdic/ui/main_app.rb:894
+#: ../lib/fantasdic/ui/main_app.rb:592 ../lib/fantasdic/ui/main_app.rb:887
 msgid "Select _All"
 msgstr "Seleccionar _todo"
 
-#: ../lib/fantasdic/ui/main_app.rb:723
+#: ../lib/fantasdic/ui/main_app.rb:718
 msgid "Save definition"
 msgstr "Guardar definición"
 
-#: ../lib/fantasdic/ui/main_app.rb:881
+#: ../lib/fantasdic/ui/main_app.rb:874
 msgid "_Look Up"
 msgstr "_Buscar"
 
-#: ../lib/fantasdic/ui/main_app.rb:884
+#: ../lib/fantasdic/ui/main_app.rb:877
 msgid "Print Set_up"
 msgstr "C_onfiguración de la impresión"
 
-#: ../lib/fantasdic/ui/main_app.rb:892
+#: ../lib/fantasdic/ui/main_app.rb:885
 msgid "_Edit"
 msgstr "_Editar"
 
-#: ../lib/fantasdic/ui/main_app.rb:896
+#: ../lib/fantasdic/ui/main_app.rb:889
 msgid "Clear History"
 msgstr "Borrar histórico"
 
-#: ../lib/fantasdic/ui/main_app.rb:899
+#: ../lib/fantasdic/ui/main_app.rb:892
 msgid "Find N_ext"
 msgstr "Buscar _siguiente"
 
-#: ../lib/fantasdic/ui/main_app.rb:901
+#: ../lib/fantasdic/ui/main_app.rb:894
 msgid "Find Pre_vious"
 msgstr "Buscar _anterior"
 
-#: ../lib/fantasdic/ui/main_app.rb:907
+#: ../lib/fantasdic/ui/main_app.rb:900
 msgid "_View"
 msgstr "_Ver"
 
-#: ../lib/fantasdic/ui/main_app.rb:908
+#: ../lib/fantasdic/ui/main_app.rb:901
 msgid "_Text size"
 msgstr "Tamaño del _texto"
 
-#: ../lib/fantasdic/ui/main_app.rb:913
+#: ../lib/fantasdic/ui/main_app.rb:906
 msgid "Zoom normal"
 msgstr "Ampliación normal"
 
-#: ../lib/fantasdic/ui/main_app.rb:917
+#: ../lib/fantasdic/ui/main_app.rb:910
 msgid "_Go"
 msgstr "_Ir"
 
-#: ../lib/fantasdic/ui/main_app.rb:926
+#: ../lib/fantasdic/ui/main_app.rb:919
 msgid "_Help"
 msgstr "Ay_uda"
 
-#: ../lib/fantasdic/ui/main_app.rb:927
+#: ../lib/fantasdic/ui/main_app.rb:920
 msgid "_Contents"
 msgstr "_Contenido"
 
-#: ../lib/fantasdic/ui/main_app.rb:928
+#: ../lib/fantasdic/ui/main_app.rb:921
 msgid "Submit _Bug Report"
 msgstr "Enviar informe de _fallos"
 
-#: ../lib/fantasdic/ui/main_app.rb:930
+#: ../lib/fantasdic/ui/main_app.rb:923
 msgid "About"
 msgstr "Acerca de"
 
-#: ../lib/fantasdic/ui/main_app.rb:974
+#: ../lib/fantasdic/ui/main_app.rb:963
 msgid "Scan clipboard"
 msgstr "Buscar en el portapapeles"
 
-#: ../lib/fantasdic/ui/main_app.rb:976
+#: ../lib/fantasdic/ui/main_app.rb:965
 msgid "_Matches"
 msgstr "_Coincidencias"
 
-#: ../lib/fantasdic/ui/main_app.rb:978
+#: ../lib/fantasdic/ui/main_app.rb:967
 msgid "_Statusbar"
 msgstr "Barra de e_stado"
 
-#: ../lib/fantasdic/ui/main_app.rb:980
+#: ../lib/fantasdic/ui/main_app.rb:969
 msgid "_Toolbar"
 msgstr "Barra de _herramientas"
 
-#: ../lib/fantasdic/ui/main_app.rb:982
+#: ../lib/fantasdic/ui/main_app.rb:971
 msgid "_Keep above"
-msgstr ""
+msgstr "Siempre _encima"
 
 #: ../lib/fantasdic/ui/preferences_dialog.rb:207
 msgid "SOCKS 5 proxy"
