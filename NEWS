@@ -1,5 +1,23 @@
 NEWS
 
+=== Fantasdic 1.0 beta5 ===
+
+- Multiple sources support. Currently:
+    -> DICT dictionary server,
+    -> EDICT file,
+    -> Google Translate.
+- Per-dictionary font preferences.
+- User manual (English, French).
+- HTTP-proxy support.
+- Uses default browser on Windows.
+- Fixes a bug related to cache.
+- Fixes a bug related to threads.
+- Uses gettext's function for plural forms. Reported by Djihed Afifi (#489593).
+- Saves the "scan clipboard" option in the config file. Adds ctrl + shift +
+  S as keyboard shortcut. Reported by Dmitry Rutsky (Debian bug #442336).
+- Adds "keep above" option in the "View menu". Feature request by by Dmitry
+  Rutsky (Debian bug #442340).
+
 === Fantasdic 1.0 beta4 ===
 
 Yet a lot of love with this release :-).

@@ -1,5 +1,9 @@
 2007-11-28 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * release 1.0-beta5    
+
+2007-11-28 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/sources/edict_file.rb: Rescue the exception raised when the
     gz file is not valid.
 
