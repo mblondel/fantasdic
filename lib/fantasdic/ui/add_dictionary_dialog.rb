@@ -111,10 +111,12 @@ module UI
 
             if @hash
                 # Font buttons
-                if @hash[:print_font_name]
-                    @print_fontbutton.font_name = @hash[:print_font_name]
-                else
-                    @print_fontbutton.font_name = Print::DEFAULT_FONT.to_s
+                if HAVE_PRINT
+                    if @hash[:print_font_name]
+                        @print_fontbutton.font_name = @hash[:print_font_name]
+                    else
+                        @print_fontbutton.font_name = Print::DEFAULT_FONT.to_s
+                    end
                 end
 
                 if @hash[:results_font_name]                
@@ -140,7 +142,9 @@ module UI
         def initialize_font_signals
             @set_default_fonts_button.signal_connect("clicked") do
                 @results_fontbutton.font_name = LinkBuffer::DEFAULT_FONT.to_s
-                @print_fontbutton.font_name = Print::DEFAULT_FONT.to_s
+                if HAVE_PRINT
+                    @print_fontbutton.font_name = Print::DEFAULT_FONT.to_s
+                end
             end
         end
 
@@ -310,8 +314,6 @@ module UI
         end
 
         def initialize_ui
-            @print_vbox.visible = Fantasdic::UI::HAVE_PRINT
-
             @avail_db_treeview.model = Gtk::ListStore.new(String, String)
             @avail_db_treeview.selection.mode = Gtk::SELECTION_MULTIPLE
 
@@ -423,8 +425,9 @@ module UI
                     @general_infos_vbox.sensitive = true
                     @databases_vbox.sensitive = true
                     sensitize_databases
+                    @print_vbox.visible = Fantasdic::UI::HAVE_PRINT
                 end
-            end
+            end            
         end
 
         def set_source(src_str)
