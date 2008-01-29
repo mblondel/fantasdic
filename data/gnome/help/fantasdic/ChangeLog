@@ -1,3 +1,9 @@
+2008-01-29  Claude Paroz  <claude@2xlibre.net>
+
+	* LINGUAS: Added LINGUAS file to be able to generate stats on
+	l10n.gnome.org.
+	Fixes #512637. 
+
 2007-11-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
 	* fr/figures/*.png: Localized screenshots.
