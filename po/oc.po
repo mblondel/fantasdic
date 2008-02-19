@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fantasdic 1.0-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-27 13:30+0100\n"
+"POT-Creation-Date: 2008-02-19 20:19+0100\n"
 "PO-Revision-Date: 2007-12-27 15:06+0100\n"
 "Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
@@ -234,7 +234,9 @@ msgstr ""
 #: ../lib/fantasdic/command_line.rb:104
 #, c-format
 msgid "One match found."
-msgstr ""
+msgid_plural "Matches found: %d."
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../lib/fantasdic.rb:103
 msgid "Look up words in various dictionary sources"
@@ -386,20 +388,20 @@ msgstr ""
 msgid "About database %s"
 msgstr "A prepaus de la basa de donadas %s"
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:257
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:261
 msgid "Name missing."
 msgstr ""
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:260
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:264
 msgid "No database selected!"
 msgstr "Pas cap de basa de donadas seleccionada !"
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:274
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:278
 #, c-format
 msgid "Dictionary %s exists already!"
 msgstr "Lo diccionari %s existís ja !"
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:373
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:375
 msgid "Fetching databases information..."
 msgstr ""
 
@@ -443,7 +445,9 @@ msgstr[1] "Definicions trobadas : %d."
 #: ../lib/fantasdic/ui/main_app.rb:288
 #, c-format
 msgid "1 match"
-msgstr ""
+msgid_plural "%d matches"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../lib/fantasdic/ui/main_app.rb:567
 #, c-format
@@ -488,7 +492,7 @@ msgstr "Recercar lo _precedent"
 
 #: ../lib/fantasdic/ui/main_app.rb:900
 msgid "_View"
-msgstr "_Mostrar"
+msgstr "_Visualizar"
 
 #: ../lib/fantasdic/ui/main_app.rb:901
 msgid "_Text size"
