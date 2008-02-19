@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-30 11:17+0300\n"
+"POT-Creation-Date: 2008-02-19 08:51+0300\n"
 "PO-Revision-Date: 2007-06-13 17:48+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -69,8 +69,8 @@ msgid "Selected databases"
 msgstr "Valitut tietokannat"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
-msgid "Sources"
-msgstr "Lähteet"
+msgid "Source"
+msgstr "Lähde"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
 msgid ""
@@ -134,38 +134,42 @@ msgid "Do not show main window at startup"
 msgstr "Älä näytä pääikkunaa käynnistettäessä"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:6
-msgid "Enable proxy"
-msgstr "Käytä välipalvelinta"
+msgid "Enable HTTP proxy"
+msgstr "Käytä HTTP-välipalvelinta"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:7
+msgid "Enable SOCKS 5 proxy"
+msgstr "Käytä SOCKS 5-välipalvelinta"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
 msgid "Fantasdic will stay in the system tray even if the window is closed."
 msgstr "Fantasdic pysyy ilmoitusalueella, vaikka ikkuna suljetaan."
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
 msgid "Host:"
 msgstr "Verkkonimi:"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
 msgid "Password:"
 msgstr "Salasana:"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
 msgid "Port:"
 msgstr "Portti:"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
 msgid "Proxy"
 msgstr "Välipalvelin"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
 msgid "Startup"
 msgstr "Käynnistys"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
 msgid ""
 "This option should be enabled if Fantasdic is started when the computer "
 "boots."
@@ -173,19 +177,19 @@ msgstr ""
 "Tämä valitsin tulee valita, jos fantasdic käynnistetään tietokoneen "
 "käynnistyessä."
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
 msgid "This proxy can for example be used to traverse firewalls."
 msgstr "Tällä välipalvelimella voidaan muun muassa päästä palomuureista läpi."
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
 msgid "Username:"
 msgstr "Käyttäjätunnus:"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
 msgid "_Look up last word at startup"
 msgstr "_Etsi viimeisin sana käynnistettäessä"
 
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:19
 msgid "_Show Fantasdic in system tray"
 msgstr "_Näytä fantasdic ilmoitusalueella"
 
@@ -237,19 +241,19 @@ msgid_plural "Matches found: %d."
 msgstr[0] "Löytyi yksi osuma."
 msgstr[1] "Löytyi %d osumaa."
 
-#: ../lib/fantasdic.rb:73
+#: ../lib/fantasdic.rb:103
 msgid "Look up words in various dictionary sources"
 msgstr "Etsi sanoja useista sanakirjalähteistä"
 
-#: ../lib/fantasdic/source_base.rb:194
+#: ../lib/fantasdic/source_base.rb:197
 msgid "Connecting to source..."
 msgstr "Yhdistetään lähteeseen..."
 
-#: ../lib/fantasdic/source_base.rb:198
+#: ../lib/fantasdic/source_base.rb:201
 msgid "Transferring data from source ..."
 msgstr "Siirretään tietoja lähteestä..."
 
-#: ../lib/fantasdic/source_base.rb:255 ../lib/fantasdic/source_base.rb:263
+#: ../lib/fantasdic/source_base.rb:258 ../lib/fantasdic/source_base.rb:266
 msgid "Can't convert encodings."
 msgstr "Merkistöjä ei voi muuntaa."
 
@@ -359,16 +363,18 @@ msgstr "_Tiedosto:"
 msgid "_Encoding:"
 msgstr "_Merkistökoodaus:"
 
-#: ../lib/fantasdic/sources/edict_file.rb:168
+#: ../lib/fantasdic/sources/edict_file.rb:169
+#: ../lib/fantasdic/sources/edict_file.rb:174
+#: ../lib/fantasdic/sources/edict_file.rb:294
 msgid "This file is not a valid EDICT file!"
 msgstr "Tämä tiedosto ei ole kelvollinen EDICT-tiedosto!"
 
-#: ../lib/fantasdic/sources/edict_file.rb:281
+#: ../lib/fantasdic/sources/edict_file.rb:287
 #, c-format
 msgid "Cannot open file %s."
 msgstr "Tiedostoa \"%s\" ei voi avata."
 
-#: ../lib/fantasdic/sources/edict_file.rb:359
+#: ../lib/fantasdic/sources/edict_file.rb:370
 msgid "Encoding not supported."
 msgstr "Merkistökoodaus ei ole tuettu."
 
@@ -385,28 +391,28 @@ msgstr "Käännä sanoja käyttäen Google Translate-palvelua."
 msgid "About database %s"
 msgstr "Tietoja tietokannasta %s"
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:257
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:261
 msgid "Name missing."
 msgstr "Nimi puuttuu."
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:260
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:264
 msgid "No database selected!"
 msgstr "Tietokantaa ei ole valittu!"
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:274
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:278
 #, c-format
 msgid "Dictionary %s exists already!"
 msgstr "Sanakirja %s on jo määritelty!"
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:373
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:375
 msgid "Fetching databases information..."
 msgstr "Noudetaan tietoja tietokannoista..."
 
-#: ../lib/fantasdic/ui/browser.rb:24
+#: ../lib/fantasdic/ui/browser.rb:37
 msgid "Could not open browser."
 msgstr "Selainta ei voitu avata."
 
-#: ../lib/fantasdic/ui/browser.rb:29
+#: ../lib/fantasdic/ui/browser.rb:42
 msgid "Could not find documentation."
 msgstr "Ohjetta ei löytynyt."
 
@@ -446,90 +452,98 @@ msgid_plural "%d matches"
 msgstr[0] "1 osuma"
 msgstr[1] "%d osumaa"
 
-#: ../lib/fantasdic/ui/main_app.rb:570
+#: ../lib/fantasdic/ui/main_app.rb:567
 #, c-format
 msgid "Search %s"
 msgstr "Etsitään: %s"
 
-#: ../lib/fantasdic/ui/main_app.rb:595 ../lib/fantasdic/ui/main_app.rb:892
+#: ../lib/fantasdic/ui/main_app.rb:577
+msgid "Zoom over character"
+msgstr "Suurenna merkin päällä"
+
+#: ../lib/fantasdic/ui/main_app.rb:592 ../lib/fantasdic/ui/main_app.rb:887
 msgid "Select _All"
 msgstr "Valitse k_aikki"
 
-#: ../lib/fantasdic/ui/main_app.rb:721
+#: ../lib/fantasdic/ui/main_app.rb:718
 msgid "Save definition"
 msgstr "Tallenna määrittely"
 
-#: ../lib/fantasdic/ui/main_app.rb:879
+#: ../lib/fantasdic/ui/main_app.rb:874
 msgid "_Look Up"
 msgstr "_Etsi"
 
-#: ../lib/fantasdic/ui/main_app.rb:882
+#: ../lib/fantasdic/ui/main_app.rb:877
 msgid "Print Set_up"
 msgstr "Tulostuksen _asetukset"
 
-#: ../lib/fantasdic/ui/main_app.rb:890
+#: ../lib/fantasdic/ui/main_app.rb:885
 msgid "_Edit"
 msgstr "_Muokkaa"
 
-#: ../lib/fantasdic/ui/main_app.rb:894
+#: ../lib/fantasdic/ui/main_app.rb:889
 msgid "Clear History"
 msgstr "Tyhjennä historia"
 
-#: ../lib/fantasdic/ui/main_app.rb:897
+#: ../lib/fantasdic/ui/main_app.rb:892
 msgid "Find N_ext"
 msgstr "Etsi _seuraava"
 
-#: ../lib/fantasdic/ui/main_app.rb:899
+#: ../lib/fantasdic/ui/main_app.rb:894
 msgid "Find Pre_vious"
 msgstr "Etsi _edellinen"
 
-#: ../lib/fantasdic/ui/main_app.rb:905
+#: ../lib/fantasdic/ui/main_app.rb:900
 msgid "_View"
 msgstr "_Näytä"
 
-#: ../lib/fantasdic/ui/main_app.rb:906
+#: ../lib/fantasdic/ui/main_app.rb:901
 msgid "_Text size"
 msgstr "_Tekstin koko"
 
-#: ../lib/fantasdic/ui/main_app.rb:911
+#: ../lib/fantasdic/ui/main_app.rb:906
 msgid "Zoom normal"
 msgstr "Tavallinen koko"
 
-#: ../lib/fantasdic/ui/main_app.rb:915
+#: ../lib/fantasdic/ui/main_app.rb:910
 msgid "_Go"
 msgstr "_Siirry"
 
-#: ../lib/fantasdic/ui/main_app.rb:924
+#: ../lib/fantasdic/ui/main_app.rb:919
 msgid "_Help"
 msgstr "O_hje"
 
-#: ../lib/fantasdic/ui/main_app.rb:925
+#: ../lib/fantasdic/ui/main_app.rb:920
 msgid "_Contents"
 msgstr "_Sisältö"
 
-#: ../lib/fantasdic/ui/main_app.rb:926
+#: ../lib/fantasdic/ui/main_app.rb:921
 msgid "Submit _Bug Report"
 msgstr "Lähetä _vikaraportti"
 
-#: ../lib/fantasdic/ui/main_app.rb:928
+#: ../lib/fantasdic/ui/main_app.rb:923
 msgid "About"
 msgstr "Tietoja"
 
-#: ../lib/fantasdic/ui/main_app.rb:968
+#: ../lib/fantasdic/ui/main_app.rb:963
 msgid "Scan clipboard"
 msgstr "Tutki leikepöytää"
 
-#: ../lib/fantasdic/ui/main_app.rb:970
+#: ../lib/fantasdic/ui/main_app.rb:965
 msgid "_Matches"
 msgstr "_Osumat"
 
-#: ../lib/fantasdic/ui/main_app.rb:972
+#: ../lib/fantasdic/ui/main_app.rb:967
 msgid "_Statusbar"
 msgstr "_Tilarivi"
 
-#: ../lib/fantasdic/ui/main_app.rb:974
+#: ../lib/fantasdic/ui/main_app.rb:969
 msgid "_Toolbar"
 msgstr "_Työkalupalkki"
+
+#: ../lib/fantasdic/ui/main_app.rb:971
+msgid "_Keep above"
+msgstr "_Pidä yllä"
 
 #: ../lib/fantasdic/ui/preferences_dialog.rb:207
 msgid "SOCKS 5 proxy"
