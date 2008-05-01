@@ -1,3 +1,8 @@
+2008-05-01  Petr Kovar  <pknbe@volny.cz>
+
+	* cs.po: Added Czech translation by Adrian Gunis.
+	* LINGUAS: Added cs.
+
 2008-04-15  Claude Paroz  <claude@2xlibre.net>
 
 	* fr.po: Updated French translation (following GNOME French Team

@@ -1,0 +1,572 @@
+# Czech translation of fantasdic.
+# Copyright (C) 2008 the author(s) of fantasdic.
+# This file is distributed under the same license as the fantasdic package.
+# Adrian Guniš <andygun@seznam.cz>, 2008.
+# Petr Kovar <pknbe@volny.cz>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fantasdic\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-05-01 02:31+0200\n"
+"PO-Revision-Date: 2008-05-01 02:28+0100\n"
+"Last-Translator: Petr Kovar <pknbe@volny.cz>\n"
+"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
+msgid "<b>Print</b>"
+msgstr "<b>Tisk</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:2
+msgid "<b>Results</b>"
+msgstr "<b>Výsledky</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:3
+msgid "Add dictionary"
+msgstr "Přidat slovník"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:4
+msgid "Available databases"
+msgstr "Dostupné databáze"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
+msgid "Databases"
+msgstr "Databáze"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
+msgid "Fonts"
+msgstr "Písma"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
+msgid "Move database to selected databases"
+msgstr "Přesunout databázi k vybraným databázím"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
+msgid "Remove database from selected databases"
+msgstr "Odstranit databázi z vybraných databází"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
+msgid "Restore default fonts"
+msgstr "Obnovit výchozí písma"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
+msgid "Search _all databases"
+msgstr "Prohled_at všechny databáze"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
+msgid "Search selected _databases"
+msgstr "Prohledat vybrané _databáze"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
+msgid "Select a font"
+msgstr "Vybrat písmo"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:13
+msgid "Selected databases"
+msgstr "Vybrané databáze"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
+msgid "Source"
+msgstr "Zdroj"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
+msgid ""
+"This name will identify your dictionary uniquely and will appear in the "
+"application menu."
+msgstr ""
+"Tento jedinečný název bude identifikovat váš slovník a objeví se v nabídce "
+"aplikace."
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
+msgid "_Name:"
+msgstr "_Název:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
+msgid "_Source:"
+msgstr "_Zdroj:"
+
+#: ../data/fantasdic/glade/main_app.glade.h:1
+msgid "<i>Not found</i>"
+msgstr "<i>Nenalezeno</i>"
+
+#: ../data/fantasdic/glade/main_app.glade.h:2
+msgid "Fantasdic"
+msgstr "Fantasdic"
+
+#: ../data/fantasdic/glade/main_app.glade.h:3
+msgid "Find: "
+msgstr "Hledat: "
+
+#: ../data/fantasdic/glade/main_app.glade.h:4
+#: ../lib/fantasdic/ui/main_app.rb:291
+msgid "Matches"
+msgstr "Shodná slova"
+
+#: ../data/fantasdic/glade/main_app.glade.h:5
+msgid "_Next"
+msgstr "_Následující"
+
+#: ../data/fantasdic/glade/main_app.glade.h:6
+msgid "_Previous"
+msgstr "_Předcházející"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:1
+msgid "<b>Startup</b>"
+msgstr "<b>Spuštění</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:2
+msgid "<b>System tray</b>"
+msgstr "<b>Systémová oblast</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:3
+msgid "Dictionaries"
+msgstr "Slovníky"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:4
+msgid "Do _not quit when main window is closed"
+msgstr "_Neukončovat, když se zavře hlavní okno"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:5
+msgid "Do not show main window at startup"
+msgstr "Nezobrazovat hlavní okno při spouštění"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:6
+msgid "Enable HTTP proxy"
+msgstr "Povolit HTTP proxy"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:7
+msgid "Enable SOCKS 5 proxy"
+msgstr "Povolit SOCKS 5 proxy"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
+msgid "Fantasdic will stay in the system tray even if the window is closed."
+msgstr "Fantasdic zůstane v systémové oblasti, i když je okno zavřeno."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
+msgid "Host:"
+msgstr "Hostící počítač:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
+msgid "Password:"
+msgstr "Heslo:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
+msgid "Port:"
+msgstr "Port:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
+msgid "Preferences"
+msgstr "Nastavení"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
+msgid "Proxy"
+msgstr "Proxy"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
+msgid "Startup"
+msgstr "Spuštění"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
+msgid ""
+"This option should be enabled if Fantasdic is started when the computer "
+"boots."
+msgstr ""
+"Tato možnost by měla být povolena, pokud je Fantasdic spouštěn, když se "
+"zavádí systém."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
+msgid "This proxy can for example be used to traverse firewalls."
+msgstr "Tento proxy může být použit např. pro obejití firewallu."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
+msgid "Username:"
+msgstr "Uživatelské jméno:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
+msgid "_Look up last word at startup"
+msgstr "Vyh_ledat poslední slovo při spuštění"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:19
+msgid "_Show Fantasdic in system tray"
+msgstr "Zobrazit Fantasdic v _systémové oblasti"
+
+#: ../data/fantasdic/glade/server_infos_dialog.glade.h:1
+msgid "Server informations"
+msgstr "Informace o serveru"
+
+#: ../lib/fantasdic/command_line.rb:34
+msgid "Usage: fantasdic [options] [dictionary] [word]"
+msgstr "Použití: fantasdic [volby] [slovník] [slovo]"
+
+#: ../lib/fantasdic/command_line.rb:37
+msgid "Print results to stdout"
+msgstr "Vytisknout výsledky na stdout"
+
+#: ../lib/fantasdic/command_line.rb:42
+msgid "List dictionaries in settings"
+msgstr "Seznam slovníků v nastaveních"
+
+#: ../lib/fantasdic/command_line.rb:47
+msgid "List strategies available for dictionary"
+msgstr "Seznam metod dostupných pro slovník"
+
+#: ../lib/fantasdic/command_line.rb:52
+msgid "Use strategy to match words"
+msgstr "Použít metodu pro porovnání slov"
+
+#: ../lib/fantasdic/command_line.rb:56
+msgid "Show this message"
+msgstr "Zobrazit tuto zprávu"
+
+#: ../lib/fantasdic/command_line.rb:61
+msgid "Show version"
+msgstr "Zobrazit verzi"
+
+#: ../lib/fantasdic/command_line.rb:85
+msgid "Error: Dictionary does not exist in the settings"
+msgstr "Chyba: Slovník neexistuje v nastaveních"
+
+#: ../lib/fantasdic/command_line.rb:102 ../lib/fantasdic/command_line.rb:146
+#: ../lib/fantasdic/ui/main_app.rb:290
+msgid "No match found."
+msgstr "Nenalezeno žádné shodné slovo."
+
+#: ../lib/fantasdic/command_line.rb:104
+#, c-format
+msgid "One match found."
+msgid_plural "Matches found: %d."
+msgstr[0] "Nalezeno jedno shodné slovo."
+msgstr[1] "Nalezena %d shodná slova."
+msgstr[2] "Nalezeno %d shodných slov."
+
+#: ../lib/fantasdic.rb:103
+msgid "Look up words in various dictionary sources"
+msgstr "Vyhledat slova v různých zdrojích slovníků"
+
+#: ../lib/fantasdic/source_base.rb:197
+msgid "Connecting to source..."
+msgstr "Připojuji se ke zdroji..."
+
+#: ../lib/fantasdic/source_base.rb:201
+msgid "Transferring data from source ..."
+msgstr "Přenáším data ze zdroje..."
+
+#: ../lib/fantasdic/source_base.rb:258 ../lib/fantasdic/source_base.rb:266
+msgid "Can't convert encodings."
+msgstr "Nemohu konvertovat kódování."
+
+#: ../lib/fantasdic/sources/dict_server.rb:23
+msgid "DICT dictionary server"
+msgstr "Server slovníku DICT"
+
+#: ../lib/fantasdic/sources/dict_server.rb:24
+msgid "Look up words using a DICT dictionary server."
+msgstr "Vyhledat slova využívající server slovníku DICT."
+
+#: ../lib/fantasdic/sources/dict_server.rb:34
+msgid "Server details"
+msgstr "Podrobnosti o serveru"
+
+#: ../lib/fantasdic/sources/dict_server.rb:60
+#: ../lib/fantasdic/sources/dict_server.rb:266
+#: ../lib/fantasdic/sources/dict_server.rb:276
+#: ../lib/fantasdic/sources/dict_server.rb:291
+#: ../lib/fantasdic/sources/dict_server.rb:302
+#, c-format
+msgid "Could not connect to %s"
+msgstr "Nemohu se připojit k %s"
+
+#: ../lib/fantasdic/sources/dict_server.rb:76
+#: ../lib/fantasdic/sources/dict_server.rb:205
+msgid "Server missing."
+msgstr "Chybí server."
+
+#: ../lib/fantasdic/sources/dict_server.rb:77
+#: ../lib/fantasdic/sources/dict_server.rb:210
+msgid "Port missing."
+msgstr "Chybí port."
+
+#: ../lib/fantasdic/sources/dict_server.rb:80
+msgid "Username missing."
+msgstr "Chybí uživatelské jméno."
+
+#: ../lib/fantasdic/sources/dict_server.rb:82
+msgid "Password missing."
+msgstr "Chybí heslo."
+
+#: ../lib/fantasdic/sources/dict_server.rb:103
+msgid "_Server:"
+msgstr "_Server:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:115
+msgid "_Port:"
+msgstr "_Port:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:135
+msgid "Server _requires authentication"
+msgstr "Se_rver vyžaduje ověření"
+
+#: ../lib/fantasdic/sources/dict_server.rb:140
+msgid "_Username:"
+msgstr "_Uživatelské jméno:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:144
+msgid "Pass_word:"
+msgstr "He_slo:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:311
+#: ../lib/fantasdic/sources/dict_server.rb:320
+msgid "Connection with server lost."
+msgstr "Ztraceno spojení se serverem."
+
+#: ../lib/fantasdic/sources/dict_server.rb:325
+#, c-format
+msgid "Waiting for %s..."
+msgstr "Počkejte %s..."
+
+#: ../lib/fantasdic/sources/dict_server.rb:329
+#, c-format
+msgid "Transferring data from %s..."
+msgstr "Přenáším data z %s..."
+
+#: ../lib/fantasdic/sources/edict_file.rb:25
+msgid "EDICT file"
+msgstr "Soubor EDICT"
+
+#: ../lib/fantasdic/sources/edict_file.rb:26
+msgid "Look up words in an EDICT file."
+msgstr "Vyhledat slova v souboru EDICT."
+
+#: ../lib/fantasdic/sources/edict_file.rb:59
+msgid "A file must be selected!"
+msgstr "Soubor musí být vybrán!"
+
+#: ../lib/fantasdic/sources/edict_file.rb:73
+msgid "Select an EDICT file"
+msgstr "Vybrat soubor EDICT"
+
+#: ../lib/fantasdic/sources/edict_file.rb:78
+msgid "All files"
+msgstr "Všechny soubory"
+
+#: ../lib/fantasdic/sources/edict_file.rb:84
+msgid "Gzip-compressed files"
+msgstr "Komprimovaný soubor Gzip"
+
+#: ../lib/fantasdic/sources/edict_file.rb:96
+msgid "_File:"
+msgstr "_Soubor:"
+
+#: ../lib/fantasdic/sources/edict_file.rb:98
+msgid "_Encoding:"
+msgstr "_Kódování:"
+
+#: ../lib/fantasdic/sources/edict_file.rb:169
+#: ../lib/fantasdic/sources/edict_file.rb:174
+#: ../lib/fantasdic/sources/edict_file.rb:294
+msgid "This file is not a valid EDICT file!"
+msgstr "Tento soubor není platným souborem EDICT!"
+
+#: ../lib/fantasdic/sources/edict_file.rb:287
+#, c-format
+msgid "Cannot open file %s."
+msgstr "Nemohu otevřít soubor %s."
+
+#: ../lib/fantasdic/sources/edict_file.rb:370
+msgid "Encoding not supported."
+msgstr "Kódování není podporováno."
+
+#: ../lib/fantasdic/sources/google_translate.rb:26
+msgid "Google Translate"
+msgstr "Překladač Google"
+
+#: ../lib/fantasdic/sources/google_translate.rb:27
+msgid "Translate words using Google Translate."
+msgstr "Přeložit slova pomocí překladače Google."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:27
+#, c-format
+msgid "About database %s"
+msgstr "O databázi %s"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:261
+msgid "Name missing."
+msgstr "Chybí název."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:264
+msgid "No database selected!"
+msgstr "Nevybrána žádná databáze!"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:278
+#, c-format
+msgid "Dictionary %s exists already!"
+msgstr "Slovník %s už existuje!"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:375
+msgid "Fetching databases information..."
+msgstr "Přenáším informace o databázích..."
+
+#: ../lib/fantasdic/ui/browser.rb:37
+msgid "Could not open browser."
+msgstr "Nemohu otevřít prohlížeč."
+
+#: ../lib/fantasdic/ui/browser.rb:42
+msgid "Could not find documentation."
+msgstr "Nemohu nalézt dokumentaci."
+
+#: ../lib/fantasdic/ui/main_app.rb:72
+msgid "No dictionary configured"
+msgstr "Není nastaven žádný slovník"
+
+#: ../lib/fantasdic/ui/main_app.rb:106
+#, c-format
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "Slovník \"%s\" už neexistuje"
+
+#: ../lib/fantasdic/ui/main_app.rb:116
+#, c-format
+msgid "Dictionary source \"%s\" does not exist anymore"
+msgstr "Zdroj slovníku \"%s\" už neexistuje"
+
+#: ../lib/fantasdic/ui/main_app.rb:216
+msgid "Source error"
+msgstr "Chyba zdroje"
+
+#: ../lib/fantasdic/ui/main_app.rb:249
+msgid "No definition found."
+msgstr "Nenalezena žádná definice."
+
+#: ../lib/fantasdic/ui/main_app.rb:254
+#, c-format
+msgid "One definition found."
+msgid_plural "Definitions found: %d."
+msgstr[0] "Nalezena jedna definice."
+msgstr[1] "Nalezeny %d definice."
+msgstr[2] "Nalezeno %d definicí."
+
+#: ../lib/fantasdic/ui/main_app.rb:288
+#, c-format
+msgid "1 match"
+msgid_plural "%d matches"
+msgstr[0] "1 shodné slovo"
+msgstr[1] "%d shodná slova"
+msgstr[2] "%d shodných slov"
+
+#: ../lib/fantasdic/ui/main_app.rb:567
+#, c-format
+msgid "Search %s"
+msgstr "Hledat %s"
+
+#: ../lib/fantasdic/ui/main_app.rb:577
+msgid "Zoom over character"
+msgstr "Přiblížení znaků"
+
+#: ../lib/fantasdic/ui/main_app.rb:592 ../lib/fantasdic/ui/main_app.rb:887
+msgid "Select _All"
+msgstr "Vybr_at vše"
+
+#: ../lib/fantasdic/ui/main_app.rb:718
+msgid "Save definition"
+msgstr "Uložit definice"
+
+#: ../lib/fantasdic/ui/main_app.rb:874
+msgid "_Look Up"
+msgstr "Vyh_ledat"
+
+#: ../lib/fantasdic/ui/main_app.rb:877
+msgid "Print Set_up"
+msgstr "_Nastavit tisk"
+
+#: ../lib/fantasdic/ui/main_app.rb:885
+msgid "_Edit"
+msgstr "Ú_pravy"
+
+#: ../lib/fantasdic/ui/main_app.rb:889
+msgid "Clear History"
+msgstr "Vymazat historii"
+
+#: ../lib/fantasdic/ui/main_app.rb:892
+msgid "Find N_ext"
+msgstr "Hledat násl_edující"
+
+#: ../lib/fantasdic/ui/main_app.rb:894
+msgid "Find Pre_vious"
+msgstr "Hledat pře_dcházející"
+
+#: ../lib/fantasdic/ui/main_app.rb:900
+msgid "_View"
+msgstr "_Zobrazit"
+
+#: ../lib/fantasdic/ui/main_app.rb:901
+msgid "_Text size"
+msgstr "Velikost _textu"
+
+#: ../lib/fantasdic/ui/main_app.rb:906
+msgid "Zoom normal"
+msgstr "Normální"
+
+#: ../lib/fantasdic/ui/main_app.rb:910
+msgid "_Go"
+msgstr "Pře_jít"
+
+#: ../lib/fantasdic/ui/main_app.rb:919
+msgid "_Help"
+msgstr "_Nápověda"
+
+#: ../lib/fantasdic/ui/main_app.rb:920
+msgid "_Contents"
+msgstr "_Obsah"
+
+#: ../lib/fantasdic/ui/main_app.rb:921
+msgid "Submit _Bug Report"
+msgstr "Podat oznámení o chy_bě"
+
+#: ../lib/fantasdic/ui/main_app.rb:923
+msgid "About"
+msgstr "O aplikaci"
+
+#: ../lib/fantasdic/ui/main_app.rb:963
+msgid "Scan clipboard"
+msgstr "Prohledávat schránku"
+
+#: ../lib/fantasdic/ui/main_app.rb:965
+msgid "_Matches"
+msgstr "S_hody"
+
+#: ../lib/fantasdic/ui/main_app.rb:967
+msgid "_Statusbar"
+msgstr "_Stavový řádek"
+
+#: ../lib/fantasdic/ui/main_app.rb:969
+msgid "_Toolbar"
+msgstr "Lišta nás_trojů"
+
+#: ../lib/fantasdic/ui/main_app.rb:971
+msgid "_Keep above"
+msgstr "U_držovat nahoře"
+
+#: ../lib/fantasdic/ui/preferences_dialog.rb:207
+msgid "SOCKS 5 proxy"
+msgstr "SOCKS 5 proxy"
+
+#: ../lib/fantasdic/ui/preferences_dialog.rb:207
+msgid "HTTP proxy"
+msgstr "HTTP proxy"
+
+#: ../lib/fantasdic/ui/print.rb:188
+#, c-format
+msgid "Definitions for %s"
+msgstr "Definice pro %s"
+
+#: ../lib/fantasdic/ui/print.rb:189
+#, c-format
+msgid "Page %d/%d"
+msgstr "Strana %d/%d"
+
+#: ../lib/fantasdic/ui/print.rb:200
+msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
+msgstr "Vytištěno ve Fantasdic %d/%m/%Y v %H:%M"
