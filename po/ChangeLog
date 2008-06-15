@@ -1,3 +1,8 @@
+2008-06-15   Clytie Siddall <clytie@riverland.net.au>
+
+	* vi.po: Added Vietnamese translation.
+	* LINGUAS: Added "vi".
+
 2008-05-01  Petr Kovar  <pknbe@volny.cz>
 
 	* cs.po: Added Czech translation by Adrian Gunis.
