@@ -185,7 +185,14 @@ class Print < Gtk::PrintOperation
         layout = cr.create_pango_layout
         layout.alignment = Pango::Layout::ALIGN_RIGHT
         layout.font_description = FONT_SMALL
-        layout.text = _("Definitions for %s") % @title + " - " + \
+
+        title = if @title.utf8_length > 30
+            @title.utf8_slice(0..27) + "..."
+        else
+            @title
+        end
+
+        layout.text = _("Definitions for %s") % title + " - " + \
                       _("Page %d/%d") % [nth_page, total_page]
         width, height = layout.size_points
         cr.move_to(page_width - width, height)

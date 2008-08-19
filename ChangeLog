@@ -1,5 +1,11 @@
 2008-08-20 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/print.rb: Slice the word in the header if it's too long.
+    This can happen when one enters a long sentence to translate with Google
+    Translate.
+
+2008-08-20 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/sources/google_translate.rb: Fixed bug which made the
     source return no results. This was due to a change in the HTML structure of
     the results in translate.google.com.
