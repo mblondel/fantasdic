@@ -40,7 +40,7 @@ class Print < Gtk::PrintOperation
 
         @font_big = @font.dup
         @font_big.size = (@font_big.size * 1.2).round
-        @font_big.weight = Pango::FontDescription::WEIGHT_BOLD
+        #@font_big.weight = Pango::FontDescription::WEIGHT_BOLD
 
         # with this option disabled, (0,0) is the the upper left corner
         # taking into account margins !
