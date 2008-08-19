@@ -302,7 +302,9 @@ module UI
             @result_text_view.buffer.font_name = font_name
 
             if font_name
+                # Change font but don't change size
                 font_desc = Pango::FontDescription.new(font_name)
+                font_desc.size = @search_entry_default_font_desc.size
                 @search_entry.modify_font(font_desc)            
             end
         end
@@ -688,6 +690,7 @@ module UI
             # Entry
             @search_entry = @search_cb_entry.child
             @search_entry.grab_focus
+            @search_entry_default_font_desc = @search_entry.style.font_desc
 
             # Dictionary combobox
             @dictionary_cb.model = Gtk::ListStore.new(String)

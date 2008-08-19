@@ -1,5 +1,10 @@
 2008-08-19 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/main_app.rb: Use font name in the search entry but don't
+    alter the size.
+
+2008-08-19 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/main_app.rb: Use font defined for the selected
     dictionary in the search entry as well. In the case of Japanese for example,
     Pango may pick up a Chinese font by mistake and the text in the search entry
