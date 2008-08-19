@@ -267,9 +267,11 @@ module Source
             end
         end
 
-        # Load found source plugins (system-wide and user-wide)
-        [Config::SOURCE_DIR, Config::PERSONAL_SOURCE_DIR].each do |dir|
-            Dir["#{dir}/*.rb"].each { |f| load f }
+        def self.load_plugins
+            # Load found source plugins (system-wide and user-wide)
+            [Config::SOURCE_DIR, Config::PERSONAL_SOURCE_DIR].each do |dir|
+                Dir["#{dir}/*.rb"].each { |f| load f }
+            end
         end
 
     end # class Base

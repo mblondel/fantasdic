@@ -103,6 +103,8 @@ module Fantasdic
     DESCRIPTION = _("Look up words in various dictionary sources")
 
     def self.main
+        Source::Base::load_plugins
+
         options = CommandLineOptions.instance
 
         if ARGV.length == 1 or ARGV.length > 2
