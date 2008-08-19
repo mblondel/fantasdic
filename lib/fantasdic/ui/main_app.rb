@@ -879,7 +879,7 @@ module UI
             standard_actions = [
                 # File
                 ["FantasdicMenu", nil, "_Fantasdic"],
-                ["Search", Gtk::Stock::NEW, _("_Look Up"), nil, nil,
+                ["Search", Gtk::Stock::NEW, nil, nil, nil,
                  on_search],
                 ["Save", Gtk::Stock::SAVE, nil, nil, nil, on_save],
                 ["PrintSetup", Icon::PRINT_SETUP, _("Print Set_up"), nil, nil,

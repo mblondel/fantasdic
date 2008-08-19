@@ -1,5 +1,10 @@
 2008-08-19 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/main_app.rb: Use default stock "NEW" instead of "Look
+    up". The button simply empty the search entry so "Look up" was misleading.
+
+2008-08-19 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/main_app.rb: Use font name in the search entry but don't
     alter the size.
 
