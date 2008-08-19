@@ -300,6 +300,11 @@ module UI
 
         def set_font_name(font_name)
             @result_text_view.buffer.font_name = font_name
+
+            if font_name
+                font_desc = Pango::FontDescription.new(font_name)
+                @search_entry.modify_font(font_desc)            
+            end
         end
 
         def scan_clipboard            
