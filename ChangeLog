@@ -1,5 +1,13 @@
 2008-08-20 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/sources/google_translate.rb: Fixed bug which made the
+    source return no results. This was due to a change in the HTML structure of
+    the results in translate.google.com.
+    * test/test_google_translate.rb: Added a unit-test.
+    * README: Added a note on how to run tests.
+
+2008-08-20 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/source_base.rb: Created Source::Base::load_plugins class
     method.
     * lib/fantasdic.rb: Use it!
