@@ -29,7 +29,7 @@ module Source
         copyright "Copyright (C) 2007 Mathieu Blondel"
         disable_search_all_databases true
 
-        START_MARKUP = "<div id=result_box dir=(ltr|rtl)>"
+        START_MARKUP = "<div id=[\"]?result_box[\"]? dir=[\"]?(ltr|rtl)[\"]?>"
         END_MARKUP = "</div>"
         URL = "http://translate.google.com/translate_t" + \
               "?ie=UTF8&langpair=%s&text=%s"
@@ -74,7 +74,7 @@ module Source
 
         def define(db, word)
             db_escaped, word_escaped = CGI.escape(db), CGI.escape(word)
-            begin
+            begin               
                 Kernel::open(URL % [db_escaped, word_escaped]) do |buffer|
                     case buffer.read
                         when /#{START_MARKUP}(.*)/

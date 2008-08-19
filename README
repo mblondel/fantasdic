@@ -45,6 +45,11 @@ Usage
 
     $ fantasdic --help
 
+Tests
+-----
+
+    $ ruby setup.rb test
+
 License
 -------
 
