@@ -1,0 +1,121 @@
+--- 
+scan_clipboard: false
+dictionaries: 
+- English
+- English <-> French
+- Spanish
+- Japanese
+last_searches: 
+- &id001 
+  :strategy: define
+  :word: test
+  :dictionary: English
+window_maximized: false
+sidepane_position: 160
+watched_words: []
+
+window_position: 
+- 196
+- 110
+view_toolbar: true
+history_nb_rows: 15
+selected_dictionary: English
+keep_above: false
+view_history: true
+dictionaries_infos: 
+  English: 
+    :all_dbs: false
+    :auth: false
+    :server: dict.org
+    :avail_strats: 
+    - prefix
+    - soundex
+    - regexp
+    - exact
+    - word
+    - substring
+    - lev
+    - re
+    - suffix
+    :sel_dbs: 
+    - foldoc
+    - gcide
+    - wn
+    - jargon
+    :port: "2628"
+    :sel_strat: define
+    :login: ""
+    :password: ""
+    :selected: 1
+  English <-> French: 
+    :all_dbs: false
+    :auth: false
+    :server: dict.org
+    :avail_strats: 
+    - prefix
+    - soundex
+    - regexp
+    - exact
+    - word
+    - substring
+    - lev
+    - re
+    - suffix
+    :sel_dbs: 
+    - eng-fra
+    - fra-eng
+    :port: "2628"
+    :sel_strat: define
+    :login: ""
+    :password: ""
+    :selected: 1
+  Spanish: 
+    :all_dbs: true
+    :auth: false
+    :server: es.dict.org
+    :avail_strats: 
+    - prefix
+    - soundex
+    - regexp
+    - exact
+    - word
+    - substring
+    - lev
+    - re
+    - suffix
+    :sel_dbs: []
+
+    :port: "2628"
+    :sel_strat: define
+    :login: ""
+    :password: ""
+    :selected: 1
+  Japanese: 
+    :all_dbs: true
+    :auth: false
+    :server: nihongobenkyo.org
+    :avail_strats: 
+    - prefix
+    - soundex
+    - regexp
+    - exact
+    - word
+    - substring
+    - lev
+    - re
+    - suffix
+    :sel_dbs: []
+
+    :port: "2628"
+    :sel_strat: define
+    :login: ""
+    :password: ""
+    :selected: 1
+dont_show_at_startup: false
+dont_quit: true
+show_in_tray: true
+window_size: 
+- 550
+- 500
+last_search: *id001
+view_statusbar: true

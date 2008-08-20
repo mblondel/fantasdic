@@ -32,16 +32,13 @@ module Fantasdic
         DEFAULT_CONFIG_FILE = File.join(DATA_DIR, "config", "default.yaml")
     end
 
-    class Preferences
-        include Singleton
+    class PreferencesBase
     
-        def initialize
-            unless(FileTest.exists?(Config::CONFIG_DIR))
-                Dir.mkdir(Config::CONFIG_DIR)    
-            end
+        def initialize(config_file)
+            @config_file = config_file
 
-            @config = YAML.load(File.open(Config::CONFIG_FILE,
-                                          File::CREAT|File::RDWR))
+            @config = YAML.load(File.open(@config_file,
+                                File::CREAT|File::RDWR))
             if @config and @config.is_a? Hash
                 # merge with the default config in case of new parameters 
                 dflt_config = YAML.load(File.open(Config::DEFAULT_CONFIG_FILE))
@@ -56,7 +53,7 @@ module Fantasdic
         end
         
         def save!
-            File.open(Config::CONFIG_FILE,
+            File.open(@config_file,
                       File::CREAT|File::TRUNC|File::RDWR, 0600) do |f|
                 YAML.dump(@config, f)
             end
@@ -77,23 +74,29 @@ module Fantasdic
         end
 
         def delete_dictionary(name)
+            return if not dictionary_exists?(name)
             self.dictionaries.delete(name)
             self.dictionaries_infos.delete(name)
         end
 
         def dictionary_up(name)
+            return if not dictionary_exists?(name)
             new_index = self.dictionaries.index(name) + 1
+            return if new_index == self.dictionaries.length
             self.dictionaries.delete(name)
             self.dictionaries.insert(new_index, name)
         end
 
         def dictionary_down(name)
+            return if not dictionary_exists?(name)
             new_index = self.dictionaries.index(name) - 1
+            return if new_index == -1
             self.dictionaries.delete(name)
             self.dictionaries.insert(new_index, name)
         end
 
         def dictionary_replace_name(old, new)
+            return if not dictionary_exists?(old)
             index = self.dictionaries.index(old)
             self.dictionaries[index] = new
             self.dictionaries_infos[new] = self.dictionaries_infos[old]
@@ -121,6 +124,18 @@ module Fantasdic
             end                
         end
 
+    end
+
+    class Preferences < PreferencesBase
+        include Singleton
+
+        def initialize
+            unless(FileTest.exists?(Config::CONFIG_DIR))
+                Dir.mkdir(Config::CONFIG_DIR)    
+            end
+
+            super(Config::CONFIG_FILE)
+        end
     end
 
 end
