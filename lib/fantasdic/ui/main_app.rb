@@ -300,13 +300,6 @@ module UI
 
         def set_font_name(font_name)
             @result_text_view.buffer.font_name = font_name
-
-            if font_name
-                # Change font but don't change size
-                font_desc = Pango::FontDescription.new(font_name)
-                font_desc.size = @search_entry_default_font_desc.size
-                @search_entry.modify_font(font_desc)            
-            end
         end
 
         def scan_clipboard            
@@ -479,6 +472,20 @@ module UI
         def save_selected_dictionary_font_name
             sel_dic = @prefs.dictionaries_infos[selected_dictionary]
             sel_dic[:results_font_name] = @result_text_view.buffer.font_name
+        end
+
+        # Search entry
+
+        def update_search_entry_font
+            hash = @prefs.dictionaries_infos[selected_dictionary]
+
+            if hash and hash[:results_font_name]
+                # Change font but don't change size
+                font_name = hash[:results_font_name]
+                font_desc = Pango::FontDescription.new(font_name)
+                font_desc.size = @search_entry_default_font_desc.size
+                @search_entry.modify_font(font_desc)
+            end
         end
 
         # Strategy menu
@@ -695,6 +702,7 @@ module UI
             # Dictionary combobox
             @dictionary_cb.model = Gtk::ListStore.new(String)
             update_dictionary_cb
+            update_search_entry_font
 
             # Strategy comboxbox
             @strategy_cb.model = Gtk::ListStore.new(String)
@@ -1132,6 +1140,7 @@ module UI
             @dictionary_cb.signal_connect("changed") do
                 # Update the cb with the available strats
                 update_strategy_cb
+                update_search_entry_font
             end
 
             @strategy_cb.signal_connect("changed") do

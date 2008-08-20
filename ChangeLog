@@ -1,3 +1,8 @@
+2008-08-21 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb: Update the search entry font when the
+    dictionary menu is changed rather than when the search entry is activated.
+
 2008-08-20 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/print.rb: Slice the word in the header if it's too long.
