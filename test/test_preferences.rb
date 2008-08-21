@@ -22,6 +22,7 @@ $config_file = File.expand_path(File.join(test_dir, "data", "config.yaml"))
 $LOAD_PATH.unshift(lib_dir)
 
 require "test/unit"
+require "fileutils"
 require "fantasdic"
 
 class TestPreferences < Test::Unit::TestCase
@@ -35,7 +36,6 @@ class TestPreferences < Test::Unit::TestCase
     end
 
     def test_attributes
-        require "pp"
         assert_equal(@prefs.scan_clipboard, false)
         assert_equal(@prefs.window_position, [196, 110])
         assert_equal(@prefs.history_nb_rows, 15)
@@ -188,6 +188,21 @@ class TestPreferences < Test::Unit::TestCase
     def test_dictionary_exists
         assert_equal(@prefs.dictionary_exists?("Japanese"), true)
         assert_equal(@prefs.dictionary_exists?("DontExist"), false)
+    end
+
+    def test_save
+        begin
+            temp_file = "config_temp.yaml"
+            FileUtils.cp($config_file, temp_file)
+            prefs = Fantasdic::PreferencesBase.new(temp_file)
+            prefs.view_statusbar = false
+            prefs.save!
+
+            prefs2 = Fantasdic::PreferencesBase.new(temp_file)
+            assert_equal(prefs2.view_statusbar, prefs.view_statusbar)
+        ensure
+            FileUtils.rm_f(temp_file)
+        end
     end
 
 end

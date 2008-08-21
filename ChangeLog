@@ -1,3 +1,14 @@
+2008-08-22 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * test/test_preferences.rb: Added a test for the save! method.
+
+2008-08-21 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/preferences.rb: Split Preferences into Preferences and
+    PreferencesBase; support edge cases in some functions.
+    * test/test_preferences.rb: Added unit test.
+    * test/data/config.yaml: Data used by the unit test.
+
 2008-08-21 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * test/test_utils.rb: Unit test for the utils.
