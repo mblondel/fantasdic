@@ -333,3 +333,5 @@ module Source
 
 end
 end
+
+Fantasdic::Source::Base.register_source(Fantasdic::Source::DictServer)

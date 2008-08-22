@@ -58,8 +58,8 @@ module Source
         class << self
             attr_reader :registered_sources
 
-            def inherited(child)
-                @registered_sources << child
+            def register_source(source)
+                @registered_sources << source
             end
 
             def short_name
@@ -267,7 +267,7 @@ module Source
             end
         end
 
-        def self.load_plugins
+        def self.load_sources
             # Load found source plugins (system-wide and user-wide)
             [Config::SOURCE_DIR, Config::PERSONAL_SOURCE_DIR].each do |dir|
                 Dir["#{dir}/*.rb"].each { |f| load f }

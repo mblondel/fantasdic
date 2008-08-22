@@ -1,3 +1,14 @@
+2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/source_base.rb: Renamed load_plugins to load_sources. Also
+    the sources used to be added automatically to the list of available sources.
+    This was detected when Source::Base was inherited. This behavior was
+    changed. Sources now need to be declared with register_source. This allows
+    to inherit from Source::Base without adding a source.
+    * lib/fantasdic.rb: Renamed load_plugins to load_sources.
+    * lib/fantasdic/sources/dict_server.rb: Call register_source.
+    * lib/fantasdic/sources/google_translate.rb: Ditto.
+
 2008-08-22 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * test/test_preferences.rb: Added a test for the save! method.

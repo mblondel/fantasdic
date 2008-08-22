@@ -103,7 +103,7 @@ module Fantasdic
     DESCRIPTION = _("Look up words in various dictionary sources")
 
     def self.main
-        Source::Base::load_plugins
+        Source::Base::load_sources
 
         options = CommandLineOptions.instance
 
