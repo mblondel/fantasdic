@@ -20,13 +20,7 @@ require "zlib"
 module Fantasdic
 module Source
 
-class EdictFile < Base
-    authors ["Mathieu Blondel"]
-    title  _("EDICT file")
-    description _("Look up words in an EDICT file.")
-    license Fantasdic::GPL
-    copyright "Copyright (C) 2007 Mathieu Blondel"
-    no_databases true
+class EdictFileBase < Base
 
     STRATEGIES_DESC = {
         "define" => "Results match with the word exactly.",
@@ -44,7 +38,6 @@ class EdictFile < Base
 
     HAVE_EGREP = (File.which("egrep") and File.which("iconv") and
                   File.which("gunzip") and File.which("cat"))
-
 
     class ConfigWidget < Base::ConfigWidget
         def initialize(*arg)
@@ -183,13 +176,13 @@ class EdictFile < Base
         wesc = escape_string(word)
 
         if word.latin?
-            regexp = "\/#{wesc}\/"
+            regexp = "/#{wesc}/"
         elsif word.kana?
-            regexp = "^#{wesc} |\[#{wesc}\]"
+            regexp = "^#{wesc} |\\[#{wesc}\\]"
         elsif word.japanese?
             regexp = "^#{wesc} "
         else
-            regexp = "^#{wesc}|\[#{wesc}\]|\/#{wesc}\/"
+            regexp = "^#{wesc}|\\[#{wesc}\\]|/#{wesc}/"
         end
         
         db = File.basename(@hash[:filename])
@@ -198,7 +191,7 @@ class EdictFile < Base
         match_with_regexp(regexp).map do |line|
             defi = Definition.new
             defi.word = word
-            defi.body = line
+            defi.body = line.strip
             defi.database = db
             defi.description = db_capitalize
             defi
@@ -232,7 +225,7 @@ class EdictFile < Base
 
     def match_word(db, word)
         arr = []
-        match_suffix(db, word).each do |line|
+        match_substring(db, word).each do |line|
             get_fields(line).each do |field|
                 field.split(" ").each do |w|
                     if w ==  word
@@ -249,13 +242,13 @@ class EdictFile < Base
     def match_prefix(db, word)
         wesc = escape_string(word)
         if word.latin?
-            regexp = "\/#{wesc}[^\/]*\/"
+            regexp = "/#{wesc}"
         elsif word.kana?
-            regexp = "^#{wesc}|\[#{wesc}[^\]]*\]"
+            regexp = "^#{wesc}| \\[#{wesc}"
         elsif word.japanese?
             regexp = "^#{wesc}"
         else
-            regexp = "^#{wesc}|\[#{wesc}[^\]]*\]|\/#{wesc}[^\/]*\/"
+            regexp = "^#{wesc}|\\[#{wesc}|/#{wesc}"
         end
 
         match_with_regexp(regexp)
@@ -264,13 +257,13 @@ class EdictFile < Base
     def match_suffix(db, word)
         wesc = escape_string(word)
         if word.latin?
-            regexp = "\/[^\/]*#{wesc}\/"
+            regexp = "#{wesc}/"
         elsif word.kana?
-            regexp = "^[^\[]*#{wesc} |\[[^\]]*#{wesc}\]"
+            regexp = "#{wesc} \\[|#{wesc}\\]"
         elsif word.japanese?
-            regexp = "^[^\[]*#{wesc} "
+            regexp = "#{wesc} \\["
         else
-            regexp = "^[^\[]*#{wesc} |\[[^\]]*#{wesc}\]|\/[^\/]*#{wesc}\/"
+            regexp = "#{wesc} \\[|#{wesc}\\]|#{wesc}/"
         end
 
         match_with_regexp(regexp)
@@ -321,67 +314,74 @@ class EdictFile < Base
         Regexp.escape(str).sub('"', "\\\"")
     end
 
-end # class EdictFile
+end # class EdictFileBase
 
-if EdictFile::HAVE_EGREP
-    # Using egrep. This is significantly faster!
-    class EdictFile
-        def initialize(*args)
-            super(*args)
-            edict_file_open.close # Tries to open file to ensure it exists
-        end
 
-        private
-
-        def match_with_regexp(regexp)
-            cmd = get_command(regexp)            
-            IO.popen(cmd).readlines
-        end
-
-        def get_command(regexp)
-            cmd = []
-
-            cmd << "cat #{@hash[:filename]}"
-
-            if @hash[:filename] =~ /.gz$/
-                cmd << "gunzip -c"
-            end
-
-            if @hash[:encoding] and @hash[:encoding] != "UTF-8"
-                cmd << "iconv -f #{@hash[:encoding]} -t UTF-8"
-            end
-
-            cmd << "egrep \"#{regexp}\""
-            
-            cmd.join(" | ")
-        end
-
+# Using egrep. This is significantly faster!
+class EdictFileEgrep < EdictFileBase
+    def initialize(*args)
+        super(*args)
+        edict_file_open.close # Tries to open file to ensure it exists
     end
 
-else
-    # Pure Ruby
-    class EdictFile
-        def initialize(*args)
-            super(*args)
-            if @hash and @hash[:encoding] != "UTF-8"
-                # FIXME: Find a way to look up words in EUC-JP with reasonable
-                # performance...
-                raise Source::SourceError,
-                      _("Encoding not supported.")
-            end
-        end
+    private
 
-        private
-
-        def match_with_regexp(regexp)
-            edict_file_open do |file|
-                file.grep(Regexp.new(regexp))
-            end
-        end
-
+    def match_with_regexp(regexp)
+        cmd = get_command(regexp)
+        IO.popen(cmd).readlines
     end
 
-end # if EdictFile::HAVE_EGREP
+    def get_command(regexp)
+        cmd = []
+
+        cmd << "cat #{@hash[:filename]}"
+
+        if @hash[:filename] =~ /.gz$/
+            cmd << "gunzip -c"
+        end
+
+        if @hash[:encoding] and @hash[:encoding] != "UTF-8"
+            cmd << "iconv -f #{@hash[:encoding]} -t UTF-8"
+        end
+
+        cmd << "egrep \"#{regexp}\""
+
+        cmd.join(" | ")
+    end
+
+end
+
+# Pure Ruby
+class EdictFileRuby < EdictFileBase
+    def initialize(*args)
+        super(*args)
+        if @hash and @hash[:encoding] != "UTF-8"
+            # FIXME: Find a way to look up words in EUC-JP with reasonable
+            # performance...
+            raise Source::SourceError,
+                    _("Encoding not supported.")
+        end
+    end
+
+    private
+
+    def match_with_regexp(regexp)
+        edict_file_open do |file|
+            file.grep(Regexp.new(regexp))
+        end
+    end
+end
+
+class EdictFile < (EdictFileBase::HAVE_EGREP ? EdictFileEgrep : EdictFileRuby)
+    authors ["Mathieu Blondel"]
+    title  _("EDICT file")
+    description _("Look up words in an EDICT file.")
+    license Fantasdic::GPL
+    copyright "Copyright (C) 2007 Mathieu Blondel"
+    no_databases true    
+end
 
 end
 end
+
+Fantasdic::Source::Base.register_source(Fantasdic::Source::EdictFile)

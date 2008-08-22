@@ -1,5 +1,16 @@
 2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * test/test_edict_file.rb:
+    * test/data/edict.eucjp.gz:
+    * test/data/edict.utf8.gz:
+    * test/data/edict.utf8:
+    * test/data/edict.eucjp: Unit test for EdictFile source + test data.
+
+    * lib/fantasdic/sources/edict_file.rb: Better way to choose between the two
+    available implementations. Fixed a bunch of bugs spotted by the unit test.
+
+2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/source_base.rb: Renamed load_plugins to load_sources. Also
     the sources used to be added automatically to the list of available sources.
     This was detected when Source::Base was inherited. This behavior was
