@@ -1,5 +1,9 @@
 2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * test/test_dict_server.rb: Added unit test.
+
+2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/main_app.rb: Fixed bug with plural form.
     * lib/fantasdic/command_line.rb: Ditto.
 
