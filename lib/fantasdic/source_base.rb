@@ -90,8 +90,9 @@ module Source
             def_field :disable_search_all_databases, :no_databases
         end
 
-        def initialize(hash)
+        def initialize(hash={})
             @hash = hash
+            @max_cache = hash[:max_cache] ? hash[:max_cache] : MAX_CACHE
         end
 
         # Methods which should be implemented by children classes
@@ -246,7 +247,7 @@ module Source
         def update_cache(cache)
             self.class.cache_queue.unshift(cache)
 
-            if self.class.cache_queue.length > MAX_CACHE
+            if self.class.cache_queue.length > @max_cache
                 self.class.cache_queue.pop
             end
         end
