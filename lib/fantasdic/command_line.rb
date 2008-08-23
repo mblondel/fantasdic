@@ -101,8 +101,10 @@ def self.print_definitions(definitions)
     if definitions.empty?
         puts _("No match found.")
     else
-        puts ngettext("One match found.", "Matches found: %d.",
-                      definitions.length) % definitions.length
+        msg = ngettext("One match found.", "Matches found: %d.",
+                      definitions.length)
+        msg = msg % definitions.length if definitions.length > 1
+        puts msg
     end
 
     last_db = ""

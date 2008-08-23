@@ -1,5 +1,10 @@
 2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/main_app.rb: Fixed bug with plural form.
+    * lib/fantasdic/command_line.rb: Ditto.
+
+2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * data/fantasdic/config/default.yaml: es.dict.org doesn't seem to exist
     anymore. Removed it!
 
