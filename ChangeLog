@@ -1,5 +1,9 @@
 2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/main_app.rb: Fixed crashers related to threads.
+
+2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/command_line.rb: Added the -d option to enable debug mode.
 
 2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>

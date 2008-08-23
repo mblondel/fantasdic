@@ -15,6 +15,8 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+require "thread"
+
 module Fantasdic
 module UI
 
@@ -52,157 +54,182 @@ module UI
             load_preferences
             @main_app.show unless @prefs.dont_show_at_startup
 
+            @looking_up_mutex = Mutex.new
+
             lookup(@start_p) unless @start_p.empty?
         end
 
-        def lookup(p)
-            p[:word].strip!
-            return false if p[:word].empty?
+        def lookup(search)
+            search[:word].strip!
+            return false if search[:word].empty?
 
-            @lookup_thread = Thread.new(@lookup_thread) do |previous_thread|
-                # Kill previous thread if still alive
-                if previous_thread and previous_thread.alive?
-                    kill_lookup_thread(previous_thread)
+            Thread.new do
+                debug("Trying to acquire lock...")
+                kill_lookup_thread
+                @looking_up_mutex.lock
+                debug("Got lock! Start search!")
+                @lookup_thread = Thread.new { lookup_real(search) }
+                @lookup_thread.join
+                @looking_up_mutex.unlock
+            end
+        end
+
+        private
+
+        def debug(msg)
+            $stderr.puts "[DEBUG] %s %s" % [Time.now, msg] if $DEBUG
+        end
+
+        def lookup_real(p)
+            Gtk.thread_protect { @buf.clear }
+
+            if @dictionary_cb.model.nb_rows == 0
+                Gtk.thread_protect do
+                    msg = _("No dictionary configured")
+                    self.status_bar_msg = msg
+                    @buf.insert_header(msg + "\n")
                 end
-                
-                Gtk.thread_protect { @buf.clear }
-    
-                if @dictionary_cb.model.nb_rows == 0
-                    Gtk.thread_protect do
-                        msg = _("No dictionary configured")
-                        self.status_bar_msg = msg
-                        @buf.insert_header(msg + "\n")
-                    end
-                    Thread.current.kill
-                    Gtk.thread_flush
+                return
+            end
+
+            if p[:dictionary]
+                Gtk.thread_protect do
+                    self.selected_dictionary = p[:dictionary]
                 end
-                    
-                if p[:dictionary]
-                    Gtk.thread_protect do
-                        self.selected_dictionary = p[:dictionary]
-                    end
-                else 
-                    p[:dictionary] = selected_dictionary
+            else
+                p[:dictionary] = selected_dictionary
+            end
+
+            unless p[:action] == Action::DEFINE_MATCH
+                Gtk.thread_protect do
+                    @search_entry.text = p[:word]
+                    self.selected_strategy = p[:strategy]
+                end
+            end
+
+            hash = @prefs.dictionaries_infos[p[:dictionary]]
+
+            Gtk.thread_protect { @global_actions["Stop"].visible = true }
+
+            # Get connection
+            begin
+                # This error is raised when a word is searched
+                # through the history while the associated dictionary
+                # does not exist anymore in the settings
+                if !hash
+                    raise Source::SourceError,
+                    _("Dictionary \"%s\" does not exist anymore") % \
+                    p[:dictionary]
                 end
 
-                unless p[:action] == Action::DEFINE_MATCH
-                    Gtk.thread_protect do
-                        @search_entry.text = p[:word]
-                        self.selected_strategy = p[:strategy]
-                    end
+                source_class = Source::Base.get_source(hash[:source])
+
+                # This error is raised when a plugin source doesn't exist
+                # anymore
+                if !source_class
+                    raise Source::SourceError,
+                    _("Dictionary source \"%s\" does not exist anymore") % \
+                    hash[:source]
                 end
 
-                hash = @prefs.dictionaries_infos[p[:dictionary]]
-                
-                Gtk.thread_protect { @global_actions["Stop"].visible = true }
+                source = source_class.new(hash)
 
-                # Get connection
+                self.status_bar_msg = source.connecting_to_source_str
+
+                source.open
+            rescue Source::SourceError => e
+                source_error(e)
+                return
+            end
+
+            Gtk.thread_protect { set_font_name(hash[:results_font_name]) }
+
+            if p[:strategy] and
+                p[:strategy] != source_class.default_strategy
+                # Search with match strategy.
+
+                Gtk.thread_protect do
+                    @matches_listview.sensitive = false
+                    @matches_listview.model.clear
+                end
+
                 begin
-                    # This error is raised when a word is searched
-                    # through the history while the associated dictionary
-                    # does not exist anymore in the settings
-                    if !hash
-                        raise Source::SourceError,
-                        _("Dictionary \"%s\" does not exist anymore") % \
-                        p[:dictionary]
+                    matches = match(source, p)
+                    Gtk.thread_protect do
+                        insert_matches(matches)
+
+                        if matches.length > 0
+                            @matches_listview.select_first
+                            @global_actions["MatchesSidepane"].active = true
+                        else
+                            @global_actions["MatchesSidepane"].active = \
+                                false
+                        end
+
+                        @search_cb_entry.update(p)
                     end
+                rescue Source::SourceError => e
+                    source_error(e)
+                    return
+                end
 
-                    source_class = Source::Base.get_source(hash[:source])
+                Gtk.thread_protect do
+                    disable_print
+                    clear_pages_seen
+                    @matches_listview.sensitive = true
+                end
+            else
+                # Define
+                begin
+                    definitions = define(source, p)
+                    Gtk.thread_protect do
+                        insert_definitions(definitions)
 
-                    # This error is raised when a plugin source doesn't exist
-                    # anymore
-                    if !source_class
-                        raise Source::SourceError,
-                        _("Dictionary source \"%s\" does not exist anymore") % \
-                        hash[:source]
+                        unless p[:action] == Action::DEFINE_MATCH
+                            @search_cb_entry.update(p)
+                            @global_actions["MatchesSidepane"].active = \
+                                false
+                        else
+                            @global_actions["MatchesSidepane"].active = true
+                            @matches_listview.select_match(p[:word])
+                        end
+
+
+                        @result_text_view.grab_focus
+
+                        if definitions.empty?
+                            disable_print
+                            disable_save
+                        else
+                            enable_print
+                            enable_save
+                        end
+
+                        update_pages_seen(p)
                     end
-
-                    source = source_class.new(hash)
-
-                    self.status_bar_msg = source.connecting_to_source_str
-
-                    source.open
                 rescue Source::SourceError => e
                     source_error(e)
                 end
+            end
 
-                Gtk.thread_protect { set_font_name(hash[:results_font_name]) }
+            source.close
 
-                if p[:strategy] and 
-                   p[:strategy] != source_class.default_strategy
-                    # Search with match strategy.
+            Gtk.thread_protect { @global_actions["Stop"].visible = false }
+        end
 
-                    Gtk.thread_protect { @matches_listview.model.clear }
+        def kill_lookup_thread
+            if @lookup_thread and @lookup_thread.alive?
+                debug("Kill current thread!")
+                @lookup_thread.kill
 
-                    begin
-                        matches = match(source, p)
-                        Gtk.thread_protect do
-                            insert_matches(matches) 
-
-                            if matches.length > 0
-                                @matches_listview.select_first
-                                @global_actions["MatchesSidepane"].active = true
-                            else                            
-                                @global_actions["MatchesSidepane"].active = \
-                                    false
-                            end
-
-                            @search_cb_entry.update(p)
-                        end
-                    rescue Source::SourceError => e
-                        source_error(e)
-                    end
-
-                    Gtk.thread_protect do
-                        disable_print
-                        clear_pages_seen
-                    end
-                else
-                    # Define
-                    begin
-                        definitions = define(source, p)
-                        Gtk.thread_protect do
-                            insert_definitions(definitions)
-
-                            unless p[:action] == Action::DEFINE_MATCH
-                                @search_cb_entry.update(p)
-                                @global_actions["MatchesSidepane"].active = \
-                                    false
-                            else                            
-                                @global_actions["MatchesSidepane"].active = true
-                                @matches_listview.select_match(p[:word])
-                            end
-
-
-                            @result_text_view.grab_focus
-
-                            if definitions.empty?
-                                disable_print
-                                disable_save
-                            else
-                                enable_print
-                                enable_save
-                            end
-
-                            update_pages_seen(p)
-                        end
-                    rescue Source::SourceError => e
-                        source_error(e)
-                    end
+                while @lookup_thread and @lookup_thread.alive?
+                    debug("Waiting for the thread to stop...")
+                    sleep 0.2
                 end
 
-                source.close
+                DICTClient.close_active_connection
+            end
 
-                Gtk.thread_protect { @global_actions["Stop"].visible = false }
-
-            end # Thread
-        end
-   
-        private
-
-        def kill_lookup_thread(thread=nil)
-            thread = @lookup_thread if thread.nil?
-            thread.kill if thread and thread.alive?
             Gtk.thread_protect do
                 @global_actions["Stop"].visible = false
                 @buf.clear
@@ -218,8 +245,6 @@ module UI
                 self.status_bar_msg = e.to_s
                 @global_actions["Stop"].visible = false
             end
-            Thread.current.kill
-            Gtk.thread_flush
         end
 
         def define(source, p)
@@ -783,7 +808,7 @@ module UI
             end
 
             on_quit = Proc.new do
-                @lookup_thread.kill if @lookup_thread and @lookup_thread.alive?
+                kill_lookup_thread
                 Gtk.thread_flush
                 save_preferences
                 Gtk.main_quit
@@ -1042,14 +1067,10 @@ module UI
                     match = @matches_listview.selected_match
                     if @pages_seen.empty? or
                        @pages_seen[@current_page][:word] != match
-                        Thread.new do
-                            @lookup_thread.join \
-                                if @lookup_thread and @lookup_thread.alive?
 
-                            lookup(:dictionary => selected_dictionary,
-                                   :word => match,
-                                   :action => Action::DEFINE_MATCH)
-                        end
+                        lookup(:dictionary => selected_dictionary,
+                                :word => match,
+                                :action => Action::DEFINE_MATCH)
                     end
                 end
             end
