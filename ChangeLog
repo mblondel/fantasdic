@@ -1,5 +1,9 @@
 2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/command_line.rb: Added the -d option to enable debug mode.
+
+2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * test/test_source_base.rb: Added unit test.
     * lib/fantasdic/source_base.rb: Allow to define :max_cache as an option.
 

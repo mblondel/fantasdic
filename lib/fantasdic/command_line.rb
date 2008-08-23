@@ -62,6 +62,11 @@ class CommandLineOptions < Hash
                     puts "Fantasdic %s" % Fantasdic::VERSION
                     exit!
                 end
+
+                opts.on("-d", "--debug",
+                        _("Enable debug mode")) do |b|
+                    $DEBUG = b
+                end
     
             end
 
