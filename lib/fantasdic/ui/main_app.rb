@@ -1075,6 +1075,7 @@ module UI
                 else
                     @main_app.show
                     load_window_preferences
+                    @result_text_view.grab_focus
                 end
             end if @statusicon
 

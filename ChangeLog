@@ -1,5 +1,9 @@
 2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/main_app.rb: Grab focus on the result view.
+
+2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * test/test_edict_file.rb:
     * test/data/edict.eucjp.gz:
     * test/data/edict.utf8.gz:
