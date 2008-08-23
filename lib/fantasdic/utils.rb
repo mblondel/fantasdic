@@ -102,12 +102,12 @@ end
 
 class Array
     def push_head(ele)
-        self << ele
+        self.insert(0, ele)
         self
     end
 
     def push_tail(ele)
-        self[self.length] = ele
+        self << ele
         self
     end
 
