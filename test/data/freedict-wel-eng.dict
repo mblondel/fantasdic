@@ -1,0 +1,2258 @@
+
+00-database-dictfmt-1.10.10
+00-database-info
+   30. Apr. 2000
+   Database was converted to TEI format and checked into CVS
+   1.Jan 2000
+   This Database was generated from ergane (http://www.travlang.com).
+   - Thanks!
+   Copyright (C) 2000 Horst Eyermann (Horst@freedict.de)
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+   GNU General Public License for more details.
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+00-database-short
+   Welsh-English Freedict dictionary
+
+00-database-url
+   http://www.freedict.de
+
+Adda
+   Adam
+
+Albanwr
+   Scot; Scotsman
+
+Almaeneg
+   German; German woman
+
+Almaenwr
+   German
+
+Alpau
+   Alps
+
+Arglwydd
+   God
+
+Athen
+   Athens
+
+Awst
+   August
+
+Awstralia
+   Australia
+
+Awstria
+   Austria
+
+Beibl
+   Bible
+
+Brithwr
+   Pict
+
+Bro Morgannwg
+   Vale of Glamorgan
+
+Brython
+   Briton
+   Welshman
+
+Brythoneg
+   Welsh; Welsh language
+
+Caerdydd
+   Cardiff
+
+Caeredin
+   Edinburgh
+
+Caerefrog
+   York
+
+Caerludd
+   London
+
+Caint
+   Kent
+
+Chwefror
+   February
+
+Crist
+   Christ
+
+Cristion
+   Christian
+
+Cristionogol
+   Christian
+
+Cymraeg
+   Welsh; Welsh language
+
+Cymreig
+   Welsh
+
+Cymru
+   Wales
+
+Dafydd
+   David
+
+Dewi
+   David
+
+Dofydd
+   God
+
+Dolgelly
+   Dolgelly
+
+Dulyn
+   Dublin
+
+Duw
+   God
+
+Dydd Gwener y Groglith
+   Good Friday
+
+Ebrill
+   April
+
+Efa
+   Eva
+
+Efrog
+   York
+
+Eifftaidd
+   Egyptian
+
+Ewrob
+   Europe
+
+Fflandrys
+   Flanders
+
+Ffrainc
+   France
+
+Gorffennaf
+   July
+
+Groeg
+   Greece
+
+Groegaidd
+   Greek
+
+Groeges
+   Greek woman
+
+Groegwr
+   Greek
+
+Gwlad yr Haf
+   Somerset
+
+Gwyddel
+   Irishman
+
+Gwyddeles
+   Iriswoman
+
+Gwyddelig
+   Irish
+
+Hisbaen
+   Spain
+
+Hydref
+   October
+
+Iau
+   Jupiter
+
+Ionawr
+   January
+
+Isalmaen
+   Holland
+   Holland; the Netherlands
+
+Iwerddon
+   Ireland
+
+Iwerydd
+   Atlantic; Atlantic Ocean
+
+Lerpwl
+   Liverpool
+
+Lladin
+   Latin
+
+Llanelli
+   Llanelly
+
+Lloegr
+   England
+
+Llundain
+   London
+
+Llydaw
+   Bretagne; Brittany
+
+Mai
+   May
+
+Manceinion
+   Manchester
+
+Mawrth
+   Mars
+   March
+
+Medi
+   September
+
+Mehefin
+   June
+
+Morgannwg
+   Glamorgan
+
+Môr Coch
+   Red Sea
+
+Môr Tawel
+   Pacific; Pacific Ocean
+
+Môr y Canoldir
+   Mediterranean
+
+Nadolig
+   Christmas; Yule
+
+Neifion
+   Neptune
+
+Penybont
+   Bridgend
+
+Prwsia
+   Prussia
+
+Prydain
+   Britain; Great Britain
+
+Prydeinig
+   British
+
+Prydeiniwr
+   Briton
+
+Pwyl
+   Poland
+
+Rhagfyr
+   December
+
+Rhufain
+   Rome
+
+Rhufeinaidd
+   Roman
+
+Rhufeiniad
+   Roman
+
+Rhufeinig
+   Roman
+
+Rhufeiniwr
+   Roman
+
+Rhydychen
+   Oxford
+
+Rwsia
+   Russia
+
+Sabath
+   Saturday
+
+Saboth
+   Saturday
+
+Sadwrn
+   Saturn
+
+Saesneg
+   English
+   English; English language
+
+Saesnes
+   English; Englishwoman
+
+Sais
+   Englishman; Sassenach
+   Saxon
+
+Swansea
+   Swansea
+
+Tachwedd
+   November
+
+Tafwys
+   Thames
+
+Tiddewi
+   Saint David's
+
+Twrc
+   Turk
+
+Twrci
+   Turkey
+
+Yr Aifft
+   Egypt
+
+Yr Alban
+   Scotland
+
+Yr Almaen
+   Germany
+
+Yr Eidal
+   Italy
+
+Yr Unol Daleithiau
+   United States of America; USA
+
+a
+   and
+
+abad
+   abbot
+
+abades
+   abbess
+
+abaty
+   abbey
+
+aber
+   mouth
+
+ac
+   and
+
+achos
+   as; because; for; since
+
+achosi
+   cause; reason
+
+adeg
+   time; while
+
+adeiladu
+   build; construct
+
+aderyn
+   bird
+
+adnabod
+   be acquainted with; know
+
+adref
+   home
+
+afal
+   apple
+
+afon
+   river
+
+agor
+   open; open up
+
+ail
+   second
+
+ail ar bymtheg
+   seventeenth
+
+algebra
+   algebra
+
+am
+   at; by; on; upon
+   about; concerning; on; upon
+
+amser
+   time; while
+
+anadl
+   breath
+
+anfon
+   send; transmit
+
+anghofio
+   forget
+
+anhawdd
+   difficult; hard; inconvenient
+
+annwyd
+   cold
+
+anodd
+   difficult; hard; inconvenient
+
+anrheg
+   gift; present
+
+anthem
+   corn chamomile
+
+ar
+   on; upon
+
+araf
+   slow
+
+arall
+   other; another; else
+
+arholiad
+   investigation; examination; test
+
+arian
+   money
+
+aros
+   halt; come to a halt; stop
+   remain; stay; stay over
+
+arth
+   bear
+
+arthes
+   bear
+
+arwain
+   conduct; direct; guide; head; lead
+
+ar agor
+   open
+
+ar gau
+   closed; shut
+
+ar hyd
+   along
+
+ar unwaith
+   at once; immediately; just; right away; right now
+
+ar ôl
+   behind; after
+   after; behind
+
+asyn
+   ass; donkey
+
+at
+   at; to; toward; towards
+
+ateb
+   answer; reply; respond
+   answer; reply
+
+athro
+   instructor; teacher
+
+aur
+   gold
+
+awel
+   breeze
+
+awr
+   hour; o'clock; time
+
+awyren
+   aeroplane; airplane; plane
+   aircraft
+
+baban
+   baby
+
+bach
+   diminutive; little; small
+
+bachgen
+   boy; lad; laddie
+
+balch
+   proud
+
+banc
+   bank
+
+baner
+   flag; standard
+
+bara
+   bread; loaf
+
+bardd
+   bard
+   poet
+
+basged
+   basket
+
+bedwen
+   birch
+
+beisicl
+   bike; cycle; bicycle
+   bike; bicycle
+
+berwi
+   boil
+
+bisged
+   biscuit; cookie
+
+blaidd
+   wolf
+
+blino
+   get tired
+
+blodeuyn
+   bloom; flower
+
+blwyddyn
+   year
+
+bore
+   morning
+
+braidd
+   barely; hardly; only just; scarcely
+
+brawd
+   brother
+
+brecwast
+   breakfast
+
+brenhines
+   queen
+
+brown
+   brown
+
+brwnt
+   dirty; filthy; nasty; soiled; unclean
+
+bryn
+   hill
+
+buan
+   fast; quick; rapid; speedy; swift
+
+bugail
+   shepherd
+
+bus
+   bus; autobus; omnibus
+
+busnes
+   affair; business; business deal; case; matter
+
+buwch
+   calf
+
+bwced
+   bucket; pail
+
+bwrdd
+   table
+
+bwrw glaw
+   rain
+
+bwyd
+   food
+
+bychan
+   diminutive; little; small
+
+byd
+   world
+
+byr
+   short
+   brief; short
+
+byth
+   at some time; ever; sometime
+
+byw
+   be alive; live
+
+cadair
+   chair
+
+cadnawes
+   vixen
+
+cadno
+   fox
+
+cadw
+   hang onto; hold
+
+cael
+   get; have; receive
+
+caled
+   hard
+
+calon
+   heart
+
+canol
+   average; mean; middle
+
+cant
+   hundred; one hundred
+
+canu
+   sing
+   play
+
+cap
+   cap
+
+capel
+   chapel
+
+car
+   car
+
+caredig
+   affable; friendly; good‐natured; kind
+
+cario
+   carry; wear
+
+carreg
+   stone
+
+cartref
+   home
+
+caru
+   love
+   appreciate; like
+
+carw
+   deer
+
+castell
+   castle
+
+cath
+   cat
+
+cau
+   close; shut
+
+cawrfil
+   elephant
+
+caws
+   cheese
+
+ceffyl
+   horse
+
+cegin
+   kitchen
+
+ceinach
+   hare
+
+ceiniog
+   penny
+
+cerdded
+   march; walk
+
+chwaer
+   sister
+
+chwant
+   desire; want; wish
+
+chwarae
+   play
+
+chwe
+   six
+
+chwech
+   six
+
+chweched
+   sixth
+
+chwerthin
+   laugh
+
+chwith
+   left
+
+ci
+   dog
+
+cledd
+   sword
+
+cleddau
+   sword
+
+cleddyf
+   sword
+
+clir
+   clear; distinct; plain
+
+cloc
+   clock; watch
+
+cloch
+   bell
+
+clywed
+   hear
+
+cneuen Ffrengig
+   walnut
+
+coch
+   red
+
+codi
+   get up
+
+coeden
+   tree
+
+coffi
+   coffee
+
+cofio
+   recall; recollect; remember
+
+colli
+   lose
+
+cordyn
+   cord; rope; string
+
+cornel
+   corner
+
+cot
+   coat; overcoat
+
+craig
+   boulder
+
+credu
+   account; accredit; believe; deem
+
+creulon
+   cruel
+
+croesi
+   cross
+
+crwn
+   round
+
+crwtyn
+   boy; lad; laddie
+
+cryf
+   strong
+
+cuddio
+   conceal; hide
+
+cudyll
+   hawk
+
+curyll
+   hawk
+
+cwch
+   boat
+
+cwcw
+   cuckoo
+
+cwestiwn
+   question
+
+cwm
+   valley
+
+cwningen
+   rabbit
+
+cwpan
+   cup
+
+cwpwrdd
+   cabinet; closet; cupboard; sideboard
+
+cwrdd
+   come across; encounter; meet; see
+
+cwt
+   tail
+
+cwympo
+   drop; fall
+
+cyfaill
+   friend
+
+cyfarfod
+   come across; encounter; meet; see
+
+cyflym
+   fast; quick; rapid; speedy; swift
+
+cyllell
+   knife
+
+cymryd
+   get; lay hold of; pick up; take
+
+cyn
+   before; in front of
+
+cyngerdd
+   concert
+
+cynnes
+   warm
+
+cyntaf
+   first
+
+cyrraedd
+   accomplish; achieve; attain; get; reach
+
+cysgu
+   be asleep; sleep
+
+cywir
+   falcon
+
+cân
+   song
+
+côr
+   chorus; coir
+
+da
+   good; nice; okay
+
+dafad
+   sheep
+
+dal
+   capture; catch; grapple
+
+damwain
+   accident
+
+dan
+   below; beneath; under; underneath
+
+dangos
+   indicate; point out; show
+
+dannoedd
+   toothache
+
+dant
+   tooth
+
+darfod
+   become; come about; grow; happen
+   come about; happen; occur
+
+darllen
+   read
+
+darlun
+   painting; picture
+
+darn
+   bit; lump; piece
+
+dau
+   two
+
+dau ar bymtheg
+   seventeen
+
+dau gant
+   two hundred
+
+dawns
+   dance
+
+dawnsio
+   dance
+
+ddoe
+   yesterday
+
+deall
+   understand; realize
+
+dechrau
+   begin; commence; start
+
+deffro
+   wake; wake up
+
+deg
+   ten
+
+degfed
+   tenth
+
+deg ar hugain
+   thirty
+
+deg a deugain
+   fifty
+
+deg a phedwar ugain
+   ninety
+
+deg a thrigain
+   seventy
+
+deintydd
+   dentist
+
+desg
+   desk; writing desk; writing‐desk
+
+deuddeg
+   twelve
+
+deuddegfed
+   twelfth
+
+deugain
+   forty
+
+deunaw
+   eighteen
+
+deunawfed
+   eighteenth
+
+dewin
+   enchanter; magician; sorcerer; warlock; wizard
+
+diddorol
+   interesting
+
+digon
+   enough; sufficient
+
+dim
+   anything; something
+
+dinas
+   city; metropolis
+
+diolch
+   thank you; thanks
+
+dod
+   come
+
+dod â
+   bring; fetch
+
+doe
+   yesterday
+
+doenitheb
+   wisdom
+
+draig
+   dragon
+
+dringo
+   climb
+
+drwg
+   bad; miserable; nasty; poor
+   airy‐fairy; frolic; frolicsome; petulant
+
+drws
+   door
+
+drwy
+   through
+
+du
+   black
+
+dweud
+   say; tell
+   narrate; relate; tell
+
+dwr
+   water
+
+dwsin
+   dozen
+
+dwy
+   two
+
+dwy ar bymtheg
+   seventeen
+
+dwy waith
+   twice
+
+dydd
+   day
+
+dydd Llun
+   Monday
+
+dydd Sadwrn
+   Sabbath
+
+dydd Sul
+   Sunday
+
+dyfod
+   come
+
+dyfod â
+   bring; fetch
+
+dyma
+   behold; here is; here are; look; there
+
+dyn
+   fellow; man
+
+dyna
+   there is; there are
+
+dynes
+   woman
+
+dysgu
+   teach
+   learn
+
+dywalgi
+   tiger
+
+dywedyd
+   say; tell
+   narrate; relate; tell
+
+ef
+   he; him
+   it
+
+eglwys
+   church; church‐building; house of worship; place of worship
+
+ei
+   his
+   her; his; its; their
+   her
+
+ein
+   our
+
+eira
+   snow
+
+eisiau
+   need; want
+
+eistedd
+   sit
+
+eliffant
+   elephant
+
+enw
+   appellation; name
+
+er
+   since
+   from; since
+   though; although
+
+erioed
+   at some time; ever; sometime
+
+eroplên
+   aeroplane; airplane; plane
+   aircraft
+
+ers
+   from; since
+
+eryr
+   eagle
+
+eto
+   still; yet
+   afresh; again; all over again; anew
+   afresh; again; once more
+
+fe
+   he; him
+   it
+
+felly
+   so; such; thus
+
+ffatri
+   factory
+
+ffedog
+   apron
+
+ffenestr
+   window
+
+fferm
+   estate; farm; property; ranch
+
+ffermwr
+   farmer
+
+ffilm
+   film; motion picture; movie
+
+fforc
+   fork
+
+ffordd
+   road; route; way
+
+ffrind
+   friend
+
+ffydd
+   confidence; faith; trust
+
+ffyddlon
+   falcon
+
+ffynnon
+   fountain; source; spring
+
+fwltur
+   vulture
+
+gadael
+   absent onself; depart; go away; leave
+   accord; admit; afford; allow; permit
+
+gaeaf
+   winter
+
+gafr
+   goat
+
+gair
+   word
+
+gallu
+   be able to
+
+galw
+   call; summon
+
+gan
+   with
+
+gardd
+   garden
+
+gartref
+   at home
+
+geneth
+   girl; lass; wench
+
+geni
+   arise; be born
+
+ger
+   at; beside; by; near; nearby; near to; next to
+
+glas
+   blue
+
+glyn
+   valley
+
+gof
+   smith
+
+gofalus
+   careful; cautious
+
+gofyn
+   ask
+
+golchi
+   wash
+
+golff
+   golf
+
+gorwedd
+   lie; recline
+
+grisiau
+   staircase; stairs
+
+gwaith
+   job; work
+
+gwal
+   wall
+
+gwallt
+   hair
+
+gwas
+   boy; servant
+
+gwawr
+   dawn; daybreak
+
+gwdihŵ
+   owl
+
+gweithio
+   work
+
+gweld
+   see
+
+gwell
+   best
+   better
+
+gwely
+   bed
+
+gwers
+   lesson
+
+gwerthu
+   dispose of; sell; vend
+
+gwiber
+   adder; viper
+
+gwir
+   true
+
+gwisgo
+   wear
+
+gwlad
+   country; land
+
+gwlyb
+   wet
+
+gwlân
+   wool
+
+gwneud
+   achieve; act; do; make; perform
+
+gwraig
+   wife
+   woman
+
+gwrando
+   listen
+
+gwybod
+   know; know how
+
+gwyliau
+   vacation
+
+gwynt
+   wind
+
+gwyrdd
+   green
+
+gyda
+   with
+
+gynt
+   ahead; formerly; previously
+
+gŵr
+   fellow; man
+
+haf
+   summer
+
+hallt
+   salty
+
+hanes
+   story; history
+
+hanner
+   half
+
+hanner dydd
+   midday; noon
+
+hanner nos
+   midnight
+
+hapus
+   fortunate; happy
+
+hardd
+   beautiful; fine; handsome; lovely
+
+haul
+   sun
+
+hawdd
+   easy; facile
+
+heb
+   without
+
+heblaw
+   apart from; but; except; other than
+
+hebog
+   hawk
+
+heddiw
+   today
+
+heddwch
+   peace
+
+hefyd
+   also; likewise; too
+
+help
+   aid; help
+
+hen
+   old
+
+heol
+   street
+   road; route; way
+
+het
+   hat
+
+hi
+   it
+   her; she
+
+hir
+   long
+
+hoffi
+   appreciate; like
+
+hogyn
+   boy; lad; laddie
+
+hon
+   this
+
+hwn
+   this
+
+hwylio
+   sail
+
+hyfryd
+   agreeable; pleasant
+
+i
+   a; in; inside; into; on; per; within
+   for; to; in order to; per
+
+iaith
+   language; tongue
+
+iar
+   chicken; fowl
+
+iawn
+   quite; very; very much
+
+iechyd
+   health
+
+ieuanc
+   young
+
+ifanc
+   young
+
+isel
+   low
+
+lawer gwaith
+   frequently; often; regularly
+
+lladd
+   kill; liquidate; slay
+
+llaeth
+   milk
+
+llafariad
+   vowel
+
+llaw
+   hand
+
+llawen
+   cheerful; gay; merry
+
+llawr
+   floor
+
+lle
+   place
+   location; place; spot
+   room; space
+
+lleuad
+   moon
+
+llew
+   lion
+
+lliw
+   colour; dye
+
+llong
+   ship; vessel
+
+llongwr
+   sailor
+
+llosgi
+   burn
+
+llwyd
+   grey
+
+llwyddiant
+   achievement; success
+
+llwynog
+   fox
+
+llwynoges
+   vixen
+
+llyfr
+   book
+
+llyfrgell
+   library
+
+llygoden
+   mouse
+
+llygoden fawr
+   rat
+
+llygota
+   mouse
+   rat
+
+llyn
+   lake; loch
+
+llythyr
+   letter
+
+llythyrdy
+   post office
+
+mab
+   son
+
+mam
+   mother
+
+map
+   map
+
+marw
+   die; expire; pass away
+   dead
+
+mat
+   mat
+
+math
+   kind; sort
+
+mawr
+   big; great; large
+
+meddyg
+   doctor; physician
+
+medru
+   be able to
+
+melys
+   gentle; soft; sweet; tender
+
+menyn
+   butter
+
+merch
+   daughter
+   woman
+
+mewn
+   a; in; inside; into; on; per; within
+
+mil
+   thousand; one thousand
+
+miliwn
+   million
+
+milwr
+   pawn; soldier
+
+mis
+   month
+
+mochyn
+   hog; pig; swine
+
+modryb
+   aunt
+
+molecwl
+   molecule
+
+morwr
+   sailor
+
+mur
+   wall
+
+mynd
+   go
+
+mynydd
+   mountain
+
+môr
+   sea
+
+na
+   than
+
+nant
+   stream
+
+naw
+   nine
+
+nawfed
+   ninth
+
+neb
+   a; any; anybody; some; somebody; one; some one; some one
+
+neidr
+   serpent; snake
+
+neis
+   pretty
+
+nes
+   until; till
+
+nesaf
+   following; next
+
+neuadd
+   hall
+
+newydd
+   new; novel
+
+newyddion
+   news; novelty; something new
+
+ni
+   us; we
+
+nofel
+   novel
+
+nofio
+   float; swim
+
+nos
+   night
+
+noson
+   evening
+
+o
+   from; out of
+
+ochr
+   side
+
+oedrannus
+   old
+
+oer
+   bleak; chilly; cold
+
+ofn
+   fear
+
+ogof
+   cave; grotto
+   cave; cavern; den
+
+ond
+   but
+
+os
+   if; provided that
+
+os gwelwch yn dda
+   please
+
+o amgylch
+   about; round; around; towards
+
+o flaen
+   before; in front of
+
+paham
+   what for; wherefore; why
+
+paladr
+   beam; ray
+
+pam
+   what for; wherefore; why
+
+papur
+   paper
+
+paratoi
+   prepare
+
+parc
+   park
+
+parod
+   finished; ready; through
+
+pe
+   if; provided that
+
+pedair
+   four
+
+pedair ar bymtheg
+   nineteen
+
+pedair ar ddeg
+   fourteen
+
+pedwar
+   four
+
+pedwaredd
+   fourth
+
+pedwaredd ar bymtheg
+   nineteenth
+
+pedwaredd ar ddeg
+   fourteenth
+
+pedwar ar bymtheg
+   nineteen
+
+pedwar ar ddeg
+   fourteen
+
+pedwar ugain
+   eighty
+
+pedwar ugain a deg
+   ninety
+
+pedwerydd
+   fourth
+
+pedwerydd ar bymtheg
+   nineteenth
+
+pedwerydd ar ddeg
+   fourteenth
+
+pelydryn
+   beam; ray
+
+pen
+   summit; surface; top
+
+pensil
+   pencil
+
+pentref
+   village
+
+perllan
+   orchard
+
+peswch
+   cough
+
+piano
+   piano
+
+pib
+   pipe
+
+plismon
+   policeman
+
+pobl
+   folk; nation; people
+
+poced
+   pocket
+
+poeth
+   hot
+
+pont
+   bridge
+
+popeth
+   all; altogether; everything
+
+pori
+   graze
+
+potel
+   bottle
+
+prif
+   chief; boss
+
+prifathro
+   headmaster; head of a school
+
+prifysgol
+   university
+
+prin
+   barely; hardly; only just; scarcely
+
+priodi
+   marry; be married; get married
+
+pris
+   price
+
+prydferth
+   beautiful; fine; handsome; lovely
+
+pum
+   five
+
+pumed
+   fifth
+
+pump
+   five
+
+punt
+   pound
+
+pwll
+   pond
+
+pwy
+   of which; which one's; whose
+
+pymtheg
+   fifteen
+
+pymthegfed
+   fifteenth
+
+pêl
+   ball
+
+rabbi
+   rabbi
+
+radio
+   radio; wireless
+
+ras
+   breed; race
+
+reis
+   rice
+
+rhad
+   cheap; inexpensive
+
+rhaff
+   cord; rope; string
+
+rhag
+   from; out of
+
+rhaid
+   necessity
+
+rhedeg
+   run
+
+rheol
+   regulation; rule
+
+rheolwr
+   manager
+
+rhoi
+   give
+
+rhosyn
+   rose
+
+rhwng
+   among; between
+
+rhwyfo
+   row
+
+rhyfedd
+   wonderful
+
+rhyfel
+   war
+
+rwber
+   rubber
+
+saith
+   seven
+
+sefyll
+   stand
+
+seithfed
+   seventh
+
+sgwar
+   plaza; square; public square
+
+siarad
+   speak; talk
+
+sicr
+   certain; sure
+
+sigar
+   cigar
+
+sigaret
+   cigarette
+
+silff
+   shelf
+
+sinema
+   cinema; movie theatre
+
+siop
+   boutique; shop; store
+
+siwgr
+   sugar
+
+siwr
+   certain; sure
+
+smocio
+   smoke
+
+stori
+   account; narrative; story; tale
+
+storm
+   storm
+
+stryd
+   street
+
+swllt
+   shilling
+
+swyddfa
+   office
+   bureau; office
+
+swynwr
+   enchanter; magician; sorcerer; warlock; wizard
+
+syched
+   thirst
+
+symud
+   move
+
+syrthio
+   drop; fall
+
+tacsi
+   taxi
+
+tafod
+   tongue
+
+tair
+   three
+
+tair ar ddeg
+   thirteen
+
+taith
+   journey; trip; voyage
+
+tal
+   tall
+
+talu
+   pay
+
+taro
+   beat; hit; strike
+
+tarw
+   bull
+
+tebot
+   tea‐pot
+
+tegell
+   kettle
+
+teigr
+   tiger
+
+teisen
+   cake
+
+teledu
+   television; TV
+
+telyn
+   harp
+
+thermomedr
+   thermometer
+
+tir
+   country; land
+
+tlawd
+   miserable; poor
+   poor
+
+tlws
+   pretty
+
+torri
+   break
+   cut; slice
+
+tost
+   ill; sick
+
+traeth
+   beach
+
+tref
+   city; town
+
+treulio
+   transact money
+
+tri
+   three
+
+trigain
+   sixty
+
+trigain a deg
+   seventy
+
+tri ar ddeg
+   thirteen
+
+trwm
+   burdensome; heavy; onerous
+
+trwy
+   through
+
+trydan
+   electricity
+
+trydedd
+   third
+
+trydedd ar ddeg
+   thirteenth
+
+trydydd
+   third
+
+trydydd ar ddeg
+   thirteenth
+
+trysor
+   treasure
+
+trên
+   train
+
+twrci
+   turkey
+
+tyfu
+   accrue; grow
+
+tylluan
+   owl
+
+tywydd
+   weather
+
+tân
+   fire
+
+tê
+   tea
+
+tŵr
+   castle; tower
+
+uchel
+   high; lofty; tall
+
+ugain
+   twenty
+
+ugeinfed
+   twentieth
+
+un
+   one
+
+unfed ar bymtheg
+   sixteenth
+
+unfed ar ddeg
+   eleventh
+
+unwaith
+   once; one time
+
+un ar bymtheg
+   sixteen
+
+un ar ddeg
+   eleven
+
+un ar hugain
+   twenty‐one
+
+wedi
+   behind; after
+   after; behind
+
+wedi blino
+   tired
+
+wedyn
+   afterwards; next; subsequently
+
+weithiau
+   several times; sometimes
+
+wrth
+   at; beside; by; near; nearby; near to; next to
+   for; during; whereas; while; whilst
+
+wyth
+   eight
+
+wythfed
+   eighth
+
+wythnos
+   week
+
+ychydig
+   a little; rather; some; somewhat; to some extent
+   little
+
+yfed
+   drink
+
+yfory
+   tomorrow
+
+ymenyn
+   butter
+
+ymhlith
+   among; between
+
+ymlaen
+   ahead; foreward; on
+
+yn
+   a; in; inside; into; on; per; within
+
+ynys
+   island
+
+yn awr
+   at present; now
+
+yn dda
+   okay; well
+
+yn erbyn
+   across from; against; in exchange for; opposed to; opposite; upon
+
+yn gynnar
+   early
+
+yn gyntaf
+   first; firstly; first of all
+
+yn hwyr
+   late
+
+yn lle
+   instead
+
+yn ofalus
+   carefully; gently; lightly
+
+yn rhad
+   cheaply
+
+yrŵan
+   at present; now
+
+ysgol
+   school
+
+ysgrifennu
+   write
+
+ysgyfarnog
+   hare
+
+ystafell
+   chamber; room
+
+â
+   by; by means of; on; through; with
+
+âb
+   ape; monke
+

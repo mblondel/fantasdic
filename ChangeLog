@@ -1,5 +1,27 @@
 2008-08-24 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/binary_search.rb: Reusable binary search implementation.
+    This implementation is aimed for files. It should be possible to use it for
+    stardict dictionary files as well.
+
+    * lib/fantasdic/file_source.rb: Code that is common to all file-based
+    dictionary sources.
+    * lib/fantasdic/sources/edict_file.rb: Use the above.
+    * lib/fantasdic.rb: "Require" the new files.
+
+    * lib/fantasdic/sources/dictd_file.rb: New dictionary source. This source
+    can read dictionary files aimed for the dictd server, usally a .index file
+    and a .dict file. Most of the time the .dict file will be compressed in
+    a custom gzip and will have extension .dict.dz. This format is not supported
+    yet. A class "DictzipReader" needs be written.
+
+    * test/test_dictd_file.rb:
+    * test/data/freedict-wel-eng.dict.dz:
+    * test/data/freedict-wel-eng.dict:
+    * test/data/freedict-wel-eng.index: Unit test + data.
+
+2008-08-24 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/utils.rb: Fixed bug in Array#push_head!
 
 2008-08-23 Mathieu Blondel <mblondel@svn.gnome.org>

@@ -20,7 +20,7 @@ require "zlib"
 module Fantasdic
 module Source
 
-class EdictFileBase < Base
+class EdictFileBase < FileSource
 
     STRATEGIES_DESC = {
         "define" => "Results match with the word exactly.",
@@ -39,109 +39,25 @@ class EdictFileBase < Base
     HAVE_EGREP = (File.which("egrep") and File.which("iconv") and
                   File.which("gunzip") and File.which("cat"))
 
-    class ConfigWidget < Base::ConfigWidget
-        def initialize(*arg)
-            super(*arg)
+    class ConfigWidget < FileSource::ConfigWidget
+
+        def initialize(*args)
+            super(*args)
+
+            @choose_file_message = _("Select an EDICT file")
+            @file_extensions = [["*.gz", _("Gzip-compressed files")]]
+            @encodings = ["UTF-8", "EUC-JP"]
+
             initialize_ui
             initialize_data
             initialize_signals
-        end
-
-        def to_hash
-            if !@file_chooser_button.filename
-                raise Source::SourceError, _("A file must be selected!")
-            end
-            hash = {
-                :filename => @file_chooser_button.filename,
-                :encoding => selected_encoding
-            }
-            EdictFile.new(hash).check_validity
-            hash
-        end
-
-        private
-
-        def initialize_ui
-            @file_chooser_button = Gtk::FileChooserButton.new(
-                _("Select an EDICT file"),
-                Gtk::FileChooser::ACTION_OPEN)
-
-            filter = Gtk::FileFilter.new
-            filter.add_pattern("*")
-            filter.name = _("All files")
-
-            @file_chooser_button.add_filter(filter)
-
-            filter = Gtk::FileFilter.new
-            filter.add_pattern("*.gz")
-            filter.name = _("Gzip-compressed files")
-
-            @file_chooser_button.add_filter(filter)
-
-            @encoding_combobox = Gtk::ComboBox.new(true)
-            @encoding_combobox.append_text("UTF-8")
-            @encoding_combobox.append_text("EUC-JP")
 
             unless HAVE_EGREP
                 @encoding_combobox.sensitive = false
             end
-
-            file_label = Gtk::Label.new(_("_File:"), true)
-            file_label.xalign = 0
-            encoding_label = Gtk::Label.new(_("_Encoding:"), true)
-            encoding_label.xalign = 0
-
-            table = Gtk::Table.new(2, 2)
-            table.row_spacings = 6
-            table.column_spacings = 12
-            # attach(child, left, right, top, bottom,
-            #        xopt = Gtk::EXPAND|Gtk::FILL,
-            #        yopt = Gtk::EXPAND|Gtk::FILL, xpad = 0, ypad = 0)
-            table.attach(file_label, 0, 1, 0, 1, Gtk::FILL, Gtk::FILL)
-            table.attach(encoding_label, 0, 1, 1, 2, Gtk::FILL, Gtk::FILL)
-            table.attach(@file_chooser_button, 1, 2, 0, 1)
-            table.attach(@encoding_combobox, 1, 2, 1, 2)
-
-            self.pack_start(table)
         end
 
-        def initialize_data
-            if @hash
-                if @hash[:filename]
-                    @file_chooser_button.filename = @hash[:filename]
-                end
-                if @hash[:encoding]
-                    case @hash[:encoding]
-                        when "UTF-8"
-                            @encoding_combobox.active = 0
-                        when "EUC-JP"
-                            @encoding_combobox.active = 1
-                    end
-                end
-            end
-            if !@hash or !@hash[:encoding]
-                @encoding_combobox.active = 0
-            end
-        end
-
-        def initialize_signals
-            @file_chooser_button.signal_connect("selection-changed") do
-                @on_databases_changed_block.call
-            end
-
-            @encoding_combobox.signal_connect("changed") do
-                if @file_chooser_button.filename
-                    @on_databases_changed_block.call
-                end
-            end
-        end
-
-        def selected_encoding
-            n = @encoding_combobox.active
-            @encoding_combobox.model.get_iter(n.to_s)[0] if n >= 0
-        end
-
-    end # class ConfigWidget
+    end
 
     def check_validity
         n_errors = 0
