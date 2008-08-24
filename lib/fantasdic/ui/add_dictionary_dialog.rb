@@ -242,7 +242,13 @@ module UI
 
         def show_about_dialog
             about = Gtk::AboutDialog.new
-            about.name = @src_class.title if @src_class.title
+            if @src_class.title
+                begin
+                    about.program_name = @src_class.title
+                rescue NoMethodError
+                    about.name = @src_class.title
+                end
+            end
             about.version = @src_class.version if @src_class.version
             about.copyright = @src_class.copyright if @src_class.copyright
             about.comments = @src_class.description if @src_class.description

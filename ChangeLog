@@ -1,5 +1,12 @@
 2008-08-24 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/about_dialog.rb: Gtk::AboutDialog#name= is deprecated in
+    favor of Gtk::AboutDialog#program_name= so try to use program_name= if
+    available or name= if not.
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Likewise.
+
+2008-08-24 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/binary_search.rb: Reusable binary search implementation.
     This implementation is aimed for files. It should be possible to use it for
     stardict dictionary files as well.

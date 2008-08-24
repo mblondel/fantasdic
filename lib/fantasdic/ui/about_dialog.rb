@@ -27,7 +27,11 @@ module UI
 
         def initialize(parent)
             super()
-            self.name = Fantasdic::TITLE
+            begin
+                self.program_name = Fantasdic::TITLE
+            rescue NoMethodError
+                self.name = Fantasdic::TITLE
+            end
             self.version = Fantasdic::VERSION
             self.copyright = Fantasdic::COPYRIGHT
             self.comments = Fantasdic::DESCRIPTION
