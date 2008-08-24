@@ -1,3 +1,8 @@
+2008-08-25 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb: When right-clicking on a selected word,
+    in the menu, display the currently-selected dictionary first.
+
 2008-08-24 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/about_dialog.rb: Gtk::AboutDialog#name= is deprecated in

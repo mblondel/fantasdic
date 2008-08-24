@@ -601,17 +601,26 @@ module UI
             end
         end
 
+        def dictionary_menu_append_search_item(menu, name, word)
+            item = Gtk::MenuItem.new(_("Search %s") % name)
+            item.signal_connect("activate") do
+                lookup(:word => word, :dictionary => name)
+            end
+            menu.append(item)
+        end
+
         def dictionary_menu(word)
             menu = Gtk::Menu.new
 
             # Search menu items
+            dictionary_menu_append_search_item(menu, selected_dictionary, word)
+           
+            menu.append(Gtk::SeparatorMenuItem.new)
             @dictionary_cb.model.each do |model, path, iter|
-                name = iter[0]              
-                item = Gtk::MenuItem.new(_("Search %s") % name)
-                item.signal_connect("activate") do
-                    lookup(:word => word, :dictionary => name)
+                name = iter[0]
+                if name != selected_dictionary              
+                    dictionary_menu_append_search_item(menu, name, word)
                 end
-                menu.append(item)
             end
             menu.append(Gtk::SeparatorMenuItem.new)
 
