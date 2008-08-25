@@ -65,8 +65,8 @@ class EdictFileBase < FileSource
         begin
             edict_file_open do |file|
                 file.each_line do |line|
-                    if @hash[:encoding] and @hash[:encoding] != "UTF-8"
-                        line = convert_to_utf8(@hash[:encoding], line)
+                    if @config[:encoding] and @config[:encoding] != "UTF-8"
+                        line = convert_to_utf8(@config[:encoding], line)
                     end
                     n_errors += 1 if REGEXP.match(line).nil?
                     n_lines += 1
@@ -101,7 +101,7 @@ class EdictFileBase < FileSource
             regexp = "^#{wesc}|\\[#{wesc}\\]|/#{wesc}/"
         end
         
-        db = File.basename(@hash[:filename])
+        db = File.basename(@config[:filename])
         db_capitalize = db.capitalize
 
         match_with_regexp(regexp).map do |line|
@@ -132,7 +132,7 @@ class EdictFileBase < FileSource
         end
 
         hsh = {}
-        db = File.basename(@hash[:filename])
+        db = File.basename(@config[:filename])
         hsh[db] = arr unless arr.empty?
         hsh
     end
@@ -191,19 +191,19 @@ class EdictFileBase < FileSource
     end
 
     def edict_file_open
-        if !File.readable? @hash[:filename]
+        if !File.readable? @config[:filename]
             raise Source::SourceError,
-                    _("Cannot open file %s.") % @hash[:filename]
+                    _("Cannot open file %s.") % @config[:filename]
         end
-        if @hash[:filename] =~ /.gz$/
+        if @config[:filename] =~ /.gz$/
             begin
-                file = Zlib::GzipReader.new(File.new(@hash[:filename]))
+                file = Zlib::GzipReader.new(File.new(@config[:filename]))
             rescue Zlib::GzipFile::Error => e
                 raise Source::SourceError,
                     _("This file is not a valid EDICT file!")
             end
         else
-            file = File.new(@hash[:filename])
+            file = File.new(@config[:filename])
         end
 
         if block_given?
@@ -250,14 +250,14 @@ class EdictFileEgrep < EdictFileBase
     def get_command(regexp)
         cmd = []
 
-        cmd << "cat #{@hash[:filename]}"
+        cmd << "cat #{@config[:filename]}"
 
-        if @hash[:filename] =~ /.gz$/
+        if @config[:filename] =~ /.gz$/
             cmd << "gunzip -c"
         end
 
-        if @hash[:encoding] and @hash[:encoding] != "UTF-8"
-            cmd << "iconv -f #{@hash[:encoding]} -t UTF-8"
+        if @config[:encoding] and @config[:encoding] != "UTF-8"
+            cmd << "iconv -f #{@config[:encoding]} -t UTF-8"
         end
 
         cmd << "egrep \"#{regexp}\""
@@ -271,7 +271,7 @@ end
 class EdictFileRuby < EdictFileBase
     def initialize(*args)
         super(*args)
-        if @hash and @hash[:encoding] != "UTF-8"
+        if @config and @config[:encoding] != "UTF-8"
             # FIXME: Find a way to look up words in EUC-JP with reasonable
             # performance...
             raise Source::SourceError,

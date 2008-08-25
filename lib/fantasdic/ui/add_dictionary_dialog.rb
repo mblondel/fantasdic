@@ -65,7 +65,7 @@ module UI
             @dialog.type_hint = Gdk::Window::TypeHint::DIALOG
             @prefs = Preferences.instance
             @dicname = dicname
-            @hash = hash
+            @config = hash
             @callback_proc = callback_proc
             initialize_ui
             initialize_signals
@@ -109,25 +109,25 @@ module UI
             # Main fields
             @name_entry.text = @dicname if @dicname
 
-            if @hash
+            if @config
                 # Font buttons
                 if HAVE_PRINT
-                    if @hash[:print_font_name]
-                        @print_fontbutton.font_name = @hash[:print_font_name]
+                    if @config[:print_font_name]
+                        @print_fontbutton.font_name = @config[:print_font_name]
                     else
                         @print_fontbutton.font_name = Print::DEFAULT_FONT.to_s
                     end
                 end
 
-                if @hash[:results_font_name]                
-                    @results_fontbutton.font_name = @hash[:results_font_name]
+                if @config[:results_font_name]
+                    @results_fontbutton.font_name = @config[:results_font_name]
                 else
                     @results_fontbutton.font_name = \
                         LinkBuffer::DEFAULT_FONT.to_s
                 end
 
                 # Selected dbs
-                if !@hash[:all_dbs]
+                if !@config[:all_dbs]
                     @sel_db_radiobutton.active = true
                 end
             end
@@ -336,10 +336,10 @@ module UI
 
             # it means we are updating an existing dictionary
             # as opposed to adding a new one
-            @update_dialog = true if @hash
+            @update_dialog = true if @config
 
-            if @hash and @hash[:source]
-                self.selected_source = @hash[:source]
+            if @config and @config[:source]
+                self.selected_source = @config[:source]
             elsif 
                 self.selected_source = Source::Base::DEFAULT_SOURCE
             end
@@ -396,15 +396,15 @@ module UI
                         row[NAME] = name
                         row[DESC] = dbs[name]
 
-                        if !@hash.nil? and !@hash[:sel_dbs].nil? and \
-                            @hash[:sel_dbs].include? name
+                        if !@config.nil? and !@config[:sel_dbs].nil? and \
+                            @config[:sel_dbs].include? name
                             sel_db_desc[name] = row[DESC]
                         end
                     end
 
                     # Add selected databases
-                    if !@hash.nil? and !@hash[:sel_dbs].nil?
-                        @hash[:sel_dbs].each do |name|
+                    if !@config.nil? and !@config[:sel_dbs].nil?
+                        @config[:sel_dbs].each do |name|
                             unless sel_db_desc[name].nil?
                                 row = @sel_db_treeview.model.append
             
@@ -412,7 +412,7 @@ module UI
                                 row[DESC] = sel_db_desc[name]
                             end
                         end
-                        unless @hash[:sel_dbs].empty? or @hash[:all_dbs]
+                        unless @config[:sel_dbs].empty? or @config[:all_dbs]
                             @sel_db_radiobutton.activate
                         end
                     else
@@ -461,7 +461,7 @@ module UI
             unless @config_widgets[src_str]
                 @config_widgets[src_str] = \
                     @src_class::ConfigWidget.new(@dialog,
-                                                 @hash,
+                                                 @config,
                                                  on_db_chgd_blk)
             end
             @last_config_widget = @config_widgets[src_str]

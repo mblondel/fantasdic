@@ -98,14 +98,14 @@ class FileSource < Base
         end
 
         def initialize_data
-            if @hash
-                if @hash[:filename]
-                    @file_chooser_button.filename = @hash[:filename]
+            if @config
+                if @config[:filename]
+                    @file_chooser_button.filename = @config[:filename]
                 end
 
                 if @encodings.length > 0
-                    if @hash[:encoding]
-                        case @hash[:encoding]
+                    if @config[:encoding]
+                        case @config[:encoding]
                             when "UTF-8"
                                 @encoding_combobox.active = 0
                             when "EUC-JP"
@@ -115,7 +115,7 @@ class FileSource < Base
                 end
             end
 
-            if @encodings.length > 0 and (!@hash or !@hash[:encoding])
+            if @encodings.length > 0 and (!@config or !@config[:encoding])
                 @encoding_combobox.active = 0
             end
         end

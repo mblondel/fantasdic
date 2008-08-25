@@ -90,9 +90,9 @@ module Source
             def_field :disable_search_all_databases, :no_databases
         end
 
-        def initialize(hash={})
-            @hash = hash
-            @max_cache = hash[:max_cache] ? hash[:max_cache] : MAX_CACHE
+        def initialize(config={})
+            @config = config
+            @max_cache = config[:max_cache] ? config[:max_cache] : MAX_CACHE
         end
 
         # Methods which should be implemented by children classes
@@ -157,10 +157,10 @@ module Source
             include GetText
             GetText.bindtextdomain(Fantasdic::TEXTDOMAIN, nil, nil, "UTF-8")
 
-            def initialize(parent_dialog, hash, on_databases_changed_block)
+            def initialize(parent_dialog, config, on_databases_changed_block)
                 super()
                 @parent_dialog
-                @hash = hash
+                @config = config
                 @on_databases_changed_block = on_databases_changed_block
                 self.spacing = 15
             end
@@ -206,7 +206,7 @@ module Source
 
         def cached_multiple_define(dbs, word)
             cache = Cache.new
-            cache.key = [@hash.object_id, dbs, word]
+            cache.key = [@config.object_id, dbs, word]
 
             i = self.class.cache_queue.index(cache)
             if i.nil?
@@ -221,7 +221,7 @@ module Source
 
         def cached_multiple_match(dbs, strategy, word)
             cache = Cache.new
-            cache.key = [@hash.object_id, dbs, strategy, word]
+            cache.key = [@config.object_id, dbs, strategy, word]
 
             i = self.class.cache_queue.index(cache)
             if i.nil?

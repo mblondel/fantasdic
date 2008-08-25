@@ -223,13 +223,14 @@ module Source
             end
 
             def initialize_data
-                if @hash and @hash[:server] and @hash[:port]
-                    @server_entry.text = @hash[:server] 
-                    @port_entry.text = @hash[:port]
-                    @serv_auth_checkbutton.active = @hash[:auth]
-                    @auth_table.sensitive = @hash[:auth]
-                    @login_entry.text = @hash[:login] if @hash[:login]
-                    @password_entry.text = @hash[:password] if @hash[:password]
+                if @config and @config[:server] and @config[:port]
+                    @server_entry.text = @config[:server]
+                    @port_entry.text = @config[:port]
+                    @serv_auth_checkbutton.active = @config[:auth]
+                    @auth_table.sensitive = @config[:auth]
+                    @login_entry.text = @config[:login] if @config[:login]
+                    @password_entry.text = @config[:password] \
+                        if @config[:password]
                 else
                     @auth_table.sensitive = false
                     @server_entry.text = "dict.org"
@@ -249,21 +250,21 @@ module Source
             DICTClient.close_long_connections
             
             begin
-                if @hash[:auth]
+                if @config[:auth]
                     @dict = DICTClient.get_connection(Fantasdic::TITLE,
-                                                      @hash[:server],
-                                                      @hash[:port],
-                                                      @hash[:login],
-                                                      @hash[:password])
+                                                      @config[:server],
+                                                      @config[:port],
+                                                      @config[:login],
+                                                      @config[:password])
                 else 
                     @dict = DICTClient.get_connection(Fantasdic::TITLE,
-                                                      @hash[:server],
-                                                      @hash[:port])
+                                                      @config[:server],
+                                                      @config[:port])
                 end
             rescue DICTClient::ConnectionError, Errno::ECONNRESET => e
                 DICTClient.close_all_connections                
                 raise Source::SourceError,
-                      _("Could not connect to %s") % @hash[:server]
+                      _("Could not connect to %s") % @config[:server]
             end
         end
 
@@ -273,7 +274,7 @@ module Source
             rescue DICTClient::ConnectionLost, Errno::EPIPE
                 DICTClient.close_active_connection
                 raise Source::SourceError,
-                      _("Could not connect to %s") % @hash[:server]
+                      _("Could not connect to %s") % @config[:server]
             end
         end
 
@@ -288,7 +289,7 @@ module Source
             rescue DICTClient::ConnectionLost, Errno::EPIPE
                 DICTClient.close_active_connection
                 raise Source::SourceError,
-                      _("Could not connect to %s") % @hash[:server]
+                      _("Could not connect to %s") % @config[:server]
             end
         end
 
@@ -299,7 +300,7 @@ module Source
             rescue DICTClient::ConnectionLost, Errno::EPIPE
                 DICTClient.close_active_connection
                 raise Source::SourceError,
-                      _("Could not connect to %s") % @hash[:server]
+                      _("Could not connect to %s") % @config[:server]
             end
         end
 
@@ -322,11 +323,11 @@ module Source
         end
 
         def connecting_to_source_str
-            _("Waiting for %s...") % @hash[:server]
+            _("Waiting for %s...") % @config[:server]
         end
 
         def transferring_data_str
-            _("Transferring data from %s...") % @hash[:server]
+            _("Transferring data from %s...") % @config[:server]
         end
 
     end

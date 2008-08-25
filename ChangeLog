@@ -1,5 +1,15 @@
 2008-08-26 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/file_source.rb: Renamed @hash to @config.
+    * lib/fantasdic/sources/virtual_dictionary.rb: Likewise.
+    * lib/fantasdic/sources/dictd_file.rb: Likewise.
+    * lib/fantasdic/sources/edict_file.rb: Likewise.
+    * lib/fantasdic/sources/dict_server.rb: Likewise.
+    * lib/fantasdic/source_base.rb: Likewise.
+    * lib/fantasdic/ui/add_dictionary_dialog.rb: Likewise.
+
+2008-08-26 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/preferences.rb: Include the name of the dictionary in the
     configuration hash.
     * test/test_preferences.rb: Updated accordingly.

@@ -214,7 +214,7 @@ class DictdFile < Base
     end
 
     def define(db, word)        
-        db = File.basename(@hash[:filename]).slice(0...-6)
+        db = File.basename(@config[:filename]).slice(0...-6)
         db_capitalize = db.capitalize
 
         dictd_file_open do |index_file, dict_file|
@@ -244,7 +244,7 @@ class DictdFile < Base
         end
 
         hsh = {}
-        db = File.basename(@hash[:filename])
+        db = File.basename(@config[:filename])
         hsh[db] = matches unless matches.empty?
         hsh
     end
@@ -257,12 +257,12 @@ class DictdFile < Base
     end
 
     def dictd_file_open
-        if !File.readable? @hash[:filename]
+        if !File.readable? @config[:filename]
             raise Source::SourceError,
-                    _("Cannot open file %s.") % @hash[:filename]
+                    _("Cannot open file %s.") % @config[:filename]
         end
 
-        dict_file = @hash[:filename].gsub(/.index$/, ".dict")
+        dict_file = @config[:filename].gsub(/.index$/, ".dict")
         dict_gz_file = dict_file + ".dz"
 
         if !File.readable? dict_file and !File.readable? dict_gz_file
@@ -275,7 +275,7 @@ class DictdFile < Base
             "dict.dz file not implemented yet"
         end
 
-        index_file = DictdIndex.new(@hash[:filename])
+        index_file = DictdIndex.new(@config[:filename])
 
         if block_given?
             ret = yield(index_file, dict_file) 
@@ -285,7 +285,7 @@ class DictdFile < Base
 
             ret
         else
-            [@hash[:filename], dict_file]
+            [@config[:filename], dict_file]
         end
     end
 
