@@ -49,8 +49,10 @@ def binary_search(word, &comp)
         case comp.call(curr_word, word)
             when 1 # greater than
                 high = get_prev_offset(mid)
+                return nil if high.nil?
             when -1 # less than
                 low = get_next_offset(mid)
+                return nil if low.nil?
             when 0 # equals
                 return start
         end

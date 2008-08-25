@@ -1,5 +1,17 @@
 2008-08-26 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/binary_search.rb: Fixed a bug.
+
+    * lib/fantasdic/utils.rb: Added Enumerable#sum.
+    * test/test_utils.rb: Added unit test for it.
+
+    * lib/fantasdic/sources/virtual_dictionary.rb: Added Virtual Dictionary
+    source. This is a source where databases are dictionaries defined in the
+    settings. This is a convient solution to to group dictionaries together.
+    * test/test_virtual_dictionary.rb: Added unit test for it.
+
+2008-08-26 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/file_source.rb: Renamed @hash to @config.
     * lib/fantasdic/sources/virtual_dictionary.rb: Likewise.
     * lib/fantasdic/sources/dictd_file.rb: Likewise.

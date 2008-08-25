@@ -117,4 +117,10 @@ class TestUtils < Test::Unit::TestCase
         assert_equal(File.which("pgmthatdoesntexist"), nil)
     end
 
+    def test_enumerable_sum
+        assert_equal([1,2,3,4].sum, 10)
+        assert_equal([[1],[2],[3,4]].sum, [1,2,3,4])
+        assert_equal([[1],[2],[3,4]].sum.sum, 10)
+    end
+
 end
