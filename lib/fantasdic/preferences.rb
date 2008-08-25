@@ -50,6 +50,13 @@ module Fantasdic
             else
                 @config = YAML.load(File.open(Config::DEFAULT_CONFIG_FILE))
             end
+
+            # copy the name of the dictionary in the dictionary info
+            # so that it is available to the source object
+            # when the config hash is passed            
+            self.dictionaries_infos.each_key do |key|
+                self.dictionaries_infos[key][:name] = key
+            end
         end
         
         def save!
@@ -66,6 +73,7 @@ module Fantasdic
 
         def update_dictionary(name, hash)
             self.dictionaries_infos[name] = hash
+            self.dictionaries_infos[name][:name] = name
         end
 
         def add_dictionary(name, hash)

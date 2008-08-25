@@ -43,6 +43,7 @@ class TestPreferences < Test::Unit::TestCase
                     {"English"=>
                         {:login=>"",
                         :password=>"",
+                        :name => "English",
                         :all_dbs=>false,
                         :selected=>1,
                         :sel_dbs=>["foldoc", "gcide", "wn", "jargon"],
@@ -63,6 +64,7 @@ class TestPreferences < Test::Unit::TestCase
                     "Spanish"=>
                         {:login=>"",
                         :password=>"",
+                        :name => "Spanish",
                         :all_dbs=>true,
                         :selected=>1,
                         :sel_dbs=>[],
@@ -83,6 +85,7 @@ class TestPreferences < Test::Unit::TestCase
                     "English <-> French"=>
                         {:login=>"",
                         :password=>"",
+                        :name => "English <-> French",
                         :all_dbs=>false,
                         :selected=>1,
                         :sel_dbs=>["eng-fra", "fra-eng"],
@@ -103,6 +106,7 @@ class TestPreferences < Test::Unit::TestCase
                     "Japanese"=>
                         {:login=>"",
                         :password=>"",
+                        :name => "Japanese",
                         :all_dbs=>true,
                         :selected=>1,
                         :sel_dbs=>[],
@@ -126,19 +130,24 @@ class TestPreferences < Test::Unit::TestCase
     end
 
     def test_update_dictionary
-        assert_not_equal(@prefs.dictionaries_infos["Japanese"], {})
+        assert_not_equal(@prefs.dictionaries_infos["Japanese"],
+                         {:name=>"Japanese"})
         @prefs.update_dictionary("Japanese", {})
-        assert_equal(@prefs.dictionaries_infos["Japanese"], {})
+        assert_equal(@prefs.dictionaries_infos["Japanese"],
+                     {:name=>"Japanese"})
     end
 
     def test_add_dictionary
-        assert_not_equal(@prefs.dictionaries_infos["Japanese"], {})
+        assert_not_equal(@prefs.dictionaries_infos["Japanese"],
+                         {:name => "Japanese"})
         @prefs.add_dictionary("Japanese", {})
-        assert_equal(@prefs.dictionaries_infos["Japanese"], {})
+        assert_equal(@prefs.dictionaries_infos["Japanese"],
+                     {:name => "Japanese"})
 
         assert_equal(@prefs.dictionaries_infos.has_key?("New"), false)
         @prefs.add_dictionary("New", {})
-        assert_equal(@prefs.dictionaries_infos["New"], {})        
+        assert_equal(@prefs.dictionaries_infos["New"],
+                     {:name=>"New"})        
     end
 
     def test_delete_dictionary
