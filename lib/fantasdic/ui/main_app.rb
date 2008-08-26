@@ -377,9 +377,12 @@ module UI
                 @search_cb_entry.append_search(search)
             end
             
-            unless @prefs.last_search.nil? or @prefs.lookup_at_start.nil? or \
-                @prefs.lookup_at_start == false or !@start_p.empty?
-                lookup(@prefs.last_search) 
+            unless @prefs.last_searches.nil? or \
+                   @prefs.last_searches.length == 0 or \
+                   @prefs.lookup_at_start.nil? or \
+                   @prefs.lookup_at_start == false or !@start_p.empty?
+
+                lookup(@prefs.last_searches.first) 
             end
         end
 

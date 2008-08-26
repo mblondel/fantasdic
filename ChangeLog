@@ -1,9 +1,13 @@
-2008-08-26 Mathieu Blondel <mblondel@svn.gnome.org>
+2008-08-27 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb (load_last_searches): Fixed problem.
+
+2008-08-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb (initialize): Define the mutex object before
     a search can be triggered.
 
-2008-08-26 Mathieu Blondel <mblondel@svn.gnome.org>
+2008-08-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb (selected_dictionary): Fixed bug.
     * lib/fantasdic/sources/virtual_dictionary.rb: Handles the case when a
