@@ -1,5 +1,11 @@
 2008-08-26 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/main_app.rb (selected_dictionary): Fixed bug.
+    * lib/fantasdic/sources/virtual_dictionary.rb: Handles the case when a
+    virtual dictionary uses a dictionary that was deleted in the meantime.
+
+2008-08-26 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/binary_search.rb: Fixed a bug.
 
     * lib/fantasdic/utils.rb: Added Enumerable#sum.

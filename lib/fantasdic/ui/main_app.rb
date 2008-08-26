@@ -567,14 +567,16 @@ module UI
             @dictionary_cb.model.clear
 
             if @prefs.dictionaries.length >= 1
-                @dictionary_cb.sensitive = true
+                sensitive = false
                 @prefs.dictionaries.each do |dic|
                     if @prefs.dictionaries_infos[dic][:selected] == 1
                         row = @dictionary_cb.model.append
                         row[0] = dic
+                        sensitive = true
                     end
                 end
                 @dictionary_cb.active = 0
+                @dictionary_cb.sensitive = sensitive
             else
                 @dictionary_cb.sensitive = false
             end
@@ -587,7 +589,12 @@ module UI
         end
 
         def selected_dictionary
-            @prefs.dictionaries[@dictionary_cb.active]
+            selected = @dictionary_cb.active
+            if selected >= 0
+                @dictionary_cb.model.get_iter(selected.to_s)[0]
+            else
+                nil
+            end
         end
 
         def selected_dictionary=(dicname)
@@ -599,6 +606,7 @@ module UI
                 end
                 n += 1
             end
+            dicname
         end
 
         def dictionary_menu_append_search_item(menu, name, word)
@@ -869,11 +877,11 @@ module UI
                 PreferencesDialog.new(@main_app,
                                       @statusicon) do
                     # This block is called when the dialog is closed
-                    #DICTClient.close_all_connections  
+                    #DICTClient.close_all_connections
                     update_dictionary_cb
-                    update_strategy_cb
                     load_dictionary_preferences
                     load_proxy_preferences
+                    update_strategy_cb
                     @prefs.save!
                 end
             end

@@ -95,6 +95,13 @@ class VirtualDictionaryBase < Base
 
     def get_source(db)
         config = @prefs.dictionaries_infos[db]
+
+        unless config
+            raise SourceError,
+                  _("Dictionary \"%s\" does not exist anymore") % \
+                    db
+        end
+
         dbs = if config[:all_dbs]
             [Source::Base::ALL_DATABASES]
         else
