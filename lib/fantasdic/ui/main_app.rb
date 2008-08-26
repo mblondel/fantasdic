@@ -46,6 +46,7 @@ module UI
             @prefs = Preferences.instance            
 
             @start_p = start_p
+            @looking_up_mutex = Mutex.new
 
             @main_app.hide
             initialize_ui
@@ -53,8 +54,6 @@ module UI
             clear_pages_seen
             load_preferences
             @main_app.show unless @prefs.dont_show_at_startup
-
-            @looking_up_mutex = Mutex.new
 
             lookup(@start_p) unless @start_p.empty?
         end
