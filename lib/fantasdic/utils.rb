@@ -16,6 +16,19 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 class String
+
+    LITTLE_ENDIAN = ([42].pack('i')[0] == 42)
+    BIG_ENDIAN = !LITTLE_ENDIAN
+
+    def nbo32_to_integer
+        self.unpack("N*")[0]
+    end
+
+    def nbo64_to_integer
+        str = BIG_ENDIAN ? self : self.reverse
+        str.unpack("Q*")[0]
+    end
+
     def utf8_length
         self.unpack("U*").length
     end

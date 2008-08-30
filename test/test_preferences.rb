@@ -15,11 +15,11 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-test_dir = File.expand_path(File.dirname(__FILE__))
-top_dir = File.expand_path(File.join(test_dir, ".."))
-lib_dir = File.expand_path(File.join(top_dir, "lib"))
-$config_file = File.expand_path(File.join(test_dir, "data", "config.yaml"))
-$LOAD_PATH.unshift(lib_dir)
+$test_dir = File.expand_path(File.dirname(__FILE__))
+$top_dir = File.expand_path(File.join($test_dir, ".."))
+$lib_dir = File.expand_path(File.join($top_dir, "lib"))
+$test_data_dir = File.expand_path(File.join($test_dir, "data"))
+$LOAD_PATH.unshift($lib_dir)
 
 require "test/unit"
 require "fileutils"
@@ -28,7 +28,9 @@ require "fantasdic"
 class TestPreferences < Test::Unit::TestCase
 
     def setup
-        @prefs = Fantasdic::PreferencesBase.new($config_file)
+        @config_file = File.expand_path(File.join($test_data_dir,
+                                                  "config.yaml"))
+        @prefs = Fantasdic::PreferencesBase.new(@config_file)
     end
 
     def teardown
@@ -202,7 +204,7 @@ class TestPreferences < Test::Unit::TestCase
     def test_save
         begin
             temp_file = "config_temp.yaml"
-            FileUtils.cp($config_file, temp_file)
+            FileUtils.cp(@config_file, temp_file)
             prefs = Fantasdic::PreferencesBase.new(temp_file)
             prefs.view_statusbar = false
             prefs.save!

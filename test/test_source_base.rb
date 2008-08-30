@@ -15,10 +15,11 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-test_dir = File.expand_path(File.dirname(__FILE__))
-top_dir = File.expand_path(File.join(test_dir, ".."))
-lib_dir = File.expand_path(File.join(top_dir, "lib"))
-$LOAD_PATH.unshift(lib_dir)
+$test_dir = File.expand_path(File.dirname(__FILE__))
+$top_dir = File.expand_path(File.join($test_dir, ".."))
+$lib_dir = File.expand_path(File.join($top_dir, "lib"))
+$test_data_dir = File.expand_path(File.join($test_dir, "data"))
+$LOAD_PATH.unshift($lib_dir)
 
 require "test/unit"
 require "fantasdic"

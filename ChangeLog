@@ -1,3 +1,15 @@
+2008-08-31 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * test/test_utils.rb: Don't use global variables for filenames because it
+    can cause conflicts.
+    * test/test_preferences.rb: Ditto.
+    * test/test_dictd_file.rb: Ditto.
+    * test/test_edict_file.rb: Ditto.
+    * test/test_google_translate.rb: Ditto.
+    * test/test_dict_server.rb: Ditto.
+    * test/test_source_base.rb: Ditto.
+    * test/test_virtual_dictionary.rb: Ditto.
+
 2008-08-30 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/sources/dictd_file.rb: Make get_word_list return the
