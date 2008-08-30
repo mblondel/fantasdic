@@ -118,7 +118,7 @@ class TestDictdFileSource < Test::Unit::TestCase
 
     def test_get_word_list
         DictdIndex.open($index_file) do |index|
-            assert_equal(index.get_word_list[0..24],
+            assert_equal(index.get_word_list[0..24].map { |a| a.first },
                         ["00databasealphabet",
                         "00databasedictfmt11010",
                         "00databaseinfo",

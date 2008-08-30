@@ -1,5 +1,11 @@
 2008-08-30 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/sources/dictd_file.rb: Make get_word_list return the
+    (word, offset, len) triplet rather than just the word.
+    * test/test_dictd_file.rb: Updated.
+
+2008-08-30 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/sources/dictd_file.rb: Added DictdFile#get_word_list.
     * test/test_dictd_file.rb: Unit test.
 
