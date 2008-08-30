@@ -1,3 +1,8 @@
+2008-08-30 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/sources/dictd_file.rb: Added DictdFile#get_word_list.
+    * test/test_dictd_file.rb: Unit test.
+
 2008-08-27 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb (load_last_searches): Fixed problem.

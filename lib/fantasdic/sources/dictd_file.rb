@@ -146,6 +146,11 @@ class DictdIndex < File
         end         
     end
 
+    def get_word_list
+        self.rewind
+        self.lines.map { |l| l.split("\t").first }
+    end
+
 end
 
 class DictdFile < Base

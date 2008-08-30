@@ -115,4 +115,35 @@ class TestDictdFileSource < Test::Unit::TestCase
                          [])
         end
     end
+
+    def test_get_word_list
+        DictdIndex.open($index_file) do |index|
+            assert_equal(index.get_word_list[0..24],
+                        ["00databasealphabet",
+                        "00databasedictfmt11010",
+                        "00databaseinfo",
+                        "00databaseshort",
+                        "00databaseurl",
+                        "00databaseutf8",
+                        "a",
+                        "abad",
+                        "abades",
+                        "abaty",
+                        "aber",
+                        "ac",
+                        "achos",
+                        "achosi",
+                        "adda",
+                        "adeg",
+                        "adeiladu",
+                        "aderyn",
+                        "adnabod",
+                        "adref",
+                        "afal",
+                        "afon",
+                        "agor",
+                        "ail",
+                        "ail ar bymtheg"])
+        end
+    end
 end
