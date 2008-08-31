@@ -15,6 +15,58 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+class Array
+
+    def binary_search(value, &comp)
+        low = 0
+        high = self.length - 1
+
+        while low <= high
+            mid = (low + high) / 2
+
+            case comp.call(self[mid], value)
+                when 1 # greater than
+                    high = mid - 1
+                when -1 # less than
+                    low = mid + 1
+                when 0 # equals
+                    return mid
+            end
+        end
+    end
+
+    def binary_search_all(word, &comp)
+        mid_offset = binary_search(word, &comp)
+
+        if mid_offset
+            arr = []
+
+            (mid_offset - 1).downto(0) do |i|
+                if comp.call(self[i], word) == 0
+                    arr.push_head(i)
+                else
+                    break
+                end
+            end
+
+            arr << mid_offset
+
+            (mid_offset + 1).upto(self.length - 1) do |i|
+                if comp.call(self[i], word) == 0
+                    arr << i
+                else
+                    break
+                end
+            end
+
+            arr
+        else
+            []
+        end
+    end
+
+end
+
 module Fantasdic
 
 # Classes that include this module must be derived from File
@@ -22,22 +74,31 @@ module Fantasdic
 # 
 # - get_prev_offset (instance method)
 # - get_next_offset (instance method)
+# - is_entry? (instance method)
 # - get_fields (class method)
 # - get_word_end (class method)
 #
-module BinarySearch
+module FileBinarySearch
 
-BUFFER_SIZE = 100
+BUFFER_SIZE = 300
 
 # Returns the first match found using the comp block for comparison.
 def binary_search(word, &comp)
     low = 0
-    high = File.size(self) - 1
+    file_size = File.size(self)
+    high = file_size
 
     while low <= high
         mid = (low + high) / 2
 
-        start = get_next_offset(mid)
+        if is_entry?(mid)
+            # by chance we hit the exact location of an entry
+            start = mid
+        else
+            # mid is not exactly the offset of an entry
+            # so we look for the closest entry before mid
+            start = get_prev_offset(mid)
+        end
         self.seek(start)
 
         buf = self.read(BUFFER_SIZE)
@@ -48,10 +109,10 @@ def binary_search(word, &comp)
 
         case comp.call(curr_word, word)
             when 1 # greater than
-                high = get_prev_offset(mid)
+                high = get_prev_offset(start)
                 return nil if high.nil?
             when -1 # less than
-                low = get_next_offset(mid)
+                low = get_next_offset(start)
                 return nil if low.nil?
             when 0 # equals
                 return start
@@ -61,7 +122,7 @@ def binary_search(word, &comp)
     nil
 end
 
-def match_binary_search(word, &comp)
+def binary_search_all(word, &comp)
     mid_offset = binary_search(word, &comp)
 
     if mid_offset

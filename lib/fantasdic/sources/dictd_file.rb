@@ -21,7 +21,7 @@ module Fantasdic
 module Source
 
 class DictdIndex < File
-    include BinarySearch
+    include FileBinarySearch
 
     B64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".
           split(//)
@@ -48,6 +48,8 @@ class DictdIndex < File
 
     # Returns the offset of the previous word in the index or nil.
     def get_prev_offset(offset)
+        return nil if offset <= 1
+
         offset -= 1
 
         if offset - BUFFER_SIZE < 0
@@ -63,11 +65,20 @@ class DictdIndex < File
 
         i = buf.rindex("\n")
         if i.nil?
-            nil
+            0
         else
             offset += i + 1
             offset            
         end
+    end
+
+    # Returns whether the current offset is the beginning of an entry or not
+    def is_entry?(offset)
+        return true if offset == 0
+        return false if offset < 0
+        self.seek(offset - 1)
+        char = self.read(1)
+        char == "\n" ? true : false
     end
 
     # Returns the offset of the next word in the index or nil.
@@ -97,13 +108,13 @@ class DictdIndex < File
     end
 
     def match_exact(word)
-        match_binary_search(word) do |s1, s2|
+        binary_search_all(word) do |s1, s2|
             s1 <=> s2
         end
     end
 
     def match_prefix(word)
-        match_binary_search(word) do |s1, s2|
+        binary_search_all(word) do |s1, s2|
             if s1 =~ /^#{s2}/
                 0
             else

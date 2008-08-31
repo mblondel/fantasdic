@@ -1,5 +1,34 @@
 2008-08-31 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/binary_search.rb: Renamed BinarySearch module to
+    FileBinarySearch. Renamed match_binary_search to binary_search_all.
+    Added an implementation of Array#binary_search and Array#binary_search_all.
+    In FileBinarySearch, handle the case when an index entry is hit exactly.
+    * test/test_binary_search.rb: Unit-test.
+
+    * lib/fantasdic/sources/dictd_file.rb: Follow the above.
+    * test/test_dictd_file.rb: More test-cases.
+
+    * lib/fantasdic/sources/stardict_file.rb: Beginning of a stardict file
+    source. Still todo:
+        - Due to the stardict file format, it is not possible to find
+          the boundaries of an index entry without parsing the whole index.
+          As a result, the whole index needs to be read in order to perform
+          binary_search on it... To speed up lookups, an offset cache should
+          be generated and saved to #{GLib.user_cache_dir}/fantasdic. This what
+          Stardict does!
+        - Add user interface.
+        - Write a DictzipReader class. This will be useful for the dictd source
+          file as well.
+
+    * test/test_stardict_file.rb: Unit test.
+    * test/data/dictd_www.freedict.de_eng-swa.ifo: Test data.
+    * test/data/dictd_www.freedict.de_eng-swa.dict.dz: Test data.
+    * test/data/dictd_www.freedict.de_eng-swa.dict: Test data.
+    * test/data/dictd_www.freedict.de_eng-swa.idx: Test data.
+
+2008-08-31 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * test/test_utils.rb: Don't use global variables for filenames because it
     can cause conflicts.
     * test/test_preferences.rb: Ditto.

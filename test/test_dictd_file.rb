@@ -52,7 +52,8 @@ class TestDictdFileSource < Test::Unit::TestCase
         DictdIndex.open(@index_file) do |index|
             assert_equal(index.get_prev_offset(52), 25)
             assert_equal(index.get_prev_offset(2005), 1994)
-            assert_equal(index.get_prev_offset(25), nil)
+            assert_equal(index.get_prev_offset(25), 0)
+            assert_equal(index.get_prev_offset(0), nil)
         end
     end
 
@@ -84,7 +85,13 @@ class TestDictdFileSource < Test::Unit::TestCase
                          [])
 
             assert_equal(index.match_exact("caredig").map { |a| a.first },
-                         ["caredig"])            
+                         ["caredig"])
+
+            assert_equal(index.match_exact("00databasealphabet").
+                         map { |a| a.first }, ["00databasealphabet"])
+
+            assert_equal(index.match_exact("\303\242b").map { |a| a.first },
+                         ["\303\242b"])  
         end
     end
 
