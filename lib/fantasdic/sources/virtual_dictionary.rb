@@ -39,13 +39,13 @@ class VirtualDictionaryBase < Base
 
     def available_databases
         hsh = {}
-        authorized_databses.each { |d| hsh[d] = d }
+        authorized_databases.each { |d| hsh[d] = d }
         hsh
     end
 
     def define(db, word)
         virtual_dbs = if db == Source::Base::ALL_DATABASES
-            authorized_databses
+            authorized_databases
         else
             [db]
         end
@@ -62,7 +62,7 @@ class VirtualDictionaryBase < Base
 
     def match(db, strat, word)
         dbs = if db == Source::Base::ALL_DATABASES
-            authorized_databses
+            authorized_databases
         else
             [db]
         end
@@ -89,7 +89,7 @@ class VirtualDictionaryBase < Base
         @prefs.dictionaries_infos[db][:source] == "VirtualDictionary"
     end
 
-    def authorized_databses
+    def authorized_databases
         @prefs.dictionaries.find_all { |db| not is_virtual?(db) }
     end
 
