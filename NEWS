@@ -2,14 +2,33 @@ NEWS
 
 === Fantasdic 1.0 beta6 ===
 
-- Use font selected in the preferences for search entry as well.
-- Workaround bug in Ruby-GNOME2 when printing.
-- Fixed "Google Translate" source.
-- Improved "Edict file" source.
-- Fixed crasher that occurs when a look up is stopped.
-- Fixed about dialog titles.
-- When right-click on a selected word, show the selected dictionary first.
-- Added new "Virtual dictionary" source.
+- Use font selected in the preferences for search entry as well
+- Workaround bug in Ruby-GNOME2 when printing
+- Fixed "Google Translate" source
+- Improved "Edict file" source
+- Fixed crasher that occurs when a look up is stopped
+- Fixed about dialog titles
+- When right-click on a selected word, show the selected dictionary first
+- Added new "Virtual dictionary" source
+
+- Updated translations:
+
+Arabic (Djihed Afifi)
+Brazilian Portuguese (Djavan Fagundes)
+British English (Philip Withnall)
+Czech (Adrian Gunis)
+Finnish (Ilkka Tuohela)
+French (Robert-André Mauchin)
+Occitan (Yannig Marchegay)
+Portuguese (Duarte Loreto)
+Spanish (Jorge Gonzalez, Daniel Mustieles)
+Swedish (Daniel Nylander)
+Vietnamese (Clytie Siddall)
+
+- User manual:
+
+Added Spanish Translation (Jorge González)
+Updated French Translation (Claude Paroz)
 
 === Fantasdic 1.0 beta5 ===
 
