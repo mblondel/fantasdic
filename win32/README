@@ -88,6 +88,8 @@ ENV['PATH'] = %w(bin lib).collect{|dir|
 }.join('') + ENV['PATH']
 end
 
+ENV['PATH'] = "#{Dir.pwd}\\lib\\bin-extra;#{ENV['PATH']}"
+
 - Create lib/fantasdic/config.rb with the following content:
 module Fantasdic
     module Config
