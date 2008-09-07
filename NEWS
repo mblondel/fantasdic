@@ -1,5 +1,16 @@
 NEWS
 
+=== Fantasdic 1.0 beta6 ===
+
+- Use font selected in the preferences for search entry as well.
+- Workaround bug in Ruby-GNOME2 when printing.
+- Fixed "Google Translate" source.
+- Improved "Edict file" source.
+- Fixed crasher that occurs when a look up is stopped.
+- Fixed about dialog titles.
+- When right-click on a selected word, show the selected dictionary first.
+- Added new "Virtual dictionary" source.
+
 === Fantasdic 1.0 beta5 ===
 
 - Multiple sources support. Currently:
