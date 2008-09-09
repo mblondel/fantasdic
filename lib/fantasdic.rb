@@ -40,7 +40,7 @@ rescue LoadError
 end
 
 module Fantasdic
-    COPYRIGHT = 'Copyright (C) 2006 - 2007 Mathieu Blondel'
+    COPYRIGHT = 'Copyright (C) 2006 - 2008 Mathieu Blondel'
 
     LIST = ''
     BUGZILLA = 'http://bugzilla.gnome.org/browse.cgi?product=fantasdic'

@@ -16,7 +16,7 @@ manpage.1: manpage.sgml
   <!ENTITY mandate      "<date>Thu, 20 Jun 2006 13:16:17 -0700</date>">
   <!-- SECTION should be 1-8, maybe with subsection. Other parameters are
        allowed: see man(7), man(1). -->
-  <!ENTITY mansection   "<manvolnum>8</manvolnum>">
+  <!ENTITY mansection   "<manvolnum>1</manvolnum>">
   <!ENTITY manemail     "<email>mblondel@rubyforge.org</email>">
   <!ENTITY manusername  "sdffsd">
   <!ENTITY manucpackage "<refentrytitle>FANTASDIC</refentrytitle>">
@@ -46,8 +46,7 @@ manpage.1: manpage.sgml
   <refnamediv>
     <refname>&manpackage;</refname>
 
-    <refpurpose>Dictionary application (client for the DICT
-protocol)</refpurpose>
+    <refpurpose>Versatile dictionary application</refpurpose>
   </refnamediv>
   <refsynopsisdiv>
     <cmdsynopsis>
@@ -57,15 +56,10 @@ protocol)</refpurpose>
   </refsynopsisdiv>
   <refsect1>
     <title>DESCRIPTION</title>    
-    <para>Fantasdic is a dictionary application primarily targetting the GNOME
-        desktop but which should work with other platforms, including Windows.
+    <para>Fantasdic is a versatile dictionary application which allows you to
+look up words in a variety of dictionary sources. It is primarily targetting the
+GNOME desktop but it should work with other platforms, including Windows.
 Fantasdic is Free Software.</para>
-
-<para>More precisely, Fantasdic is a DICT client. DICT is to dictionaries what
-HTTP is to web sites: Fantasdic connects to a server to look up words in
-dictionaries provided by that server. So you might think of Fantasdic as a
-"dictionary browser".
-    </para>
     
     <para>See <command>&manpackage; --help</command> for command-line
 options.</para>
