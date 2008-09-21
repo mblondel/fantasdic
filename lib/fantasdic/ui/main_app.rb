@@ -362,6 +362,10 @@ module UI
                 @main_app.maximize
             else
                 @main_app.resize(*@prefs.window_size)
+
+                @prefs.window_position[0] = 0 if @prefs.window_position[0] < 0
+                @prefs.window_position[1] = 0 if @prefs.window_position[1] < 0
+
                 @main_app.move(*@prefs.window_position) unless \
                     @prefs.window_position == [0,0]
             end

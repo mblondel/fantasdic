@@ -1,3 +1,8 @@
+2008-09-21 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb (load_window_preferences): Check that the
+    window coordinates are not negative.
+
 2008-09-10 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * trunk/README: Updated project metadata.
