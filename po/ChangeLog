@@ -1,3 +1,8 @@
+2008-10-07  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* LINGUAS: Added 'nb'.
+	* nb.po: Added Norwegian bokmål translation.
+
 2008-09-21  Leonardo Ferreira Fontenelle  <leonardof@gnome.org>
 
 	* pt_BR.po: Updated Brazilian Portuguese translation by Fábio Nogueira
