@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-02 01:44+0200\n"
-"PO-Revision-Date: 2008-08-30 17:32+0100\n"
-"Last-Translator: Adrian Guniš <andygun@seznam.cz>\n"
+"POT-Creation-Date: 2008-10-12 15:42+0200\n"
+"PO-Revision-Date: 2008-10-11 14:00+0100\n"
+"Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -113,7 +113,7 @@ msgstr "_Následující"
 
 #: ../data/fantasdic/glade/main_app.glade.h:6
 msgid "_Previous"
-msgstr "_Předcházející"
+msgstr "_Předchozí"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:1
 msgid "<b>Startup</b>"
@@ -145,7 +145,7 @@ msgstr "Povolit SOCKS 5 proxy"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:8
 msgid "Fantasdic will stay in the system tray even if the window is closed."
-msgstr "Fantasdic zůstane v systémové oblasti, i když je okno zavřeno."
+msgstr "Fantasdic zůstane v systémové oblasti, i když se zavře okno."
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:9
 msgid "Host:"
@@ -193,7 +193,7 @@ msgstr "Vyh_ledat poslední slovo při spuštění"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:19
 msgid "_Show Fantasdic in system tray"
-msgstr "Zobrazit Fantasdic v _systémové oblasti"
+msgstr "Zobrazovat Fantasdic v _systémové oblasti"
 
 #: ../data/fantasdic/glade/server_infos_dialog.glade.h:1
 msgid "Server informations"
@@ -201,11 +201,11 @@ msgstr "Informace o serveru"
 
 #: ../lib/fantasdic/command_line.rb:34
 msgid "Usage: fantasdic [options] [dictionary] [word]"
-msgstr "Použití: fantasdic [volby] [slovník] [slovo]"
+msgstr "Použití: fantasdic [přepínače] [slovník] [slovo]"
 
 #: ../lib/fantasdic/command_line.rb:37
 msgid "Print results to stdout"
-msgstr "Vytisknout výsledky na stdout"
+msgstr "Vytisknout výsledky na standardním výstupu"
 
 #: ../lib/fantasdic/command_line.rb:42
 msgid "List dictionaries in settings"
@@ -254,15 +254,15 @@ msgstr "Vyhledat slova v různých zdrojích slovníků"
 
 #: ../lib/fantasdic/source_base.rb:198
 msgid "Connecting to source..."
-msgstr "Připojuji se ke zdroji..."
+msgstr "Připojování ke zdroji..."
 
 #: ../lib/fantasdic/source_base.rb:202
 msgid "Transferring data from source ..."
-msgstr "Přenáším data ze zdroje..."
+msgstr "Přenáší se data ze zdroje..."
 
 #: ../lib/fantasdic/source_base.rb:259 ../lib/fantasdic/source_base.rb:267
 msgid "Can't convert encodings."
-msgstr "Nemohu konvertovat kódování."
+msgstr "Nelze konvertovat kódování."
 
 #: ../lib/fantasdic/sources/dict_server.rb:23
 msgid "DICT dictionary server"
@@ -270,7 +270,7 @@ msgstr "Server slovníku DICT"
 
 #: ../lib/fantasdic/sources/dict_server.rb:24
 msgid "Look up words using a DICT dictionary server."
-msgstr "Vyhledat slova využívající server slovníku DICT."
+msgstr "Vyhledat slova pomocí serveru slovníku DICT."
 
 #: ../lib/fantasdic/sources/dict_server.rb:34
 msgid "Server details"
@@ -283,7 +283,7 @@ msgstr "Podrobnosti o serveru"
 #: ../lib/fantasdic/sources/dict_server.rb:303
 #, c-format
 msgid "Could not connect to %s"
-msgstr "Nemohu se připojit k %s"
+msgstr "Nelze se připojit k %s"
 
 #: ../lib/fantasdic/sources/dict_server.rb:76
 #: ../lib/fantasdic/sources/dict_server.rb:205
@@ -336,11 +336,11 @@ msgstr "Počkejte %s..."
 #: ../lib/fantasdic/sources/dict_server.rb:330
 #, c-format
 msgid "Transferring data from %s..."
-msgstr "Přenáším data z %s..."
+msgstr "Přenáší se data z %s..."
 
 #: ../lib/fantasdic/sources/edict_file.rb:47
 msgid "Select an EDICT file"
-msgstr "Vybrat soubor EDICT"
+msgstr "Vyberte soubor EDICT"
 
 #: ../lib/fantasdic/sources/edict_file.rb:48
 msgid "Gzip-compressed files"
@@ -355,7 +355,7 @@ msgstr "Tento soubor není platným souborem EDICT!"
 #: ../lib/fantasdic/sources/edict_file.rb:196
 #, c-format
 msgid "Cannot open file %s."
-msgstr "Nemohu otevřít soubor %s."
+msgstr "Nelze otevřít soubor %s."
 
 #: ../lib/fantasdic/sources/edict_file.rb:278
 msgid "Encoding not supported."
@@ -397,15 +397,15 @@ msgstr "Slovník %s už existuje!"
 
 #: ../lib/fantasdic/ui/add_dictionary_dialog.rb:381
 msgid "Fetching databases information..."
-msgstr "Přenáším informace o databázích..."
+msgstr "Přenáší se informace o databázích..."
 
 #: ../lib/fantasdic/ui/browser.rb:37
 msgid "Could not open browser."
-msgstr "Nemohu otevřít prohlížeč."
+msgstr "Nelze otevřít prohlížeč."
 
 #: ../lib/fantasdic/ui/browser.rb:42
 msgid "Could not find documentation."
-msgstr "Nemohu nalézt dokumentaci."
+msgstr "Nelze nalézt dokumentaci."
 
 #: ../lib/fantasdic/ui/main_app.rb:87
 msgid "No dictionary configured"
@@ -445,92 +445,92 @@ msgstr[0] "1 shodné slovo"
 msgstr[1] "%d shodná slova"
 msgstr[2] "%d shodných slov"
 
-#: ../lib/fantasdic/ui/main_app.rb:615
+#: ../lib/fantasdic/ui/main_app.rb:619
 #, c-format
 msgid "Search %s"
 msgstr "Hledat %s"
 
-#: ../lib/fantasdic/ui/main_app.rb:639
+#: ../lib/fantasdic/ui/main_app.rb:643
 msgid "Zoom over character"
 msgstr "Přiblížení znaků"
 
-#: ../lib/fantasdic/ui/main_app.rb:654 ../lib/fantasdic/ui/main_app.rb:951
+#: ../lib/fantasdic/ui/main_app.rb:658 ../lib/fantasdic/ui/main_app.rb:955
 msgid "Select _All"
 msgstr "Vybr_at vše"
 
-#: ../lib/fantasdic/ui/main_app.rb:782
+#: ../lib/fantasdic/ui/main_app.rb:786
 msgid "Save definition"
 msgstr "Uložit definice"
 
-#: ../lib/fantasdic/ui/main_app.rb:941
+#: ../lib/fantasdic/ui/main_app.rb:945
 msgid "Print Set_up"
-msgstr "_Nastavit tisk"
+msgstr "_Nastavení tisku"
 
-#: ../lib/fantasdic/ui/main_app.rb:949
+#: ../lib/fantasdic/ui/main_app.rb:953
 msgid "_Edit"
 msgstr "Ú_pravy"
 
-#: ../lib/fantasdic/ui/main_app.rb:953
+#: ../lib/fantasdic/ui/main_app.rb:957
 msgid "Clear History"
 msgstr "Vymazat historii"
 
-#: ../lib/fantasdic/ui/main_app.rb:956
+#: ../lib/fantasdic/ui/main_app.rb:960
 msgid "Find N_ext"
 msgstr "Hledat násl_edující"
 
-#: ../lib/fantasdic/ui/main_app.rb:958
+#: ../lib/fantasdic/ui/main_app.rb:962
 msgid "Find Pre_vious"
-msgstr "Hledat pře_dcházející"
+msgstr "Hledat pře_dchozí"
 
-#: ../lib/fantasdic/ui/main_app.rb:964
+#: ../lib/fantasdic/ui/main_app.rb:968
 msgid "_View"
 msgstr "_Zobrazit"
 
-#: ../lib/fantasdic/ui/main_app.rb:965
+#: ../lib/fantasdic/ui/main_app.rb:969
 msgid "_Text size"
 msgstr "Velikost _textu"
 
-#: ../lib/fantasdic/ui/main_app.rb:970
+#: ../lib/fantasdic/ui/main_app.rb:974
 msgid "Zoom normal"
 msgstr "Normální"
 
-#: ../lib/fantasdic/ui/main_app.rb:974
+#: ../lib/fantasdic/ui/main_app.rb:978
 msgid "_Go"
 msgstr "Pře_jít"
 
-#: ../lib/fantasdic/ui/main_app.rb:983
+#: ../lib/fantasdic/ui/main_app.rb:987
 msgid "_Help"
 msgstr "_Nápověda"
 
-#: ../lib/fantasdic/ui/main_app.rb:984
+#: ../lib/fantasdic/ui/main_app.rb:988
 msgid "_Contents"
 msgstr "_Obsah"
 
-#: ../lib/fantasdic/ui/main_app.rb:985
+#: ../lib/fantasdic/ui/main_app.rb:989
 msgid "Submit _Bug Report"
 msgstr "Podat oznámení o chy_bě"
 
-#: ../lib/fantasdic/ui/main_app.rb:987
+#: ../lib/fantasdic/ui/main_app.rb:991
 msgid "About"
 msgstr "O aplikaci"
 
-#: ../lib/fantasdic/ui/main_app.rb:1027
+#: ../lib/fantasdic/ui/main_app.rb:1031
 msgid "Scan clipboard"
 msgstr "Prohledávat schránku"
 
-#: ../lib/fantasdic/ui/main_app.rb:1029
+#: ../lib/fantasdic/ui/main_app.rb:1033
 msgid "_Matches"
 msgstr "S_hody"
 
-#: ../lib/fantasdic/ui/main_app.rb:1031
-msgid "_Statusbar"
-msgstr "_Stavový řádek"
-
-#: ../lib/fantasdic/ui/main_app.rb:1033
-msgid "_Toolbar"
-msgstr "Lišta nás_trojů"
-
 #: ../lib/fantasdic/ui/main_app.rb:1035
+msgid "_Statusbar"
+msgstr "_Stavová lišta"
+
+#: ../lib/fantasdic/ui/main_app.rb:1037
+msgid "_Toolbar"
+msgstr "Lišta _nástrojů"
+
+#: ../lib/fantasdic/ui/main_app.rb:1039
 msgid "_Keep above"
 msgstr "U_držovat nahoře"
 
@@ -555,18 +555,3 @@ msgstr "Strana %d/%d"
 #: ../lib/fantasdic/ui/print.rb:207
 msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
 msgstr "Vytištěno ve Fantasdic %d/%m/%Y v %H:%M"
-
-#~ msgid "A file must be selected!"
-#~ msgstr "Soubor musí být vybrán!"
-
-#~ msgid "All files"
-#~ msgstr "Všechny soubory"
-
-#~ msgid "_File:"
-#~ msgstr "_Soubor:"
-
-#~ msgid "_Encoding:"
-#~ msgstr "_Kódování:"
-
-#~ msgid "_Look Up"
-#~ msgstr "Vyh_ledat"
