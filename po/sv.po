@@ -1,5 +1,5 @@
 # Swedish translation of fantasdic.
-# Copyright (C) 2006, 2007, 2008 Mathieu Blondel
+# Copyright (C) 2006, 2007, 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as Fantasdic.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008.
 #
