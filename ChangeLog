@@ -1,3 +1,9 @@
+2008-12-19 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * tools/dictd2stardict.rb: Added tool to convert a dictionary for the dictd
+    server to the stardict format. The tool takes an index as input and outputs
+    and index (.idx) and an information file (.ifo) as output.
+
 2008-09-21 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb (load_window_preferences): Check that the
