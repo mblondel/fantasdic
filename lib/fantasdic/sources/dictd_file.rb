@@ -107,14 +107,20 @@ class DictdIndex < File
          DictdIndex.b64_decode(word_len)]
     end
 
-    def match_exact(word)
+    def match_binary_search(word, &comp)
         binary_search_all(word) do |s1, s2|
+            comp.call(s1.downcase, s2.downcase)
+        end        
+    end
+
+    def match_exact(word)
+        match_binary_search(word) do |s1, s2|
             s1 <=> s2
         end
     end
 
     def match_prefix(word)
-        binary_search_all(word) do |s1, s2|
+        match_binary_search(word) do |s1, s2|
             if s1 =~ /^#{s2}/
                 0
             else

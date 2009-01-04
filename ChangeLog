@@ -1,5 +1,10 @@
 2009-01-04 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/sources/dictd_file.rb: Define and prefix search is now case
+    insensitive.
+
+2009-01-04 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/sources/dictd_file.rb: Now supports .dz files.
 
 2009-01-04 Mathieu Blondel <mblondel@svn.gnome.org>
