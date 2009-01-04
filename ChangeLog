@@ -1,3 +1,25 @@
+2009-01-04 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/dictzip.rb: Added class to read dictzip files.
+    Dictzip files are legal gzip files that contain additional information
+    in the header. This information can be used by the class to provide pseudo
+    random access to the uncompressed file (Dictzip#pos=).
+
+    Concretely, the extra information takes the form of a table of chunk sizes.
+    By using this information, it is possible to know which chunk is affected by
+    the area we want to read. If the area read is more than 64KB, it is
+    necessary to read more than one chunk.
+
+    Dictzip is also used by dictd and stardict.
+
+    * test/test_dictzip.rb: Unit test for the class.
+
+    * test/data/freedict-eng-fra.dict.dz: A larger dictionary was needed to test
+    that files with more than one chunk work correctly.
+    * test/data/freedict-eng-fra.dict: Uncompressed version of the file.
+  
+    * lib/fantasdic.rb: Require lib/fantasdic/dictzip.rb.
+
 2008-12-19 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * tools/dictd2stardict.rb: Added tool to convert a dictionary for the dictd
