@@ -76,7 +76,6 @@ class Dictzip
     GZ_RNDDATA =     22  # Random access data (16bit)
 
     attr_accessor :pos
-    alias :tell, :pos
 
     def initialize(filename)
         @file = File.new(filename, "rb")
