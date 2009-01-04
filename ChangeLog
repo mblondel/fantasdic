@@ -1,5 +1,10 @@
 2009-01-04 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/sources/stardict_file.rb: Stardict file source is now
+    usable.
+
+2009-01-04 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/sources/dictd_file.rb: Define and prefix search is now case
     insensitive.
 

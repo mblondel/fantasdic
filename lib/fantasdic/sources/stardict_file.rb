@@ -1,5 +1,5 @@
 # Fantasdic
-# Copyright (C) 2008 Mathieu Blondel
+# Copyright (C) 2008-2009 Mathieu Blondel
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -77,12 +77,12 @@ class StardictIndex < File
         self.class.get_fields(buf)
     end
 
-    def match_with_index_file(word, &comp)
+    def match_binary_search(word, &comp)
         offsets = self.get_index_offsets
 
         found_indices = offsets.binary_search_all(word) do |offset, word|
             curr_word, curr_offset, curr_len = self.get_fields(offset)
-            comp.call(curr_word, word)
+            comp.call(curr_word.downcase, word.downcase)
         end
 
         found_offsets = found_indices.map { |i| offsets[i] }
@@ -91,13 +91,13 @@ class StardictIndex < File
     end
 
     def match_exact(word)
-        match_with_index_file(word) do |s1, s2|
+        match_binary_search(word) do |s1, s2|
             s1 <=> s2
         end
     end
 
     def match_prefix(word)
-        match_with_index_file(word) do |s1, s2|
+        match_binary_search(word) do |s1, s2|
             if s1 =~ /^#{s2}/
                 0
             else
@@ -169,5 +169,145 @@ class StardictIndex < File
 
 end
 
+class StardictFile < Base
+
+    authors ["Mathieu Blondel"]
+    title  _("Stardict file")
+    description _("Look up words in Stardict files.")
+    license Fantasdic::GPL
+    copyright "Copyright (C) 2008-2009 Mathieu Blondel"
+    no_databases true   
+
+    STRATEGIES_DESC = {
+        "define" => "Results match with the word exactly.",
+        "prefix" => "Results match with the beginning of the word.",
+        "word" => "Results have one word that match with the word.",
+        "substring" => "Results have a portion that contains the word.",
+        "suffix" => "Results match with the end of the word."
+    }
+
+    class ConfigWidget < FileSource::ConfigWidget
+
+        def initialize(*args)
+            super(*args)
+
+            @choose_file_message = _("Select a dictd file")
+            @file_extensions = [["*.ifo", _("Ifo files")]]
+            @encodings = []
+
+            initialize_ui
+            initialize_data
+            initialize_signals
+        end
+
+    end
+
+    def check_validity
+        n_errors = 0
+        n_lines = 0
+
+        stardict_file_open do |index_file, dict_file|
+            index_file.get_index_offsets.each do |offset|
+                n_errors += 1 if not offset.is_a? Fixnum
+                n_lines += 1
+            end
+        end
+
+        if (n_errors.to_f / n_lines) >= 0.2
+            raise Source::SourceError,
+                    _("The associated index file is not valid!")
+        end
+    end
+
+    def available_strategies
+        STRATEGIES_DESC
+    end
+
+    def define(db, word)        
+        db = File.basename(@config[:filename]).slice(0...-6)
+        db_capitalize = db.capitalize
+
+        stardict_file_open do |index_file, dict_file|
+            index_file.match_exact(word).map do |match, offset, len|
+                defi = Definition.new
+                defi.word = match
+                defi.body = get_definition(dict_file, offset, len).strip
+                defi.database = db
+                defi.description = db_capitalize
+                defi
+            end
+        end
+    end
+
+    def match(db, strat, word)
+        matches = []
+
+        stardict_file_open do |index_file, dict_file|
+            matches = case strat
+                when "prefix", "suffix", "substring", "word"
+                    index_file.send("match_#{strat}", word)
+                else
+                    []
+            end.map do |match, offset, len|
+                match
+            end
+        end
+
+        hsh = {}
+        db = File.basename(@config[:filename])
+        hsh[db] = matches unless matches.empty?
+        hsh
+    end
+
+    private
+
+    def get_definition(file, offset, len)
+        file.pos = offset
+        file.read(len)
+    end
+
+    def stardict_file_open
+        idx_file = @config[:filename].gsub(/.ifo/, ".idx")
+        dict_file = @config[:filename].gsub(/.ifo/, ".dict")
+        dict_gz_file = dict_file + ".dz"
+
+        [@config[:filename], idx_file].each do |mandatory_file|
+            if !File.readable? mandatory_file
+                raise Source::SourceError,
+                        _("Cannot open file %s.") % mandatory_file
+            end
+        end
+
+        if !File.readable? dict_file and !File.readable? dict_gz_file
+            raise Source::SourceError,
+            _("Couldn't find .dict or .dict.dz dictionary file.")
+        elsif File.readable? dict_file
+            dict_file = File.new(dict_file)
+        else
+            begin
+                dict_file = Dictzip.new(dict_gz_file)
+            rescue DictzipError => e
+                raise Source::SourceError, e.to_s
+            end
+        end
+
+        index_file = StardictIndex.new(idx_file)
+
+        if block_given?
+            ret = yield(index_file, dict_file) 
+
+            index_file.close
+            dict_file.close
+
+            ret
+        else
+            [index_file, dict_file]
+        end
+    end
+
+end
+
 end
 end
+
+Fantasdic::Source::Base.register_source(Fantasdic::Source::StardictFile)
