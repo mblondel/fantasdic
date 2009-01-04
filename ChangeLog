@@ -1,5 +1,9 @@
 2009-01-04 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/sources/dictd_file.rb: Now supports .dz files.
+
+2009-01-04 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/dictzip.rb: Added class to read dictzip files.
     Dictzip files are legal gzip files that contain additional information
     in the header. This information can be used by the class to provide pseudo

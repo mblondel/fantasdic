@@ -268,7 +268,7 @@ class DictdFile < Base
     private
 
     def get_definition(file, offset, len)
-        file.seek(offset)
+        file.pos = offset
         file.read(len)
     end
 
@@ -287,8 +287,11 @@ class DictdFile < Base
         elsif File.readable? dict_file
             dict_file = File.new(dict_file)
         else
-            raise Source::SourceError,
-            "dict.dz file not implemented yet"
+            begin
+                dict_file = Dictzip.new(dict_gz_file)
+            rescue DictzipError => e
+                raise Source::SourceError, e.to_s
+            end
         end
 
         index_file = DictdIndex.new(@config[:filename])
