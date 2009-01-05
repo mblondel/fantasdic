@@ -1,5 +1,10 @@
 2009-01-04 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/sources/dict_server.rb: Fixed bug when the server is
+    listening but doesn't talk the right protocol.
+
+2009-01-04 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/ui/utils.rb: Added Gtk::TextBuffer#insert_pango_markup.
     This allows to insert text in pango markup (pseudo html). The markup
     will be displayed like normal text in case of wrong syntax or unknown tag.

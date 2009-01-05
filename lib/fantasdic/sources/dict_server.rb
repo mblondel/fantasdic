@@ -261,7 +261,8 @@ module Source
                                                       @config[:server],
                                                       @config[:port])
                 end
-            rescue DICTClient::ConnectionError, Errno::ECONNRESET => e
+            rescue DICTClient::ConnectionError, Errno::ECONNRESET,
+                   DICTClient::ConnectionLost => e
                 DICTClient.close_all_connections                
                 raise Source::SourceError,
                       _("Could not connect to %s") % @config[:server]
