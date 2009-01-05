@@ -165,3 +165,67 @@ class Gtk::TextIter
         end
     end
 end
+
+class Gtk::TextBuffer
+
+    # Displays text in pango markup (pseudo html)
+    # Will display plain text if unknown tags or wrong syntax
+    def insert_pango_markup(iter, markup_text, extratag=nil)
+        # based on work in C by Tim-Philipp Müller
+        # see #59390 in GNOME's bugzilla
+
+        begin
+            attr_list, text, accel_char = Pango.parse_markup(markup_text)
+        rescue
+            insert(iter, markup_text)
+            return
+        end
+
+        if not attr_list or not text
+            insert(iter, markup_text)
+            return
+        end
+            
+        # create_mark(name, iter, left= true or right=false)
+        mark = create_mark(nil, iter, false)
+
+        paiter = attr_list.iterator
+
+        begin
+            start, end_ = paiter.range
+
+            tag = Gtk::TextTag.new
+
+            paiter.get.each do |attr|
+                # transform Pango::AttrStyle into style
+                key = attr.class.name.split("::").last
+                key = key.gsub("Attr", "").downcase
+
+                case key
+                    when "fontdescription"
+                        tag.font_desc = attr.value
+                    when "foreground", "background"
+                        col = attr.value
+                        col = Gdk::Color.new(col.red, col.green, col.blue)
+                        tag.send("#{key}_gdk=", col)
+                    else
+                        meth = "#{key}="
+                        tag.send(meth, attr.value) if tag.respond_to? meth
+                end
+            end
+
+            tags = [tag]
+            tags << extratag if extratag
+
+            self.tag_table.add(tag)
+
+            insert_with_tags(iter, text.slice(start...end_), *tags) 
+
+            iter = get_iter_at_mark(mark)
+
+        end while paiter.next!
+
+        delete_mark(mark)
+    end
+
+end

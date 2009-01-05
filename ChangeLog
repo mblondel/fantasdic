@@ -1,5 +1,15 @@
 2009-01-04 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/utils.rb: Added Gtk::TextBuffer#insert_pango_markup.
+    This allows to insert text in pango markup (pseudo html). The markup
+    will be displayed like normal text in case of wrong syntax or unknown tag.
+    
+    * lib/fantasdic/ui/result_text_view.rb: Use it. For now, it's always used
+    but it may be better to activate it only when the source requires it. For
+    example, Stardict dictionaries with "sametypesequence=g" use pango markup.
+
+2009-01-04 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/sources/stardict_file.rb: Stardict file source is now
     usable.
 

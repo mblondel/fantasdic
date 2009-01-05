@@ -127,7 +127,7 @@ module UI
 
         def insert_text(txt)
             @entries << [TEXT, txt]
-            insert(@iter, txt, "text")
+            insert_pango_markup(@iter, txt, "text")
         end
 
         def insert_link(word)
