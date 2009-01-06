@@ -1,5 +1,11 @@
 2009-01-05 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui/main_app.rb: Let the match side pane grab the focus when
+    it is displayed. This allows the user to use the arrow keys to browse the
+    matches.
+
+2009-01-05 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/sources/stardict_file.rb: Fixed check_validity.
 
 2009-01-05 Mathieu Blondel <mblondel@svn.gnome.org>

@@ -176,6 +176,7 @@ module UI
                     disable_print
                     clear_pages_seen
                     @matches_listview.sensitive = true
+                    @matches_listview.grab_focus
                 end
             else
                 # Define
@@ -193,8 +194,13 @@ module UI
                             @matches_listview.select_match(p[:word])
                         end
 
+                        if @global_actions["MatchesSidepane"].active? and \
+                           @matches_listview.has_row_selected?
 
-                        @result_text_view.grab_focus
+                            @matches_listview.grab_focus
+                        else
+                            @result_text_view.grab_focus
+                        end
 
                         if definitions.empty?
                             disable_print
