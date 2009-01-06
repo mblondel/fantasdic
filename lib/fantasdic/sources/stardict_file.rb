@@ -159,6 +159,7 @@ class StardictIndex < File
         while offset < len
             offsets << offset
             i = buf.index("\0", offset)
+            break unless i
             offset = i + OFFSET_INT_SIZE + LEN_INT_SIZE + 1
         end
 
@@ -175,6 +176,7 @@ class StardictIndex < File
 
         while offset < len
             i = buf.index("\0", offset)
+            break unless i
             end_offset = i + OFFSET_INT_SIZE + LEN_INT_SIZE
             words << StardictIndex.get_fields(buf.slice(offset..end_offset))
             offset = end_offset + 1
@@ -219,19 +221,14 @@ class StardictFile < Base
     end
 
     def check_validity
-        n_errors = 0
-        n_lines = 0
-
         stardict_file_open do |index_file, dict_file, file_info|
-            index_file.get_index_offsets.each do |offset|
-                n_errors += 1 if not offset.is_a? Fixnum
-                n_lines += 1
-            end
-        end
+            n_offsets = index_file.get_index_offsets.length
+            n_words = file_info["wordcount"]
 
-        if (n_errors.to_f / n_lines) >= 0.2
-            raise Source::SourceError,
-                    _("The associated index file is not valid!")
+            if n_offsets != n_words
+                raise Source::SourceError,
+                    _("Wrong .ifo or .idx file!")
+            end
         end
     end
 
