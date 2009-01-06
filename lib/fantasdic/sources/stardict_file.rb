@@ -56,7 +56,7 @@ class StardictInfo < Hash
 
 end
 
-class StardictIndex < File
+class StardictIndex < DictionaryIndex
 
     OFFSET_INT_SIZE = 4
     LEN_INT_SIZE = 4
@@ -104,47 +104,6 @@ class StardictIndex < File
         found_offsets = found_indices.map { |i| offsets[i] }
 
         found_offsets.map { |offset| self.get_fields(offset) }
-    end
-
-    def match_exact(word)
-        match_binary_search(word) do |s1, s2|
-            s1 <=> s2
-        end
-    end
-
-    def match_prefix(word)
-        match_binary_search(word) do |s1, s2|
-            if s1 =~ /^#{s2}/
-                0
-            else
-                s1 <=> s2
-            end
-        end
-    end
-
-    def match_suffix(word)
-        get_word_list.find_all do |curr_word, offset, len|
-            curr_word =~ /#{word}$/
-        end
-    end
-
-    def match_substring(word)
-        get_word_list.find_all do |curr_word, offset, len|
-            curr_word.include?(word)
-        end
-    end
-
-    def match_word(word)
-        match_substring(word).find_all do |curr_word, offset, len|
-            ret = false
-            curr_word.split(" ").each do |single_word|
-                if single_word == word
-                    ret = true
-                    break
-                end
-            end
-            ret
-        end         
     end
 
     # Returns the offsets of the beginning of each entry in the index
@@ -199,9 +158,19 @@ class StardictFile < Base
     STRATEGIES_DESC = {
         "define" => "Results match with the word exactly.",
         "prefix" => "Results match with the beginning of the word.",
-        "word" => "Results have one word that match with the word.",
+        "word" => "Results have one word that matches with the word.",
         "substring" => "Results have a portion that contains the word.",
-        "suffix" => "Results match with the end of the word."
+        "suffix" => "Results match with the end of the word.",
+        "stem" => "Results share the same root as the word.",
+        "lev" => "Results are close to the word according to the " + \
+                 "levenshtein distance.",
+        "soundex" => "Results have similar pronunciation according " + \
+                     "to the soundex algorithm.",
+        "metaphone" => "Results have similar pronunciation according " + \
+                       "to the metaphone algorithm.",
+        "metaphone2" => "Results have similar pronunciation according " + \
+                       "to the double metaphone algorithm.",
+        "regexp" => "Results match the regular expression."
     }
 
     class ConfigWidget < FileSource::ConfigWidget
@@ -254,14 +223,12 @@ class StardictFile < Base
     end
 
     def match(db, strat, word)
-        matches = []
-
-        stardict_file_open do |index_file, dict_file, file_info|
-            matches = case strat
-                when "prefix", "suffix", "substring", "word"
-                    index_file.send("match_#{strat}", word)
-                else
-                    []
+        matches = stardict_file_open do |index_file, dict_file, file_info|
+            meth = "match_#{strat}"
+            if index_file.respond_to? meth
+                index_file.send(meth, word)
+            else
+                []
             end.map do |match, offset, len|
                 match
             end

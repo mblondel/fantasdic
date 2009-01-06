@@ -18,6 +18,108 @@
 module Fantasdic
 module Source
 
+class DictionaryIndex < File
+    include FileBinarySearch
+
+    MAX_LEV_DISTANCE = 2
+
+    def match_exact(word)
+        match_binary_search(word) do |s1, s2|
+            s1 <=> s2
+        end
+    end
+
+    def match_prefix(word)
+        match_binary_search(word) do |s1, s2|
+            if s1 =~ /^#{s2}/
+                0
+            else
+                s1 <=> s2
+            end
+        end
+    end
+
+    def match_suffix(word)
+        get_word_list.find_all do |curr_word, offset, len|
+            curr_word =~ /#{word}$/
+        end
+    end
+
+    def match_substring(word)
+        get_word_list.find_all do |curr_word, offset, len|
+            curr_word.include?(word)
+        end
+    end
+
+    def match_word(word)
+        match_substring(word).find_all do |curr_word, offset, len|
+            ret = false
+            curr_word.split(" ").each do |single_word|
+                if single_word == word
+                    ret = true
+                    break
+                end
+            end
+            ret
+        end         
+    end
+
+    def match_stem(word)
+        match_prefix(word.stem)
+    end
+
+    def match_lev(word)
+        get_word_list.find_all do |curr_word, offset, len|
+            word.levenshtein(curr_word) < MAX_LEV_DISTANCE
+        end        
+    end
+
+    def match_soundex(word)
+        soundex = word.soundex
+        get_word_list.find_all do |curr_word, offset, len|
+            soundex == curr_word.soundex
+        end   
+    end
+
+    def match_metaphone(word)
+        metaphone = word.metaphone
+        get_word_list.find_all do |curr_word, offset, len|
+            metaphone == curr_word.metaphone
+        end   
+    end
+
+    def match_metaphone2(word)
+        def is_equal?(pair1, pair2)
+            pair1.each do |snd1|
+                next if not snd1
+                pair2.each do |snd2|
+                    next if not snd2
+                    return true if snd1 == snd2
+                end
+            end
+            return false
+        end
+
+        pair1 = word.double_metaphone
+        get_word_list.find_all do |curr_word, offset, len|
+            is_equal?(pair1, curr_word.double_metaphone)
+        end   
+    end
+
+    def match_regexp(regexp)
+        begin
+            r = Regexp.new(regexp)
+        rescue RegexpError
+            []
+        else
+            get_word_list.find_all do |curr_word, offset, len|
+                curr_word =~ r
+            end             
+        end
+    end
+
+end
+
 class FileSource < Base
 
     class ConfigWidget < Base::ConfigWidget

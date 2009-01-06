@@ -134,12 +134,21 @@ require 'pp' if $DEBUG
 
 require 'fantasdic/config'
 require 'fantasdic/version'
-require 'fantasdic/preferences'
+
 require 'fantasdic/net/sockssocket'
 require 'fantasdic/net/dict'
-require 'fantasdic/utils'
-require 'fantasdic/command_line'
+
+require 'fantasdic/text/porter_stemming'
+require 'fantasdic/text/levenshtein'
+require 'fantasdic/text/soundex'
+require 'fantasdic/text/metaphone'
+require 'fantasdic/text/double_metaphone'
+
 require 'fantasdic/ui'
+
+require 'fantasdic/preferences'
+require 'fantasdic/command_line'
+require 'fantasdic/utils'
 require 'fantasdic/binary_search'
 require 'fantasdic/dictzip'
 require 'fantasdic/source_base'

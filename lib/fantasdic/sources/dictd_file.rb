@@ -20,8 +20,7 @@ require "zlib"
 module Fantasdic
 module Source
 
-class DictdIndex < File
-    include FileBinarySearch
+class DictdIndex < DictionaryIndex
 
     B64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".
           split(//)
@@ -113,22 +112,6 @@ class DictdIndex < File
         end        
     end
 
-    def match_exact(word)
-        match_binary_search(word) do |s1, s2|
-            s1 <=> s2
-        end
-    end
-
-    def match_prefix(word)
-        match_binary_search(word) do |s1, s2|
-            if s1 =~ /^#{s2}/
-                0
-            else
-                s1 <=> s2
-            end
-        end
-    end
-
     def match_suffix(word)
         word = Regexp.escape(word)
         self.grep(/#{word}\t/).map do |line|
@@ -145,22 +128,6 @@ class DictdIndex < File
         end.find_all do |curr_word, offset, len|
             curr_word.include?(word)
         end        
-    end
-
-    def match_word(word)
-        word = Regexp.escape(word)
-        self.grep(/#{word}/).map do |line|
-            DictdIndex.get_fields(line)
-        end.find_all do |curr_word, offset, len|
-            ret = false
-            curr_word.split(" ").each do |single_word|
-                if single_word == word
-                    ret = true
-                    break
-                end
-            end
-            ret
-        end         
     end
 
     def get_word_list
@@ -182,9 +149,19 @@ class DictdFile < Base
     STRATEGIES_DESC = {
         "define" => "Results match with the word exactly.",
         "prefix" => "Results match with the beginning of the word.",
-        "word" => "Results have one word that match with the word.",
+        "word" => "Results have one word that matches with the word.",
         "substring" => "Results have a portion that contains the word.",
-        "suffix" => "Results match with the end of the word."
+        "suffix" => "Results match with the end of the word.",
+        "stem" => "Results share the same root as the word.",
+        "lev" => "Results are close to the word according to the " + \
+                 "levenshtein distance.",
+        "soundex" => "Results have similar pronunciation according " + \
+                     "to the soundex algorithm.",
+        "metaphone" => "Results have similar pronunciation according " + \
+                       "to the metaphone algorithm.",
+        "metaphone2" => "Results have similar pronunciation according " + \
+                       "to the double metaphone algorithm.",
+        "regexp" => "Results match the regular expression."
     }
 
     class ConfigWidget < FileSource::ConfigWidget
@@ -252,14 +229,12 @@ class DictdFile < Base
     end
 
     def match(db, strat, word)
-        matches = []
-
-        dictd_file_open do |index_file, dict_file|
-            matches = case strat
-                when "prefix", "suffix", "substring", "word"
-                    index_file.send("match_#{strat}", word)
-                else
-                    []
+        matches = dictd_file_open do |index_file, dict_file|
+            meth = "match_#{strat}"
+            if index_file.respond_to? meth
+                index_file.send(meth, word)
+            else
+                []
             end.map do |match, offset, len|
                 match
             end

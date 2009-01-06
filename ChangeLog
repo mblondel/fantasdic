@@ -1,3 +1,24 @@
+2009-01-06 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/text/porter_stemming.rb: Support for stemming (e.g.
+    stemming => stem).
+    * lib/fantasdic/text/metaphone.rb: Algorithm to compare the
+    pronunciation of two strings.
+    * lib/fantasdic/text/double_metaphone.rb: Same.
+    * lib/fantasdic/text/soundex.rb: Same.
+    * lib/fantasdic/text/levenshtein.rb: Levenshtein distance.
+
+    All those files are imported from http://rubyforge.org/projects/text.
+    License is either public domain or Ruby license (GPL compatible)
+
+    * lib/fantasdic/sources/dictd_file.rb: Support for the above methods + 
+    Regexp.
+    * lib/fantasdic/sources/stardict_file.rb: Same.
+
+    * lib/fantasdic/file_source.rb: Some factoring.
+
+    * lib/fantasdic.rb: Necessary "require"s.
+
 2009-01-05 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb: Let the match side pane grab the focus when
