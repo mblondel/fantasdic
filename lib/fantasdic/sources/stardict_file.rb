@@ -24,6 +24,22 @@ class StardictInfo < Hash
         File.open(file_path) { |f| parse(f) }
     end
 
+    def xdxf?
+        if has_key? "sametypesequence" and self["sametypesequence"] == "x"
+            true
+        else
+            false
+        end
+    end
+
+    def pango_markup?
+        if has_key? "sametypesequence" and self["sametypesequence"] == "g"
+            true
+        else
+            false
+        end
+    end
+
     private
 
     def parse(f)
@@ -206,7 +222,7 @@ class StardictFile < Base
         n_errors = 0
         n_lines = 0
 
-        stardict_file_open do |index_file, dict_file|
+        stardict_file_open do |index_file, dict_file, file_info|
             index_file.get_index_offsets.each do |offset|
                 n_errors += 1 if not offset.is_a? Fixnum
                 n_lines += 1
@@ -227,11 +243,12 @@ class StardictFile < Base
         db = File.basename(@config[:filename]).slice(0...-6)
         db_capitalize = db.capitalize
 
-        stardict_file_open do |index_file, dict_file|
+        stardict_file_open do |index_file, dict_file, file_info|
             index_file.match_exact(word).map do |match, offset, len|
                 defi = Definition.new
                 defi.word = match
                 defi.body = get_definition(dict_file, offset, len).strip
+                xdxf_to_pangomarkup!(defi.body) if file_info.xdxf?
                 defi.database = db
                 defi.description = db_capitalize
                 defi
@@ -242,7 +259,7 @@ class StardictFile < Base
     def match(db, strat, word)
         matches = []
 
-        stardict_file_open do |index_file, dict_file|
+        stardict_file_open do |index_file, dict_file, file_info|
             matches = case strat
                 when "prefix", "suffix", "substring", "word"
                     index_file.send("match_#{strat}", word)
@@ -292,16 +309,52 @@ class StardictFile < Base
         end
 
         index_file = StardictIndex.new(idx_file)
+        file_info = StardictInfo.new(@config[:filename])
 
         if block_given?
-            ret = yield(index_file, dict_file) 
+            ret = yield(index_file, dict_file, file_info) 
 
             index_file.close
             dict_file.close
 
             ret
         else
-            [index_file, dict_file]
+            [index_file, dict_file, file_info]
+        end
+    end
+
+    XDXF_TO_PANGOMARKUP = [["<k>", "<b>"],
+                           ["</k>", "</b>"],
+                           ["<c c=", "<span color="],
+                           ["</c>", "</span>"],
+                           ["<kref>", "{"],
+                           ["</kref>", "}"],
+                           ["<abr>", ""],
+                           ["</abr>", ""],
+                           ["<pos>", "<small><i>"],
+                           ["</pos>", "</i></small>"],
+                           ["<blockquote>", "<i>"],
+                           ["</blockquote>", "</i>"],
+                           ["<opt>", "<span color=\"grey\">"],
+                           ["</opt>", "</span>"],
+                           ["<nu>", ""],
+                           ["</nu>", ""],
+                           ["<def>", ""],
+                           ["</def>", ""],
+                           ["<tense>", "<i>"],
+                           ["</tense>", "</i><"],
+                           ["<tr>", "<i>"],
+                           ["</tr>", "</i>"],
+                           ["<dtrn>", "<i>"],
+                           ["</dtrn>", "</i>"],
+                           ["<ex>", "<span color=\"grey\">"],
+                           ["</ex>", "</span>"],
+                           ["<co>", "<span color=\"blue\">"],
+                           ["</co>", "</span>"]]                          
+
+    def xdxf_to_pangomarkup!(txt)
+        XDXF_TO_PANGOMARKUP.each do |from, to|
+            txt.gsub!(from, to)
         end
     end
 

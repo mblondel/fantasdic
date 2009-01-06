@@ -1,3 +1,10 @@
+2009-01-05 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/sources/stardict_file.rb: Added xdxf markup support.
+
+    * lib/fantasdic/ui/utils.rb (TextBuffer#insert_pango_markup): Don't need
+    to set a Gtk::TextMark.
+
 2009-01-04 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/sources/dict_server.rb: Fixed bug when the server is

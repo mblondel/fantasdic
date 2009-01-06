@@ -187,7 +187,7 @@ class Gtk::TextBuffer
         end
             
         # create_mark(name, iter, left= true or right=false)
-        mark = create_mark(nil, iter, false)
+        # mark = create_mark(nil, iter, false)
 
         paiter = attr_list.iterator
 
@@ -221,11 +221,11 @@ class Gtk::TextBuffer
 
             insert_with_tags(iter, text.slice(start...end_), *tags) 
 
-            iter = get_iter_at_mark(mark)
+            #iter = get_iter_at_mark(mark)
 
         end while paiter.next!
 
-        delete_mark(mark)
+        # delete_mark(mark)
     end
 
 end
