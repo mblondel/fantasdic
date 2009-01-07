@@ -689,12 +689,54 @@ module UI
             sensitize_go_buttons
         end
         
-        def sensitize_go_buttons          
+        def sensitize_go_buttons
+            sensitize_go_page_buttons
+            sensitize_go_definition_buttons
+            sensitize_go_database_buttons
+        end
+
+        def sensitize_go_page_buttons          
             @global_actions["GoBack"].sensitive = \
                 (@current_page == 0) ? false : true
             @global_actions["GoForward"].sensitive = \
                 (@pages_seen.length == 0 or
                  @current_page == @pages_seen.length - 1) ? false : true
+        end
+
+        def sensitize_go_definition_buttons
+            sensitize_go_def_db_buttons(@buf.n_definitions,
+                                        @buf.curr_definition,
+                                        "Definition")
+        end
+
+        def sensitize_go_database_buttons
+            sensitize_go_def_db_buttons(@buf.n_databases,
+                                        @buf.curr_database,
+                                        "Database")
+        end
+
+        def sensitize_go_def_db_buttons(count, curr, str)
+            if count <= 1
+                sensitize = []
+                unsensitize = ["Prev", "Next", "First", "Last"]
+            else
+                if curr == 0
+                    sensitize = ["Next", "Last"]
+                    unsensitize = ["Prev", "First"]
+                elsif curr == count - 1
+                    unsensitize = ["Next", "Last"]
+                    sensitize = ["Prev", "First"]
+                else
+                    sensitize = ["Prev", "Next", "First", "Last"]
+                    unsensitize = []
+                end
+            end
+
+            [[sensitize, true], [unsensitize, false]].each do |arr, bool|
+                arr.each do |a|
+                    @global_actions["Go#{a}#{str}"].sensitive = bool
+                end
+            end
         end
 
         # Save
@@ -929,6 +971,46 @@ module UI
                 sensitize_go_buttons
             end
 
+            on_go_prev_def = Proc.new do
+                @result_text_view.jump_to_prev_definition
+                sensitize_go_buttons
+            end
+
+            on_go_next_def = Proc.new do
+                @result_text_view.jump_to_next_definition
+                sensitize_go_buttons
+            end
+
+            on_go_first_def = Proc.new do
+                @result_text_view.jump_to_first_definition
+                sensitize_go_buttons
+            end
+
+            on_go_last_def = Proc.new do
+                @result_text_view.jump_to_last_definition
+                sensitize_go_buttons
+            end
+
+            on_go_prev_db = Proc.new do
+                @result_text_view.jump_to_prev_database
+                sensitize_go_buttons
+            end
+
+            on_go_next_db = Proc.new do
+                @result_text_view.jump_to_next_database
+                sensitize_go_buttons
+            end
+
+            on_go_first_db = Proc.new do
+                @result_text_view.jump_to_first_database
+                sensitize_go_buttons
+            end
+
+            on_go_last_db = Proc.new do
+                @result_text_view.jump_to_last_database
+                sensitize_go_buttons
+            end
+
             # Help
 
             on_help = Proc.new do
@@ -980,6 +1062,7 @@ module UI
                  on_zoom_minus],
                 ["ZoomNormal", nil, _("Zoom normal"), "<ctrl>0", nil,
                  on_zoom_normal],
+                ["Stop", Gtk::Stock::STOP, nil, nil, nil, on_stop],
 
                 # Go
                 ["GoMenu", nil, _("_Go")],
@@ -987,8 +1070,22 @@ module UI
                  on_go_back],
                 ["GoForward", Gtk::Stock::GO_FORWARD, nil, "<alt>Right", nil,
                  on_go_forward],
-
-                ["Stop", Gtk::Stock::STOP, nil, nil, nil, on_stop],
+                ["GoPrevDefinition", nil, _("_Previous Definition"),
+                 "<ctrl>Page_Up", nil, on_go_prev_def],
+                ["GoNextDefinition", nil, _("_Next Definition"),                
+                 "<ctrl>Page_Down", nil, on_go_next_def],
+                ["GoFirstDefinition", nil, _("_First Definition"),
+                 "<ctrl>Home", nil, on_go_first_def],
+                ["GoLastDefinition", nil, _("_Last Definition"),                
+                 "<ctrl>End", nil, on_go_last_def],
+                ["GoPrevDatabase", nil, _("Previous Database"),
+                 "<ctrl><shift>Page_Up", nil, on_go_prev_db],
+                ["GoNextDatabase", nil, _("Next Database"),                
+                 "<ctrl><shift>Page_Down", nil, on_go_next_db],
+                ["GoFirstDatabase", nil, _("First Database"),
+                 "<ctrl><shift>Home", nil, on_go_first_db],
+                ["GoLastDatabase", nil, _("Last Database"),                
+                 "<ctrl><shift>End", nil, on_go_last_db],            
 
                 # Help
                 ["HelpMenu", nil, _("_Help")],
@@ -1213,6 +1310,20 @@ module UI
                     search = iter[ComboBoxEntry::Column::SEARCH_HASH]
                     lookup(search)
                 end
+            end
+
+            
+            @result_sw.vadjustment.signal_connect("value-changed") do
+                # Sensitize Go buttons according to 
+                # the vertical scroll position
+                adj = @result_sw.vadjustment
+                height = (adj.upper - adj.lower - adj.page_size)
+                percent = height == 0 ? 0.0 : adj.value / height
+                length = @buf.end_iter.offset - @buf.start_iter.offset
+                curr_offset = (percent * length).to_i + @buf.start_iter.offset
+                i = @buf.get_definition_at_offset(curr_offset)
+                @buf.curr_definition = i
+                sensitize_go_buttons
             end
 
         end

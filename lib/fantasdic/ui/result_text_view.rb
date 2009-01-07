@@ -70,10 +70,6 @@ module UI
     
     class LinkBuffer < Gtk::TextBuffer
 
-        HEADER = 0
-        TEXT = 1
-        LINK = 2
-
         MAX_FONT_SIZE = 24
         MIN_FONT_SIZE = 8
         
@@ -86,7 +82,7 @@ module UI
         DEFAULT_HEADER_FONT = DEFAULT_FONT.dup
         DEFAULT_HEADER_FONT.size_points = DEFAULT_HEADER_FONT_SIZE
 
-        attr_accessor :scrolled_window, :definitions
+        attr_accessor :scrolled_window, :definitions, :curr_definition
 
         def initialize
             super
@@ -112,28 +108,74 @@ module UI
             ["last-search-prev", "last-search-next"].each do |mark|
                 delete_mark(mark) unless get_mark(mark).nil?
             end
-            @entries = []
-            @iter = get_iter_at_offset(0)            
+            tag_table.each { |t| tag_table.remove(t) unless t.name }
+            @iter = get_iter_at_offset(0)  
+             
+
+            @definitions = []
+            @def_offsets = [] # iter offsets
+            @db_offsets = [] # definition offsets (position in @def_offsets)
+            @curr_definition = 0
+
             # Make the scroll go up
             #@scrolled_window.vadjustment.value = \
-            #    @scrolled_window.vadjustment.lower            
+            #    @scrolled_window.vadjustment.lower    
+        end
+
+        def n_definitions
+            @def_offsets.length
+        end
+
+        def get_iter_for_definition(i)
+            if i < n_definitions
+                self.get_iter_at_offset(@def_offsets[i])
+            else
+                nil
+            end
+        end
+
+        def get_definition_for_iter(iter)
+            get_definition_at_offset(iter.offset)
+        end
+
+        def get_definition_at_offset(offset)
+            value = @def_offsets.find_all { |v| offset >= v }.last
+            @def_offsets.index(value)        
+        end
+
+        def n_databases
+            @db_offsets.length
+        end
+
+        def get_iter_for_database(i)
+            if i < n_databases
+                self.get_iter_at_offset(@def_offsets[@db_offsets[i]])
+            else
+                nil
+            end
+        end
+
+        def curr_database
+            value = @db_offsets.find_all { |v| @curr_definition >= v }.last
+            @db_offsets.index(value)
+        end
+
+        def curr_database=(i)
+            @curr_definition = @db_offsets[i]
         end
 
         # Display methods
         def insert_header(txt)
-            @entries << [HEADER, txt]
             insert(@iter, txt, "header")
         end
 
         def insert_text(txt)
-            @entries << [TEXT, txt]
             insert_pango_markup(@iter, txt, "text")
         end
 
         def insert_link(word)
             # Removes bad chars that may appear in links
             word = word.gsub(/(\n|\r)/, "").gsub(/(\s)+/, " ")
-            @entries << [LINK, word]
             insert(@iter, word, "link")
         end
 
@@ -141,7 +183,9 @@ module UI
             @definitions = definitions
             last_db = ""
             definitions.each_with_index do |d, i|
+                @def_offsets << @iter.offset
                 if last_db != d.database
+                    @db_offsets << @def_offsets.length - 1
                     t_format = i == 0 ? "%s [%s]\n" : "\n%s [%s]\n"
                     insert_header(t_format %
                                        [d.description, d.database])
@@ -170,10 +214,11 @@ module UI
             text_size = text_tag.size_points
             unless text_size >= MAX_FONT_SIZE
                 self.tag_table.each do |tag|
-                    if tag.name == "header"
-                        tag.size_points = header_font_size(text_size + 2)
-                    else
-                        tag.size_points += 2
+                    case tag.name
+                        when "header"
+                            tag.size_points = header_font_size(text_size + 2)
+                        when "text", "link"
+                            tag.size_points += 2
                     end
                 end
                 redisplay
@@ -185,10 +230,11 @@ module UI
             text_size = text_tag.size_points
             unless text_size <= MIN_FONT_SIZE
                 self.tag_table.each do |tag|
-                    if tag.name == "header"
-                        tag.size_points = header_font_size(text_size - 2)
-                    else
-                        tag.size_points -= 2
+                    case tag.name
+                        when "header"
+                            tag.size_points = header_font_size(text_size - 2)
+                        when "text", "link"
+                            tag.size_points -= 2
                     end
                 end
                 redisplay
@@ -243,26 +289,18 @@ module UI
                                :font_desc => DEFAULT_FONT)
 
             create_tag("link", :foreground => 'blue',
-                               :underline  => Pango::AttrUnderline::SINGLE)
+                               :underline  => Pango::AttrUnderline::SINGLE,
+                               :font_desc => DEFAULT_FONT)
         end
 
         def header_font_size(font_size)
-            (font_size * RATIO).round
+            (font_size * RATIO).round.to_i
         end
 
         def redisplay
-            entries = @entries.dup
+            definitions = @definitions.dup
             self.clear
-            entries.each do |type, txt|
-                case type
-                    when HEADER
-                        insert_header(txt)
-                    when TEXT
-                        insert_text(txt)
-                    when LINK
-                        insert_link(txt)
-                end
-            end
+            insert_definitions(definitions)
         end
     end
     
@@ -296,6 +334,62 @@ module UI
             initialize_signals
 
             show_all
+        end
+
+        # Jump to definition
+
+        def jump_to_definition(i)
+            unless i < 0 or i >= self.buffer.n_definitions
+                iter = self.buffer.get_iter_for_definition(i)
+                if iter
+                    scroll_to_iter(iter, 0.0, true, 0.0, 0.0)
+                    self.buffer.curr_definition = i
+                end
+            end
+        end
+
+        def jump_to_first_definition
+            jump_to_definition(0)
+        end
+
+        def jump_to_last_definition
+            jump_to_definition(self.buffer.n_definitions - 1)
+        end
+
+        def jump_to_prev_definition
+            jump_to_definition(self.buffer.curr_definition - 1)
+        end
+
+        def jump_to_next_definition
+            jump_to_definition(self.buffer.curr_definition + 1)
+        end
+
+        # Jump to database
+
+        def jump_to_database(i)
+            unless i < 0 or i >= self.buffer.n_databases
+                iter = self.buffer.get_iter_for_database(i)
+                if iter
+                    scroll_to_iter(iter, 0.0, true, 0.0, 0.0)
+                    self.buffer.curr_database = i
+                end
+            end
+        end
+
+        def jump_to_first_database
+            jump_to_database(0)
+        end
+
+        def jump_to_last_database
+            jump_to_database(self.buffer.n_databases - 1)
+        end
+
+        def jump_to_prev_database
+            jump_to_database(self.buffer.curr_database - 1)
+        end
+
+        def jump_to_next_database
+            jump_to_database(self.buffer.curr_database + 1)
         end
 
         private

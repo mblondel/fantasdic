@@ -1,4 +1,11 @@
 2009-01-07 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/ui/main_app.rb:
+    * lib/fantasdic/ui/result_text_view.rb:
+    * data/fantasdic/ui/menus.xml: Added buttons to directly jump to a
+    definition or a database.
+
+2009-01-07 Mathieu Blondel <mblondel@svn.gnome.org>
     
     * lib/fantasdic/sources/epwing_dictionary.rb: Early support for EPWING
     dictionaries. This is a very popular format in Japan. The source requires

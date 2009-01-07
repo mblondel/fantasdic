@@ -45,6 +45,8 @@
             <menuitem action="Preferences"/>
         </menu>
         <menu action="ViewMenu">
+            <menuitem action="Stop"/>
+            <separator/>
             <menu action="TextSizeMenu">
                 <menuitem action="ZoomPlus"/>
                 <menuitem action="ZoomMinus"/>
@@ -60,6 +62,16 @@
         <menu action="GoMenu">
             <menuitem action="GoBack"/>
             <menuitem action="GoForward"/>
+            <separator/>
+            <menuitem action="GoPrevDefinition"/>
+            <menuitem action="GoNextDefinition"/>
+            <menuitem action="GoFirstDefinition"/>
+            <menuitem action="GoLastDefinition"/>   
+            <separator/>
+            <menuitem action="GoPrevDatabase"/>
+            <menuitem action="GoNextDatabase"/>
+            <menuitem action="GoFirstDatabase"/>
+            <menuitem action="GoLastDatabase"/>   
         </menu>
         <menu action="HelpMenu">
             <menuitem action="Help"/>
