@@ -597,7 +597,8 @@ module UI
         def default_strategy_of_selected_dictionary
             hash = @prefs.dictionaries_infos[selected_dictionary]
             source_class = Source::Base.get_source(hash[:source])
-            source_class.default_strategy
+            klass = source_class ? source_class : Source::Base
+            klass.default_strategy
         end
 
         def selected_dictionary
