@@ -1,4 +1,17 @@
 2009-01-07 Mathieu Blondel <mblondel@svn.gnome.org>
+    
+    * lib/fantasdic/sources/epwing_dictionary.rb: Early support for EPWING
+    dictionaries. This is a very popular format in Japan. The source requires
+    rubyeb. The source will be visible to everyone but it will eventually 
+    complain if someone tries to use it without having ruby installed.
+
+    EPWING uses EUC-JP encoding and relies on so-called "gaiji" (foreign
+    character) for characters not supported by EUC-JP. gaiji are displayed as 
+    images so we need a way to allow a source to display images... 
+    I guess Unicode didn't exist at that time...
+    To be implemented...
+
+2009-01-07 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/main_app.rb: Fixed bug when source doesn't exist anymore.
 
