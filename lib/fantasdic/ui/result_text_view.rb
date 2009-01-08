@@ -15,6 +15,8 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+require "base64"
+
 module Fantasdic
 
 module UI
@@ -179,6 +181,21 @@ module UI
             insert(@iter, word, "link")
         end
 
+        def insert_img_src(src)
+            pixbuf = Gdk::Pixbuf.new(src)
+            insert(@iter, pixbuf)
+        end
+
+        def insert_img_b64(b64)
+            raw = Base64.decode64(b64)
+
+            loader = Gdk::PixbufLoader.new
+            loader.write(raw)
+            loader.close
+ 
+            insert(@iter, loader.pixbuf)
+        end
+
         def insert_definitions(definitions)
             @definitions = definitions
             last_db = ""
@@ -193,7 +210,67 @@ module UI
                 else
                     insert_header("\n__________\n")
                 end
-                insert_with_links(d.body.strip)
+                insert_all(d.body.strip)
+            end
+        end
+
+        # Insert with support for:
+        # - pango markup (pseudo html) 
+        # - images: [img src="..." /] or [img b64="..." /]
+        # - links: {reference}
+
+        LINK_REGEXP = /\{([\w\s\-]+)\}/
+        IMG_SRC_REGEXP = /\[img src="([^\"]+)" \/\]/
+        IMG_B64_REGEXP = /\[img b64="([a-zA-Z0-9\+\/\=]+)" \/\]/
+        
+        def insert_all(str)
+            link_pos, link_val = [LINK_REGEXP =~ str, $1]
+            img_src_pos, img_src_val = [IMG_SRC_REGEXP =~ str, $1]
+            img_b64_pos, img_b64_val = [IMG_B64_REGEXP =~ str, $1]
+
+            arr = [[link_pos, link_val, :link],
+                   [img_src_pos, img_src_val, :imgsrc],
+                   [img_b64_pos, img_b64_val, :imgb64]]
+
+            arr.sort! do |a, b|
+                # sort numbers in ascending order and give priority to
+                # numbers over nil
+                a = a[0]
+                b = b[0]
+                if not a and not b
+                    0
+                elsif not a and b
+                    1
+                elsif a and not b
+                    -1
+                else
+                    a <=> b
+                end  
+            end
+
+            if not link_pos and not img_src_pos and not img_b64_pos
+                insert_text(str)
+            else
+                pos, val, type = arr.first
+
+                # start_text [pattern] following_text
+
+                # start_text
+                insert_text(str.slice(0..pos-1)) unless pos == 0
+
+                case type
+                    when :link
+                        insert_link(val)
+                        length = val.length + 2
+                    when :imgsrc
+                        insert_img_src(val)
+                        length = val.length + 14
+                    when :imgb64
+                        insert_img_b64(val)
+                        length = val.length + 14
+                end
+                following_text = str.slice(pos+length..-1)
+                insert_all(following_text) if following_text
             end
         end
 

@@ -17,6 +17,7 @@
 
 begin
     require "eb"
+    require "base64"
 rescue LoadError
 end
 
@@ -187,6 +188,15 @@ class EpwingDictionary < Base
         end
     end
 
+    def get_narrow_font_size(height)
+        # height can be 16, 24, 30, 48
+        [height / 2, height, EB.const_get("FONT_#{height.to_s}")]
+    end
+
+    def get_wide_font_size(height)
+        [height, height, EB.const_get("FONT_#{height.to_s}")]
+    end
+
     def create_hookset
         h = EB::Hookset.new
 
@@ -195,11 +205,21 @@ class EpwingDictionary < Base
         end
 
         h.register(EB::HOOK_WIDE_FONT) do |eb, argv|
-            "(?)"
+            code = argv[0]
+            w, h, fontcode = get_wide_font_size(16)
+            eb.fontcode = fontcode
+            raw = eb.get_widefont(code).to_bmp
+            b64 = Base64.encode64(raw).gsub("\n", "")            
+            "[img b64=\"#{b64}\" /]"
         end
 
         h.register(EB::HOOK_NARROW_FONT) do |eb, argv|
-            "(?)"
+            code = argv[0]
+            w, h, fontcode = get_narrow_font_size(16)
+            eb.fontcode = fontcode
+            raw = eb.get_narrowfont(code).to_bmp
+            b64 = Base64.encode64(raw).gsub("\n", "")  
+            "[img b64=\"#{b64}\" /]"
         end
 
         h.register(EB::HOOK_BEGIN_EMPHASIS) do |eb, argv|
@@ -262,13 +282,18 @@ class EpwingDictionary < Base
             ""
         end
 
-        h.register(EB::HOOK_BEGIN_IN_COLOR_BMP) do |eb, argv|
-            ""
-        end if EB.const_defined?(:HOOK_BEGIN_IN_COLOR_BMP)
+        img_hook = Proc.new do |eb, argv|
+            eb.read_colorgraphic(EB::Position.new(argv[2], argv[3])) do |raw|
+                b64 = Base64.encode64(raw).gsub("\n", "")  
+                "[img b64=\"#{b64}\" /]"
+            end
+        end
 
-        h.register(EB::HOOK_BEGIN_IN_COLOR_JPEG) do |eb2,argv|
-            ""
-        end if EB.const_defined?(:HOOK_BEGIN_IN_COLOR_JPEG)
+        h.register(EB::HOOK_BEGIN_IN_COLOR_BMP, &img_hook) \
+            if EB.const_defined?(:HOOK_BEGIN_IN_COLOR_BMP)
+
+        h.register(EB::HOOK_BEGIN_IN_COLOR_JPEG, &img_hook) \
+            if EB.const_defined?(:HOOK_BEGIN_IN_COLOR_JPEG)
 
         h.register(EB::HOOK_BEGIN_WAVE) do |eb, argv|
             "(wave file ignored)"
