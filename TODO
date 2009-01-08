@@ -3,49 +3,11 @@ TODO
 Short term
 -----------
 
-More dictionary sources
-
--> dictd file: search directly in files aimed for the dictd server. See “man
-dictd” for a description of the format and tools/ in Fantasdic’s source code for
-some starters.
-
--> Stardict file. There’s a file describing the format in Stardict’s source
-code. Likewise, tools/ has a script to convert stardict files, it may be a good
-starter.
-
--> Stardict server. Stardict authors have created their own protocol and they’re
-running a server with quite some dictionaries. Directly see Stardict’s source
-code or use a packet sniffer.
-
--> Epwing dictionaries. You’ll need to use rubyeb, the Ruby bindings to the
-excellent libeb.
-
--> Wikpedia/Wiktionary. This source plugin would simply perform an HTTP request
-to the appropriate site. Greg Hewgill kindly accepted to share his code to clean
-mediawiki syntax and make it more readable. I’m quoting an email he sent to me:
-
-    The current state of my code can be found at:
-    http://hewgill.com/viewvc/wiktiondict/trunk/
-
-    Feel free to use any of my code (or the algorithms therein) to format
-    mediwiki data. I imagine you already know this, but you can fetch the
-    raw output for individual pages using a url like this:
-    http://en.wiktionary.org/w/index.php?title=test&action=raw
-
-    In fact, you can also add &templates=expand to that url and mediawiki
-    does all the hard template work! I found the docs at:
-    http://www.mediawiki.org/wiki/Manual:Parameters_to_index.php
-
-
-- A combobox inside the textview to quiclky jump to the definitions for a given
-database and in the menu, buttons to go to the previous and next database.
-
-- Support for basic HTML tags like <b></b>, <i></i>, <img />.
+- Tab support.
+- Allow sources to set a default strategy other than define (e.g. prefix).
 
 - Remember scrolls position when the user goes back or forward.
 - Remember scrolls position when the user uses Zoom+ and Zoom-.
-
-- Create a Windows installer with nsis.sourceforge.net.
 
 Mid term
 ---------
@@ -66,3 +28,5 @@ Long term
 ---------
 
 - Provide a D-bus service?
+
+- Create a Windows installer with nsis.sourceforge.net.
