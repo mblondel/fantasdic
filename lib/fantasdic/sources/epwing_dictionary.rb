@@ -270,23 +270,19 @@ class EpwingDictionary < Base
             ""
         end
 
-        h.register(EB::HOOK_BEGIN_COLOR_BMP) do |eb, argv|
-            ""
-        end
-
-        h.register(EB::HOOK_BEGIN_COLOR_JPEG) do |eb, argv|
-            ""
-        end
-
-        h.register(EB::HOOK_END_COLOR_GRAPHIC) do |eb, argv|
-            ""
-        end
-
         img_hook = Proc.new do |eb, argv|
             eb.read_colorgraphic(EB::Position.new(argv[2], argv[3])) do |raw|
                 b64 = Base64.encode64(raw).gsub("\n", "")  
                 "[img b64=\"#{b64}\" /]"
             end
+        end
+
+        h.register(EB::HOOK_BEGIN_COLOR_BMP, &img_hook)
+
+        h.register(EB::HOOK_BEGIN_COLOR_JPEG, &img_hook)
+
+        h.register(EB::HOOK_END_COLOR_GRAPHIC) do |eb, argv|
+            ""
         end
 
         h.register(EB::HOOK_BEGIN_IN_COLOR_BMP, &img_hook) \
