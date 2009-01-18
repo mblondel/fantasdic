@@ -2,14 +2,15 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008, 2009.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 200, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic.HEAD.es\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-24 08:15+0000\n"
-"PO-Revision-Date: 2008-08-26 18:32+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=fantasdic&component=general\n"
+"POT-Creation-Date: 2009-01-07 21:27+0000\n"
+"PO-Revision-Date: 2009-01-18 13:22+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -103,7 +104,7 @@ msgid "Find: "
 msgstr "Buscar: "
 
 #: ../data/fantasdic/glade/main_app.glade.h:4
-#: ../lib/fantasdic/ui/main_app.rb:320
+#: ../lib/fantasdic/ui/main_app.rb:325
 msgid "Matches"
 msgstr "Coincidencias"
 
@@ -237,7 +238,7 @@ msgid "Error: Dictionary does not exist in the settings"
 msgstr "Error: El diccionario no existe en los ajustes"
 
 #: ../lib/fantasdic/command_line.rb:107 ../lib/fantasdic/command_line.rb:153
-#: ../lib/fantasdic/ui/main_app.rb:319
+#: ../lib/fantasdic/ui/main_app.rb:324
 msgid "No match found."
 msgstr "No se encontraron coincidencias."
 
@@ -277,10 +278,10 @@ msgid "Server details"
 msgstr "Detalles del servidor"
 
 #: ../lib/fantasdic/sources/dict_server.rb:60
-#: ../lib/fantasdic/sources/dict_server.rb:266
-#: ../lib/fantasdic/sources/dict_server.rb:276
-#: ../lib/fantasdic/sources/dict_server.rb:291
-#: ../lib/fantasdic/sources/dict_server.rb:302
+#: ../lib/fantasdic/sources/dict_server.rb:268
+#: ../lib/fantasdic/sources/dict_server.rb:278
+#: ../lib/fantasdic/sources/dict_server.rb:293
+#: ../lib/fantasdic/sources/dict_server.rb:304
 #, c-format
 msgid "Could not connect to %s"
 msgstr "No se pudo conectar a %s"
@@ -323,17 +324,17 @@ msgstr "_Usuario:"
 msgid "Pass_word:"
 msgstr "Contra_seña:"
 
-#: ../lib/fantasdic/sources/dict_server.rb:311
-#: ../lib/fantasdic/sources/dict_server.rb:320
+#: ../lib/fantasdic/sources/dict_server.rb:313
+#: ../lib/fantasdic/sources/dict_server.rb:322
 msgid "Connection with server lost."
 msgstr "Se perdió la conexión con el servidor."
 
-#: ../lib/fantasdic/sources/dict_server.rb:325
+#: ../lib/fantasdic/sources/dict_server.rb:327
 #, c-format
 msgid "Waiting for %s..."
 msgstr "Esperando a %s..."
 
-#: ../lib/fantasdic/sources/dict_server.rb:329
+#: ../lib/fantasdic/sources/dict_server.rb:331
 #, c-format
 msgid "Transferring data from %s..."
 msgstr "Transfiriendo datos desde %s..."
@@ -407,128 +408,160 @@ msgstr "No se pudo abrir el navegador."
 msgid "Could not find documentation."
 msgstr "No se pudo encontrar la documentación."
 
-#: ../lib/fantasdic/ui/main_app.rb:88
+#: ../lib/fantasdic/ui/main_app.rb:87
 msgid "No dictionary configured"
 msgstr "No hay ningún diccionario configurado"
 
-#: ../lib/fantasdic/ui/main_app.rb:121
+#: ../lib/fantasdic/ui/main_app.rb:120
 #, c-format
 msgid "Dictionary \"%s\" does not exist anymore"
 msgstr "El diccionario «%s» ya no existe"
 
-#: ../lib/fantasdic/ui/main_app.rb:131
+#: ../lib/fantasdic/ui/main_app.rb:130
 #, c-format
 msgid "Dictionary source \"%s\" does not exist anymore"
 msgstr "La fuente de diccionario «%s» ya no existe"
 
-#: ../lib/fantasdic/ui/main_app.rb:243
+#: ../lib/fantasdic/ui/main_app.rb:248
 msgid "Source error"
 msgstr "Error en la fuente"
 
-#: ../lib/fantasdic/ui/main_app.rb:274
+#: ../lib/fantasdic/ui/main_app.rb:279
 msgid "No definition found."
 msgstr "No se encontró ninguna definición."
 
-#: ../lib/fantasdic/ui/main_app.rb:278
+#: ../lib/fantasdic/ui/main_app.rb:283
 #, c-format
 msgid "One definition found."
 msgid_plural "Definitions found: %d."
 msgstr[0] "Se encontró una definición."
 msgstr[1] "Definiciones encontradas: %d."
 
-#: ../lib/fantasdic/ui/main_app.rb:315
+#: ../lib/fantasdic/ui/main_app.rb:320
 #, c-format
 msgid "1 match"
 msgid_plural "%d matches"
 msgstr[0] "1 coincidencia"
 msgstr[1] "%d coincidencias"
 
-#: ../lib/fantasdic/ui/main_app.rb:610
+#: ../lib/fantasdic/ui/main_app.rb:626
 #, c-format
 msgid "Search %s"
 msgstr "Buscar %s"
 
-#: ../lib/fantasdic/ui/main_app.rb:620
+#: ../lib/fantasdic/ui/main_app.rb:650
 msgid "Zoom over character"
 msgstr "Ampliar sobre el carácter"
 
-#: ../lib/fantasdic/ui/main_app.rb:635 ../lib/fantasdic/ui/main_app.rb:932
+#: ../lib/fantasdic/ui/main_app.rb:665 ../lib/fantasdic/ui/main_app.rb:1044
 msgid "Select _All"
 msgstr "Seleccionar _todo"
 
-#: ../lib/fantasdic/ui/main_app.rb:763
+#: ../lib/fantasdic/ui/main_app.rb:835
 msgid "Save definition"
 msgstr "Guardar definición"
 
-#: ../lib/fantasdic/ui/main_app.rb:922
+#: ../lib/fantasdic/ui/main_app.rb:1034
 msgid "Print Set_up"
 msgstr "C_onfiguración de la impresión"
 
-#: ../lib/fantasdic/ui/main_app.rb:930
+#: ../lib/fantasdic/ui/main_app.rb:1042
 msgid "_Edit"
 msgstr "_Editar"
 
-#: ../lib/fantasdic/ui/main_app.rb:934
+#: ../lib/fantasdic/ui/main_app.rb:1046
 msgid "Clear History"
 msgstr "Borrar histórico"
 
-#: ../lib/fantasdic/ui/main_app.rb:937
+#: ../lib/fantasdic/ui/main_app.rb:1049
 msgid "Find N_ext"
 msgstr "Buscar _siguiente"
 
-#: ../lib/fantasdic/ui/main_app.rb:939
+#: ../lib/fantasdic/ui/main_app.rb:1051
 msgid "Find Pre_vious"
 msgstr "Buscar _anterior"
 
-#: ../lib/fantasdic/ui/main_app.rb:945
+#: ../lib/fantasdic/ui/main_app.rb:1057
 msgid "_View"
 msgstr "_Ver"
 
-#: ../lib/fantasdic/ui/main_app.rb:946
+#: ../lib/fantasdic/ui/main_app.rb:1058
 msgid "_Text size"
 msgstr "Tamaño del _texto"
 
-#: ../lib/fantasdic/ui/main_app.rb:951
+#: ../lib/fantasdic/ui/main_app.rb:1063
 msgid "Zoom normal"
 msgstr "Ampliación normal"
 
-#: ../lib/fantasdic/ui/main_app.rb:955
+#: ../lib/fantasdic/ui/main_app.rb:1068
 msgid "_Go"
 msgstr "_Ir"
 
-#: ../lib/fantasdic/ui/main_app.rb:964
+#: ../lib/fantasdic/ui/main_app.rb:1073
+msgid "_Previous Definition"
+msgstr "Definición _anterior"
+
+#: ../lib/fantasdic/ui/main_app.rb:1075
+msgid "_Next Definition"
+msgstr "_Siguiente definición"
+
+#: ../lib/fantasdic/ui/main_app.rb:1077
+msgid "_First Definition"
+msgstr "_Primera definición"
+
+#: ../lib/fantasdic/ui/main_app.rb:1079
+msgid "_Last Definition"
+msgstr "_Última definición"
+
+#: ../lib/fantasdic/ui/main_app.rb:1081
+msgid "Previous Database"
+msgstr "Base de datos anterior"
+
+#: ../lib/fantasdic/ui/main_app.rb:1083
+msgid "Next Database"
+msgstr "Siguiente base de datos"
+
+#: ../lib/fantasdic/ui/main_app.rb:1085
+msgid "First Database"
+msgstr "Primera base de datos"
+
+#: ../lib/fantasdic/ui/main_app.rb:1087
+msgid "Last Database"
+msgstr "Última base de datos"
+
+#: ../lib/fantasdic/ui/main_app.rb:1091
 msgid "_Help"
 msgstr "Ay_uda"
 
-#: ../lib/fantasdic/ui/main_app.rb:965
+#: ../lib/fantasdic/ui/main_app.rb:1092
 msgid "_Contents"
 msgstr "_Contenido"
 
-#: ../lib/fantasdic/ui/main_app.rb:966
+#: ../lib/fantasdic/ui/main_app.rb:1093
 msgid "Submit _Bug Report"
 msgstr "Enviar informe de _fallos"
 
-#: ../lib/fantasdic/ui/main_app.rb:968
+#: ../lib/fantasdic/ui/main_app.rb:1095
 msgid "About"
 msgstr "Acerca de"
 
-#: ../lib/fantasdic/ui/main_app.rb:1008
+#: ../lib/fantasdic/ui/main_app.rb:1135
 msgid "Scan clipboard"
 msgstr "Buscar en el portapapeles"
 
-#: ../lib/fantasdic/ui/main_app.rb:1010
+#: ../lib/fantasdic/ui/main_app.rb:1137
 msgid "_Matches"
 msgstr "_Coincidencias"
 
-#: ../lib/fantasdic/ui/main_app.rb:1012
+#: ../lib/fantasdic/ui/main_app.rb:1139
 msgid "_Statusbar"
 msgstr "Barra de e_stado"
 
-#: ../lib/fantasdic/ui/main_app.rb:1014
+#: ../lib/fantasdic/ui/main_app.rb:1141
 msgid "_Toolbar"
 msgstr "Barra de _herramientas"
 
-#: ../lib/fantasdic/ui/main_app.rb:1016
+#: ../lib/fantasdic/ui/main_app.rb:1143
 msgid "_Keep above"
 msgstr "Siempre _encima"
 
