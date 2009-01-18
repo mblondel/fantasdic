@@ -15,6 +15,8 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+$KCODE="u"
+
 $test_dir = File.expand_path(File.dirname(__FILE__))
 $top_dir = File.expand_path(File.join($test_dir, ".."))
 $lib_dir = File.expand_path(File.join($top_dir, "lib"))
@@ -49,12 +51,44 @@ class TestUtils < Test::Unit::TestCase
         assert_equal("ひらがな".hiragana?, true)
         assert_equal("ひらがな".katakana?, false)
         assert_equal("ひらがな".kanji?, false)
+
+hiragana = <<EOL
+ぁあぃいぅううぇえぉお
+かがきぎくぐけげこご     
+さざしじすずせぜそぞ
+ただちぢっつづてでとど 
+なにぬねの   
+はばぱひびぴふぶぷへべぺほぼぽ   
+まみむめも
+ゃやゅゆょよ    
+らりるれろ     
+ゎわゐゑをん
+EOL
+        hiragana.gsub!(/[\s\n]+/, "")
+        assert_equal(hiragana.hiragana?, true)
     end
 
     def test_katakana        
         assert_equal("カタカナ".hiragana?, false)
         assert_equal("カタカナ".katakana?, true)
         assert_equal("カタカナ".kanji?, false)
+
+katakana = <<EOL
+ァアィイゥウヴェエォオ
+カガキギクグケゲコゴ   
+サザシジズセゼソゾ
+タダチヂ
+ッツヅテデトド   
+ナニヌネノ
+ハバパヒビピフブプヘベペホボポ 
+マミムメモ
+ャヤュユョヨ   
+ラリルレロ
+ヮワヲン
+EOL
+
+        katakana.gsub!(/[\s\n]+/, "")
+        assert_equal(katakana.katakana?, true)
     end
 
     def test_kanji      

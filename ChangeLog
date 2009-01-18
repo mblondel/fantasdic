@@ -1,3 +1,7 @@
+2009-01-18 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * test/test_utils.rb: More complete test for hiragana? and katakana?.
+
 2009-01-08 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * lib/fantasdic/ui/result_text_view.rb: Support for image tags.
