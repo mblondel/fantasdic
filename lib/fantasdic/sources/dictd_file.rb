@@ -220,7 +220,18 @@ class DictdFile < Base
             index_file.match_exact(word).map do |match, offset, len|
                 defi = Definition.new
                 defi.word = match
-                defi.body = get_definition(dict_file, offset, len).strip
+
+                body = get_definition(dict_file, offset, len)
+                if body
+                    defi.body = body.strip
+                else
+                    msg = "Match exists in index file %s "
+                    msg += "(offset: %d, len: %d) "
+                    msg += "but could not be reach in dictionary %s."
+                    msg = msg % [index_file.path, offset, len, dict_file.path]
+                    defi.body = msg
+                end
+                                
                 defi.database = db
                 defi.description = db_capitalize
                 defi

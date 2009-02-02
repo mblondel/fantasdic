@@ -85,6 +85,10 @@ class Dictzip
         @pos = 0
     end
 
+    def path
+        @file.path
+    end
+
     def close
         @file.close
     end

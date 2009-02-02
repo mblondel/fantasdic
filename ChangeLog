@@ -1,3 +1,9 @@
+2009-02-03 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/dictzip.rb: Added Dictzip#path.
+    * lib/fantasdic/sources/dictd_file.rb: Handles the case when a match is
+    found in the index but the definition can't be reached in the dictionary.
+
 2009-01-18 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * test/test_utils.rb: More complete test for hiragana? and katakana?.
