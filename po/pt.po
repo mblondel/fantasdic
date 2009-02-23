@@ -1,14 +1,14 @@
 # fantasdic's portuguese translation
-# Copyright © 2008 fantasdic
+# Copyright © 2008, 2009 fantasdic
 # This file is distributed under the same license as the fantasdic package.
-# António Lima <amrlima@gmail.com>, 2008.
 #
+# António Lima <amrlima@gmail.com>, 2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-11 23:15+0000\n"
-"PO-Revision-Date: 2008-10-29 22:26-0100\n"
+"POT-Creation-Date: 2009-02-23 00:17+0000\n"
+"PO-Revision-Date: 2009-01-27 23:14-0100\n"
 "Last-Translator: António Lima <amrlima@gmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -103,7 +103,7 @@ msgid "Find: "
 msgstr "Procurar: "
 
 #: ../data/fantasdic/glade/main_app.glade.h:4
-#: ../lib/fantasdic/ui/main_app.rb:319
+#: ../lib/fantasdic/ui/main_app.rb:325
 msgid "Matches"
 msgstr "Equivalências"
 
@@ -238,7 +238,7 @@ msgid "Error: Dictionary does not exist in the settings"
 msgstr "Erro: Dicionário não existe nas configurações"
 
 #: ../lib/fantasdic/command_line.rb:107 ../lib/fantasdic/command_line.rb:153
-#: ../lib/fantasdic/ui/main_app.rb:318
+#: ../lib/fantasdic/ui/main_app.rb:324
 msgid "No match found."
 msgstr "Nenhuma equivalência encontrada."
 
@@ -278,10 +278,10 @@ msgid "Server details"
 msgstr "Detalhes do servidor"
 
 #: ../lib/fantasdic/sources/dict_server.rb:60
-#: ../lib/fantasdic/sources/dict_server.rb:267
-#: ../lib/fantasdic/sources/dict_server.rb:277
-#: ../lib/fantasdic/sources/dict_server.rb:292
-#: ../lib/fantasdic/sources/dict_server.rb:303
+#: ../lib/fantasdic/sources/dict_server.rb:268
+#: ../lib/fantasdic/sources/dict_server.rb:278
+#: ../lib/fantasdic/sources/dict_server.rb:293
+#: ../lib/fantasdic/sources/dict_server.rb:304
 #, c-format
 msgid "Could not connect to %s"
 msgstr "Não foi possível ligar a %s"
@@ -324,17 +324,17 @@ msgstr "Nome de _Utilizador:"
 msgid "Pass_word:"
 msgstr "_Senha:"
 
-#: ../lib/fantasdic/sources/dict_server.rb:312
-#: ../lib/fantasdic/sources/dict_server.rb:321
+#: ../lib/fantasdic/sources/dict_server.rb:313
+#: ../lib/fantasdic/sources/dict_server.rb:322
 msgid "Connection with server lost."
 msgstr "Ligação com o servidor perdida."
 
-#: ../lib/fantasdic/sources/dict_server.rb:326
+#: ../lib/fantasdic/sources/dict_server.rb:327
 #, c-format
 msgid "Waiting for %s..."
 msgstr "A esperar por %s..."
 
-#: ../lib/fantasdic/sources/dict_server.rb:330
+#: ../lib/fantasdic/sources/dict_server.rb:331
 #, c-format
 msgid "Transferring data from %s..."
 msgstr "A transferir dados de %s..."
@@ -422,114 +422,146 @@ msgstr "O dicionário \"%s\" já não existe"
 msgid "Dictionary source \"%s\" does not exist anymore"
 msgstr "A fonte do dicionário \"%s\" já não existe"
 
-#: ../lib/fantasdic/ui/main_app.rb:242
+#: ../lib/fantasdic/ui/main_app.rb:248
 msgid "Source error"
 msgstr "Erro de fonte"
 
-#: ../lib/fantasdic/ui/main_app.rb:273
+#: ../lib/fantasdic/ui/main_app.rb:279
 msgid "No definition found."
 msgstr "Não foi encontrada nenhuma definição."
 
-#: ../lib/fantasdic/ui/main_app.rb:277
+#: ../lib/fantasdic/ui/main_app.rb:283
 #, c-format
 msgid "One definition found."
 msgid_plural "Definitions found: %d."
 msgstr[0] "Uma definição encontrada."
 msgstr[1] "Definições encontradas: %d."
 
-#: ../lib/fantasdic/ui/main_app.rb:314
+#: ../lib/fantasdic/ui/main_app.rb:320
 #, c-format
 msgid "1 match"
 msgid_plural "%d matches"
 msgstr[0] "1 equivalência"
 msgstr[1] "%d equivalências"
 
-#: ../lib/fantasdic/ui/main_app.rb:619
+#: ../lib/fantasdic/ui/main_app.rb:626
 #, c-format
 msgid "Search %s"
 msgstr "Procurar %s"
 
-#: ../lib/fantasdic/ui/main_app.rb:643
+#: ../lib/fantasdic/ui/main_app.rb:650
 msgid "Zoom over character"
 msgstr "Aproximar sobre o carácter"
 
-#: ../lib/fantasdic/ui/main_app.rb:658 ../lib/fantasdic/ui/main_app.rb:955
+#: ../lib/fantasdic/ui/main_app.rb:665 ../lib/fantasdic/ui/main_app.rb:1044
 msgid "Select _All"
 msgstr "Seleccionar _Todos"
 
-#: ../lib/fantasdic/ui/main_app.rb:786
+#: ../lib/fantasdic/ui/main_app.rb:835
 msgid "Save definition"
 msgstr "Gravar definição"
 
-#: ../lib/fantasdic/ui/main_app.rb:945
+#: ../lib/fantasdic/ui/main_app.rb:1034
 msgid "Print Set_up"
 msgstr "_Configurar Impressão"
 
-#: ../lib/fantasdic/ui/main_app.rb:953
+#: ../lib/fantasdic/ui/main_app.rb:1042
 msgid "_Edit"
 msgstr "_Editar"
 
-#: ../lib/fantasdic/ui/main_app.rb:957
+#: ../lib/fantasdic/ui/main_app.rb:1046
 msgid "Clear History"
 msgstr "Limpar Histórico"
 
-#: ../lib/fantasdic/ui/main_app.rb:960
+#: ../lib/fantasdic/ui/main_app.rb:1049
 msgid "Find N_ext"
 msgstr "Procurar _Seguinte"
 
-#: ../lib/fantasdic/ui/main_app.rb:962
+#: ../lib/fantasdic/ui/main_app.rb:1051
 msgid "Find Pre_vious"
 msgstr "Procurar _Anterior"
 
-#: ../lib/fantasdic/ui/main_app.rb:968
+#: ../lib/fantasdic/ui/main_app.rb:1057
 msgid "_View"
 msgstr "_Ver"
 
-#: ../lib/fantasdic/ui/main_app.rb:969
+#: ../lib/fantasdic/ui/main_app.rb:1058
 msgid "_Text size"
 msgstr "_Tamanho do Texto"
 
-#: ../lib/fantasdic/ui/main_app.rb:974
+#: ../lib/fantasdic/ui/main_app.rb:1063
 msgid "Zoom normal"
 msgstr "Tamanho Normal"
 
-#: ../lib/fantasdic/ui/main_app.rb:978
+#: ../lib/fantasdic/ui/main_app.rb:1068
 msgid "_Go"
 msgstr "_Ir"
 
-#: ../lib/fantasdic/ui/main_app.rb:987
+#: ../lib/fantasdic/ui/main_app.rb:1073
+msgid "_Previous Definition"
+msgstr "Definição _Anterior"
+
+#: ../lib/fantasdic/ui/main_app.rb:1075
+msgid "_Next Definition"
+msgstr "_Próxima Definição"
+
+#: ../lib/fantasdic/ui/main_app.rb:1077
+msgid "_First Definition"
+msgstr "P_rimeira Definição"
+
+#: ../lib/fantasdic/ui/main_app.rb:1079
+msgid "_Last Definition"
+msgstr "Últi_ma Definição"
+
+#: ../lib/fantasdic/ui/main_app.rb:1081
+msgid "Previous Database"
+msgstr "Base de Dados Anterior"
+
+#: ../lib/fantasdic/ui/main_app.rb:1083
+msgid "Next Database"
+msgstr "Próxima Base de Dados"
+
+#: ../lib/fantasdic/ui/main_app.rb:1085
+msgid "First Database"
+msgstr "Primeira Base de Dados"
+
+#: ../lib/fantasdic/ui/main_app.rb:1087
+msgid "Last Database"
+msgstr "Última Base de Dados"
+
+#: ../lib/fantasdic/ui/main_app.rb:1091
 msgid "_Help"
 msgstr "_Ajuda"
 
-#: ../lib/fantasdic/ui/main_app.rb:988
+#: ../lib/fantasdic/ui/main_app.rb:1092
 msgid "_Contents"
 msgstr "_Conteúdos"
 
-#: ../lib/fantasdic/ui/main_app.rb:989
+#: ../lib/fantasdic/ui/main_app.rb:1093
 msgid "Submit _Bug Report"
 msgstr "_Submeter Relatório de Erro"
 
-#: ../lib/fantasdic/ui/main_app.rb:991
+#: ../lib/fantasdic/ui/main_app.rb:1095
 msgid "About"
 msgstr "Sobre"
 
-#: ../lib/fantasdic/ui/main_app.rb:1031
+#: ../lib/fantasdic/ui/main_app.rb:1135
 msgid "Scan clipboard"
 msgstr "Analisar a área de transferência"
 
-#: ../lib/fantasdic/ui/main_app.rb:1033
+#: ../lib/fantasdic/ui/main_app.rb:1137
 msgid "_Matches"
 msgstr "_Equivalências"
 
-#: ../lib/fantasdic/ui/main_app.rb:1035
+#: ../lib/fantasdic/ui/main_app.rb:1139
 msgid "_Statusbar"
 msgstr "_Barra de Estado"
 
-#: ../lib/fantasdic/ui/main_app.rb:1037
+#: ../lib/fantasdic/ui/main_app.rb:1141
 msgid "_Toolbar"
 msgstr "_Barra de Ferramentas"
 
-#: ../lib/fantasdic/ui/main_app.rb:1039
+#: ../lib/fantasdic/ui/main_app.rb:1143
 msgid "_Keep above"
 msgstr "Sempre no _topo"
 
