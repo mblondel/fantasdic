@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 10:24+0100\n"
-"PO-Revision-Date: 2009-01-26 10:25+0100\n"
+"POT-Creation-Date: 2009-03-04 14:48+0100\n"
+"PO-Revision-Date: 2009-03-04 14:51+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -238,9 +238,25 @@ msgid_plural "Matches found: %d."
 msgstr[0] "En träff hittades."
 msgstr[1] "Träffar hittade: %d."
 
-#: ../lib/fantasdic.rb:103
-msgid "Look up words in various dictionary sources"
-msgstr "Slå upp ord mot olika ordbokskällor"
+#: ../lib/fantasdic/file_source.rb:131
+msgid "Select a file"
+msgstr "Välj en fil"
+
+#: ../lib/fantasdic/file_source.rb:136
+msgid "A file must be selected!"
+msgstr "En fil måste väljas!"
+
+#: ../lib/fantasdic/file_source.rb:170
+msgid "All files"
+msgstr "Alla filer"
+
+#: ../lib/fantasdic/file_source.rb:174
+msgid "_File:"
+msgstr "_Fil:"
+
+#: ../lib/fantasdic/file_source.rb:192
+msgid "_Encoding:"
+msgstr "_Kodning:"
 
 #: ../lib/fantasdic/source_base.rb:198
 msgid "Connecting to source..."
@@ -254,6 +270,39 @@ msgstr "Överför data från källa ..."
 #: ../lib/fantasdic/source_base.rb:267
 msgid "Can't convert encodings."
 msgstr "Kan inte konvertera kodningar."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:143
+msgid "Dictd file"
+msgstr "Dictd-fil"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:144
+msgid "Look up words in files aimed for the dictd server."
+msgstr "Slå upp ord i filer tänkta för dictd-servern."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:172
+#: ../lib/fantasdic/sources/stardict_file.rb:181
+msgid "Select a dictd file"
+msgstr "Välj en dictd-fil"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:173
+msgid "Index files"
+msgstr "Indexfiler"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:207
+msgid "This file is not a valid index file!"
+msgstr "Den här filen är inte en giltig indexfil!"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:270
+#: ../lib/fantasdic/sources/edict_file.rb:196
+#: ../lib/fantasdic/sources/stardict_file.rb:258
+#, c-format
+msgid "Cannot open file %s."
+msgstr "Kan inte öppna filen %s."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:278
+#: ../lib/fantasdic/sources/stardict_file.rb:264
+msgid "Couldn't find .dict or .dict.dz dictionary file."
+msgstr "Kunde inte hitta ordboksfilen .dict eller .dict.dz."
 
 #: ../lib/fantasdic/sources/dict_server.rb:23
 msgid "DICT dictionary server"
@@ -343,11 +392,6 @@ msgstr "Gzip-komprimerade filer"
 msgid "This file is not a valid EDICT file!"
 msgstr "Den här filen är inte en giltig EDICT-fil!"
 
-#: ../lib/fantasdic/sources/edict_file.rb:196
-#, c-format
-msgid "Cannot open file %s."
-msgstr "Kan inte öppna filen %s."
-
 #: ../lib/fantasdic/sources/edict_file.rb:278
 msgid "Encoding not supported."
 msgstr "Kodningen stöds inte."
@@ -360,6 +404,26 @@ msgstr "EDICT-fil"
 msgid "Look up words in an EDICT file."
 msgstr "Slå upp ord i en EDICT-fil."
 
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:30
+msgid "EPWING dictionary"
+msgstr "EPWING-ordbok"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:31
+msgid "Look up words in EPWING dictionaries."
+msgstr "Slå upp ord i EPWING-ordböcker."
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:40
+msgid "Select a CATALOGS file"
+msgstr "Välj en CATALOGS-fil"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:55
+msgid "You're missing rubyeb (libeb for Ruby)!"
+msgstr "Du saknar rubyeb (libeb för Ruby)!"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:167
+msgid "Not an EPWING dictionary!"
+msgstr "Inte en EPWING-ordbok!"
+
 #: ../lib/fantasdic/sources/google_translate.rb:26
 msgid "Google Translate"
 msgstr "Google Translate"
@@ -367,6 +431,36 @@ msgstr "Google Translate"
 #: ../lib/fantasdic/sources/google_translate.rb:27
 msgid "Translate words using Google Translate."
 msgstr "Översätt ord med Google Translate."
+
+#: ../lib/fantasdic/sources/stardict_file.rb:152
+msgid "Stardict file"
+msgstr "Stardict-fil"
+
+#: ../lib/fantasdic/sources/stardict_file.rb:153
+msgid "Look up words in Stardict files."
+msgstr "Slå upp ord i Stardict-filer."
+
+#: ../lib/fantasdic/sources/stardict_file.rb:182
+msgid "Ifo files"
+msgstr "Ifo-filer"
+
+#: ../lib/fantasdic/sources/stardict_file.rb:199
+msgid "Wrong .ifo or .idx file!"
+msgstr "Felaktig .ifo eller .idx-fil!"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:101
+#: ../lib/fantasdic/ui/main_app.rb:120
+#, c-format
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "Ordboken \"%s\" finns inte längre"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:119
+msgid "Virtual dictionary"
+msgstr "Virtuell ordbok"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:120
+msgid "Look up words in several dictionaries at once."
+msgstr "Slå upp ord i flera ordböcker på samma gång."
 
 #: ../lib/fantasdic/ui/add_dictionary_dialog.rb:27
 #, c-format
@@ -401,11 +495,6 @@ msgstr "Kunde inte hitta dokumentationen."
 #: ../lib/fantasdic/ui/main_app.rb:87
 msgid "No dictionary configured"
 msgstr "Ingen ordbok konfigurerad"
-
-#: ../lib/fantasdic/ui/main_app.rb:120
-#, c-format
-msgid "Dictionary \"%s\" does not exist anymore"
-msgstr "Ordboken \"%s\" finns inte längre"
 
 #: ../lib/fantasdic/ui/main_app.rb:130
 #, c-format
@@ -578,14 +667,6 @@ msgstr "Sida %d/%d"
 msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
 msgstr "Utskrivet med Fantasdic %Y-%m-%d klockan %H.%M"
 
-#~ msgid "A file must be selected!"
-#~ msgstr "En fil måste väljas!"
-#~ msgid "All files"
-#~ msgstr "Alla filer"
-#~ msgid "_File:"
-#~ msgstr "_Fil:"
-#~ msgid "_Encoding:"
-#~ msgstr "_Kodning:"
 #~ msgid "_Look Up"
 #~ msgstr "_Slå upp"
 #~ msgid "Matches found: %d."
