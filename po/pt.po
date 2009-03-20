@@ -1,18 +1,19 @@
 # fantasdic's portuguese translation
 # Copyright © 2008, 2009 fantasdic
 # This file is distributed under the same license as the fantasdic package.
-#
 # António Lima <amrlima@gmail.com>, 2008, 2009.
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-23 00:17+0000\n"
-"PO-Revision-Date: 2009-01-27 23:14-0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=fantasdic&component=general\n"
+"POT-Creation-Date: 2009-03-02 17:20+0000\n"
+"PO-Revision-Date: 2009-03-15 20:27-0100\n"
 "Last-Translator: António Lima <amrlima@gmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Language: Portuguese\n"
@@ -249,9 +250,26 @@ msgid_plural "Matches found: %d."
 msgstr[0] "Uma equivalência encontrada"
 msgstr[1] "Equivalências encontradas: %d."
 
-#: ../lib/fantasdic.rb:103
-msgid "Look up words in various dictionary sources"
-msgstr "Consultar palavras em várias fontes de dicionários"
+#: ../lib/fantasdic/file_source.rb:131
+#| msgid "Select an EDICT file"
+msgid "Select a file"
+msgstr "Seleccionar um ficheiro"
+
+#: ../lib/fantasdic/file_source.rb:136
+msgid "A file must be selected!"
+msgstr "Tem de seleccionar um ficheiro"
+
+#: ../lib/fantasdic/file_source.rb:170
+msgid "All files"
+msgstr "Todos os ficheiros"
+
+#: ../lib/fantasdic/file_source.rb:174
+msgid "_File:"
+msgstr "_Ficheiro:"
+
+#: ../lib/fantasdic/file_source.rb:192
+msgid "_Encoding:"
+msgstr "_Codificação:"
 
 #: ../lib/fantasdic/source_base.rb:198
 msgid "Connecting to source..."
@@ -264,6 +282,44 @@ msgstr "A transferir dados a partir da fonte ..."
 #: ../lib/fantasdic/source_base.rb:259 ../lib/fantasdic/source_base.rb:267
 msgid "Can't convert encodings."
 msgstr "Não é possível converter codificações."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:143
+#| msgid "EDICT file"
+msgid "Dictd file"
+msgstr "Ficheiro Dictd"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:144
+#| msgid "Look up words using a DICT dictionary server."
+msgid "Look up words in files aimed for the dictd server."
+msgstr "Consultar palavras em ficheiros que apontam para o servidor dictd."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:172
+#: ../lib/fantasdic/sources/stardict_file.rb:181
+#| msgid "Select an EDICT file"
+msgid "Select a dictd file"
+msgstr "Seleccionar um ficheiro dictd"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:173
+#| msgid "All files"
+msgid "Index files"
+msgstr "Indexar ficheiros"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:207
+#| msgid "This file is not a valid EDICT file!"
+msgid "This file is not a valid index file!"
+msgstr "Este ficheiro não é um ficheiro válido de índice"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:270
+#: ../lib/fantasdic/sources/edict_file.rb:196
+#: ../lib/fantasdic/sources/stardict_file.rb:258
+#, c-format
+msgid "Cannot open file %s."
+msgstr "Não é possível abrir o ficheiro %s."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:278
+#: ../lib/fantasdic/sources/stardict_file.rb:264
+msgid "Couldn't find .dict or .dict.dz dictionary file."
+msgstr "Incapaz de encontrar ficheiro de dicionário .dict ou .dict.dz."
 
 #: ../lib/fantasdic/sources/dict_server.rb:23
 msgid "DICT dictionary server"
@@ -294,15 +350,15 @@ msgstr "Falta o servidor."
 #: ../lib/fantasdic/sources/dict_server.rb:77
 #: ../lib/fantasdic/sources/dict_server.rb:210
 msgid "Port missing."
-msgstr "Falta o porto."
+msgstr "Porto em falta."
 
 #: ../lib/fantasdic/sources/dict_server.rb:80
 msgid "Username missing."
-msgstr "Falta o nome de utilizador."
+msgstr "Nome de utilizador em falta."
 
 #: ../lib/fantasdic/sources/dict_server.rb:82
 msgid "Password missing."
-msgstr "Falta a senha."
+msgstr "Senha em falta."
 
 #: ../lib/fantasdic/sources/dict_server.rb:103
 msgid "_Server:"
@@ -353,11 +409,6 @@ msgstr "Ficheiros compactados-Gzip"
 msgid "This file is not a valid EDICT file!"
 msgstr "Este ficheiro não é um ficheiro EDICT válido!"
 
-#: ../lib/fantasdic/sources/edict_file.rb:196
-#, c-format
-msgid "Cannot open file %s."
-msgstr "Não é possível abrir o ficheiro %s."
-
 #: ../lib/fantasdic/sources/edict_file.rb:278
 msgid "Encoding not supported."
 msgstr "Codificação não suportada."
@@ -370,6 +421,29 @@ msgstr "Ficheiro EDICT"
 msgid "Look up words in an EDICT file."
 msgstr "Consultar palavras num ficheiro EDICT."
 
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:30
+#| msgid "Add dictionary"
+msgid "EPWING dictionary"
+msgstr "Dicionário EPWING"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:31
+#| msgid "Look up words using a DICT dictionary server."
+msgid "Look up words in EPWING dictionaries."
+msgstr "Consultar palavras em dicionários EPWING"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:40
+#| msgid "Select an EDICT file"
+msgid "Select a CATALOGS file"
+msgstr "Seleccionar um ficheiro CATALOGS"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:55
+msgid "You're missing rubyeb (libeb for Ruby)!"
+msgstr "Rubyeb em falta (libeb para Ruby)!"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:167
+msgid "Not an EPWING dictionary!"
+msgstr "Não é um dicionário EPWING!"
+
 #: ../lib/fantasdic/sources/google_translate.rb:26
 msgid "Google Translate"
 msgstr "Google Translate"
@@ -378,6 +452,40 @@ msgstr "Google Translate"
 msgid "Translate words using Google Translate."
 msgstr "Traduzir palavras utilizando o Google Translate."
 
+#: ../lib/fantasdic/sources/stardict_file.rb:152
+msgid "Stardict file"
+msgstr "Ficheiro startdict"
+
+#: ../lib/fantasdic/sources/stardict_file.rb:153
+#| msgid "Look up words in an EDICT file."
+msgid "Look up words in Stardict files."
+msgstr "Consultar palavras em ficheiros Startdict."
+
+#: ../lib/fantasdic/sources/stardict_file.rb:182
+#| msgid "All files"
+msgid "Ifo files"
+msgstr "Ficheiros ifo"
+
+#: ../lib/fantasdic/sources/stardict_file.rb:199
+msgid "Wrong .ifo or .idx file!"
+msgstr "Ficheiro .ifo ou idx inválido!"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:101
+#: ../lib/fantasdic/ui/main_app.rb:120
+#, c-format
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "O dicionário \"%s\" já não existe"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:119
+#| msgid "Add dictionary"
+msgid "Virtual dictionary"
+msgstr "Dicionário virtual"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:120
+#| msgid "Look up words in various dictionary sources"
+msgid "Look up words in several dictionaries at once."
+msgstr "Consultar palavras em vários dicionários simultâneamente."
+
 #: ../lib/fantasdic/ui/add_dictionary_dialog.rb:27
 #, c-format
 msgid "About database %s"
@@ -385,7 +493,7 @@ msgstr "Sobre a base de dados %s"
 
 #: ../lib/fantasdic/ui/add_dictionary_dialog.rb:267
 msgid "Name missing."
-msgstr "Falta o nome."
+msgstr "Nome em falta."
 
 #: ../lib/fantasdic/ui/add_dictionary_dialog.rb:270
 msgid "No database selected!"
@@ -411,11 +519,6 @@ msgstr "Não foi possível encontrar documentação."
 #: ../lib/fantasdic/ui/main_app.rb:87
 msgid "No dictionary configured"
 msgstr "Nenhum dicionário configurado"
-
-#: ../lib/fantasdic/ui/main_app.rb:120
-#, c-format
-msgid "Dictionary \"%s\" does not exist anymore"
-msgstr "O dicionário \"%s\" já não existe"
 
 #: ../lib/fantasdic/ui/main_app.rb:130
 #, c-format
@@ -586,18 +689,6 @@ msgstr "Página %d/%d"
 #: ../lib/fantasdic/ui/print.rb:207
 msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
 msgstr "Impresso por Fantasdic em %Y/%m/%d às %H:%M"
-
-#~ msgid "A file must be selected!"
-#~ msgstr "Tem de seleccionar um ficheiro"
-
-#~ msgid "All files"
-#~ msgstr "Todos os ficheiros"
-
-#~ msgid "_File:"
-#~ msgstr "_Ficheiro:"
-
-#~ msgid "_Encoding:"
-#~ msgstr "_Codificação:"
 
 #~ msgid "_Look Up"
 #~ msgstr "_Consultar"
