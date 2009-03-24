@@ -153,7 +153,7 @@ class Dictzip
             si2 = read_char_internal
         
             if si1 != GZ_RND_S1 or si2 != GZ_RND_S2
-                raise raise DictzipError, "Not a dictzip file"
+                raise DictzipError, "Not a dictzip file"
             else
                 sub_length    = read_le16
                 @version      = read_le16
