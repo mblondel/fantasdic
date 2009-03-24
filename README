@@ -10,7 +10,10 @@ Fantasdic
       * Can look up words in various dictionary sources:
         -> DICT servers,
         -> Google Translate,
-        -> EDICT files.
+        -> EDICT files,
+        -> Dictd files,
+        -> Stardict files,
+        -> EPWING dictionaries.
       * Can look up words in the clipboard.
       * Keeps an history of searched words.
       * Supports printing.

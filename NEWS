@@ -1,5 +1,27 @@
 NEWS
 
+=== Fantasdic 1.0 beta7 ===
+
+- New "dictd file" source
+- New "stardict file" source
+- New "epwing dictionary" source
+- Dictzip-compressed files support
+- Pango-markup support
+- New match strategies (stemming, metaphone, soundex, levenshtein)
+- "Jump to definition" buttons and shortcuts
+- Various bug fixes
+
+- Updated translations:
+
+Brazilian Portuguese (Fábio Nogueira, Leonardo Ferreira Fontenelle)
+Czech (Adrian Gunis)
+French (Claude Paroz)
+German (Mario Blättermann)
+Norwegian bokmål (Kjartan Maraas)
+Portuguese (António Lima)
+Spanish (Daniel Mustieles)
+Swedish (Daniel Nylander)
+
 === Fantasdic 1.0 beta6 ===
 
 - Use font selected in the preferences for search entry as well
