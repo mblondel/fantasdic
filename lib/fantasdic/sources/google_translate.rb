@@ -34,34 +34,59 @@ module Source
         URL = "http://translate.google.com/translate_t" + \
               "?ie=UTF8&langpair=%s&text=%s"
 
+        LANGUAGES = \
+           {"ar" => "Arabic",
+            "bg" => "Bulgarian",
+            "ca" => "Catalan",
+            "zh-CN" => "Chinese",
+            "hr" => "Croatian",
+            "cs" => "Czech",
+            "da" => "Danish",
+            "nl" => "Dutch",
+            "en" => "English",
+            "et" => "Estonian",
+            "tl" => "Filipino",
+            "fi" => "Finnish",
+            "fr" => "French",
+            "gl" => "Galician",
+            "de" => "German",
+            "el" => "Greek",
+            "iw" => "Hebrew",
+            "hi" => "Hindi",
+            "hu" => "Hungarian",
+            "id" => "Indonesian",
+            "it" => "Italian",
+            "ja" => "Japanese",
+            "ko" => "Korean",
+            "lv" => "Latvian",
+            "lt" => "Lithuanian",
+            "mt" => "Maltese",
+            "no" => "Norwegian",
+            "pl" => "Polish",
+            "pt" => "Portuguese",
+            "ro" => "Romanian",
+            "ru" => "Russian",
+            "sr" => "Serbian",
+            "sk" => "Slovak",
+            "sl" => "Slovenian",
+            "es" => "Spanish",
+            "sv" => "Swedish",
+            "th" => "Thai",
+            "tr" => "Turkish",
+            "uk" => "Ukrainian",
+            "vi" => "Vietnamese"}
+
         def available_databases
-            {
-                "ar|en" => "Arabic to English",
-                "zh|en" => "Chinese to English",
-                "zh-CN|zh-TW" => "Chinese (Simplified to Traditional)",
-                "zh-TW|zh-CN" => "Chinese (Traditional to Simplified)",
-                "en|ar" => "English to Arabic",
-                "en|zh-CN" => "English to Chinese (Simplified)",
-                "en|zh-TW" => "English to Chinese (Traditional)",
-                "en|fr" => "English to French",
-                "en|de" => "English to German",
-                "en|it" => "English to Italian",
-                "en|ja" => "English to Japanese",
-                "en|ko" => "English to Korean",
-                "en|pt" => "English to Portuguese",
-                "en|ru" => "English to Russian",
-                "en|es" => "English to Spanish",
-                "fr|en" => "French to English",
-                "fr|de" => "French to German",
-                "de|en" => "German to English",
-                "de|fr" => "German to French",
-                "it|en" => "Italian to English",
-                "ja|en" => "Japanese to English",
-                "ko|en" => "Korean to English",
-                "pt|en" => "Portuguese to English",
-                "ru|en" => "Russian to English",
-                "es|en" => "Spanish to English"
-            }
+            ret = {}
+            LANGUAGES.each do |from_key, from_name|
+                LANGUAGES.each do |to_key, to_name|
+                    next if from_key == to_key
+                    k = "%s|%s" % [from_key, to_key]
+                    v = "%s to %s" % [from_name, to_name]
+                    ret[k] = v
+                end
+            end
+            ret
         end
 
         def available_strategies

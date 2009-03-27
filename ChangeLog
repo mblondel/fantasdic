@@ -1,3 +1,10 @@
+2009-03-27 Mathieu Blondel <mblondel@svn.gnome.org>
+
+    * lib/fantasdic/sources/google_translate.rb: Updated to handle new
+    languages supported by Google Translate. The language list is hardcoded so
+    that a request to Google is not necessary. (This list is assumed to change
+    rarely)
+
 2009-03-24 Mathieu Blondel <mblondel@svn.gnome.org>
 
     * release 1.0-beta7
