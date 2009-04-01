@@ -31,6 +31,12 @@ class TestEdictFileSource < Test::Unit::TestCase
     include Fantasdic::Source
 
     private
+    
+    def test_check_validity(source)
+        assert_nothing_raised do
+            source.check_validity
+        end
+    end
 
     def test_define(source)
         defs = source.define("*", "龜甲")
@@ -140,9 +146,151 @@ class TestEdictFileSource < Test::Unit::TestCase
             klass_short = klass.to_s.split("::").last.downcase
             gz = hash[:filename] =~ /gz$/ ? "gz" : "nogz"
 
-            method = "test_#{klass_short}_#{encoding}_#{gz}_define"
-            define_method(method) do
-                send("test_define", klass.new(hash))
+            ["define", "check_validity"].each do |m|
+                method = "test_#{klass_short}_#{encoding}_#{gz}_#{m}"
+                define_method(method) do
+                    send("test_#{m}", klass.new(hash))
+                end
+            end
+
+            ["prefix", "suffix", "word", "substring"].each do |match|
+                method = "test_#{klass_short}_#{encoding}_#{gz}_#{match}"
+                define_method(method) do
+                    send("test_match_#{match}", klass.new(hash))
+                end
+            end
+        end
+    end
+
+end
+
+class TestEdictFileSourceWithCedict < Test::Unit::TestCase
+    include Fantasdic::Source
+
+    def test_check_validity(source)
+        assert_nothing_raised do
+            source.check_validity
+        end
+    end
+
+    def test_define(source)
+        ["阿波羅", "阿波罗", "A1 bo1 luo2", "Apollo"].each do |w|
+            defs = source.define("*", w)
+            assert_equal(defs.length, 1)
+            assert_equal(defs[0].word, w)
+            assert_equal(defs[0].body, "阿波羅 阿波罗 [A1 bo1 luo2] /Apollo/")
+        end
+
+        defs = source.define("*", "tototititutu")
+        assert_equal(defs.length, 0)
+    end
+
+    def test_match_prefix(source)
+        matches = source.match("*", "prefix", "阿斯")
+        key = matches.keys.first
+        assert_equal(matches,
+                     {key=>["阿斯克新城 阿斯克新城",
+                            "阿斯馬拉 阿斯马拉",
+                            "阿斯納爾 阿斯纳尔",
+                            "阿斯派德 阿斯派德",
+                            "阿斯匹林 阿斯匹林",
+                            "阿斯塔納 阿斯塔纳",
+                            "阿斯坦龍 阿斯坦龙"]})
+
+        ["阿榮", "阿荣"].each do |pre|
+            matches = source.match("*", "prefix", pre)
+            key = matches.keys.first
+            assert_equal(matches,
+                        {key=>["阿榮旗 阿荣旗"]})
+        end
+
+        matches = source.match("*", "prefix", "A1 si1")
+        assert_equal(matches,
+                     {key=>["Villeneuve d'Ascq",
+                            "Asmara",
+                            "Aznar",
+                            "Selenia Aspide",
+                            "Astana (capital of Kazakhstan)",
+                            "Arstanosaurus"]})
+
+        matches = source.match("*", "prefix", "Ara")
+        assert_equal(matches,
+                     {key=>["Arabian/Arabic/Arab",
+                            "Arabian Peninsula",
+                            "Arab League (League of Arab States)",
+                            "Arabian Sea",
+                            "Arabs",
+                            "Arab world",
+                            "Arabic numerals",
+                            "Arabic (language)",
+                            "Arabic (language)",
+                            "Arafat (Palestinian leader)",
+                            "Aracaju",
+                            "Araraquara",
+                            "Araras",
+                            "Arapiraca",
+                            "Araçatuba"]})
+
+    end
+
+    def test_match_suffix(source)
+        matches = source.match("*", "suffix", "匹林")
+        key = matches.keys.first
+        assert_equal(matches,
+                     {key=>["阿司匹林 阿司匹林", "阿斯匹林 阿斯匹林"]})
+
+        ["羅省","罗省"].each do |suf|
+            matches = source.match("*", "suffix", suf)
+            key = matches.keys.first
+            assert_equal(matches,
+                        {key=>["阿威羅省 阿威罗省"]})
+        end
+
+        matches = source.match("*", "suffix", "qi2")
+        key = matches.keys.first
+        assert_equal(matches,
+                     {key=>["(N) Abaga qi (place in Inner Mongolia)",
+                            "flag of Algeria",
+                            "(N) Aheqi (place in Xinjiang)",
+                            "(N) Alashan youqi (place in Gansu)",
+                            "(N) Alashan zuoqi (place in Ningxia)",
+                            "(N) Aluke'erqin qi (place in Inner Mongolia)",
+                            "(N) Arongqi (place in Heilongjiang)"]})
+    
+        matches = source.match("*", "suffix", "ada")
+        key = matches.keys.first
+        assert_equal(matches,
+                     {key=>["Alvorada"]})
+
+    end
+
+    def test_match_word(source)
+        matches = source.match("*", "word", "doubt")
+        key = matches.keys.first
+        assert_equal(matches,
+                     {key=> ["an interjection/to express doubt or to " + \
+                             "question/to show realization/to stress"]})
+
+    end
+
+    def test_match_substring(source)
+    end
+
+    utf8 = {:filename => File.join($test_data_dir, "cedict_ts.u8"),
+            :encoding => "UTF-8"}
+
+    [EdictFileRuby, EdictFileEgrep].each do |klass|
+        [utf8].each do |hash|
+            encoding = hash[:encoding].gsub("-", "").downcase
+
+            klass_short = klass.to_s.split("::").last.downcase
+            gz = hash[:filename] =~ /gz$/ ? "gz" : "nogz"
+
+            ["define", "check_validity"].each do |m|
+                method = "test_#{klass_short}_#{encoding}_#{gz}_#{m}"
+                define_method(method) do
+                    send("test_#{m}", klass.new(hash))
+                end
             end
 
             ["prefix", "suffix", "word", "substring"].each do |match|

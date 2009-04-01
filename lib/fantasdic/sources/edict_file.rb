@@ -30,8 +30,8 @@ class EdictFileBase < FileSource
         "suffix" => "Results match with the end of the word."
     }
 
-    REGEXP_WORD = '([^\[\/ ]+)'
-    REGEXP_READING = '( \[([^\]\/ ]+)\])?'
+    REGEXP_WORD = '([^\[\/]+)'
+    REGEXP_READING = '( \[([^\]\/]+)\])?'
     REGEXP_TRANSLATIONS = ' /(.+)/'
     REGEXP = Regexp.new('^' + REGEXP_WORD + REGEXP_READING +
                          REGEXP_TRANSLATIONS)
@@ -68,6 +68,7 @@ class EdictFileBase < FileSource
                     if @config[:encoding] and @config[:encoding] != "UTF-8"
                         line = convert_to_utf8(@config[:encoding], line)
                     end
+                    next if is_comment_line?(line)
                     n_errors += 1 if REGEXP.match(line).nil?
                     n_lines += 1
                     break if n_lines >= 20
@@ -90,21 +91,12 @@ class EdictFileBase < FileSource
 
     def define(db, word)
         wesc = escape_string(word)
-
-        if word.latin?
-            regexp = "/#{wesc}/"
-        elsif word.kana?
-            regexp = "^#{wesc} |\\[#{wesc}\\]"
-        elsif word.japanese?
-            regexp = "^#{wesc} "
-        else
-            regexp = "^#{wesc}|\\[#{wesc}\\]|/#{wesc}/"
-        end
+        regexp = "^#{wesc} | #{wesc} \\[|\\[#{wesc}\\]|/#{wesc}/"
         
         db = File.basename(@config[:filename])
         db_capitalize = db.capitalize
 
-        match_with_regexp(regexp).map do |line|
+        match_with_regexp(wesc).grep(Regexp.new(regexp)) do |line|
             defi = Definition.new
             defi.word = word
             defi.body = line.strip
@@ -124,10 +116,10 @@ class EdictFileBase < FileSource
 
         arr = arr_lines.map do |line|
             found_word, found_reading, found_trans = get_fields(line)
-            if word.kana? or word.japanese?
-                found_word
-            else
+            if word.latin?
                 found_trans
+            else
+                found_word
             end
         end
 
@@ -138,6 +130,10 @@ class EdictFileBase < FileSource
     end
 
     private
+
+    def is_comment_line?(line)
+        line.strip =~ /^#/
+    end
 
     def match_word(db, word)
         arr = []
@@ -157,32 +153,14 @@ class EdictFileBase < FileSource
 
     def match_prefix(db, word)
         wesc = escape_string(word)
-        if word.latin?
-            regexp = "/#{wesc}"
-        elsif word.kana?
-            regexp = "^#{wesc}| \\[#{wesc}"
-        elsif word.japanese?
-            regexp = "^#{wesc}"
-        else
-            regexp = "^#{wesc}|\\[#{wesc}|/#{wesc}"
-        end
-
-        match_with_regexp(regexp)
+        regexp = "^#{wesc}| #{wesc}[^\\[]+\\[|\\[#{wesc}|/#{wesc}"
+        match_with_regexp(wesc).grep(Regexp.new(regexp))
     end
 
     def match_suffix(db, word)
         wesc = escape_string(word)
-        if word.latin?
-            regexp = "#{wesc}/"
-        elsif word.kana?
-            regexp = "#{wesc} \\[|#{wesc}\\]"
-        elsif word.japanese?
-            regexp = "#{wesc} \\["
-        else
-            regexp = "#{wesc} \\[|#{wesc}\\]|#{wesc}/"
-        end
-
-        match_with_regexp(regexp)
+        regexp = "#{wesc} [^\\[]+\\[|#{wesc} \\[|#{wesc}\\]|#{wesc}/"
+        match_with_regexp(wesc).grep(Regexp.new(regexp))
     end
 
     def match_substring(db, word)
