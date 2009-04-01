@@ -78,16 +78,22 @@ EOL
         HAVE_CONSOLE = true
     end
 
-    def self.missing_dependency(txt)
+    def self.missing_dependency(lib, msg=nil)
         @missing_deps ||= []
-        @missing_deps << txt
+        @missing_deps << [lib, msg]
     end
 
     def self.display_missing_dependencies
         if @missing_deps
             $stderr.puts "-" * 60
             $stderr.puts "The following optional dependencies were not found."
-            @missing_deps.map(&$stderr.method(:puts)) 
+            @missing_deps.each do |lib, msg|
+                if msg
+                    $stderr.puts("%s (%s)" % [lib, msg])
+                else
+                    $stderr.puts(lib)
+                end
+            end
             $stderr.puts "-" * 60
         end
     end

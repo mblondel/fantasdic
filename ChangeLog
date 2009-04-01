@@ -1,5 +1,14 @@
 2009-04-01 Mathieu Blondel <mblondel@svn.gnome.org>
 
+    * lib/fantasdic/ui.rb:
+    * lib/fantasdic/gettext.rb:
+    * lib/fantasdic/ui/browser.rb:
+    * lib/fantasdic.rb: When an optional dependency is missing, be more
+    explicit regarding the benefits of installing the dependency.
+    Suggested by Robert Siemer.
+
+2009-04-01 Mathieu Blondel <mblondel@svn.gnome.org>
+
     * lib/fantasdic/sources/edict_file.rb: 
     A line in a standard EDICT file should be:
    
@@ -9,7 +18,7 @@
 
     word-traditional word-simplified [reading] /meanings/
 
-    Fixed to support CEDICT as well.
+    Fixed to support CEDICT as well. Reported by Robert Siemer.
 
     * test/test_edict_file.rb: Added test-case for CEDICT.
     * test/data/cedict_ts.u8: Test data. 

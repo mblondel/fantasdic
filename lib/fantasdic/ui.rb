@@ -20,7 +20,7 @@ begin
     require 'gnome2' 
 rescue LoadError    
     require 'gtk2'
-    Fantasdic.missing_dependency('Ruby/GNOME2')
+    Fantasdic.missing_dependency('Ruby/GNOME2', 'Better integration in GNOME')
 end
 
 module Fantasdic

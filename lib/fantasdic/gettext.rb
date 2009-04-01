@@ -18,7 +18,8 @@
 begin
     require 'gettext'
 rescue LoadError
-    Fantasdic.missing_dependency('Ruby/Gettext')
+    Fantasdic.missing_dependency('Ruby/Gettext', 
+                                 'Internationalization support')
 
     module GetText
         module_function

@@ -21,7 +21,8 @@ else
     begin
         require "gconf2"
     rescue LoadError
-        Fantasdic.missing_dependency('Ruby/Gconf2')
+        Fantasdic.missing_dependency('Ruby/Gconf2',
+                                     'GNOME preferences access')
     end
 end
 
