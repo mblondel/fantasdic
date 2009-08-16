@@ -2,20 +2,22 @@
 # Copyright (C) 2009 Free Software Foundation, Inc.
 # This file is distributed under the same license as the fantasdic package.
 #
-# Gergely Szarka <gszarka at invitel dot hu>, 2009.
 #
+# Gergely Szarka <gszarka at invitel dot hu>, 2009.
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-12 00:45+0200\n"
-"PO-Revision-Date: 2009-08-06 17:00+0100\n"
-"Last-Translator: Gergely Szarka <gszarka at invitel dot hu>\n"
-"Language-Team: Hungarian <gnome@fsf.hu>\n"
+"PO-Revision-Date: 2009-08-17 01:42+0200\n"
+"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Language-Team: Hungarian <gnome at fsf dot hu>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
 msgid "<b>Print</b>"
@@ -39,7 +41,7 @@ msgstr "Adatbázisok"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
 msgid "Fonts"
-msgstr "Betűtípusok"
+msgstr "Betűkészletek"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
 msgid "Move database to selected databases"
@@ -51,7 +53,7 @@ msgstr "Adatbázis eltávolítása a kiválasztott adatbázisokból"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
 msgid "Restore default fonts"
-msgstr "Alapértelmezett visszaállítása"
+msgstr "Alapértelmezett betűk visszaállítása"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
 msgid "Search _all databases"
@@ -59,15 +61,15 @@ msgstr "Keresés _minden adatbázisban"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
 msgid "Search selected _databases"
-msgstr "Ke_resés a kiválasztott adatbázisokban"
+msgstr "Ke_resés a kijelölt adatbázisokban"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
 msgid "Select a font"
-msgstr "Betűtípus kiválasztása"
+msgstr "Válasszon betűkészletet"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:13
 msgid "Selected databases"
-msgstr "Kiválasztott adatbázisok"
+msgstr "Kijelölt adatbázisok"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
 msgid "Source"
@@ -77,8 +79,7 @@ msgstr "Forrás"
 msgid ""
 "This name will identify your dictionary uniquely and will appear in the "
 "application menu."
-msgstr ""
-"Ez a név lesz a szótár egyedi azonosítója és így jelenik majd meg a listában"
+msgstr "Ez a név lesz a szótár egyedi azonosítója és így jelenik majd meg az alkalmazás menüjében."
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
 msgid "_Name:"
@@ -127,11 +128,11 @@ msgstr "Szótárak"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:4
 msgid "Do _not quit when main window is closed"
-msgstr "_Ne lépjen ki a fő ablak bezárásakor"
+msgstr "_Ne lépjen ki a főablak bezárásakor"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:5
 msgid "Do not show main window at startup"
-msgstr "Ne mutassa a fő ablakot indításkor"
+msgstr "Ne mutassa a főablakot indításkor"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:6
 msgid "Enable HTTP proxy"
@@ -147,7 +148,7 @@ msgstr "A Fantasdic megnyitva marad a tálcán az ablak bezárása után is"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:9
 msgid "Host:"
-msgstr "Hoszt:"
+msgstr "Kiszolgáló:"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:10
 msgid "Password:"
@@ -183,11 +184,11 @@ msgstr "A proxy például tűzfalon keresztüli munkához is használható"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:17
 msgid "Username:"
-msgstr "Felhasználónév"
+msgstr "Felhasználónév:"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:18
 msgid "_Look up last word at startup"
-msgstr "_Utolsó szó megkeresése indításkor"
+msgstr "_Utolsó szó keresése indításkor"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:19
 msgid "_Show Fantasdic in system tray"
@@ -195,31 +196,31 @@ msgstr "A _Fantasdic megjelenítése a tálcán"
 
 #: ../data/fantasdic/glade/server_infos_dialog.glade.h:1
 msgid "Server informations"
-msgstr "Kiszolgáló információi"
+msgstr "Kiszolgálóinformációk"
 
 #: ../lib/fantasdic/command_line.rb:34
 msgid "Usage: fantasdic [options] [dictionary] [word]"
-msgstr "Használat: fantasdic [opciók] [szótár] [szó]"
+msgstr "Használat: fantasdic [kapcsolók] [szótár] [szó]"
 
 #: ../lib/fantasdic/command_line.rb:37
 msgid "Print results to stdout"
-msgstr "Találatok nyomtatása a szabványos kimenetre"
+msgstr "Találatok kiírása a szabványos kimenetre"
 
 #: ../lib/fantasdic/command_line.rb:42
 msgid "List dictionaries in settings"
-msgstr "Beállított szótárak listázása"
+msgstr "Szótárak felsorolása a beállításokban"
 
 #: ../lib/fantasdic/command_line.rb:47
 msgid "List strategies available for dictionary"
-msgstr "A szótárhoz elérhető stratégiák listázása"
+msgstr "A szótárhoz elérhető stratégiák felsorolása"
 
 #: ../lib/fantasdic/command_line.rb:52
 msgid "Use strategy to match words"
-msgstr "Stratégia használata a szavak egyeztetéséhez"
+msgstr "Stratégia használata a szavak illesztéséhez"
 
 #: ../lib/fantasdic/command_line.rb:56
 msgid "Show this message"
-msgstr "Üzenet megjelenítése"
+msgstr "Ezen üzenet megjelenítése"
 
 #: ../lib/fantasdic/command_line.rb:61
 msgid "Show version"
@@ -236,18 +237,18 @@ msgstr "Hiba: A szótár nem található a beállításokban"
 #: ../lib/fantasdic/command_line.rb:107 ../lib/fantasdic/command_line.rb:153
 #: ../lib/fantasdic/ui/main_app.rb:324
 msgid "No match found."
-msgstr "Nincs találat"
+msgstr "Nincs találat."
 
 #: ../lib/fantasdic/command_line.rb:109
 #, c-format
 msgid "One match found."
 msgid_plural "Matches found: %d."
-msgstr[0] "Egy találat"
-msgstr[1] "%d találat"
+msgstr[0] "Egy találat."
+msgstr[1] "%d találat."
 
 #: ../lib/fantasdic/file_source.rb:131
 msgid "Select a file"
-msgstr "Fájl kiválasztása"
+msgstr "Válasszon fájlt"
 
 #: ../lib/fantasdic/file_source.rb:136
 msgid "A file must be selected!"
@@ -267,15 +268,15 @@ msgstr "_Kódolás:"
 
 #: ../lib/fantasdic/source_base.rb:198
 msgid "Connecting to source..."
-msgstr "Csatlakozás a forráshoz..."
+msgstr "Csatlakozás a forráshoz…"
 
 #: ../lib/fantasdic/source_base.rb:202
 msgid "Transferring data from source ..."
-msgstr "Adatátvitel folyamatban..."
+msgstr "Adatátvitel folyamatban…"
 
 #: ../lib/fantasdic/source_base.rb:259 ../lib/fantasdic/source_base.rb:267
 msgid "Can't convert encodings."
-msgstr "Karakterkódolás átalakítása sikertelen"
+msgstr "A karakterkódolás nem alakítható át."
 
 #: ../lib/fantasdic/sources/dictd_file.rb:143
 msgid "Dictd file"
@@ -283,40 +284,40 @@ msgstr "Dictd fájl"
 
 #: ../lib/fantasdic/sources/dictd_file.rb:144
 msgid "Look up words in files aimed for the dictd server."
-msgstr "Szavak keresése dictd kiszolgálóra célzott fájlokban"
+msgstr "Szavak keresése dictd kiszolgálóhoz tervezett fájlokban."
 
 #: ../lib/fantasdic/sources/dictd_file.rb:172
 #: ../lib/fantasdic/sources/stardict_file.rb:181
 msgid "Select a dictd file"
-msgstr "Dictd fájl kiválasztása"
+msgstr "Válasszon Dictd fájlt"
 
 #: ../lib/fantasdic/sources/dictd_file.rb:173
 msgid "Index files"
-msgstr "Index fájlok"
+msgstr "Indexfájlok"
 
 #: ../lib/fantasdic/sources/dictd_file.rb:207
 msgid "This file is not a valid index file!"
-msgstr "Ez nem egy érvényes index fájl"
+msgstr "Ez nem egy érvényes indexfájl"
 
 #: ../lib/fantasdic/sources/dictd_file.rb:270
 #: ../lib/fantasdic/sources/edict_file.rb:174
 #: ../lib/fantasdic/sources/stardict_file.rb:258
 #, c-format
 msgid "Cannot open file %s."
-msgstr "Fájl megnyitása sikertelen: %s"
+msgstr "A fájl (%s) megnyitása sikertelen."
 
 #: ../lib/fantasdic/sources/dictd_file.rb:278
 #: ../lib/fantasdic/sources/stardict_file.rb:264
 msgid "Couldn't find .dict or .dict.dz dictionary file."
-msgstr "Nem találhatóak .dict vagy .dict.dz szótár fájlok"
+msgstr "Nem találhatók .dict vagy .dict.dz szótárfájlok."
 
 #: ../lib/fantasdic/sources/dict_server.rb:23
 msgid "DICT dictionary server"
-msgstr "DICT szótár kiszolgáló"
+msgstr "DICT szótárkiszolgáló"
 
 #: ../lib/fantasdic/sources/dict_server.rb:24
 msgid "Look up words using a DICT dictionary server."
-msgstr "Szavak keresése egy DICT szótár kiszolgáló segítségével"
+msgstr "Szavak keresése egy DICT szótárkiszolgáló segítségével."
 
 #: ../lib/fantasdic/sources/dict_server.rb:34
 msgid "Server details"
@@ -329,12 +330,12 @@ msgstr "Kiszolgáló részletei"
 #: ../lib/fantasdic/sources/dict_server.rb:304
 #, c-format
 msgid "Could not connect to %s"
-msgstr "Sikertelen csatlakozás a következőhöz: %s"
+msgstr "Nem sikerült csatlakozni a következőhöz: %s"
 
 #: ../lib/fantasdic/sources/dict_server.rb:76
 #: ../lib/fantasdic/sources/dict_server.rb:205
 msgid "Server missing."
-msgstr "Hiányzó kiszolgáló"
+msgstr "A kiszolgáló hiányzik."
 
 #: ../lib/fantasdic/sources/dict_server.rb:77
 #: ../lib/fantasdic/sources/dict_server.rb:210
@@ -535,7 +536,6 @@ msgid "Search %s"
 msgstr "%s keresése"
 
 #: ../lib/fantasdic/ui/main_app.rb:650
-#, fuzzy
 msgid "Zoom over character"
 msgstr "Nagyítás karakterre"
 
@@ -585,7 +585,7 @@ msgstr "U_grás"
 
 #: ../lib/fantasdic/ui/main_app.rb:1073
 msgid "_Previous Definition"
-msgstr "E_lőző definíció"
+msgstr "Elő_ző definíció"
 
 #: ../lib/fantasdic/ui/main_app.rb:1075
 msgid "_Next Definition"
@@ -621,7 +621,7 @@ msgstr "_Súgó"
 
 #: ../lib/fantasdic/ui/main_app.rb:1092
 msgid "_Contents"
-msgstr "Tar_talom"
+msgstr "_Tartalom"
 
 #: ../lib/fantasdic/ui/main_app.rb:1093
 msgid "Submit _Bug Report"
@@ -641,7 +641,7 @@ msgstr "_Találatok"
 
 #: ../lib/fantasdic/ui/main_app.rb:1139
 msgid "_Statusbar"
-msgstr "Á_llapotsor"
+msgstr "Áll_apotsor"
 
 #: ../lib/fantasdic/ui/main_app.rb:1141
 msgid "_Toolbar"
@@ -671,4 +671,5 @@ msgstr "%d/%d oldal"
 
 #: ../lib/fantasdic/ui/print.rb:207
 msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
-msgstr "Nyomtatva: Fantasdic - %Y/%m/%d %H:%M"
+msgstr "Nyomtatta a Fantasdic – %Y/%m/%d %k.%M"
+
