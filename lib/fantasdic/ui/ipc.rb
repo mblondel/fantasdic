@@ -28,7 +28,7 @@
 # IPC is used in Fantasdic to make the application a single-instance
 # application. It is possible to pass parameters to the running instance.
 
-if Fantasdic::WIN32
+if Fantasdic::WIN32 or Fantasdic::OSX
 
 begin
 require "win32/pipe"

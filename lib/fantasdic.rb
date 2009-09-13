@@ -65,6 +65,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 EOL
 
     WIN32 = (/mingw|mswin|win32/ =~ RUBY_PLATFORM)
+    OSX = (/darwin/ =~ RUBY_PLATFORM)
 
     if WIN32
         begin
