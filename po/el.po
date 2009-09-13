@@ -1,0 +1,671 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fandasdic\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-09-13 17:44+0300\n"
+"PO-Revision-Date: 2009-09-13 17:50+0200\n"
+"Last-Translator: Kostas Papadimas <pkst@gnome.org>\n"
+"Language-Team: Greek <gnome@gnome.gr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Greek\n"
+"X-Poedit-Country: GREECE\n"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
+msgid "<b>Print</b>"
+msgstr "<b>Εκτύπωση</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:2
+msgid "<b>Results</b>"
+msgstr "<b>Αποτελέσματα</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:3
+msgid "Add dictionary"
+msgstr "Προσθήκη λεξικού"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:4
+msgid "Available databases"
+msgstr "Διαθέσιμες βάσεις δεδομένων"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
+msgid "Databases"
+msgstr "Βάσεις δεδομένων"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
+msgid "Fonts"
+msgstr "Γραμματοσειρές"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
+msgid "Move database to selected databases"
+msgstr "Μετακίνηση βάσης δεδομένων στις επιλεγμένες βάσεις δεδομένων"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
+msgid "Remove database from selected databases"
+msgstr "Αφαίρεση βάσης δεδομένων από τις επιλεγμένες βάσεις δεδομένων"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
+msgid "Restore default fonts"
+msgstr "Αποκατάσταση προεπιλεγμένων γραμματοσειρών"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
+msgid "Search _all databases"
+msgstr "Αναζήτηση  ό_λων των βάσεων δεδομένων"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
+msgid "Search selected _databases"
+msgstr "Αναζήτηση επιλεγμένων _βάσεων δεδομένων"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
+msgid "Select a font"
+msgstr "Επιλογή μίας γραμματοσειράς"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:13
+msgid "Selected databases"
+msgstr "Επιλεγμένες βάσεις δεδομένων"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
+msgid "Source"
+msgstr "Πηγή"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
+msgid "This name will identify your dictionary uniquely and will appear in the application menu."
+msgstr "Αυτό το όνομα θα προσδιορίσει το λεξικό σας μοναδικά και θα εμφανιστεί στις επιλογές της εφαρμογής."
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
+msgid "_Name:"
+msgstr "Ό_νομα:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
+msgid "_Source:"
+msgstr "_Πηγή:"
+
+#: ../data/fantasdic/glade/main_app.glade.h:1
+msgid "<i>Not found</i>"
+msgstr "<i>Δεν βρέθηκε</i>"
+
+#: ../data/fantasdic/glade/main_app.glade.h:2
+msgid "Fantasdic"
+msgstr "Fantasdic"
+
+#: ../data/fantasdic/glade/main_app.glade.h:3
+msgid "Find: "
+msgstr "Εύρεση:"
+
+#: ../data/fantasdic/glade/main_app.glade.h:4
+#: ../lib/fantasdic/ui/main_app.rb:325
+msgid "Matches"
+msgstr "Ταιριάσματα"
+
+#: ../data/fantasdic/glade/main_app.glade.h:5
+msgid "_Next"
+msgstr "_Επόμενο"
+
+#: ../data/fantasdic/glade/main_app.glade.h:6
+msgid "_Previous"
+msgstr "_Προηγούμενο"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:1
+msgid "<b>Startup</b>"
+msgstr "<b>Εκκίνηση</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:2
+msgid "<b>System tray</b>"
+msgstr "<b>Περιοχή ειδοποιήσεων</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:3
+msgid "Dictionaries"
+msgstr "Λεξικά"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:4
+msgid "Do _not quit when main window is closed"
+msgstr "Να _μην γίνεται τερματισμός όταν το κεντρικό παράθυρο είναι κλειστό"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:5
+msgid "Do not show main window at startup"
+msgstr "Να μην εμφανίζεται το κεντρικό παράθυρο κατά την εκκίνηση"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:6
+msgid "Enable HTTP proxy"
+msgstr "Ενεργοποίηση διαμεσολαβητή HTTP"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:7
+msgid "Enable SOCKS 5 proxy"
+msgstr "Ενεργοποίηση διαμεσολαβητή SOCKS 5"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
+msgid "Fantasdic will stay in the system tray even if the window is closed."
+msgstr "Το Fantasdic θα μείνει στη περιοχή ειδοποιήσεων ακόμη και αν το παράθυρο κλείσει."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
+msgid "Host:"
+msgstr "Κεντρικός:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
+msgid "Password:"
+msgstr "Συνθηματικό:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
+msgid "Port:"
+msgstr "Θύρα:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
+msgid "Preferences"
+msgstr "Προτιμήσεις"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
+msgid "Proxy"
+msgstr "Διαμεσολαβητής"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
+msgid "Startup"
+msgstr "Εκκίνηση"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
+msgid "This option should be enabled if Fantasdic is started when the computer boots."
+msgstr "Αυτή η επιλογή θα έπρεπε να είναι ενεργοποιημένη αν το Fantasdic έχει ξεκινήσει κατά την εκκίνηση του Η/Υ."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
+msgid "This proxy can for example be used to traverse firewalls."
+msgstr "Αυτός ο διαμεσολαβητής μπορεί για παράδειγμα να χρησιμοποιηθεί για να διασχίσει τείχη προστασίας."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
+msgid "Username:"
+msgstr "Όνομα Χρήστη:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
+msgid "_Look up last word at startup"
+msgstr "_Αναζήτηση τελευταίας λέξης κατά την εκκίνηση"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:19
+msgid "_Show Fantasdic in system tray"
+msgstr "_Εμφάνιση του Fantasdic στην περιοχή ειδοποιήσεων"
+
+#: ../data/fantasdic/glade/server_infos_dialog.glade.h:1
+msgid "Server informations"
+msgstr "Πληροφορίες εξυπηρετητή"
+
+#: ../lib/fantasdic/command_line.rb:34
+msgid "Usage: fantasdic [options] [dictionary] [word]"
+msgstr "Χρήση: fantasdic [επιλογές] [λεξικό] [λέξη]"
+
+#: ../lib/fantasdic/command_line.rb:37
+msgid "Print results to stdout"
+msgstr "Εκτύπωση αποτελεσμάτων στο stdout"
+
+#: ../lib/fantasdic/command_line.rb:42
+msgid "List dictionaries in settings"
+msgstr "Κατάλογος λεξικών στις ρυθμίσεις"
+
+#: ../lib/fantasdic/command_line.rb:47
+msgid "List strategies available for dictionary"
+msgstr "Διαθέσιμοι κατάλογοι στρατηγικής για λεξικό"
+
+#: ../lib/fantasdic/command_line.rb:52
+msgid "Use strategy to match words"
+msgstr "Χρήση στρατηγικής για αντιστοιχία λέξεων"
+
+#: ../lib/fantasdic/command_line.rb:56
+msgid "Show this message"
+msgstr "Εμφάνιση αυτού του μηνύματος"
+
+#: ../lib/fantasdic/command_line.rb:61
+msgid "Show version"
+msgstr "Εμφάνιση έκδοσης"
+
+#: ../lib/fantasdic/command_line.rb:67
+msgid "Enable debug mode"
+msgstr "Ενεργοποίηση κατάστασης εκσφαλμάτωσης"
+
+#: ../lib/fantasdic/command_line.rb:90
+msgid "Error: Dictionary does not exist in the settings"
+msgstr "Σφάλμα: το λεξικό δεν υπάρχει στις ρυθμίσεις"
+
+#: ../lib/fantasdic/command_line.rb:107
+#: ../lib/fantasdic/command_line.rb:153
+#: ../lib/fantasdic/ui/main_app.rb:324
+msgid "No match found."
+msgstr "Δε βρέθηκαν αντιστοιχία."
+
+#: ../lib/fantasdic/command_line.rb:109
+#, c-format
+msgid "One match found."
+msgid_plural "Matches found: %d."
+msgstr[0] "Βρέθηκε μία αντιστοιχία."
+msgstr[1] "Βρέθηκαν αντιστοιχίες: %d."
+
+#: ../lib/fantasdic/file_source.rb:131
+msgid "Select a file"
+msgstr "Επιλέξτε ένα αρχείο"
+
+#: ../lib/fantasdic/file_source.rb:136
+msgid "A file must be selected!"
+msgstr "Πρέπει να επιλεχθεί ένα αρχείο!"
+
+#: ../lib/fantasdic/file_source.rb:170
+msgid "All files"
+msgstr "Όλα τα αρχεία"
+
+#: ../lib/fantasdic/file_source.rb:174
+msgid "_File:"
+msgstr "_Αρχείο:"
+
+#: ../lib/fantasdic/file_source.rb:192
+msgid "_Encoding:"
+msgstr "_Κωδικοποίηση:"
+
+#: ../lib/fantasdic/source_base.rb:198
+msgid "Connecting to source..."
+msgstr "Γίνεται σύνδεση στη πηγή..."
+
+#: ../lib/fantasdic/source_base.rb:202
+msgid "Transferring data from source ..."
+msgstr "Γίνεται μεταφορά δεδομένων από τη πηγή..."
+
+#: ../lib/fantasdic/source_base.rb:259
+#: ../lib/fantasdic/source_base.rb:267
+msgid "Can't convert encodings."
+msgstr "Δεν είναι δυνατή η μετατροπή των κωδικοποιήσεων."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:143
+msgid "Dictd file"
+msgstr "Αρχείο Dictd"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:144
+msgid "Look up words in files aimed for the dictd server."
+msgstr "Αναζητήστε λέξεις στα αρχεία που στοχεύουν στον εξυπηρετητή dictd."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:172
+#: ../lib/fantasdic/sources/stardict_file.rb:181
+msgid "Select a dictd file"
+msgstr "Επιλογή ενός αρχείου dictd"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:173
+msgid "Index files"
+msgstr "Αρχεία ευρετηρίου"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:207
+msgid "This file is not a valid index file!"
+msgstr "Αυτό το αρχείο δεν είναι ένα έγκυρο αρχείο ευρετηρίου!"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:270
+#: ../lib/fantasdic/sources/edict_file.rb:174
+#: ../lib/fantasdic/sources/stardict_file.rb:258
+#, c-format
+msgid "Cannot open file %s."
+msgstr "Δεν είναι δυνατό το άνοιγμα του αρχείου %s."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:278
+#: ../lib/fantasdic/sources/stardict_file.rb:264
+msgid "Couldn't find .dict or .dict.dz dictionary file."
+msgstr "Δεν είναι δυνατή η εύρεση του αρχείου λεξικού  .dict ή του .dict.dz"
+
+#: ../lib/fantasdic/sources/dict_server.rb:23
+msgid "DICT dictionary server"
+msgstr "Εξυπηρετητής λεξικού DICT"
+
+#: ../lib/fantasdic/sources/dict_server.rb:24
+msgid "Look up words using a DICT dictionary server."
+msgstr "Αναζητήστε λέξεις με τη χρήση ενός DICT λεξικού εξυπηρετητή."
+
+#: ../lib/fantasdic/sources/dict_server.rb:34
+msgid "Server details"
+msgstr "Λεπτομέρειες εξυπηρετητή"
+
+#: ../lib/fantasdic/sources/dict_server.rb:60
+#: ../lib/fantasdic/sources/dict_server.rb:268
+#: ../lib/fantasdic/sources/dict_server.rb:278
+#: ../lib/fantasdic/sources/dict_server.rb:293
+#: ../lib/fantasdic/sources/dict_server.rb:304
+#, c-format
+msgid "Could not connect to %s"
+msgstr "Δεν είναι δυνατή η σύνδεση στο %s"
+
+#: ../lib/fantasdic/sources/dict_server.rb:76
+#: ../lib/fantasdic/sources/dict_server.rb:205
+msgid "Server missing."
+msgstr "Λείπει ο εξυπηρετητής"
+
+#: ../lib/fantasdic/sources/dict_server.rb:77
+#: ../lib/fantasdic/sources/dict_server.rb:210
+msgid "Port missing."
+msgstr "Λείπει η θύρα."
+
+#: ../lib/fantasdic/sources/dict_server.rb:80
+msgid "Username missing."
+msgstr "Λείπει το όνομα χρήστη."
+
+#: ../lib/fantasdic/sources/dict_server.rb:82
+msgid "Password missing."
+msgstr "Λείπει το συνθηματικό."
+
+#: ../lib/fantasdic/sources/dict_server.rb:103
+msgid "_Server:"
+msgstr "_Εξυπηρετητής:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:115
+msgid "_Port:"
+msgstr "_Θύρα:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:135
+msgid "Server _requires authentication"
+msgstr "Ο εξυπηρετητής α_παιτεί πιστοποίηση"
+
+#: ../lib/fantasdic/sources/dict_server.rb:140
+msgid "_Username:"
+msgstr "Ό_νομα Χρήστη:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:144
+msgid "Pass_word:"
+msgstr "Συνθη_ματικό:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:313
+#: ../lib/fantasdic/sources/dict_server.rb:322
+msgid "Connection with server lost."
+msgstr "Η σύνδεση με τον εξυπηρετητή χάθηκε."
+
+#: ../lib/fantasdic/sources/dict_server.rb:327
+#, c-format
+msgid "Waiting for %s..."
+msgstr "Αναμονή για %s.."
+
+#: ../lib/fantasdic/sources/dict_server.rb:331
+#, c-format
+msgid "Transferring data from %s..."
+msgstr "Μεταφορά δεδομένων από %s..."
+
+#: ../lib/fantasdic/sources/edict_file.rb:47
+msgid "Select an EDICT file"
+msgstr "Επιλογή ενός αρχείου EDICT"
+
+#: ../lib/fantasdic/sources/edict_file.rb:48
+msgid "Gzip-compressed files"
+msgstr "Συμπιεσμένα αρχεία Gzip"
+
+#: ../lib/fantasdic/sources/edict_file.rb:79
+#: ../lib/fantasdic/sources/edict_file.rb:84
+#: ../lib/fantasdic/sources/edict_file.rb:181
+msgid "This file is not a valid EDICT file!"
+msgstr "Αυτό το αρχείο δεν είναι ένα έγκυρο αρχείο EDICT!"
+
+#: ../lib/fantasdic/sources/edict_file.rb:256
+msgid "Encoding not supported."
+msgstr "Η κωδικοποίηση δεν υποστηρίζεται."
+
+#: ../lib/fantasdic/sources/edict_file.rb:271
+msgid "EDICT file"
+msgstr "Αρχείο EDICT"
+
+#: ../lib/fantasdic/sources/edict_file.rb:272
+msgid "Look up words in an EDICT file."
+msgstr "Αναζήτηση λέξεων σε ένα αρχείο  EDICT."
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:30
+msgid "EPWING dictionary"
+msgstr "Λεξικό EPWING"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:31
+msgid "Look up words in EPWING dictionaries."
+msgstr "Αναζήτηση λέξεων σε λεξικά EPWING."
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:40
+msgid "Select a CATALOGS file"
+msgstr "Επιλογή αρχείου CATALOGS"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:55
+msgid "You're missing rubyeb (libeb for Ruby)!"
+msgstr "Σας λείπει το rubyeb (libeb για το Ruby)!"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:167
+msgid "Not an EPWING dictionary!"
+msgstr "Δεν είναι λεξικό EPWING!"
+
+#: ../lib/fantasdic/sources/google_translate.rb:26
+msgid "Google Translate"
+msgstr "Google Translate"
+
+#: ../lib/fantasdic/sources/google_translate.rb:27
+msgid "Translate words using Google Translate."
+msgstr "Μετάφραση λέξεων με τη χρήση του Google Translate."
+
+#: ../lib/fantasdic/sources/stardict_file.rb:152
+msgid "Stardict file"
+msgstr "Αρχείο Stardict"
+
+#: ../lib/fantasdic/sources/stardict_file.rb:153
+msgid "Look up words in Stardict files."
+msgstr "Αναζήτηση λέξεων σε αρχεία Stardict."
+
+#: ../lib/fantasdic/sources/stardict_file.rb:182
+msgid "Ifo files"
+msgstr "Αρχεία Ifo"
+
+#: ../lib/fantasdic/sources/stardict_file.rb:199
+msgid "Wrong .ifo or .idx file!"
+msgstr "Εσφαλμένο αρχείο  .ifo ή .idx"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:101
+#: ../lib/fantasdic/ui/main_app.rb:120
+#, c-format
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "Το λεξικό \"%s\" δεν υπάρχει πια"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:119
+msgid "Virtual dictionary"
+msgstr "Εικονικό λεξικό"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:120
+msgid "Look up words in several dictionaries at once."
+msgstr "Αναζήτηση λέξεων σε μερικά λεξικά κατευθείαν."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:27
+#, c-format
+msgid "About database %s"
+msgstr "Περί της βάσης δεδομένων %s"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:267
+msgid "Name missing."
+msgstr "Λείπει όνομα."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:270
+msgid "No database selected!"
+msgstr "Δεν επιλέχθηκε βάση δεδομένων!"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:284
+#, c-format
+msgid "Dictionary %s exists already!"
+msgstr "Το λεξικό  %s υπάρχει ήδη!"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:381
+msgid "Fetching databases information..."
+msgstr "Αναζήτηση πληροφοριών βάσεων δεδομένων..."
+
+#: ../lib/fantasdic/ui/browser.rb:38
+msgid "Could not open browser."
+msgstr "Δεν είναι δυνατό το άνοιγμα του περιηγητή."
+
+#: ../lib/fantasdic/ui/browser.rb:43
+msgid "Could not find documentation."
+msgstr "Αδυναμία εύρεσης τεκμηρίωσης."
+
+#: ../lib/fantasdic/ui/main_app.rb:87
+msgid "No dictionary configured"
+msgstr "Δεν έχει ρυθμιστεί λεξικό"
+
+#: ../lib/fantasdic/ui/main_app.rb:130
+#, c-format
+msgid "Dictionary source \"%s\" does not exist anymore"
+msgstr "Η πηγή του λεξικού \"%s\"  δεν υπάρχει πια"
+
+#: ../lib/fantasdic/ui/main_app.rb:248
+msgid "Source error"
+msgstr "Σφάλμα πηγής"
+
+#: ../lib/fantasdic/ui/main_app.rb:279
+msgid "No definition found."
+msgstr "Δε βρέθηκε ορισμός."
+
+#: ../lib/fantasdic/ui/main_app.rb:283
+#, c-format
+msgid "One definition found."
+msgid_plural "Definitions found: %d."
+msgstr[0] "Βρέθηκε ένας ορισμός."
+msgstr[1] "Βρέθηκαν ορισμοί: %d."
+
+#: ../lib/fantasdic/ui/main_app.rb:320
+#, c-format
+msgid "1 match"
+msgid_plural "%d matches"
+msgstr[0] "1 ταίριασμα"
+msgstr[1] "%d ταιριάσματα"
+
+#: ../lib/fantasdic/ui/main_app.rb:626
+#, c-format
+msgid "Search %s"
+msgstr "Αναζήτηση %s"
+
+#: ../lib/fantasdic/ui/main_app.rb:650
+msgid "Zoom over character"
+msgstr "Εστίαση πάνω από χαρακτήρα"
+
+#: ../lib/fantasdic/ui/main_app.rb:665
+#: ../lib/fantasdic/ui/main_app.rb:1044
+msgid "Select _All"
+msgstr "Επιλογή ό_λων"
+
+#: ../lib/fantasdic/ui/main_app.rb:835
+msgid "Save definition"
+msgstr "Αποθήκευση ορισμού"
+
+#: ../lib/fantasdic/ui/main_app.rb:1034
+msgid "Print Set_up"
+msgstr "Ρυ_θμίσεις εκτύπωσης"
+
+#: ../lib/fantasdic/ui/main_app.rb:1042
+msgid "_Edit"
+msgstr "_Επεξεργασία"
+
+#: ../lib/fantasdic/ui/main_app.rb:1046
+msgid "Clear History"
+msgstr "Εκκαθάριση ιστορικού"
+
+#: ../lib/fantasdic/ui/main_app.rb:1049
+msgid "Find N_ext"
+msgstr "Εύρεση ε_πόμενου"
+
+#: ../lib/fantasdic/ui/main_app.rb:1051
+msgid "Find Pre_vious"
+msgstr "Εύρεση προη_γούμενου"
+
+#: ../lib/fantasdic/ui/main_app.rb:1057
+msgid "_View"
+msgstr "_Προβολή"
+
+#: ../lib/fantasdic/ui/main_app.rb:1058
+msgid "_Text size"
+msgstr "_Μέγεθος κειμένου"
+
+#: ../lib/fantasdic/ui/main_app.rb:1063
+msgid "Zoom normal"
+msgstr "Κανονική εστίαση"
+
+#: ../lib/fantasdic/ui/main_app.rb:1068
+msgid "_Go"
+msgstr "_Μετάβαση"
+
+#: ../lib/fantasdic/ui/main_app.rb:1073
+msgid "_Previous Definition"
+msgstr "_Προηγούμενος ορισμός"
+
+#: ../lib/fantasdic/ui/main_app.rb:1075
+msgid "_Next Definition"
+msgstr "_Επόμενος ορισμός"
+
+#: ../lib/fantasdic/ui/main_app.rb:1077
+msgid "_First Definition"
+msgstr "_Πρώτος ορισμός"
+
+#: ../lib/fantasdic/ui/main_app.rb:1079
+msgid "_Last Definition"
+msgstr "_Τελευταίος ορισμός"
+
+#: ../lib/fantasdic/ui/main_app.rb:1081
+msgid "Previous Database"
+msgstr "Προηγούμενη βάσης Δεδομένων"
+
+#: ../lib/fantasdic/ui/main_app.rb:1083
+msgid "Next Database"
+msgstr "Επόμενη βάση δεδομένων"
+
+#: ../lib/fantasdic/ui/main_app.rb:1085
+msgid "First Database"
+msgstr "Πρώτη βάση δεδομένων"
+
+#: ../lib/fantasdic/ui/main_app.rb:1087
+msgid "Last Database"
+msgstr "Τελευταία βάση δεδομένων"
+
+#: ../lib/fantasdic/ui/main_app.rb:1091
+msgid "_Help"
+msgstr "_Βοήθεια"
+
+#: ../lib/fantasdic/ui/main_app.rb:1092
+msgid "_Contents"
+msgstr "_Περιεχόμενα"
+
+#: ../lib/fantasdic/ui/main_app.rb:1093
+msgid "Submit _Bug Report"
+msgstr "Υποβολή αναφοράς _σφαλμάτων"
+
+#: ../lib/fantasdic/ui/main_app.rb:1095
+msgid "About"
+msgstr "Περί"
+
+#: ../lib/fantasdic/ui/main_app.rb:1135
+msgid "Scan clipboard"
+msgstr "Σάρωση του πρόχειρου"
+
+#: ../lib/fantasdic/ui/main_app.rb:1137
+msgid "_Matches"
+msgstr "_Ταιριάσματα"
+
+#: ../lib/fantasdic/ui/main_app.rb:1139
+msgid "_Statusbar"
+msgstr "_Γραμμή κατάστασης"
+
+#: ../lib/fantasdic/ui/main_app.rb:1141
+msgid "_Toolbar"
+msgstr "_Εργαλειοθήκη"
+
+#: ../lib/fantasdic/ui/main_app.rb:1143
+msgid "_Keep above"
+msgstr "_Διατήρηση πάνω"
+
+#: ../lib/fantasdic/ui/preferences_dialog.rb:207
+msgid "SOCKS 5 proxy"
+msgstr "Διαμεσολαβητής SOCKS 5"
+
+#: ../lib/fantasdic/ui/preferences_dialog.rb:207
+msgid "HTTP proxy"
+msgstr "Διαμεσολαβητής HTTP"
+
+#: ../lib/fantasdic/ui/print.rb:195
+#, c-format
+msgid "Definitions for %s"
+msgstr "Ορισμοί για %s"
+
+#: ../lib/fantasdic/ui/print.rb:196
+#, c-format
+msgid "Page %d/%d"
+msgstr "Σελίδα %d/%d"
+
+#: ../lib/fantasdic/ui/print.rb:207
+msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
+msgstr "Εκτυπώθηκε από το Fantasdic  στις %H:%M %d/%m/%d"
+
