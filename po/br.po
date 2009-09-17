@@ -6,153 +6,719 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fantasdic 2.14\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-11 22:59+0100\n"
-"PO-Revision-Date: 2006-03-44 22:59+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=fantasdic&component=general\n"
+"POT-Creation-Date: 2009-04-17 08:24+0000\n"
+"PO-Revision-Date: 2009-09-17 10:57+0100\n"
 "Last-Translator: Jérémy Ar Floc'h <jeremy.lefloch@gmail.com>\n"
 "Language-Team: GNOME Breton team <jeremy.lefloch@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:58
-msgid "Fields missing"
-msgstr "Tachennoù diank"
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
+msgid "<b>Print</b>"
+msgstr "<b>Moullañ</b>"
 
-#: ../lib/fantasdic/ui/main_app.rb:64
-msgid "No dictionary configured"
-msgstr "N'eus ket geriadur kefluniet"
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:2
+msgid "<b>Results</b>"
+msgstr "<b>Disoc'hoù</b>"
 
-#: ../lib/fantasdic/ui/main_app.rb:82
-#, c-format
-msgid "Transferring data from %s ..."
-msgstr "O treuzkas titouroù diwar %s ..."
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:3
+msgid "Add dictionary"
+msgstr "Ouzhpennañ ur geriadur"
 
-#: ../lib/fantasdic/ui/main_app.rb:109
-msgid "Can't connect to server"
-msgstr "N'eus ket tu da gennaskañ war ar servijer"
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:4
+#, fuzzy
+#| msgid "Search _all databases"
+msgid "Available databases"
+msgstr "Klask holl stlennvonoù (databases)"
 
-#: ../lib/fantasdic/ui/main_app.rb:132 ../lib/fantasdic/ui/main_app.rb:158
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
+msgid "Databases"
+msgstr "Stlennvankoù"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
+msgid "Fonts"
+msgstr "Nodrezhoù"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
+#, fuzzy
+#| msgid "Search _databases selected below"
+msgid "Move database to selected databases"
+msgstr "Klask e-barzh stlennvonoù (databases) diuzet"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
+#, fuzzy
+#| msgid "Search _databases selected below"
+msgid "Remove database from selected databases"
+msgstr "Klask e-barzh stlennvonoù (databases) diuzet"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
+msgid "Restore default fonts"
+msgstr ""
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
+msgid "Search _all databases"
+msgstr "Klask holl stlennvonoù (databases)"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
+#, fuzzy
+#| msgid "Search _all databases"
+msgid "Search selected _databases"
+msgstr "Klask holl stlennvonoù (databases)"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
+msgid "Select a font"
+msgstr "Diuzañ un nodrezh"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:13
+#, fuzzy
+#| msgid "Search _all databases"
+msgid "Selected databases"
+msgstr "Klask holl stlennvonoù (databases)"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
+msgid "Source"
+msgstr "Tarzh"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
+msgid "This name will identify your dictionary uniquely and will appear in the application menu."
+msgstr ""
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
+msgid "_Name:"
+msgstr "_Anv an ostiz :"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
+#| msgid "_Server:"
+msgid "_Source:"
+msgstr "_Tarzh :"
+
+#: ../data/fantasdic/glade/main_app.glade.h:1
+msgid "<i>Not found</i>"
+msgstr ""
+
+#: ../data/fantasdic/glade/main_app.glade.h:2
+msgid "Fantasdic"
+msgstr "Fantasdic"
+
+#: ../data/fantasdic/glade/main_app.glade.h:3
+msgid "Find: "
+msgstr "Klask :"
+
+#: ../data/fantasdic/glade/main_app.glade.h:4
+#: ../lib/fantasdic/ui/main_app.rb:325
+msgid "Matches"
+msgstr ""
+
+#: ../data/fantasdic/glade/main_app.glade.h:5
+msgid "_Next"
+msgstr ""
+
+#: ../data/fantasdic/glade/main_app.glade.h:6
+msgid "_Previous"
+msgstr ""
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:1
+msgid "<b>Startup</b>"
+msgstr ""
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:2
+msgid "<b>System tray</b>"
+msgstr ""
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:3
+msgid "Dictionaries"
+msgstr "Geriadurioù"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:4
+msgid "Do _not quit when main window is closed"
+msgstr ""
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:5
+msgid "Do not show main window at startup"
+msgstr ""
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:6
+msgid "Enable HTTP proxy"
+msgstr ""
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:7
+msgid "Enable SOCKS 5 proxy"
+msgstr ""
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
+msgid "Fantasdic will stay in the system tray even if the window is closed."
+msgstr ""
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
+msgid "Host:"
+msgstr "Ostiz :"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
+#| msgid "Pass_word"
+msgid "Password:"
+msgstr "Ger-tremen :"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
+#| msgid "_Port:"
+msgid "Port:"
+msgstr "Porzh :"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
+msgid "Preferences"
+msgstr "Dibaboù gwellañ"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
+msgid "Proxy"
+msgstr "Proksi"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
+msgid "Startup"
+msgstr ""
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
+msgid "This option should be enabled if Fantasdic is started when the computer boots."
+msgstr ""
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
+msgid "This proxy can for example be used to traverse firewalls."
+msgstr ""
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
+#| msgid "_Username:"
+msgid "Username:"
+msgstr "Anv an arveriad :"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
+msgid "_Look up last word at startup"
+msgstr ""
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:19
+msgid "_Show Fantasdic in system tray"
+msgstr ""
+
+#: ../data/fantasdic/glade/server_infos_dialog.glade.h:1
+msgid "Server informations"
+msgstr "Titouroù an dafariad"
+
+#: ../lib/fantasdic/command_line.rb:34
+msgid "Usage: fantasdic [options] [dictionary] [word]"
+msgstr "Arver:fantasdisc [dibarzhioù] [geriadur] [ger]"
+
+#: ../lib/fantasdic/command_line.rb:37
+msgid "Print results to stdout"
+msgstr ""
+
+#: ../lib/fantasdic/command_line.rb:42
+msgid "List dictionaries in settings"
+msgstr ""
+
+#: ../lib/fantasdic/command_line.rb:47
+msgid "List strategies available for dictionary"
+msgstr ""
+
+#: ../lib/fantasdic/command_line.rb:52
+msgid "Use strategy to match words"
+msgstr ""
+
+#: ../lib/fantasdic/command_line.rb:56
+msgid "Show this message"
+msgstr ""
+
+#: ../lib/fantasdic/command_line.rb:61
+msgid "Show version"
+msgstr "Diskouez an handelv"
+
+#: ../lib/fantasdic/command_line.rb:67
+msgid "Enable debug mode"
+msgstr ""
+
+#: ../lib/fantasdic/command_line.rb:90
+#, fuzzy
+#| msgid "Dictionary \"%s\" does not exist anymore"
+msgid "Error: Dictionary does not exist in the settings"
+msgstr "Geriadur \"%s\" n'eo ket anezhañ ken"
+
+#: ../lib/fantasdic/command_line.rb:107
+#: ../lib/fantasdic/command_line.rb:153
+#: ../lib/fantasdic/ui/main_app.rb:324
 msgid "No match found."
 msgstr "N'eus ket disoc'h."
 
-#: ../lib/fantasdic/ui/main_app.rb:134
+#: ../lib/fantasdic/command_line.rb:109
+#, fuzzy, c-format
+#| msgid "No match found."
+msgid "One match found."
+msgid_plural "Matches found: %d."
+msgstr[0] "N'eus ket disoc'h."
+msgstr[1] "N'eus ket disoc'h."
+
+#: ../lib/fantasdic/file_source.rb:131
+msgid "Select a file"
+msgstr "Diuzañ ur restr"
+
+#: ../lib/fantasdic/file_source.rb:136
+msgid "A file must be selected!"
+msgstr ""
+
+#: ../lib/fantasdic/file_source.rb:170
+msgid "All files"
+msgstr ""
+
+#: ../lib/fantasdic/file_source.rb:174
+msgid "_File:"
+msgstr "_Restr :"
+
+#: ../lib/fantasdic/file_source.rb:192
+msgid "_Encoding:"
+msgstr "Bon_egañ :"
+
+#: ../lib/fantasdic/source_base.rb:198
+#, fuzzy
+#| msgid "Can't connect to server"
+msgid "Connecting to source..."
+msgstr "N'eus ket tu da gennaskañ war ar servijer"
+
+#: ../lib/fantasdic/source_base.rb:202
+#, fuzzy
+#| msgid "Transferring data from %s ..."
+msgid "Transferring data from source ..."
+msgstr "O treuzkas titouroù diwar %s ..."
+
+#: ../lib/fantasdic/source_base.rb:259
+#: ../lib/fantasdic/source_base.rb:267
+msgid "Can't convert encodings."
+msgstr ""
+
+#: ../lib/fantasdic/sources/dictd_file.rb:143
+msgid "Dictd file"
+msgstr ""
+
+#: ../lib/fantasdic/sources/dictd_file.rb:144
+msgid "Look up words in files aimed for the dictd server."
+msgstr ""
+
+#: ../lib/fantasdic/sources/dictd_file.rb:172
+#: ../lib/fantasdic/sources/stardict_file.rb:181
+msgid "Select a dictd file"
+msgstr ""
+
+#: ../lib/fantasdic/sources/dictd_file.rb:173
+msgid "Index files"
+msgstr ""
+
+#: ../lib/fantasdic/sources/dictd_file.rb:207
+msgid "This file is not a valid index file!"
+msgstr ""
+
+#: ../lib/fantasdic/sources/dictd_file.rb:270
+#: ../lib/fantasdic/sources/edict_file.rb:174
+#: ../lib/fantasdic/sources/stardict_file.rb:258
 #, c-format
-msgid "Matches found for \"%s\": %d."
-msgstr "Disoc'hoù kavet evit \"%s\": %d."
+msgid "Cannot open file %s."
+msgstr ""
 
-#: ../lib/fantasdic/ui/main_app.rb:159
-msgid "Suggested results:"
-msgstr "Disoc'hoù gallus :"
+#: ../lib/fantasdic/sources/dictd_file.rb:278
+#: ../lib/fantasdic/sources/stardict_file.rb:264
+msgid "Couldn't find .dict or .dict.dz dictionary file."
+msgstr ""
 
-#: ../lib/fantasdic/ui/main_app.rb:315
-#, c-format
-msgid "Dictionary \"%s\" does not exist anymore"
-msgstr "Geriadur \"%s\" n'eo ket anezhañ ken"
+#: ../lib/fantasdic/sources/dict_server.rb:23
+#, fuzzy
+#| msgid "Add dictionary"
+msgid "DICT dictionary server"
+msgstr "Ouzhpennañ ur geriadur"
 
-#: ../lib/fantasdic/ui/main_app.rb:321
+#: ../lib/fantasdic/sources/dict_server.rb:24
+msgid "Look up words using a DICT dictionary server."
+msgstr ""
+
+#: ../lib/fantasdic/sources/dict_server.rb:34
+msgid "Server details"
+msgstr "Munudoù an dafariad"
+
+#: ../lib/fantasdic/sources/dict_server.rb:60
+#: ../lib/fantasdic/sources/dict_server.rb:268
+#: ../lib/fantasdic/sources/dict_server.rb:278
+#: ../lib/fantasdic/sources/dict_server.rb:293
+#: ../lib/fantasdic/sources/dict_server.rb:304
+#, fuzzy, c-format
+#| msgid "Can't connect to server"
+msgid "Could not connect to %s"
+msgstr "N'eus ket tu da gennaskañ war ar servijer"
+
+#: ../lib/fantasdic/sources/dict_server.rb:76
+#: ../lib/fantasdic/sources/dict_server.rb:205
+#, fuzzy
+#| msgid "Fields missing"
+msgid "Server missing."
+msgstr "Tachennoù diank"
+
+#: ../lib/fantasdic/sources/dict_server.rb:77
+#: ../lib/fantasdic/sources/dict_server.rb:210
+msgid "Port missing."
+msgstr ""
+
+#: ../lib/fantasdic/sources/dict_server.rb:80
+msgid "Username missing."
+msgstr ""
+
+#: ../lib/fantasdic/sources/dict_server.rb:82
+#| msgid "Pass_word"
+msgid "Password missing."
+msgstr "Ger-tremen o vankout."
+
+#: ../lib/fantasdic/sources/dict_server.rb:103
+msgid "_Server:"
+msgstr "_Dafariadoù :"
+
+#: ../lib/fantasdic/sources/dict_server.rb:115
+msgid "_Port:"
+msgstr "_Porzh :"
+
+#: ../lib/fantasdic/sources/dict_server.rb:135
+msgid "Server _requires authentication"
+msgstr "An dafariad a c'houlenn dilesadur"
+
+#: ../lib/fantasdic/sources/dict_server.rb:140
+msgid "_Username:"
+msgstr "_Anv an arveriad :"
+
+#: ../lib/fantasdic/sources/dict_server.rb:144
+#| msgid "Pass_word"
+msgid "Pass_word:"
+msgstr "_Ger-tremen :"
+
+#: ../lib/fantasdic/sources/dict_server.rb:313
+#: ../lib/fantasdic/sources/dict_server.rb:322
+#, fuzzy
+#| msgid "Can't connect to server"
+msgid "Connection with server lost."
+msgstr "N'eus ket tu da gennaskañ war ar servijer"
+
+#: ../lib/fantasdic/sources/dict_server.rb:327
 #, c-format
 msgid "Waiting for %s..."
 msgstr "O c'hortoz %s..."
 
-#: ../lib/fantasdic/ui/main_app.rb:342
+#: ../lib/fantasdic/sources/dict_server.rb:331
+#, fuzzy, c-format
+#| msgid "Transferring data from %s ..."
+msgid "Transferring data from %s..."
+msgstr "O treuzkas titouroù diwar %s ..."
+
+#: ../lib/fantasdic/sources/edict_file.rb:47
+msgid "Select an EDICT file"
+msgstr ""
+
+#: ../lib/fantasdic/sources/edict_file.rb:48
+msgid "Gzip-compressed files"
+msgstr ""
+
+#: ../lib/fantasdic/sources/edict_file.rb:79
+#: ../lib/fantasdic/sources/edict_file.rb:84
+#: ../lib/fantasdic/sources/edict_file.rb:181
+msgid "This file is not a valid EDICT file!"
+msgstr ""
+
+#: ../lib/fantasdic/sources/edict_file.rb:256
+msgid "Encoding not supported."
+msgstr ""
+
+#: ../lib/fantasdic/sources/edict_file.rb:271
+msgid "EDICT file"
+msgstr ""
+
+#: ../lib/fantasdic/sources/edict_file.rb:272
+msgid "Look up words in an EDICT file."
+msgstr ""
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:30
+#, fuzzy
+#| msgid "Add dictionary"
+msgid "EPWING dictionary"
+msgstr "Ouzhpennañ ur geriadur"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:31
+msgid "Look up words in EPWING dictionaries."
+msgstr ""
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:40
+msgid "Select a CATALOGS file"
+msgstr ""
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:55
+msgid "You're missing rubyeb (libeb for Ruby)!"
+msgstr ""
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:167
+msgid "Not an EPWING dictionary!"
+msgstr ""
+
+#: ../lib/fantasdic/sources/google_translate.rb:26
+msgid "Google Translate"
+msgstr ""
+
+#: ../lib/fantasdic/sources/google_translate.rb:27
+msgid "Translate words using Google Translate."
+msgstr ""
+
+#: ../lib/fantasdic/sources/stardict_file.rb:152
+msgid "Stardict file"
+msgstr ""
+
+#: ../lib/fantasdic/sources/stardict_file.rb:153
+msgid "Look up words in Stardict files."
+msgstr ""
+
+#: ../lib/fantasdic/sources/stardict_file.rb:182
+msgid "Ifo files"
+msgstr ""
+
+#: ../lib/fantasdic/sources/stardict_file.rb:199
+msgid "Wrong .ifo or .idx file!"
+msgstr ""
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:101
+#: ../lib/fantasdic/ui/main_app.rb:120
+#, c-format
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "Geriadur \"%s\" n'eo ket anezhañ ken"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:119
+#, fuzzy
+#| msgid "Add dictionary"
+msgid "Virtual dictionary"
+msgstr "Ouzhpennañ ur geriadur"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:120
+msgid "Look up words in several dictionaries at once."
+msgstr ""
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:27
+#, c-format
+msgid "About database %s"
+msgstr ""
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:267
+#| msgid "Fields missing"
+msgid "Name missing."
+msgstr "Anv o vankout."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:270
+#, fuzzy
+#| msgid "Search _databases selected below"
+msgid "No database selected!"
+msgstr "Klask e-barzh stlennvonoù (databases) diuzet"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:284
+#, fuzzy, c-format
+#| msgid "Dictionary \"%s\" does not exist anymore"
+msgid "Dictionary %s exists already!"
+msgstr "Geriadur \"%s\" n'eo ket anezhañ ken"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:381
+msgid "Fetching databases information..."
+msgstr ""
+
+#: ../lib/fantasdic/ui/browser.rb:38
+msgid "Could not open browser."
+msgstr ""
+
+#: ../lib/fantasdic/ui/browser.rb:43
+msgid "Could not find documentation."
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:87
+msgid "No dictionary configured"
+msgstr "N'eus ket geriadur kefluniet"
+
+#: ../lib/fantasdic/ui/main_app.rb:130
+#, fuzzy, c-format
+#| msgid "Dictionary \"%s\" does not exist anymore"
+msgid "Dictionary source \"%s\" does not exist anymore"
+msgstr "Geriadur \"%s\" n'eo ket anezhañ ken"
+
+#: ../lib/fantasdic/ui/main_app.rb:248
+msgid "Source error"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:279
+#, fuzzy
+#| msgid "No match found."
+msgid "No definition found."
+msgstr "N'eus ket disoc'h."
+
+#: ../lib/fantasdic/ui/main_app.rb:283
+#, c-format
+msgid "One definition found."
+msgid_plural "Definitions found: %d."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../lib/fantasdic/ui/main_app.rb:320
+#, c-format
+msgid "1 match"
+msgid_plural "%d matches"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../lib/fantasdic/ui/main_app.rb:626
 #, c-format
 msgid "Search %s"
 msgstr "Klask %s"
 
-#: ../lib/fantasdic/ui/main_app.rb:445
-#: ../data/fantasdic/glade/main_app.glade.h:2
-msgid "_Look Up"
-msgstr "_Klask"
+#: ../lib/fantasdic/ui/main_app.rb:650
+msgid "Zoom over character"
+msgstr ""
 
-#: ../lib/fantasdic/ui/main_app.rb:448
+#: ../lib/fantasdic/ui/main_app.rb:665
+#: ../lib/fantasdic/ui/main_app.rb:1044
+msgid "Select _All"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:835
+msgid "Save definition"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1034
+msgid "Print Set_up"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1042
 msgid "_Edit"
-msgstr "_Aozañ"
+msgstr "K_emmañ"
 
-#: ../lib/fantasdic/ui/main_app.rb:449
-msgid "Clear history"
+#: ../lib/fantasdic/ui/main_app.rb:1046
+#, fuzzy
+#| msgid "Clear history"
+msgid "Clear History"
 msgstr "Goullonderiñ an istorig"
 
-#: ../lib/fantasdic/ui/main_app.rb:453
+#: ../lib/fantasdic/ui/main_app.rb:1049
+msgid "Find N_ext"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1051
+msgid "Find Pre_vious"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1057
 msgid "_View"
 msgstr "_Gwelout"
 
-#: ../lib/fantasdic/ui/main_app.rb:454
+#: ../lib/fantasdic/ui/main_app.rb:1058
+msgid "_Text size"
+msgstr "Ment an des_tenn"
+
+#: ../lib/fantasdic/ui/main_app.rb:1063
+msgid "Zoom normal"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1068
 msgid "_Go"
 msgstr "_Mont"
 
-#: ../lib/fantasdic/ui/main_app.rb:459
+#: ../lib/fantasdic/ui/main_app.rb:1073
+msgid "_Previous Definition"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1075
+msgid "_Next Definition"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1077
+msgid "_First Definition"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1079
+msgid "_Last Definition"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1081
+msgid "Previous Database"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1083
+msgid "Next Database"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1085
+msgid "First Database"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1087
+msgid "Last Database"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1091
 msgid "_Help"
 msgstr "_Skoazell"
 
-#: ../lib/fantasdic/ui/main_app.rb:460
+#: ../lib/fantasdic/ui/main_app.rb:1092
+msgid "_Contents"
+msgstr "Endal_c'hadoù"
+
+#: ../lib/fantasdic/ui/main_app.rb:1093
+msgid "Submit _Bug Report"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:1095
 msgid "About"
 msgstr "A-zivout"
 
-#: ../lib/fantasdic/ui/main_app.rb:489
+#: ../lib/fantasdic/ui/main_app.rb:1135
 msgid "Scan clipboard"
-msgstr "Klask e-barzh ar pouez paperioù"
+msgstr "Klask e-barzh ar golver"
 
-#: ../lib/fantasdic/ui/main_app.rb:491
-msgid "_History"
-msgstr "_Istor"
+#: ../lib/fantasdic/ui/main_app.rb:1137
+msgid "_Matches"
+msgstr ""
 
-#: ../lib/fantasdic/ui/main_app.rb:493
+#: ../lib/fantasdic/ui/main_app.rb:1139
 msgid "_Statusbar"
-msgstr "_Barrenn a stad"
+msgstr "_Barrenn ar stad"
 
-#: ../lib/fantasdic/ui/main_app.rb:495
+#: ../lib/fantasdic/ui/main_app.rb:1141
 msgid "_Toolbar"
 msgstr "_Barrenn an ostilhoù"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
-msgid "Add dictionary"
-msgstr "Ouzhpennañ ur geriadur"
+#: ../lib/fantasdic/ui/main_app.rb:1143
+msgid "_Keep above"
+msgstr ""
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:2
-msgid "Pass_word"
-msgstr "Ger tremen"
+#: ../lib/fantasdic/ui/preferences_dialog.rb:207
+msgid "SOCKS 5 proxy"
+msgstr ""
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:3
-msgid "S_earch strategy:"
-msgstr "Belladur klaskerezh :"
+#: ../lib/fantasdic/ui/preferences_dialog.rb:207
+msgid "HTTP proxy"
+msgstr ""
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:4
-msgid "Search _all databases"
-msgstr "Klask holl stlennvonoù (databases)"
+#: ../lib/fantasdic/ui/print.rb:195
+#, fuzzy, c-format
+#| msgid "Waiting for %s..."
+msgid "Definitions for %s"
+msgstr "O c'hortoz %s..."
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
-msgid "Search _databases selected below"
-msgstr "Klask e-barzh stlennvonoù (databases) diuzet"
+#: ../lib/fantasdic/ui/print.rb:196
+#, c-format
+msgid "Page %d/%d"
+msgstr ""
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
-msgid "Server _requires authentication"
-msgstr "Ar servijer a c'houlenn dilesadur"
+#: ../lib/fantasdic/ui/print.rb:207
+msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
+msgstr ""
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
-msgid "_Name:"
-msgstr "_Anv an ostiz :"
+#~ msgid "Matches found for \"%s\": %d."
+#~ msgstr "Disoc'hoù kavet evit \"%s\": %d."
+#~ msgid "Suggested results:"
+#~ msgstr "Disoc'hoù gallus :"
+#~ msgid "_Look Up"
+#~ msgstr "_Klask"
+#~ msgid "_History"
+#~ msgstr "_Istor"
+#~ msgid "S_earch strategy:"
+#~ msgstr "Belladur klaskerezh :"
 
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
-msgid "_Port:"
-msgstr "_Porzh :"
-
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
-msgid "_Server:"
-msgstr "_Servijer :"
-
-#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
-msgid "_Username:"
-msgstr "_Anv implijer :"
-
-#: ../data/fantasdic/glade/main_app.glade.h:1
-msgid "Fantasdic"
-msgstr "Fantasdic"
-
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:1
-msgid "Dictionaries"
-msgstr "Geriadurioù"
-
-#: ../data/fantasdic/glade/preferences_dialog.glade.h:2
-msgid "Preferences"
-msgstr "Dibaboù gwellañ"
