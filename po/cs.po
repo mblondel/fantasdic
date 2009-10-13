@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-01 17:42+0100\n"
-"PO-Revision-Date: 2009-01-26 20:23+0100\n"
+"POT-Creation-Date: 2009-10-13 23:26+0200\n"
+"PO-Revision-Date: 2009-10-04 21:14+0100\n"
 "Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -248,9 +248,25 @@ msgstr[0] "Nalezeno jedno shodné slovo."
 msgstr[1] "Nalezena %d shodná slova."
 msgstr[2] "Nalezeno %d shodných slov."
 
-#: ../lib/fantasdic.rb:103
-msgid "Look up words in various dictionary sources"
-msgstr "Vyhledat slova v různých zdrojích slovníků"
+#: ../lib/fantasdic/file_source.rb:131
+msgid "Select a file"
+msgstr "Vyberte soubor"
+
+#: ../lib/fantasdic/file_source.rb:136
+msgid "A file must be selected!"
+msgstr "Musí být vybrán soubor!"
+
+#: ../lib/fantasdic/file_source.rb:170
+msgid "All files"
+msgstr "Všechny soubory"
+
+#: ../lib/fantasdic/file_source.rb:174
+msgid "_File:"
+msgstr "_Soubor:"
+
+#: ../lib/fantasdic/file_source.rb:192
+msgid "_Encoding:"
+msgstr "_Kódování:"
 
 #: ../lib/fantasdic/source_base.rb:198
 msgid "Connecting to source..."
@@ -263,6 +279,39 @@ msgstr "Přenáší se data ze zdroje..."
 #: ../lib/fantasdic/source_base.rb:259 ../lib/fantasdic/source_base.rb:267
 msgid "Can't convert encodings."
 msgstr "Nelze konvertovat kódování."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:143
+msgid "Dictd file"
+msgstr "Soubor Dictd"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:144
+msgid "Look up words in files aimed for the dictd server."
+msgstr "Vyhledat slova v souborech zaměřených na servery dictd."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:172
+#: ../lib/fantasdic/sources/stardict_file.rb:181
+msgid "Select a dictd file"
+msgstr "Vyberte soubor dictd"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:173
+msgid "Index files"
+msgstr "Soubory s indexy"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:207
+msgid "This file is not a valid index file!"
+msgstr "Tento soubor není platným indexovým souborem!"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:270
+#: ../lib/fantasdic/sources/edict_file.rb:174
+#: ../lib/fantasdic/sources/stardict_file.rb:258
+#, c-format
+msgid "Cannot open file %s."
+msgstr "Nelze otevřít soubor %s."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:278
+#: ../lib/fantasdic/sources/stardict_file.rb:264
+msgid "Couldn't find .dict or .dict.dz dictionary file."
+msgstr "Nelze najít soubor slovníku .dict nebo .dict.dz"
 
 #: ../lib/fantasdic/sources/dict_server.rb:23
 msgid "DICT dictionary server"
@@ -346,28 +395,43 @@ msgstr "Vyberte soubor EDICT"
 msgid "Gzip-compressed files"
 msgstr "Komprimovaný soubor Gzip"
 
-#: ../lib/fantasdic/sources/edict_file.rb:78
-#: ../lib/fantasdic/sources/edict_file.rb:83
-#: ../lib/fantasdic/sources/edict_file.rb:203
+#: ../lib/fantasdic/sources/edict_file.rb:79
+#: ../lib/fantasdic/sources/edict_file.rb:84
+#: ../lib/fantasdic/sources/edict_file.rb:181
 msgid "This file is not a valid EDICT file!"
 msgstr "Tento soubor není platným souborem EDICT!"
 
-#: ../lib/fantasdic/sources/edict_file.rb:196
-#, c-format
-msgid "Cannot open file %s."
-msgstr "Nelze otevřít soubor %s."
-
-#: ../lib/fantasdic/sources/edict_file.rb:278
+#: ../lib/fantasdic/sources/edict_file.rb:256
 msgid "Encoding not supported."
 msgstr "Kódování není podporováno."
 
-#: ../lib/fantasdic/sources/edict_file.rb:293
+#: ../lib/fantasdic/sources/edict_file.rb:271
 msgid "EDICT file"
 msgstr "Soubor EDICT"
 
-#: ../lib/fantasdic/sources/edict_file.rb:294
+#: ../lib/fantasdic/sources/edict_file.rb:272
 msgid "Look up words in an EDICT file."
 msgstr "Vyhledat slova v souboru EDICT."
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:30
+msgid "EPWING dictionary"
+msgstr "Slovník EPWING"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:31
+msgid "Look up words in EPWING dictionaries."
+msgstr "Vyhledat slova ve slovnících EPWING"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:40
+msgid "Select a CATALOGS file"
+msgstr "Vyberte soubor CATALOGS"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:55
+msgid "You're missing rubyeb (libeb for Ruby)!"
+msgstr "Chybí rubyeb (libeb pro Ruby)!"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:167
+msgid "Not an EPWING dictionary!"
+msgstr "Toto není slovník EPWING!"
 
 #: ../lib/fantasdic/sources/google_translate.rb:26
 msgid "Google Translate"
@@ -376,6 +440,36 @@ msgstr "Překladač Google"
 #: ../lib/fantasdic/sources/google_translate.rb:27
 msgid "Translate words using Google Translate."
 msgstr "Přeložit slova pomocí překladače Google."
+
+#: ../lib/fantasdic/sources/stardict_file.rb:152
+msgid "Stardict file"
+msgstr "Soubor Stardict"
+
+#: ../lib/fantasdic/sources/stardict_file.rb:153
+msgid "Look up words in Stardict files."
+msgstr "Vyhledat slova v souborech Stardict."
+
+#: ../lib/fantasdic/sources/stardict_file.rb:182
+msgid "Ifo files"
+msgstr "Soubory Ifo"
+
+#: ../lib/fantasdic/sources/stardict_file.rb:199
+msgid "Wrong .ifo or .idx file!"
+msgstr "Špatný soubor .ifo nebo .idx!"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:101
+#: ../lib/fantasdic/ui/main_app.rb:120
+#, c-format
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "Slovník \"%s\" už neexistuje"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:119
+msgid "Virtual dictionary"
+msgstr "Virtuální slovník"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:120
+msgid "Look up words in several dictionaries at once."
+msgstr "Vyhledat slova v několika slovnících najednou."
 
 #: ../lib/fantasdic/ui/add_dictionary_dialog.rb:27
 #, c-format
@@ -399,22 +493,17 @@ msgstr "Slovník %s už existuje!"
 msgid "Fetching databases information..."
 msgstr "Přenáší se informace o databázích..."
 
-#: ../lib/fantasdic/ui/browser.rb:37
+#: ../lib/fantasdic/ui/browser.rb:38
 msgid "Could not open browser."
 msgstr "Nelze otevřít prohlížeč."
 
-#: ../lib/fantasdic/ui/browser.rb:42
+#: ../lib/fantasdic/ui/browser.rb:43
 msgid "Could not find documentation."
 msgstr "Nelze nalézt dokumentaci."
 
 #: ../lib/fantasdic/ui/main_app.rb:87
 msgid "No dictionary configured"
 msgstr "Není nastaven žádný slovník"
-
-#: ../lib/fantasdic/ui/main_app.rb:120
-#, c-format
-msgid "Dictionary \"%s\" does not exist anymore"
-msgstr "Slovník \"%s\" už neexistuje"
 
 #: ../lib/fantasdic/ui/main_app.rb:130
 #, c-format
@@ -564,7 +653,7 @@ msgstr "Lišta _nástrojů"
 
 #: ../lib/fantasdic/ui/main_app.rb:1143
 msgid "_Keep above"
-msgstr "U_držovat nahoře"
+msgstr "_Vždy navrchu"
 
 #: ../lib/fantasdic/ui/preferences_dialog.rb:207
 msgid "SOCKS 5 proxy"
