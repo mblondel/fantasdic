@@ -1,0 +1,674 @@
+# Danish translation for fantasdic.
+# Copyright (C) 2009 fantasdic's COPYRIGHT HOLDER.
+# This file is distributed under the same license as the fantasdic package.
+# Joe Hansen (joedalton2@yahoo.dk), 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fantasdic master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-01 00:32+0100\n"
+"PO-Revision-Date: 2009-11-28 14:51+0000\n"
+"Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
+msgid "<b>Print</b>"
+msgstr "<b>Udskriv</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:2
+msgid "<b>Results</b>"
+msgstr "<b>Resultater</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:3
+msgid "Add dictionary"
+msgstr "Tilføj ordbog"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:4
+msgid "Available databases"
+msgstr "Tilgængelige databaser"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
+msgid "Databases"
+msgstr "Databaser"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
+msgid "Fonts"
+msgstr "Skrifttyper"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
+msgid "Move database to selected databases"
+msgstr "Flyt database til valgte databaser"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
+msgid "Remove database from selected databases"
+msgstr "Fjerne database fra valgte databaser"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
+msgid "Restore default fonts"
+msgstr "Genetabler standardskrifttyper"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
+msgid "Search _all databases"
+msgstr "Søg i _alle databaser"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
+msgid "Search selected _databases"
+msgstr "Søg i valgte _databaser"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
+msgid "Select a font"
+msgstr "Vælg en skrifttype"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:13
+msgid "Selected databases"
+msgstr "Valgte databaser"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
+msgid "Source"
+msgstr "Kilde"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
+msgid ""
+"This name will identify your dictionary uniquely and will appear in the "
+"application menu."
+msgstr ""
+"Dette navn vil være en unik identifikation af din ordbog og vil fremgå af "
+"programmenuen."
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
+msgid "_Name:"
+msgstr "_Navn:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
+msgid "_Source:"
+msgstr "_Kilde:"
+
+#: ../data/fantasdic/glade/main_app.glade.h:1
+msgid "<i>Not found</i>"
+msgstr "<i>Ikke fundet</i>"
+
+#: ../data/fantasdic/glade/main_app.glade.h:2
+msgid "Fantasdic"
+msgstr "Fantasdic"
+
+#: ../data/fantasdic/glade/main_app.glade.h:3
+msgid "Find: "
+msgstr "Søg: "
+
+#: ../data/fantasdic/glade/main_app.glade.h:4
+#: ../lib/fantasdic/ui/main_app.rb:325
+msgid "Matches"
+msgstr "Resultater"
+
+#: ../data/fantasdic/glade/main_app.glade.h:5
+msgid "_Next"
+msgstr "_Næste"
+
+#: ../data/fantasdic/glade/main_app.glade.h:6
+msgid "_Previous"
+msgstr "_Forrige"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:1
+msgid "<b>Startup</b>"
+msgstr "<b>Opstart</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:2
+msgid "<b>System tray</b>"
+msgstr "<b>Statusfelt</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:3
+msgid "Dictionaries"
+msgstr "Ordbøger"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:4
+msgid "Do _not quit when main window is closed"
+msgstr "Afslut ikke _når hovedvinduet er lukket"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:5
+msgid "Do not show main window at startup"
+msgstr "Vis ikke hovedvindue ved opstart"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:6
+msgid "Enable HTTP proxy"
+msgstr "Slå HTTP-proxy til"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:7
+msgid "Enable SOCKS 5 proxy"
+msgstr "Slå SOCKS 5-proxy til"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
+msgid "Fantasdic will stay in the system tray even if the window is closed."
+msgstr "Fantasdic vil blive i statusfeltet, selv hvis vinduet lukkes."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
+msgid "Host:"
+msgstr "Vært:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
+msgid "Password:"
+msgstr "Adgangskode:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
+msgid "Port:"
+msgstr "Port:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
+msgid "Preferences"
+msgstr "Indstillinger"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
+msgid "Proxy"
+msgstr "Proxy"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
+msgid "Startup"
+msgstr "Opstart"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
+msgid ""
+"This option should be enabled if Fantasdic is started when the computer "
+"boots."
+msgstr ""
+"Dette tilvalg bør være slået til hvis Fantasdic startes når computeren "
+"starter op."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
+msgid "This proxy can for example be used to traverse firewalls."
+msgstr ""
+"Denne proxy kan for eksempel bruges til at omgås brandmure (firewalls)."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
+msgid "Username:"
+msgstr "Brugernavn:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
+msgid "_Look up last word at startup"
+msgstr "S_lå sidste ord op ved opstart"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:19
+msgid "_Show Fantasdic in system tray"
+msgstr "Vi_s Fantasdic i statusfeltet"
+
+#: ../data/fantasdic/glade/server_infos_dialog.glade.h:1
+msgid "Server informations"
+msgstr "Serverinformationer"
+
+#: ../lib/fantasdic/command_line.rb:34
+msgid "Usage: fantasdic [options] [dictionary] [word]"
+msgstr "Brug: fantasdic [tilvalg] [ordbog] [ord]"
+
+#: ../lib/fantasdic/command_line.rb:37
+msgid "Print results to stdout"
+msgstr "Udskriv resultater til stdout"
+
+#: ../lib/fantasdic/command_line.rb:42
+msgid "List dictionaries in settings"
+msgstr "Vis ordbøger i opsætning"
+
+#: ../lib/fantasdic/command_line.rb:47
+msgid "List strategies available for dictionary"
+msgstr "Vis strategier tilgængelig for ordbog"
+
+#: ../lib/fantasdic/command_line.rb:52
+msgid "Use strategy to match words"
+msgstr "Brug strategi til at matche ord"
+
+#: ../lib/fantasdic/command_line.rb:56
+msgid "Show this message"
+msgstr "Vis denne besked"
+
+#: ../lib/fantasdic/command_line.rb:61
+msgid "Show version"
+msgstr "Vis version"
+
+#: ../lib/fantasdic/command_line.rb:67
+msgid "Enable debug mode"
+msgstr "Slå fejlsøgningstilstand til"
+
+#: ../lib/fantasdic/command_line.rb:90
+msgid "Error: Dictionary does not exist in the settings"
+msgstr "Fejl: Ordbog eksisterer ikke i opsætning"
+
+#: ../lib/fantasdic/command_line.rb:107 ../lib/fantasdic/command_line.rb:153
+#: ../lib/fantasdic/ui/main_app.rb:324
+msgid "No match found."
+msgstr "Ingen resultater."
+
+#: ../lib/fantasdic/command_line.rb:109
+#, c-format
+msgid "One match found."
+msgid_plural "Matches found: %d."
+msgstr[0] "Et resultat fundet."
+msgstr[1] "Resultater: %d."
+
+#: ../lib/fantasdic/file_source.rb:131
+msgid "Select a file"
+msgstr "Vælg en fil"
+
+#: ../lib/fantasdic/file_source.rb:136
+msgid "A file must be selected!"
+msgstr "En fil skal vælges!"
+
+#: ../lib/fantasdic/file_source.rb:170
+msgid "All files"
+msgstr "Alle filer"
+
+#: ../lib/fantasdic/file_source.rb:174
+msgid "_File:"
+msgstr "_Fil:"
+
+#: ../lib/fantasdic/file_source.rb:192
+msgid "_Encoding:"
+msgstr "_Kodning:"
+
+#: ../lib/fantasdic/source_base.rb:198
+msgid "Connecting to source..."
+msgstr "Forbinder til kilde..."
+
+#: ../lib/fantasdic/source_base.rb:202
+msgid "Transferring data from source ..."
+msgstr "Overfører data fra kilde ..."
+
+#: ../lib/fantasdic/source_base.rb:259 ../lib/fantasdic/source_base.rb:267
+msgid "Can't convert encodings."
+msgstr "Kan ikke konvertere kodninger."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:143
+msgid "Dictd file"
+msgstr "Dictd-fil"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:144
+msgid "Look up words in files aimed for the dictd server."
+msgstr "Slå ord op i filer beregnet til dictd-serveren."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:172
+#: ../lib/fantasdic/sources/stardict_file.rb:181
+msgid "Select a dictd file"
+msgstr "Vælg en dictd-fil"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:173
+msgid "Index files"
+msgstr "Indeksfiler"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:207
+msgid "This file is not a valid index file!"
+msgstr "Denne fil er ikke en gyldig indeksfil!"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:270
+#: ../lib/fantasdic/sources/edict_file.rb:174
+#: ../lib/fantasdic/sources/stardict_file.rb:258
+#, c-format
+msgid "Cannot open file %s."
+msgstr "Kan ikke åbne fil %s."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:278
+#: ../lib/fantasdic/sources/stardict_file.rb:264
+msgid "Couldn't find .dict or .dict.dz dictionary file."
+msgstr "Kunne ikke finde .dict eller .dict.dz ordbogsfil."
+
+#: ../lib/fantasdic/sources/dict_server.rb:23
+msgid "DICT dictionary server"
+msgstr "DICT-ordbogsserver"
+
+#: ../lib/fantasdic/sources/dict_server.rb:24
+msgid "Look up words using a DICT dictionary server."
+msgstr "Slå ord op ved brug af en DICT-ordbogsserver."
+
+#: ../lib/fantasdic/sources/dict_server.rb:34
+msgid "Server details"
+msgstr "Serverdetaljer"
+
+#: ../lib/fantasdic/sources/dict_server.rb:60
+#: ../lib/fantasdic/sources/dict_server.rb:268
+#: ../lib/fantasdic/sources/dict_server.rb:278
+#: ../lib/fantasdic/sources/dict_server.rb:293
+#: ../lib/fantasdic/sources/dict_server.rb:304
+#, c-format
+msgid "Could not connect to %s"
+msgstr "Kunne ikke forbinde til %s"
+
+#: ../lib/fantasdic/sources/dict_server.rb:76
+#: ../lib/fantasdic/sources/dict_server.rb:205
+msgid "Server missing."
+msgstr "Server mangler."
+
+#: ../lib/fantasdic/sources/dict_server.rb:77
+#: ../lib/fantasdic/sources/dict_server.rb:210
+msgid "Port missing."
+msgstr "Port mangler."
+
+#: ../lib/fantasdic/sources/dict_server.rb:80
+msgid "Username missing."
+msgstr "Brugernavn mangler."
+
+#: ../lib/fantasdic/sources/dict_server.rb:82
+msgid "Password missing."
+msgstr "Adgangskode mangler."
+
+#: ../lib/fantasdic/sources/dict_server.rb:103
+msgid "_Server:"
+msgstr "_Server:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:115
+msgid "_Port:"
+msgstr "_Port:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:135
+msgid "Server _requires authentication"
+msgstr "Server k_ræver godkendelse"
+
+#: ../lib/fantasdic/sources/dict_server.rb:140
+msgid "_Username:"
+msgstr "_Brugernavn:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:144
+msgid "Pass_word:"
+msgstr "Adgang_skode:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:313
+#: ../lib/fantasdic/sources/dict_server.rb:322
+msgid "Connection with server lost."
+msgstr "Forbindelse med server tabt."
+
+#: ../lib/fantasdic/sources/dict_server.rb:327
+#, c-format
+msgid "Waiting for %s..."
+msgstr "Venter på %s..."
+
+#: ../lib/fantasdic/sources/dict_server.rb:331
+#, c-format
+msgid "Transferring data from %s..."
+msgstr "Overfører data fra %s..."
+
+#: ../lib/fantasdic/sources/edict_file.rb:47
+msgid "Select an EDICT file"
+msgstr "Vælg en EDICT-fil"
+
+#: ../lib/fantasdic/sources/edict_file.rb:48
+msgid "Gzip-compressed files"
+msgstr "Gzip-komprimeret filer"
+
+#: ../lib/fantasdic/sources/edict_file.rb:79
+#: ../lib/fantasdic/sources/edict_file.rb:84
+#: ../lib/fantasdic/sources/edict_file.rb:181
+msgid "This file is not a valid EDICT file!"
+msgstr "Denne fil er ikke en gyldig EDICT-fil!"
+
+#: ../lib/fantasdic/sources/edict_file.rb:256
+msgid "Encoding not supported."
+msgstr "Kodning ikke understøttet."
+
+#: ../lib/fantasdic/sources/edict_file.rb:271
+msgid "EDICT file"
+msgstr "EDICT-fil"
+
+#: ../lib/fantasdic/sources/edict_file.rb:272
+msgid "Look up words in an EDICT file."
+msgstr "Slå ord op i en EDICT-fil."
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:30
+msgid "EPWING dictionary"
+msgstr "EPWING-ordbog"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:31
+msgid "Look up words in EPWING dictionaries."
+msgstr "Slå ord op i EPWING-ordbøger."
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:40
+msgid "Select a CATALOGS file"
+msgstr "Vælg en CATALOGS-fil"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:55
+msgid "You're missing rubyeb (libeb for Ruby)!"
+msgstr "Du mangler rubyeb (libeb til Ruby)!"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:167
+msgid "Not an EPWING dictionary!"
+msgstr "Ikke en EPWING-ordbog!"
+
+#: ../lib/fantasdic/sources/google_translate.rb:26
+msgid "Google Translate"
+msgstr "Google Translate (oversættelse via Google)"
+
+#: ../lib/fantasdic/sources/google_translate.rb:27
+msgid "Translate words using Google Translate."
+msgstr "Oversæt ord ved brug af Google Translate."
+
+#: ../lib/fantasdic/sources/stardict_file.rb:152
+msgid "Stardict file"
+msgstr "Stardictfil"
+
+#: ../lib/fantasdic/sources/stardict_file.rb:153
+msgid "Look up words in Stardict files."
+msgstr "Slå ord op i Stardictfiler."
+
+#: ../lib/fantasdic/sources/stardict_file.rb:182
+msgid "Ifo files"
+msgstr "Ifo-filer"
+
+#: ../lib/fantasdic/sources/stardict_file.rb:199
+msgid "Wrong .ifo or .idx file!"
+msgstr "Forkert .ifo eller .idx fil!"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:101
+#: ../lib/fantasdic/ui/main_app.rb:120
+#, c-format
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "Ordbog \"%s\" eksisterer ikke mere"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:119
+msgid "Virtual dictionary"
+msgstr "Virtuel ordbog"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:120
+msgid "Look up words in several dictionaries at once."
+msgstr "Slå ord op i flere ordbøger på en gang."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:27
+#, c-format
+msgid "About database %s"
+msgstr "Om database %s"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:267
+msgid "Name missing."
+msgstr "Navn mangler."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:270
+msgid "No database selected!"
+msgstr "Ingen database valgt!"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:284
+#, c-format
+msgid "Dictionary %s exists already!"
+msgstr "Ordbog %s eksisterer allerede!"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:381
+msgid "Fetching databases information..."
+msgstr "Henter databaseinformation..."
+
+#: ../lib/fantasdic/ui/browser.rb:38
+msgid "Could not open browser."
+msgstr "Kunne ikke åbne browser."
+
+#: ../lib/fantasdic/ui/browser.rb:43
+msgid "Could not find documentation."
+msgstr "Kunne ikke finde dokumentation."
+
+#: ../lib/fantasdic/ui/main_app.rb:87
+msgid "No dictionary configured"
+msgstr "Ingen ordbog konfigureret"
+
+#: ../lib/fantasdic/ui/main_app.rb:130
+#, c-format
+msgid "Dictionary source \"%s\" does not exist anymore"
+msgstr "Ordbogskilde \"%s\" eksisterer ikke mere"
+
+#: ../lib/fantasdic/ui/main_app.rb:248
+msgid "Source error"
+msgstr "Kildefejl"
+
+#: ../lib/fantasdic/ui/main_app.rb:279
+msgid "No definition found."
+msgstr "Ingen definition fundet."
+
+#: ../lib/fantasdic/ui/main_app.rb:283
+#, c-format
+msgid "One definition found."
+msgid_plural "Definitions found: %d."
+msgstr[0] "En definition fundet."
+msgstr[1] "Definitioner fundet: %d."
+
+#: ../lib/fantasdic/ui/main_app.rb:320
+#, c-format
+msgid "1 match"
+msgid_plural "%d matches"
+msgstr[0] "1 resultat"
+msgstr[1] "%d resultater"
+
+#: ../lib/fantasdic/ui/main_app.rb:626
+#, c-format
+msgid "Search %s"
+msgstr "Søg %s"
+
+#: ../lib/fantasdic/ui/main_app.rb:650
+msgid "Zoom over character"
+msgstr "Zoom over tegn"
+
+#: ../lib/fantasdic/ui/main_app.rb:665 ../lib/fantasdic/ui/main_app.rb:1044
+msgid "Select _All"
+msgstr "Vælg _alle"
+
+#: ../lib/fantasdic/ui/main_app.rb:835
+msgid "Save definition"
+msgstr "Gem definition"
+
+#: ../lib/fantasdic/ui/main_app.rb:1034
+msgid "Print Set_up"
+msgstr "Udskriv ops_ætning"
+
+#: ../lib/fantasdic/ui/main_app.rb:1042
+msgid "_Edit"
+msgstr "R_ediger"
+
+#: ../lib/fantasdic/ui/main_app.rb:1046
+msgid "Clear History"
+msgstr "Ryd historie"
+
+#: ../lib/fantasdic/ui/main_app.rb:1049
+msgid "Find N_ext"
+msgstr "Find næst_e"
+
+#: ../lib/fantasdic/ui/main_app.rb:1051
+msgid "Find Pre_vious"
+msgstr "Find forr_ige"
+
+#: ../lib/fantasdic/ui/main_app.rb:1057
+msgid "_View"
+msgstr "_Vis"
+
+#: ../lib/fantasdic/ui/main_app.rb:1058
+msgid "_Text size"
+msgstr "_Tekststørrelse"
+
+#: ../lib/fantasdic/ui/main_app.rb:1063
+msgid "Zoom normal"
+msgstr "Zoom normal"
+
+#: ../lib/fantasdic/ui/main_app.rb:1068
+msgid "_Go"
+msgstr "_Start"
+
+#: ../lib/fantasdic/ui/main_app.rb:1073
+msgid "_Previous Definition"
+msgstr "_Forrige definition"
+
+#: ../lib/fantasdic/ui/main_app.rb:1075
+msgid "_Next Definition"
+msgstr "_Næste definition"
+
+#: ../lib/fantasdic/ui/main_app.rb:1077
+msgid "_First Definition"
+msgstr "_Første definition"
+
+#: ../lib/fantasdic/ui/main_app.rb:1079
+msgid "_Last Definition"
+msgstr "_Sidste definition"
+
+#: ../lib/fantasdic/ui/main_app.rb:1081
+msgid "Previous Database"
+msgstr "Forrige database"
+
+#: ../lib/fantasdic/ui/main_app.rb:1083
+msgid "Next Database"
+msgstr "Næste database"
+
+#: ../lib/fantasdic/ui/main_app.rb:1085
+msgid "First Database"
+msgstr "Første database"
+
+#: ../lib/fantasdic/ui/main_app.rb:1087
+msgid "Last Database"
+msgstr "Sidste database"
+
+#: ../lib/fantasdic/ui/main_app.rb:1091
+msgid "_Help"
+msgstr "_Hjælp"
+
+#: ../lib/fantasdic/ui/main_app.rb:1092
+msgid "_Contents"
+msgstr "_Indhold"
+
+#: ../lib/fantasdic/ui/main_app.rb:1093
+msgid "Submit _Bug Report"
+msgstr "Indsend _fejlrapport"
+
+#: ../lib/fantasdic/ui/main_app.rb:1095
+msgid "About"
+msgstr "Om"
+
+#: ../lib/fantasdic/ui/main_app.rb:1135
+msgid "Scan clipboard"
+msgstr "Skan udklipsholder"
+
+#: ../lib/fantasdic/ui/main_app.rb:1137
+msgid "_Matches"
+msgstr "_Resultater"
+
+#: ../lib/fantasdic/ui/main_app.rb:1139
+msgid "_Statusbar"
+msgstr "_Statusbjælke"
+
+#: ../lib/fantasdic/ui/main_app.rb:1141
+msgid "_Toolbar"
+msgstr "_Værktøjslinje"
+
+#: ../lib/fantasdic/ui/main_app.rb:1143
+msgid "_Keep above"
+msgstr "_Hold over"
+
+#: ../lib/fantasdic/ui/preferences_dialog.rb:207
+msgid "SOCKS 5 proxy"
+msgstr "SOCKS 5-proxy"
+
+#: ../lib/fantasdic/ui/preferences_dialog.rb:207
+msgid "HTTP proxy"
+msgstr "HTTP-proxy"
+
+#: ../lib/fantasdic/ui/print.rb:195
+#, c-format
+msgid "Definitions for %s"
+msgstr "Definitioner for %s"
+
+#: ../lib/fantasdic/ui/print.rb:196
+#, c-format
+msgid "Page %d/%d"
+msgstr "Side %d/%d"
+
+#: ../lib/fantasdic/ui/print.rb:207
+msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
+msgstr "Udskrevet af Fantasdic den %d/%m/%Y klokken %H:%M"
