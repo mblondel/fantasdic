@@ -51,7 +51,7 @@ module Source
 
         @registered_sources = []
         
-        DEFAULT_SOURCE = "DictdFile"
+        DEFAULT_SOURCE = "DictServer"
         ALL_DATABASES = DICTClient::ALL_DATABASES
         MAX_CACHE = 30
 
