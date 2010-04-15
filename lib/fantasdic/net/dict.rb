@@ -18,7 +18,7 @@
 # Highly modified version of Ruby/DICT, by Ian Macdonald <ian@caliban.org>
 
 require 'socket'
-require 'md5'
+require 'digest/md5'
 
 class DICTClient
 

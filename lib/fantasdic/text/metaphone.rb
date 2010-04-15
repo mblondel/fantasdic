@@ -1,3 +1,5 @@
+# coding:utf-8
+
 # 
 # An implementation of the Metaphone phonetic coding system in Ruby.
 # 
