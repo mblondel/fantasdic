@@ -100,8 +100,9 @@ class EpwingDictionary < Base
 
                 items.map do |head, contents|
                     defi = Definition.new
-                    defi.word = convert_to_utf8("euc-jp", head)
+                    defi.word = convert_to_utf8("euc-jp", head).gsub("\000", "")
                     defi.body = convert_to_utf8("euc-jp", contents)
+                    defi.body.gsub!("\000", "")
                     defi.database = name
                     defi.description = name.capitalize
                     defi
