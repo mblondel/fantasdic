@@ -8,7 +8,6 @@
   <shortdesc xml:lang="en">Versatile dictionary application</shortdesc>
   <homepage rdf:resource="http://projects.gnome.org/fantasdic/" />
   <mailing-list rdf:resource="http://mail.gnome.org/mailman/listinfo/fantasdic-list" />
-  <category rdf:resource="http://api.gnome.org/doap-extensions#other" />
 
   <maintainer>
     <foaf:Person>
