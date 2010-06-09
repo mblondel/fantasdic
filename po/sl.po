@@ -1,14 +1,16 @@
+# Slovenian translation for fontasdic.
 # Copyright (C) 2009 fantasdic's COPYRIGHT HOLDER
 # This file is distributed under the same license as the fantasdic package.
-# Andrej Žnidaršič, <andrej.znidarsic@gmail.com> 2009
+#
+# Andrej Žnidaršič, <andrej.znidarsic@gmail.com> 2009 - 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=fantasdic&component=general\n"
-"POT-Creation-Date: 2009-10-13 21:27+0000\n"
-"PO-Revision-Date: 2009-11-25 16:43+0100\n"
-"Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
+"POT-Creation-Date: 2009-11-27 12:31+0000\n"
+"PO-Revision-Date: 2010-06-09 19:50+0100\n"
+"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +22,7 @@ msgstr ""
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
 msgid "<b>Print</b>"
-msgstr "<b>Tiskanje</b>"
+msgstr "<b>Natisni</b>"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:2
 msgid "<b>Results</b>"
@@ -44,11 +46,11 @@ msgstr "Pisave"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
 msgid "Move database to selected databases"
-msgstr "Premakni podatkovno zbirko v izbrane podatkovne zbirke"
+msgstr "Premakni podatkovno zbirko med izbrane podatkovne zbirke"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
 msgid "Remove database from selected databases"
-msgstr "Odstrani podatkovno zbirko iz izbranih podatkovnih zbirk"
+msgstr "Odstrani podatkovno zbirko iz skupine izbranih podatkovnih zbirk"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
 msgid "Restore default fonts"
@@ -76,7 +78,7 @@ msgstr "Vir"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
 msgid "This name will identify your dictionary uniquely and will appear in the application menu."
-msgstr "To ime bo vaš slovar edinstveno določilo in se bo pojavilo v programskem meniju."
+msgstr "S tem imenom bo vaš slovar določen enoznačno in se bo tako pojavil v programskem meniju."
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
 msgid "_Name:"
@@ -88,7 +90,7 @@ msgstr "_Vir:"
 
 #: ../data/fantasdic/glade/main_app.glade.h:1
 msgid "<i>Not found</i>"
-msgstr "<i>Ni najdeno</i>"
+msgstr "<i>Ni mogoče najti</i>"
 
 #: ../data/fantasdic/glade/main_app.glade.h:2
 msgid "Fantasdic"
@@ -96,7 +98,7 @@ msgstr "Fantasdic"
 
 #: ../data/fantasdic/glade/main_app.glade.h:3
 msgid "Find: "
-msgstr "Iskanje: "
+msgstr "Najdi: "
 
 #: ../data/fantasdic/glade/main_app.glade.h:4
 #: ../lib/fantasdic/ui/main_app.rb:325
@@ -129,15 +131,15 @@ msgstr "Ne _končaj ko je glavno okno zaprto"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:5
 msgid "Do not show main window at startup"
-msgstr "Ob zagonu ne prikaži glavnega okna"
+msgstr "Ob zagonu ne pokaži glavnega okna"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:6
 msgid "Enable HTTP proxy"
-msgstr "Omogoči posredniški strežnik HTTP"
+msgstr "Omogoči HTTP posredniški strežnik"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:7
 msgid "Enable SOCKS 5 proxy"
-msgstr "Omogoči posredniški strežnik SOCKS 5"
+msgstr "Omogoči SOCKS 5 posredniški strežnik"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:8
 msgid "Fantasdic will stay in the system tray even if the window is closed."
@@ -157,7 +159,7 @@ msgstr "Vrata:"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:12
 msgid "Preferences"
-msgstr "Lastnosti"
+msgstr "Možnosti"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:13
 msgid "Proxy"
@@ -327,7 +329,7 @@ msgstr "Podrobnosti strežnika"
 #: ../lib/fantasdic/sources/dict_server.rb:304
 #, c-format
 msgid "Could not connect to %s"
-msgstr "Z %s se ni mogoče povezati"
+msgstr "S strežnikom %s se ni mogoče povezati"
 
 #: ../lib/fantasdic/sources/dict_server.rb:76
 #: ../lib/fantasdic/sources/dict_server.rb:205
@@ -380,7 +382,7 @@ msgstr "Čakanje na %s ..."
 #: ../lib/fantasdic/sources/dict_server.rb:331
 #, c-format
 msgid "Transferring data from %s..."
-msgstr "Prenašanje podatkov iz %s ..."
+msgstr "Prenašanje podatkov s strežnika %s ..."
 
 #: ../lib/fantasdic/sources/edict_file.rb:47
 msgid "Select an EDICT file"
@@ -498,7 +500,7 @@ msgstr "Dokumentacije ni mogoče najti."
 
 #: ../lib/fantasdic/ui/main_app.rb:87
 msgid "No dictionary configured"
-msgstr "Noben slovar ni nastavljen"
+msgstr "Ni nastavljenega slovarja"
 
 #: ../lib/fantasdic/ui/main_app.rb:130
 #, c-format
@@ -674,4 +676,3 @@ msgstr "Stran %d/%d"
 #: ../lib/fantasdic/ui/print.rb:207
 msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
 msgstr "Natisnjeno s Fantasdic na %d.%m.%Y ob %H.%M"
-
