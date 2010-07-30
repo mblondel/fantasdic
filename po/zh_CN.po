@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: fantasdic master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=fantasdic&component=general\n"
-"POT-Creation-Date: 2009-12-31 21:54+0000\n"
-"PO-Revision-Date: 2010-02-19 14:14+0800\n"
+"POT-Creation-Date: 2010-06-20 00:41+0000\n"
+"PO-Revision-Date: 2010-07-30 19:37+0800\n"
 "Last-Translator: Eleanor Chen <chenyueg@gmail.com>\n"
-"Language-Team: Chinese Simplefied <>\n"
+"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,7 +74,6 @@ msgid "Source"
 msgstr "源"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
-#, fuzzy
 msgid ""
 "This name will identify your dictionary uniquely and will appear in the "
 "application menu."
@@ -197,15 +196,15 @@ msgstr "服务器信息"
 
 #: ../lib/fantasdic/command_line.rb:34
 msgid "Usage: fantasdic [options] [dictionary] [word]"
-msgstr ""
+msgstr "用法：fantasdic [选项] [字典] [字]"
 
 #: ../lib/fantasdic/command_line.rb:37
 msgid "Print results to stdout"
-msgstr ""
+msgstr "将结果显示在标准输出"
 
 #: ../lib/fantasdic/command_line.rb:42
 msgid "List dictionaries in settings"
-msgstr ""
+msgstr "列出设置中的字典"
 
 #: ../lib/fantasdic/command_line.rb:47
 msgid "List strategies available for dictionary"
@@ -217,19 +216,19 @@ msgstr ""
 
 #: ../lib/fantasdic/command_line.rb:56
 msgid "Show this message"
-msgstr ""
+msgstr "显示此消息"
 
 #: ../lib/fantasdic/command_line.rb:61
 msgid "Show version"
-msgstr ""
+msgstr "显示版本"
 
 #: ../lib/fantasdic/command_line.rb:67
 msgid "Enable debug mode"
-msgstr ""
+msgstr "启用调试模式"
 
 #: ../lib/fantasdic/command_line.rb:90
 msgid "Error: Dictionary does not exist in the settings"
-msgstr ""
+msgstr "错误：设置中没有字典"
 
 #: ../lib/fantasdic/command_line.rb:107 ../lib/fantasdic/command_line.rb:153
 #: ../lib/fantasdic/ui/main_app.rb:324
@@ -423,7 +422,7 @@ msgstr "选择 CATALOGS 文件"
 msgid "You're missing rubyeb (libeb for Ruby)!"
 msgstr "您缺少了 rubyeb (Ruby 的 libeb)"
 
-#: ../lib/fantasdic/sources/epwing_dictionary.rb:167
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:168
 msgid "Not an EPWING dictionary!"
 msgstr "不是 EPWING 字典！"
 
@@ -630,7 +629,6 @@ msgid "Scan clipboard"
 msgstr "监听剪贴板"
 
 #: ../lib/fantasdic/ui/main_app.rb:1137
-#, fuzzy
 msgid "_Matches"
 msgstr "匹配项(_M)"
 
