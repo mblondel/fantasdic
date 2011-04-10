@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: fantasdic master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=fantasdic&component=general\n"
-"POT-Creation-Date: 2010-06-20 00:41+0000\n"
-"PO-Revision-Date: 2010-07-30 19:37+0800\n"
-"Last-Translator: Eleanor Chen <chenyueg@gmail.com>\n"
+"POT-Creation-Date: 2011-02-21 18:44+0000\n"
+"PO-Revision-Date: 2011-03-03 21:30+0800\n"
+"Last-Translator: Yinghua Wang <wantinghard@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -208,11 +208,11 @@ msgstr "列出设置中的字典"
 
 #: ../lib/fantasdic/command_line.rb:47
 msgid "List strategies available for dictionary"
-msgstr ""
+msgstr "列出字典可用的策略"
 
 #: ../lib/fantasdic/command_line.rb:52
 msgid "Use strategy to match words"
-msgstr ""
+msgstr "使用策略进行单词匹配"
 
 #: ../lib/fantasdic/command_line.rb:56
 msgid "Show this message"
