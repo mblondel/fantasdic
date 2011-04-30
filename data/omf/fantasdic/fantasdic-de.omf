@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE omf PUBLIC "-//OMF//DTD Scrollkeeper OMF Variant V1.0//EN" "http://scrollkeeper.sourceforge.net/dtds/scrollkeeper-omf-1.0/scrollkeeper-omf.dtd">
+<omf>
+  <resource>
+    <creator>
+      mariobl@freenet.de (Mario Blättermann)
+    </creator>
+    <maintainer>
+      mariobl@freenet.de (Mario Blättermann)
+    </maintainer>
+    <!--<contributor>
+      
+    </contributor>-->
+    <title>
+      Fantasdic-Handbuch
+    </title>
+    <date>
+      2011-04-30
+    </date>
+    <subject category="GNOME|Applications"/>
+    <description>
+      Dokumentation zum Fantasdic-Wörterbuch. 
+    </description>
+    <type>
+      user's guide
+    </type>
+    <format mime="text/xml" dtd="-//OASIS//DTD DocBook XML V4.1.2//EN"/>
+    <identifier url="file://PATH_TO_DOC_FILE"/>
+    <language code="C"/>
+    <relation seriesid="d1a372fc-661d-11dc-89d2-f4f64de55334"/>
+    <rights type="GNU FDL" license.version="1.1" holder="Mathieu Blondel"/>
+  </resource>
+</omf>
