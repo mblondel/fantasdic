@@ -1,0 +1,676 @@
+# Ukrainian translation for fantasdic.
+# Copyright (C) 2011 fantasdic's COPYRIGHT HOLDER
+# This file is distributed under the same license as the fantasdic package.
+# Sergiy Gavrylov <sergiovana@bigmir.net>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fantasdic master\n"
+"POT-Creation-Date: 2011-04-10 06:08+0000\n"
+"PO-Revision-Date: 2011-04-22 11:21+0300\n"
+"Last-Translator: Sergiy Gavrylov <sergiovana@bigmir.net>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/fantasdic.xml:124(None)
+msgid "@@image: 'figures/fantasdic.png'; md5=9829d6d29dd0691af4342a97c5b37692"
+msgstr "@@image: 'figures/fantasdic.png'; md5=9829d6d29dd0691af4342a97c5b37692"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/fantasdic.xml:158(None)
+msgid ""
+"@@image: 'figures/fantasdic-search.png'; md5=cb098a2f0d3ca44893f6372bead52a4e"
+msgstr ""
+"@@image: 'figures/fantasdic-search.png'; md5=cb098a2f0d3ca44893f6372bead52a4e"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/fantasdic.xml:205(None)
+msgid ""
+"@@image: 'figures/fantasdic-find-text.png'; "
+"md5=6327fd9bc8031cb96edf8e2e04bda918"
+msgstr ""
+"@@image: 'figures/fantasdic-find-text.png'; "
+"md5=6327fd9bc8031cb96edf8e2e04bda918"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/fantasdic.xml:257(None)
+msgid ""
+"@@image: 'figures/fantasdic-system-tray.png'; "
+"md5=5c966dc8a86ae1efc96c5724f64a12ec"
+msgstr ""
+"@@image: 'figures/fantasdic-system-tray.png'; "
+"md5=5c966dc8a86ae1efc96c5724f64a12ec"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/fantasdic.xml:286(None)
+msgid ""
+"@@image: 'figures/fantasdic-preferences-dictionaries.png'; "
+"md5=db04b0394b857144996a2d0f3ec564c9"
+msgstr ""
+"@@image: 'figures/fantasdic-preferences-dictionaries.png'; "
+"md5=db04b0394b857144996a2d0f3ec564c9"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/fantasdic.xml:319(None)
+msgid ""
+"@@image: 'figures/fantasdic-preferences-startup.png'; "
+"md5=ac79c966239969456815a046ddccfca9"
+msgstr ""
+"@@image: 'figures/fantasdic-preferences-startup.png'; "
+"md5=ac79c966239969456815a046ddccfca9"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/fantasdic.xml:339(None)
+msgid ""
+"@@image: 'figures/fantasdic-preferences-proxy.png'; "
+"md5=55269720ad0485f68dd5dda79700d09c"
+msgstr ""
+"@@image: 'figures/fantasdic-preferences-proxy.png'; "
+"md5=55269720ad0485f68dd5dda79700d09c"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/fantasdic.xml:373(None)
+msgid ""
+"@@image: 'figures/fantasdic-dictionaries-source.png'; "
+"md5=c73bd77b6cfc5b05a4a2eba8eb2893fe"
+msgstr ""
+"@@image: 'figures/fantasdic-dictionaries-source.png'; "
+"md5=c73bd77b6cfc5b05a4a2eba8eb2893fe"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/fantasdic.xml:450(None)
+msgid ""
+"@@image: 'figures/fantasdic-dictionaries-databases.png'; "
+"md5=f2e837b199ca5560ac68fcd429db4e39"
+msgstr ""
+"@@image: 'figures/fantasdic-dictionaries-databases.png'; "
+"md5=f2e837b199ca5560ac68fcd429db4e39"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/fantasdic.xml:481(None)
+msgid ""
+"@@image: 'figures/fantasdic-dictionaries-fonts.png'; "
+"md5=6f062e7d2fcfd7b855b4d718c9f321c4"
+msgstr ""
+"@@image: 'figures/fantasdic-dictionaries-fonts.png'; "
+"md5=6f062e7d2fcfd7b855b4d718c9f321c4"
+
+#: C/fantasdic.xml:17(title)
+msgid "<application>Fantasdic</application> Manual"
+msgstr "Посібник з <application>Fantasdic</application>"
+
+#: C/fantasdic.xml:19(year)
+msgid "2007"
+msgstr "2007"
+
+#: C/fantasdic.xml:19(holder) C/fantasdic.xml:34(para)
+#: C/fantasdic.xml:41(para) C/fantasdic.xml:47(publishername)
+msgid "Mathieu Blondel"
+msgstr "Mathieu Blondel"
+
+#: C/fantasdic.xml:31(revnumber)
+msgid "Initial Fantasdic Manual"
+msgstr "Початковий посібник з Fantasdic"
+
+#: C/fantasdic.xml:32(date)
+msgid "2007-09-16"
+msgstr "16-09-2007"
+
+#: C/fantasdic.xml:38(revnumber)
+msgid "typos, usage, preferences, dictionaries"
+msgstr "описки, використання, параметри, словники"
+
+#: C/fantasdic.xml:39(date)
+msgid "2007-11-27"
+msgstr "27-11-2007"
+
+#: C/fantasdic.xml:48(email)
+msgid "mblondel@svn.gnome.org"
+msgstr "mblondel@svn.gnome.org"
+
+#: C/fantasdic.xml:59(firstname)
+msgid "Mathieu"
+msgstr "Mathieu"
+
+#: C/fantasdic.xml:60(surname)
+msgid "Blondel"
+msgstr "Blondel"
+
+#: C/fantasdic.xml:65(releaseinfo)
+msgid "This documentation is for version 1.0 of Fantasdic."
+msgstr "Ця документація для Fantasdic версії 1.0."
+
+#: C/fantasdic.xml:70(para)
+msgid "User manual for the Fantasdic dictionary."
+msgstr "Посібник користувача словника Fantasdic."
+
+#: C/fantasdic.xml:75(primary)
+msgid "Fantasdic"
+msgstr "Fantasdic"
+
+#: C/fantasdic.xml:82(title)
+msgid "Introduction"
+msgstr "Передмова"
+
+#: C/fantasdic.xml:84(para)
+msgid ""
+"<application>Fantasdic</application> is a dictionary application. It enables "
+"to look up words in various dictionary sources."
+msgstr ""
+"Словникова програма <application>Fantasdic</application>. Надає можливості "
+"для пошуку слів в різноманітних словникових джерелах."
+
+#: C/fantasdic.xml:91(title)
+msgid "Getting Started"
+msgstr "Початок роботи"
+
+#: C/fantasdic.xml:93(para)
+msgid ""
+"You can start <application>Fantasdic</application> in the following ways:"
+msgstr "Запустити <application>Fantasdic</application> можна такими способами:"
+
+#: C/fantasdic.xml:98(term)
+msgid "<guimenu>Applications</guimenu> menu"
+msgstr "З меню <guimenu>Програми</guimenu>"
+
+#: C/fantasdic.xml:100(para)
+msgid ""
+"Choose <menuchoice><guisubmenu>Accessories</"
+"guisubmenu><guimenuitem>Fantasdic</guimenuitem></menuchoice>."
+msgstr ""
+"Виберіть <menuchoice><guisubmenu>Стандартні</"
+"guisubmenu><guimenuitem>Fantasdic</guimenuitem></menuchoice>."
+
+#: C/fantasdic.xml:108(term)
+msgid "Command line"
+msgstr "З командного рядка"
+
+#: C/fantasdic.xml:110(para)
+msgid "Execute the following command: <command>fantasdic</command>"
+msgstr "Виконайте команду: <command>fantasdic</command>"
+
+#: C/fantasdic.xml:116(para)
+msgid ""
+"Once started, the <application>Fantasdic</application> window is displayed:"
+msgstr "Після запуску, відкриється вікно <application>Fantasdic</application>:"
+
+#: C/fantasdic.xml:120(title) C/fantasdic.xml:153(title)
+#: C/fantasdic.xml:200(title)
+msgid "Fantasdic Window"
+msgstr "Вікно Fantasdic"
+
+#: C/fantasdic.xml:126(phrase)
+msgid "Shows Fantasdic main window."
+msgstr "Головне вікно Fantasdic."
+
+#: C/fantasdic.xml:134(title)
+msgid "Usage"
+msgstr "Використання"
+
+#: C/fantasdic.xml:137(title)
+msgid "Looking up a word"
+msgstr "Пошук слова"
+
+#: C/fantasdic.xml:145(para)
+msgid ""
+"Dictionaries can be added and changed at any time in the preferences. "
+"Available match strategies depend on the dictionary selected."
+msgstr ""
+"Словники можна додавати та змінювати в будь-який час у вікні «Параметри»."
+"Доступні алгоритми відповідностей залежать від вибраного словника."
+
+#: C/fantasdic.xml:139(para)
+msgid ""
+"To look up a word, type it into the <guilabel>entry field</guilabel> and "
+"press <keycap>Enter</keycap>. It is possible to change the match strategy by "
+"using the <guilabel>left combo box</guilabel> and the dictionary used to "
+"look up words by using the <guilabel>right combo box</guilabel>. "
+"<placeholder-1/>"
+msgstr ""
+"Щоб знайти слово, введіть його в <guilabel>поле пошуку</guilabel> та "
+"натисніть клавішу <keycap>Enter</keycap>. Алгоритм збігів можна "
+"змінити в <guilabel>лівому розкривному списку</guilabel> а словник для "
+"пошуку слів <guilabel>правому списку</guilabel>. <placeholder-1/>"
+
+#: C/fantasdic.xml:149(para)
+msgid ""
+"If some definition for the word is found, it will appear inside the main "
+"window area:"
+msgstr "Якщо значення слова знайдено, воно з'являється у головному вікні:"
+
+#: C/fantasdic.xml:160(phrase)
+msgid "Shows a definition inside the Fantasdic main window."
+msgstr "Показано значення у головному вікні Fantasdic."
+
+#: C/fantasdic.xml:166(para)
+msgid ""
+"Otherwise, an error dialog will appear, with a message explaining the nature "
+"of the error."
+msgstr "В іншому випадку з'являється повідомлення про помилку."
+
+#: C/fantasdic.xml:172(title)
+msgid "Saving results"
+msgstr "Збереження результатів"
+
+#: C/fantasdic.xml:174(para)
+msgid ""
+"To save the results of a look up, choose <menuchoice><guimenu>Fantasdic</"
+"guimenu><guimenuitem>Save</guimenuitem></menuchoice>. Enter a name for the "
+"file in the <guilabel>Save</guilabel> dialog, then click <guibutton>Save</"
+"guibutton>."
+msgstr ""
+"Щоб зберегти результат пошуку, виберіть <menuchoice><guimenu>Fantasdic</"
+"guimenu><guimenuitem>Зберегти</guimenuitem></menuchoice>. Введіть назву "
+"файла у вікні <guilabel>Зберегти</guilabel>, потім натисніть "
+"<guibutton>Зберегти</guibutton>."
+
+#: C/fantasdic.xml:182(title)
+msgid "Printing results"
+msgstr "Друкування результатів"
+
+#: C/fantasdic.xml:184(para)
+msgid ""
+"To print the results of a look up, choose <menuchoice><guimenu>Fantasdic</"
+"guimenu><guimenuitem>Print</guimenuitem></menuchoice>."
+msgstr ""
+"Щоб надрукувати результат пошуку, виберіть <menuchoice><guimenu>Fantasdic</"
+"guimenu><guimenuitem>Друкування</guimenuitem></menuchoice>."
+
+#: C/fantasdic.xml:188(para)
+msgid ""
+"Inside the <guilabel>Print</guilabel> dialog, select the printer to use, the "
+"paper format, the number of copies."
+msgstr ""
+"У вікні <guilabel>Друкування</guilabel>, виберіть принтер, формат "
+"паперу та кількість копій."
+
+#: C/fantasdic.xml:191(para)
+msgid ""
+"To see a preview of what will be printed, click <guibutton>Preview</"
+"guibutton>."
+msgstr ""
+"Щоб побачити, як виглядатиме надрукована сторінка, натисніть "
+"<guibutton>Попередній перегляд</guibutton>."
+
+#: C/fantasdic.xml:197(title)
+msgid "Finding text"
+msgstr "Знайдений текст"
+
+#: C/fantasdic.xml:207(phrase)
+msgid "Shows the Fantasdic Find pane inside the main window."
+msgstr "Показано панель пошуку Fantasdic в середині головного вікна."
+
+#: C/fantasdic.xml:213(para)
+msgid ""
+"To find text inside the results of a look up, perform the following steps:"
+msgstr "Щоб знайти текст у знайденій статті,  виконайте такі кроки:"
+
+#: C/fantasdic.xml:217(para)
+msgid ""
+"Choose <menuchoice><guimenu>Edit</guimenu><guimenuitem>Find</guimenuitem></"
+"menuchoice> to display the <guilabel>Find</guilabel> pane."
+msgstr ""
+"Виберіть <menuchoice><guimenu>Зміни</guimenu> <guimenuitem>Знайти</"
+"guimenuitem></menuchoice>, щоб побачити панель <guilabel>Знайти</guilabel>."
+
+#: C/fantasdic.xml:220(para)
+msgid "Type the text to find inside the <guilabel>Search</guilabel> entry."
+msgstr "Введіть текст для пошуку в поле <guilabel>Пошук</guilabel>."
+
+#: C/fantasdic.xml:222(para)
+msgid ""
+"To find the next occurrence of the text, click <guibutton>Next</guibutton>. "
+"To find the previous occurrence of the text, click <guibutton>Previous</"
+"guibutton>."
+msgstr ""
+"Щоб знайти наступний випадок вживання, натисніть <guibutton>Наступне</"
+"guibutton>. Щоб знайти попередній випадок вживання, натисніть "
+"<guibutton>Попереднє</guibutton>."
+
+#: C/fantasdic.xml:228(para)
+msgid ""
+"The <guilabel>find pane</guilabel> can be quickly closed by pressing "
+"<keycap>Escape</keycap>."
+msgstr ""
+"Можна швидко закрити <guilabel>панель пошуку</guilabel> натиснувши "
+"<keycap>Сховати</keycap>."
+
+#: C/fantasdic.xml:234(title)
+msgid "Scanning the clipboard"
+msgstr "Стеження за буфером обміну"
+
+#: C/fantasdic.xml:236(para)
+msgid ""
+"When the <guimenuitem>Scan clipboard</guimenuitem> option is enabled, words "
+"copied to the clipboard are automatically looked up by Fantasdic. To enable "
+"this option, choose <menuchoice><guimenu>Edit</guimenu><guimenuitem>Scan "
+"clipboard</guimenuitem></menuchoice>."
+msgstr ""
+"Якщо параметр <guimenuitem>Стежити за буфером обміну</guimenuitem> "
+"увімкнений, слова скопійовані до нього Fantasdic шукатиме автоматично. Щоб "
+"увімкнути цей параметр, виберіть в меню <menuchoice><guimenu>Зміни</"
+"guimenu><guimenuitem>Стежити за буфером обміну</guimenuitem></menuchoice>."
+
+#: C/fantasdic.xml:245(title)
+msgid "System tray"
+msgstr "Системний лоток"
+
+#: C/fantasdic.xml:247(para)
+msgid ""
+"Optionally, Fantasdic can stay in the system tray. To quickly close "
+"Fantasdic, press <keycap>Escape</keycap>. To bring Fantasdic back, click on "
+"the <guiicon>Fantasdic icon</guiicon>."
+msgstr ""
+"Fantasdic може залишатись в системному лотку. Щоб щвидко закрити його, "
+"натисніть <keycap>Сховати</keycap>. Щоб повернути назад, натисніть "
+"<guiicon>значок Fantasdic</guiicon>."
+
+#: C/fantasdic.xml:252(title)
+msgid "Fantasdic in the system tray"
+msgstr "Fantasdic в системному лотку"
+
+#: C/fantasdic.xml:259(phrase)
+msgid "Shows Fantasdic in the system tray."
+msgstr "Показаний Fantasdic в системному лотку."
+
+#: C/fantasdic.xml:270(title)
+msgid "Preferences"
+msgstr "Параметри"
+
+#: C/fantasdic.xml:272(para)
+msgid ""
+"To change the application preferences, choose <menuchoice><guimenu>Edit</"
+"guimenu><guimenuitem>Preferences</guimenuitem></menuchoice>."
+msgstr ""
+"Щоб змінити параметри програми, виберіть в меню <menuchoice><guimenu>Зміни</"
+"guimenu><guimenuitem>Параметри</guimenuitem></menuchoice>."
+
+#: C/fantasdic.xml:277(title) C/fantasdic.xml:361(title)
+msgid "Dictionaries"
+msgstr "Словники"
+
+#: C/fantasdic.xml:280(title)
+msgid "Dictionaries tab"
+msgstr "Вкладка «Словники»"
+
+#: C/fantasdic.xml:288(phrase)
+msgid "Shows the Dictionaries tab"
+msgstr "Показано вкладку «Словники»"
+
+#: C/fantasdic.xml:294(para)
+msgid "To add a dictionary, choose <guibutton>Add</guibutton>."
+msgstr "Щоб додати словник, натисніть <guibutton>Додати</guibutton>."
+
+#: C/fantasdic.xml:296(para)
+msgid ""
+"To change an existing dictionary, select the desired dictionary and choose "
+"<guibutton>Properties</guibutton>. To remove an existing dictionary, choose "
+"<guibutton>Remove</guibutton>."
+msgstr ""
+"Щоб змінити наявний словник, виберіть бажаний і натисніть "
+"<guibutton>Властивості</guibutton>. Щоб вилучити наявний словник, виберіть "
+"<guibutton>Вилучити</guibutton>."
+
+#: C/fantasdic.xml:300(para)
+msgid ""
+"If a dictionary is removed, it will be permanently deleted from the list of "
+"available dictionaries."
+msgstr ""
+"Якщо вилучити словник, він назавжди буде вилучений зі списку доступних "
+"словників."
+
+#: C/fantasdic.xml:303(para)
+msgid ""
+"For further details, see the <link linkend=\"fantasdic-dictionaries"
+"\">dictionaries section</link>."
+msgstr ""
+"Детальніше дивіться у <link linkend=\"fantasdic-dictionaries\">розділі "
+"словників</link>."
+
+#: C/fantasdic.xml:309(title)
+msgid "Startup"
+msgstr "Запуск"
+
+#: C/fantasdic.xml:312(title)
+msgid "Startup tab"
+msgstr "Вкладка запуску"
+
+#: C/fantasdic.xml:321(phrase)
+msgid "Shows the Startup tab"
+msgstr "Показано вкладку «Запуск»"
+
+#: C/fantasdic.xml:329(title)
+msgid "Proxy"
+msgstr "Проксі"
+
+#: C/fantasdic.xml:332(title)
+msgid "Proxy tab"
+msgstr "Вкладка «Проксі»"
+
+#: C/fantasdic.xml:341(phrase)
+msgid "Shows the Proxy tab"
+msgstr "Показано вкладку «Проксі»"
+
+#: C/fantasdic.xml:347(para)
+msgid "To configure a proxy:"
+msgstr "Щоб налаштувати проксі:"
+
+#: C/fantasdic.xml:350(para)
+msgid "Choose the type of proxy."
+msgstr "Виберіть тип проксі."
+
+#: C/fantasdic.xml:351(para)
+msgid "Enable the proxy checkbutton."
+msgstr "Активуйте кнопку перевірки проксі."
+
+#: C/fantasdic.xml:352(para)
+msgid "Define the required fields."
+msgstr "Заповніть обов'язкові поля."
+
+#: C/fantasdic.xml:364(title) C/fantasdic.xml:401(para)
+msgid "Source"
+msgstr "Джерело"
+
+#: C/fantasdic.xml:367(title)
+msgid "Source tab"
+msgstr "Вкладка «Джерело»"
+
+#: C/fantasdic.xml:375(phrase)
+msgid "Shows the Source tab"
+msgstr "Показано вкладку «Джерело»"
+
+#: C/fantasdic.xml:381(para)
+msgid "To add a dictionary:"
+msgstr "Щоб додати словник:"
+
+#: C/fantasdic.xml:384(para)
+msgid "Edit the <guilabel>Name</guilabel> entry."
+msgstr "Змініть запис <guilabel>Назва</guilabel>."
+
+#: C/fantasdic.xml:386(para)
+msgid "Choose the source type using the <guilabel>source</guilabel> combobox."
+msgstr "Виберіть тип джерела з розкривного списку <guilabel>source</guilabel>."
+
+#: C/fantasdic.xml:388(para)
+msgid ""
+"Choose between <guilabel>Search all databases</guilabel> and "
+"<guilabel>Search selected databases</guilabel>."
+msgstr ""
+"Виберіть <guilabel>Шукати в усіх базах даних</guilabel> або <guilabel>Шукати "
+"у вибраних базах даних</guilabel>."
+
+#: C/fantasdic.xml:390(para)
+msgid "Edit the attributes of the selected source."
+msgstr "Змініть атрибути вибраного джерела."
+
+#: C/fantasdic.xml:394(para)
+msgid ""
+"Different source types use different attributes. This is the list of "
+"available attributes per source type:"
+msgstr ""
+"Різні типи джерел використовують різні атрибути. Список доступних атрибутів "
+"в залежності від типу джерела:"
+
+#: C/fantasdic.xml:402(para)
+msgid "Attributes"
+msgstr "Атрибути"
+
+#: C/fantasdic.xml:403(para)
+msgid "Related links"
+msgstr "Посилання по темі"
+
+#: C/fantasdic.xml:408(para)
+msgid "DICT dictionary server"
+msgstr "Словниковий сервер DICT"
+
+#: C/fantasdic.xml:410(para)
+msgid "Hostname: the hostname of the dictionary server"
+msgstr "Назва комп'ютера: назва вузла словникового сервера"
+
+#: C/fantasdic.xml:412(para)
+msgid "Port: the port of the dictionary server"
+msgstr "Порт: порт на словниковому сервері"
+
+#: C/fantasdic.xml:413(para)
+msgid "Username: an optional username"
+msgstr "Користувач: необов'язково"
+
+#: C/fantasdic.xml:414(para)
+msgid "Password: an optional password"
+msgstr "Пароль: необов'язково"
+
+#: C/fantasdic.xml:417(ulink)
+msgid "dict.org"
+msgstr "dict.org"
+
+#: C/fantasdic.xml:420(para)
+msgid "EDICT file"
+msgstr "Файл EDICT"
+
+#: C/fantasdic.xml:422(para)
+msgid "File: the path of the EDICT file"
+msgstr "Файл: шлях до файла EDICT"
+
+#: C/fantasdic.xml:423(para)
+msgid "Encoding: the encoding of the EDICT file"
+msgstr "Кодування: кодування файла EDICT"
+
+#: C/fantasdic.xml:427(ulink)
+msgid "EDICT"
+msgstr "EDICT"
+
+#: C/fantasdic.xml:430(para)
+msgid "Google Translate"
+msgstr "Google Translate"
+
+#: C/fantasdic.xml:431(para)
+msgid "none"
+msgstr "немає"
+
+#: C/fantasdic.xml:440(title) C/fantasdic.xml:443(title)
+msgid "Databases"
+msgstr "Бази даних"
+
+#: C/fantasdic.xml:452(phrase)
+msgid "Shows the Databases tab"
+msgstr "Показано вкладку «Бази даних»"
+
+#: C/fantasdic.xml:458(para)
+msgid ""
+"It is possible to select the databases to use when a word is looked up using "
+"the dictionary."
+msgstr "Можна вибрати базу даних для пошуку слова в словнику."
+
+#: C/fantasdic.xml:462(para)
+msgid ""
+"Select one or more databases in <guilabel>Available databases</guilabel>."
+msgstr ""
+"Виберіть одну або кілька баз даних в полі <guilabel>Доступні бази даних</"
+"guilabel>."
+
+#: C/fantasdic.xml:464(para)
+msgid "Move them to <guilabel>Selected databases</guilabel>."
+msgstr "Перемістіть їх до поля <guilabel>Вибрані бази даних</guilabel>."
+
+#: C/fantasdic.xml:471(title)
+msgid "Fonts"
+msgstr "Шрифти"
+
+#: C/fantasdic.xml:474(title)
+msgid "Fonts tab"
+msgstr "Вкладка «Шрифти»"
+
+#: C/fantasdic.xml:483(phrase)
+msgid "Shows the Fonts tab"
+msgstr "Показано вкладку «Шрифти»"
+
+#: C/fantasdic.xml:489(para)
+msgid ""
+"To change the font name and size used for displaying the results and for "
+"printing, perform the following steps:"
+msgstr ""
+"Щоб змінити назву шрифту та його розмір для показу результатів та для друкування, "
+"виконайте такі дії:"
+
+#: C/fantasdic.xml:493(para)
+msgid "Click on the <guilabel>Font</guilabel> button."
+msgstr "Натисніть кнопку <guilabel>Шрифт</guilabel>."
+
+#: C/fantasdic.xml:495(para)
+msgid "Select the desired font and size."
+msgstr "Виберіть бажаний шрифт та розмір."
+
+#: C/fantasdic.xml:496(para)
+msgid "Click <guibutton>Ok</guibutton>."
+msgstr "Натисніть <guibutton>Гаразд</guibutton>."
+
+#: C/fantasdic.xml:503(title)
+msgid "About <application>Fantasdic</application>"
+msgstr "Про <application>Fantasdic</application>"
+
+#: C/fantasdic.xml:504(para)
+msgid ""
+"<application>Fantasdic</application> is written by Mathieu Blondel "
+"(<email>mblondel@svn.gnome.org</email>). To find more information about "
+"<application>Fantasdic</application>, please visit the <ulink url=\"http://"
+"www.gnome.org/projects/fantasdic/\" type=\"http\"><application>Fantasdic</"
+"application> Home Page</ulink>."
+msgstr ""
+"Програма <application>Fantasdic</application> написана Mathieu Blondel "
+"(<email>mblondel@svn.gnome.org</email>). Щоб детальніше ознайомитись з "
+"<application>Fantasdic</application>, відвідайте домашню сторінку <ulink url="
+"\"http://www.gnome.org/projects/fantasdic/\" type=\"http"
+"\"><application>Fantasdic</application></ulink>."
+
+#: C/fantasdic.xml:511(para)
+msgid ""
+"This program is distributed under the terms of the GNU General Public "
+"license as published by the Free Software Foundation; either version 2 of "
+"the License, or (at your option) any later version. A copy of this license "
+"can be found in the file COPYING included with the source code of this "
+"program."
+msgstr ""
+"Ця програма розповсюджується за умовами ліцензії GNU General Public, як "
+"опубліковано Free Software Foundation; або версії 2 цієї ліцензії, або (на "
+"ваш розсуд) будь-якою пізнішою. Копію ліцензії можна знайти у файлі COPYING "
+"разом з джерельним кодом програми."
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: C/fantasdic.xml:0(None)
+msgid "translator-credits"
+msgstr "Sergiy Gavrylov <sergiovana@bigmir.net>, 2011."
