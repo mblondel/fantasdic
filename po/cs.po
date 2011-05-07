@@ -56,11 +56,11 @@ msgstr "Obnovit výchozí písma"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
 msgid "Search _all databases"
-msgstr "Prohled_at všechny databáze"
+msgstr "Prohledáv_at všechny databáze"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
 msgid "Search selected _databases"
-msgstr "Prohledat vybrané _databáze"
+msgstr "Prohledávat vybrané _databáze"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
 msgid "Select a font"
