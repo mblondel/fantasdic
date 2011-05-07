@@ -1,6 +1,7 @@
 # Czech translation of fantasdic.
 # Copyright (C) 2008 the author(s) of fantasdic.
 # This file is distributed under the same license as the fantasdic package.
+#
 # Adrian Guniš <andygun@seznam.cz>, 2008.
 # Petr Kovar <pknbe@volny.cz>, 2008.
 #
@@ -16,7 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Poedit-Language: Czech\n"
 
 #: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
 msgid "<b>Print</b>"
@@ -137,11 +137,11 @@ msgstr "Nezobrazovat hlavní okno při spouštění"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:6
 msgid "Enable HTTP proxy"
-msgstr "Povolit HTTP proxy"
+msgstr "Povolit proxy HTTP"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:7
 msgid "Enable SOCKS 5 proxy"
-msgstr "Povolit SOCKS 5 proxy"
+msgstr "Povolit proxy SOCKS 5"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:8
 msgid "Fantasdic will stay in the system tray even if the window is closed."
@@ -149,7 +149,7 @@ msgstr "Fantasdic zůstane v systémové oblasti, i když se zavře okno."
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:9
 msgid "Host:"
-msgstr "Hostící počítač:"
+msgstr "Server:"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:10
 msgid "Password:"
@@ -161,7 +161,7 @@ msgstr "Port:"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:12
 msgid "Preferences"
-msgstr "Nastavení"
+msgstr "Předvolby"
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:13
 msgid "Proxy"
@@ -181,7 +181,7 @@ msgstr ""
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:16
 msgid "This proxy can for example be used to traverse firewalls."
-msgstr "Tento proxy může být použit např. pro obejití firewallu."
+msgstr "Tato proxy může být použita např. pro obejití firewallu."
 
 #: ../data/fantasdic/glade/preferences_dialog.glade.h:17
 msgid "Username:"
@@ -205,7 +205,7 @@ msgstr "Použití: fantasdic [přepínače] [slovník] [slovo]"
 
 #: ../lib/fantasdic/command_line.rb:37
 msgid "Print results to stdout"
-msgstr "Vytisknout výsledky na standardním výstupu"
+msgstr "Vytisknout výsledky na standardní výstup"
 
 #: ../lib/fantasdic/command_line.rb:42
 msgid "List dictionaries in settings"
@@ -250,7 +250,7 @@ msgstr[2] "Nalezeno %d shodných slov."
 
 #: ../lib/fantasdic/file_source.rb:131
 msgid "Select a file"
-msgstr "Vyberte soubor"
+msgstr "Výběr souboru"
 
 #: ../lib/fantasdic/file_source.rb:136
 msgid "A file must be selected!"
@@ -270,15 +270,15 @@ msgstr "_Kódování:"
 
 #: ../lib/fantasdic/source_base.rb:198
 msgid "Connecting to source..."
-msgstr "Připojování ke zdroji..."
+msgstr "Připojuje se ke zdroji…"
 
 #: ../lib/fantasdic/source_base.rb:202
 msgid "Transferring data from source ..."
-msgstr "Přenáší se data ze zdroje..."
+msgstr "Přenáší se data ze zdroje…"
 
 #: ../lib/fantasdic/source_base.rb:259 ../lib/fantasdic/source_base.rb:267
 msgid "Can't convert encodings."
-msgstr "Nelze konvertovat kódování."
+msgstr "Nelze převést kódování."
 
 #: ../lib/fantasdic/sources/dictd_file.rb:143
 msgid "Dictd file"
@@ -291,7 +291,7 @@ msgstr "Vyhledat slova v souborech zaměřených na servery dictd."
 #: ../lib/fantasdic/sources/dictd_file.rb:172
 #: ../lib/fantasdic/sources/stardict_file.rb:181
 msgid "Select a dictd file"
-msgstr "Vyberte soubor dictd"
+msgstr "Výběr souboru dictd"
 
 #: ../lib/fantasdic/sources/dictd_file.rb:173
 msgid "Index files"
@@ -315,11 +315,11 @@ msgstr "Nelze najít soubor slovníku .dict nebo .dict.dz"
 
 #: ../lib/fantasdic/sources/dict_server.rb:23
 msgid "DICT dictionary server"
-msgstr "Server slovníku DICT"
+msgstr "Slovníkový server DICT"
 
 #: ../lib/fantasdic/sources/dict_server.rb:24
 msgid "Look up words using a DICT dictionary server."
-msgstr "Vyhledat slova pomocí serveru slovníku DICT."
+msgstr "Vyhledat slova pomocí slovníkového serveru DICT."
 
 #: ../lib/fantasdic/sources/dict_server.rb:34
 msgid "Server details"
@@ -362,7 +362,7 @@ msgstr "_Port:"
 
 #: ../lib/fantasdic/sources/dict_server.rb:135
 msgid "Server _requires authentication"
-msgstr "Se_rver vyžaduje ověření"
+msgstr "Se_rver vyžaduje autentizaci"
 
 #: ../lib/fantasdic/sources/dict_server.rb:140
 msgid "_Username:"
@@ -380,16 +380,16 @@ msgstr "Ztraceno spojení se serverem."
 #: ../lib/fantasdic/sources/dict_server.rb:327
 #, c-format
 msgid "Waiting for %s..."
-msgstr "Počkejte %s..."
+msgstr "Počkejte %s…"
 
 #: ../lib/fantasdic/sources/dict_server.rb:331
 #, c-format
 msgid "Transferring data from %s..."
-msgstr "Přenáší se data z %s..."
+msgstr "Přenáší se data z %s…"
 
 #: ../lib/fantasdic/sources/edict_file.rb:47
 msgid "Select an EDICT file"
-msgstr "Vyberte soubor EDICT"
+msgstr "Výběr souboru EDICT"
 
 #: ../lib/fantasdic/sources/edict_file.rb:48
 msgid "Gzip-compressed files"
@@ -423,7 +423,7 @@ msgstr "Vyhledat slova ve slovnících EPWING"
 
 #: ../lib/fantasdic/sources/epwing_dictionary.rb:40
 msgid "Select a CATALOGS file"
-msgstr "Vyberte soubor CATALOGS"
+msgstr "Výběr souboru CATALOGS"
 
 #: ../lib/fantasdic/sources/epwing_dictionary.rb:55
 msgid "You're missing rubyeb (libeb for Ruby)!"
@@ -455,13 +455,13 @@ msgstr "Soubory Ifo"
 
 #: ../lib/fantasdic/sources/stardict_file.rb:199
 msgid "Wrong .ifo or .idx file!"
-msgstr "Špatný soubor .ifo nebo .idx!"
+msgstr "Nesprávný soubor .ifo nebo .idx!"
 
 #: ../lib/fantasdic/sources/virtual_dictionary.rb:101
 #: ../lib/fantasdic/ui/main_app.rb:120
 #, c-format
 msgid "Dictionary \"%s\" does not exist anymore"
-msgstr "Slovník \"%s\" už neexistuje"
+msgstr "Slovník „%s“ už neexistuje"
 
 #: ../lib/fantasdic/sources/virtual_dictionary.rb:119
 msgid "Virtual dictionary"
@@ -491,7 +491,7 @@ msgstr "Slovník %s už existuje!"
 
 #: ../lib/fantasdic/ui/add_dictionary_dialog.rb:381
 msgid "Fetching databases information..."
-msgstr "Přenáší se informace o databázích..."
+msgstr "Přenáší se informace o databázích…"
 
 #: ../lib/fantasdic/ui/browser.rb:38
 msgid "Could not open browser."
@@ -508,7 +508,7 @@ msgstr "Není nastaven žádný slovník"
 #: ../lib/fantasdic/ui/main_app.rb:130
 #, c-format
 msgid "Dictionary source \"%s\" does not exist anymore"
-msgstr "Zdroj slovníku \"%s\" už neexistuje"
+msgstr "Zdroj slovníku „%s“ už neexistuje"
 
 #: ../lib/fantasdic/ui/main_app.rb:248
 msgid "Source error"
@@ -637,7 +637,7 @@ msgstr "O aplikaci"
 
 #: ../lib/fantasdic/ui/main_app.rb:1135
 msgid "Scan clipboard"
-msgstr "Prohledávat schránku"
+msgstr "Sledovat schránku"
 
 #: ../lib/fantasdic/ui/main_app.rb:1137
 msgid "_Matches"
@@ -657,11 +657,11 @@ msgstr "_Vždy navrchu"
 
 #: ../lib/fantasdic/ui/preferences_dialog.rb:207
 msgid "SOCKS 5 proxy"
-msgstr "SOCKS 5 proxy"
+msgstr "Proxy SOCKS 5"
 
 #: ../lib/fantasdic/ui/preferences_dialog.rb:207
 msgid "HTTP proxy"
-msgstr "HTTP proxy"
+msgstr "Proxy HTTP"
 
 #: ../lib/fantasdic/ui/print.rb:195
 #, c-format
@@ -675,4 +675,4 @@ msgstr "Strana %d/%d"
 
 #: ../lib/fantasdic/ui/print.rb:207
 msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
-msgstr "Vytištěno ve Fantasdic %d/%m/%Y v %H:%M"
+msgstr "Vytištěno z Fantasdic %d.%m.%Y v %H:%M"
