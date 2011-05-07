@@ -100,7 +100,7 @@ msgstr "Fantasdic"
 
 #: ../data/fantasdic/glade/main_app.glade.h:3
 msgid "Find: "
-msgstr "Najít: "
+msgstr "Hledat: "
 
 #: ../data/fantasdic/glade/main_app.glade.h:4
 #: ../lib/fantasdic/ui/main_app.rb:325
@@ -537,7 +537,7 @@ msgstr[2] "%d shodných slov"
 #: ../lib/fantasdic/ui/main_app.rb:626
 #, c-format
 msgid "Search %s"
-msgstr "Najít %s"
+msgstr "Hledat %s"
 
 #: ../lib/fantasdic/ui/main_app.rb:650
 msgid "Zoom over character"
@@ -565,11 +565,11 @@ msgstr "Vymazat historii"
 
 #: ../lib/fantasdic/ui/main_app.rb:1049
 msgid "Find N_ext"
-msgstr "Najít násl_edující"
+msgstr "Hledat násl_edující"
 
 #: ../lib/fantasdic/ui/main_app.rb:1051
 msgid "Find Pre_vious"
-msgstr "Najít pře_dchozí"
+msgstr "Hledat pře_dchozí"
 
 #: ../lib/fantasdic/ui/main_app.rb:1057
 msgid "_View"
