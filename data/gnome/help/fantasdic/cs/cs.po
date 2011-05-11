@@ -1,17 +1,17 @@
 # Czech translation for fantasdic.
 # Copyright (C) 2011 fantasdic's COPYRIGHT HOLDER
 # This file is distributed under the same license as the fantasdic package.
-#
 # Marek Černocký <marek@manet.cz>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fantasdic master\n"
-"POT-Creation-Date: 2011-05-07 17:46+0000\n"
-"PO-Revision-Date: 2011-05-07 17:46+0000\n"
+"POT-Creation-Date: 2011-05-01 09:55+0000\n"
+"PO-Revision-Date: 2011-05-07 20:03+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
+"Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
@@ -112,121 +112,131 @@ msgstr ""
 
 #: C/fantasdic.xml:17(title)
 msgid "<application>Fantasdic</application> Manual"
-msgstr ""
+msgstr "Příručka k aplikaci <application>Fantasdic</application>"
 
 #: C/fantasdic.xml:19(year)
 msgid "2007"
-msgstr ""
+msgstr "2007"
 
 #: C/fantasdic.xml:19(holder) C/fantasdic.xml:34(para)
 #: C/fantasdic.xml:41(para) C/fantasdic.xml:47(publishername)
 msgid "Mathieu Blondel"
-msgstr ""
+msgstr "Mathieu Blondel"
 
 #: C/fantasdic.xml:31(revnumber)
 msgid "Initial Fantasdic Manual"
-msgstr ""
+msgstr "Initial Fantasdic Manual"
 
 #: C/fantasdic.xml:32(date)
 msgid "2007-09-16"
-msgstr ""
+msgstr "16.9.2007"
 
 #: C/fantasdic.xml:38(revnumber)
 msgid "typos, usage, preferences, dictionaries"
-msgstr ""
+msgstr "překlepy, použití, předvolby, slovníky"
 
 #: C/fantasdic.xml:39(date)
 msgid "2007-11-27"
-msgstr ""
+msgstr "27.11.2007"
 
 #: C/fantasdic.xml:48(email)
 msgid "mblondel@svn.gnome.org"
-msgstr ""
+msgstr "mblondel@svn.gnome.org"
 
 #: C/fantasdic.xml:59(firstname)
 msgid "Mathieu"
-msgstr ""
+msgstr "Mathieu"
 
 #: C/fantasdic.xml:60(surname)
 msgid "Blondel"
-msgstr ""
+msgstr "Blondel"
 
 #: C/fantasdic.xml:65(releaseinfo)
 msgid "This documentation is for version 1.0 of Fantasdic."
-msgstr ""
+msgstr "Tato dokumentace je pro verzi 1.0 aplikace Fantasdic."
 
 #: C/fantasdic.xml:70(para)
 msgid "User manual for the Fantasdic dictionary."
-msgstr ""
+msgstr "Uživatelská příručka pro slovník Fantasdic."
 
 #: C/fantasdic.xml:75(primary)
 msgid "Fantasdic"
-msgstr ""
+msgstr "Fantasdic"
 
 #: C/fantasdic.xml:82(title)
 msgid "Introduction"
-msgstr ""
+msgstr "Úvod"
 
 #: C/fantasdic.xml:84(para)
 msgid ""
 "<application>Fantasdic</application> is a dictionary application. It enables "
 "to look up words in various dictionary sources."
 msgstr ""
+"<application>Fantasdic</application> je slovníková aplikace. Umožňuje "
+"vyhledávat slovíčka v různých slovníkových zdrojích."
 
 #: C/fantasdic.xml:91(title)
 msgid "Getting Started"
-msgstr ""
+msgstr "Začínáme"
 
 #: C/fantasdic.xml:93(para)
 msgid ""
 "You can start <application>Fantasdic</application> in the following ways:"
 msgstr ""
+"Aplikaci <application>Fantasdic</application> můžete spustit následujícími "
+"způsoby:"
 
 #: C/fantasdic.xml:98(term)
 msgid "<guimenu>Applications</guimenu> menu"
-msgstr ""
+msgstr "Nabídka <guimenu>Aplikace</guimenu>"
 
 #: C/fantasdic.xml:100(para)
 msgid ""
 "Choose <menuchoice><guisubmenu>Accessories</"
 "guisubmenu><guimenuitem>Fantasdic</guimenuitem></menuchoice>."
 msgstr ""
+"Zvolte <menuchoice><guisubmenu>Příslušenství</"
+"guisubmenu><guimenuitem>Fantasdic</guimenuitem></menuchoice>."
 
 #: C/fantasdic.xml:108(term)
 msgid "Command line"
-msgstr ""
+msgstr "Příkazový řádek"
 
 #: C/fantasdic.xml:110(para)
 msgid "Execute the following command: <command>fantasdic</command>"
-msgstr ""
+msgstr "Spusťte následující příkaz: <command>fantasdic</command>"
 
 #: C/fantasdic.xml:116(para)
 msgid ""
 "Once started, the <application>Fantasdic</application> window is displayed:"
 msgstr ""
+"Jakmile je aplikace spuštěna, zobrazí se okno <application>Fantasdic</"
+"application>:"
 
 #: C/fantasdic.xml:120(title) C/fantasdic.xml:153(title)
 #: C/fantasdic.xml:200(title)
 msgid "Fantasdic Window"
-msgstr ""
+msgstr "Okno aplikace Fantasdic"
 
 #: C/fantasdic.xml:126(phrase)
 msgid "Shows Fantasdic main window."
-msgstr ""
+msgstr "Ukazuje hlavní okno aplikace Fantasdic."
 
 #: C/fantasdic.xml:134(title)
 msgid "Usage"
-msgstr ""
+msgstr "Použití"
 
 #: C/fantasdic.xml:137(title)
 msgid "Looking up a word"
-msgstr ""
+msgstr "Vyhledání slova"
 
 #: C/fantasdic.xml:145(para)
 msgid ""
 "Dictionaries can be added and changed at any time in the preferences. "
 "Available match strategies depend on the dictionary selected."
 msgstr ""
+"Slovníky lze kdykoliv přidávat a měnit v předvolbách. Dostupné metody "
+"porovnávání závisí na vybraném slovníku."
 
 #: C/fantasdic.xml:139(para)
 msgid ""
@@ -236,26 +246,35 @@ msgid ""
 "look up words by using the <guilabel>right combo box</guilabel>. "
 "<placeholder-1/>"
 msgstr ""
+"Když chcete vyhledat slovo, napište jej do <guilabel>vstupního pole</"
+"guilabel> a zmáčkněte <keycap>Enter</keycap>. V <guilabel>levém výběrovém "
+"seznamu</guilabel> můžete volit metodu porovnávání a v <guilabel>pravém "
+"výběrovém seznamu</guilabel> slovník, který se má k hledání slova použít. "
+"<placeholder-1/>"
 
 #: C/fantasdic.xml:149(para)
 msgid ""
 "If some definition for the word is found, it will appear inside the main "
 "window area:"
 msgstr ""
+"Pokud je nalezena pro slovo nějaká definice, objeví se v oblasti hlavního "
+"okna:"
 
 #: C/fantasdic.xml:160(phrase)
 msgid "Shows a definition inside the Fantasdic main window."
-msgstr ""
+msgstr "Ukazuje definici v hlavním okně Fantasdic."
 
 #: C/fantasdic.xml:166(para)
 msgid ""
 "Otherwise, an error dialog will appear, with a message explaining the nature "
 "of the error."
 msgstr ""
+"V jiném případě se objeví dialogové okno s chybovým hlášením vysvětlujícím "
+"příčinu chyby."
 
 #: C/fantasdic.xml:172(title)
 msgid "Saving results"
-msgstr ""
+msgstr "Ukládání vysledků"
 
 #: C/fantasdic.xml:174(para)
 msgid ""
@@ -264,51 +283,65 @@ msgid ""
 "file in the <guilabel>Save</guilabel> dialog, then click <guibutton>Save</"
 "guibutton>."
 msgstr ""
+"Pokud chcete výsledky hledání uložit, zvolte <menuchoice><guimenu>Fantasdic</"
+"guimenu><guimenuitem>Uložit</guimenuitem></menuchoice>. V dialogovém okně "
+"<guilabel>Ukládání</guilabel> zadejte název souboru a klikněte na "
+"<guibutton>Uložit</guibutton>."
 
 #: C/fantasdic.xml:182(title)
 msgid "Printing results"
-msgstr ""
+msgstr "Tisk výsledků"
 
 #: C/fantasdic.xml:184(para)
 msgid ""
 "To print the results of a look up, choose <menuchoice><guimenu>Fantasdic</"
 "guimenu><guimenuitem>Print</guimenuitem></menuchoice>."
 msgstr ""
+"Pokud chcete výsledky hledání vytisknout, zvolte "
+"<menuchoice><guimenu>Fantasdic</guimenu><guimenuitem>Tisk</guimenuitem></"
+"menuchoice>."
 
 #: C/fantasdic.xml:188(para)
 msgid ""
 "Inside the <guilabel>Print</guilabel> dialog, select the printer to use, the "
 "paper format, the number of copies."
 msgstr ""
+"V dialogovém okně <guilabel>Tisk</guilabel> zvolte tiskárnu, která se má "
+"použít, formát papíru a počet kopií."
 
 #: C/fantasdic.xml:191(para)
 msgid ""
 "To see a preview of what will be printed, click <guibutton>Preview</"
 "guibutton>."
 msgstr ""
+"Jestli si chcete zobrazit náhled, co bude vytisknuto, klikněte na "
+"<guibutton>Náhled</guibutton>."
 
 #: C/fantasdic.xml:197(title)
 msgid "Finding text"
-msgstr ""
+msgstr "Hledání textu"
 
 #: C/fantasdic.xml:207(phrase)
 msgid "Shows the Fantasdic Find pane inside the main window."
-msgstr ""
+msgstr "Ukazuje panel Hledat v hlavním okně."
 
 #: C/fantasdic.xml:213(para)
 msgid ""
 "To find text inside the results of a look up, perform the following steps:"
 msgstr ""
+"Když chcete najít text ve výsledcích hledání, proveďte následující kroky:"
 
 #: C/fantasdic.xml:217(para)
 msgid ""
 "Choose <menuchoice><guimenu>Edit</guimenu><guimenuitem>Find</guimenuitem></"
 "menuchoice> to display the <guilabel>Find</guilabel> pane."
 msgstr ""
+"Zvolte <menuchoice><guimenu>Upravit</guimenu><guimenuitem>Hledat</"
+"guimenuitem></menuchoice> a zobrazí se panel <guilabel>Hledat</guilabel>."
 
 #: C/fantasdic.xml:220(para)
 msgid "Type the text to find inside the <guilabel>Search</guilabel> entry."
-msgstr ""
+msgstr "Do pole <guilabel>Hledat</guilabel> napište text, který chcete najít."
 
 #: C/fantasdic.xml:222(para)
 msgid ""
@@ -316,16 +349,21 @@ msgid ""
 "To find the previous occurrence of the text, click <guibutton>Previous</"
 "guibutton>."
 msgstr ""
+"Následující výskyt textu najdete kliknutím na <guibutton>Následující</"
+"guibutton>. Předchozí výskyt textu najdete kliknutím na "
+"<guibutton>Předchozí</guibutton>."
 
 #: C/fantasdic.xml:228(para)
 msgid ""
 "The <guilabel>find pane</guilabel> can be quickly closed by pressing "
 "<keycap>Escape</keycap>."
 msgstr ""
+"<guilabel>Panel Hledat</guilabel> můžete rychle zavřít zmáčknutím "
+"<keycap>Esc</keycap>."
 
 #: C/fantasdic.xml:234(title)
 msgid "Scanning the clipboard"
-msgstr ""
+msgstr "Sledovat schránku"
 
 #: C/fantasdic.xml:236(para)
 msgid ""
@@ -334,10 +372,14 @@ msgid ""
 "this option, choose <menuchoice><guimenu>Edit</guimenu><guimenuitem>Scan "
 "clipboard</guimenuitem></menuchoice>."
 msgstr ""
+"Když je zapnuta volba <guimenuitem>Sledovat schránku</guimenuitem>, jsou "
+"slova nakopírovaná do schránky automaticky vyhledána aplikací Fantasdic. "
+"Pokud volbu chcete mít zapnutou, zvolte <menuchoice><guimenu>Upravit</"
+"guimenu><guimenuitem>Sledovat schránku</guimenuitem></menuchoice>."
 
 #: C/fantasdic.xml:245(title)
 msgid "System tray"
-msgstr ""
+msgstr "Systémová oblast"
 
 #: C/fantasdic.xml:247(para)
 msgid ""
@@ -345,40 +387,45 @@ msgid ""
 "Fantasdic, press <keycap>Escape</keycap>. To bring Fantasdic back, click on "
 "the <guiicon>Fantasdic icon</guiicon>."
 msgstr ""
+"Volitelně může Fantasdic zůstávat v systémové oblasti. Pro rychlé zavření "
+"okna Fantasdic zmáčkněte <keycap>Esc</keycap>. Pro navrácení zpět klikněte "
+"na <guiicon>ikonu Fantasdic</guiicon>."
 
 #: C/fantasdic.xml:252(title)
 msgid "Fantasdic in the system tray"
-msgstr ""
+msgstr "Fantasdic v systémové oblasti"
 
 #: C/fantasdic.xml:259(phrase)
 msgid "Shows Fantasdic in the system tray."
-msgstr ""
+msgstr "Ukazuje ikonu Fantasdic v systémové oblasti."
 
 #: C/fantasdic.xml:270(title)
 msgid "Preferences"
-msgstr ""
+msgstr "Předvolby"
 
 #: C/fantasdic.xml:272(para)
 msgid ""
 "To change the application preferences, choose <menuchoice><guimenu>Edit</"
 "guimenu><guimenuitem>Preferences</guimenuitem></menuchoice>."
 msgstr ""
+"Pro změnu předvoleb aplikace zvolte <menuchoice><guimenu>Upravit</"
+"guimenu><guimenuitem>Předvolby</guimenuitem></menuchoice>."
 
 #: C/fantasdic.xml:277(title) C/fantasdic.xml:361(title)
 msgid "Dictionaries"
-msgstr ""
+msgstr "Slovníky"
 
 #: C/fantasdic.xml:280(title)
 msgid "Dictionaries tab"
-msgstr ""
+msgstr "Karta Slovníky"
 
 #: C/fantasdic.xml:288(phrase)
 msgid "Shows the Dictionaries tab"
-msgstr ""
+msgstr "Ukazuje kartu Slovníky"
 
 #: C/fantasdic.xml:294(para)
 msgid "To add a dictionary, choose <guibutton>Add</guibutton>."
-msgstr ""
+msgstr "Pro přidání slovníku zvolte <guibutton>Přidat</guibutton>."
 
 #: C/fantasdic.xml:296(para)
 msgid ""
@@ -386,211 +433,226 @@ msgid ""
 "<guibutton>Properties</guibutton>. To remove an existing dictionary, choose "
 "<guibutton>Remove</guibutton>."
 msgstr ""
+"Pokud chcete změnit existující slovník, vyberte příslušný slovník a zvolte "
+"<guibutton>Vlastnosti</guibutton>. Volbou <guibutton>Odstranit</guibutton> "
+"existující slovník odeberete."
 
 #: C/fantasdic.xml:300(para)
 msgid ""
 "If a dictionary is removed, it will be permanently deleted from the list of "
 "available dictionaries."
 msgstr ""
+"Když je slovník odebrán, je trvale vymazán ze seznamu dostupných slovníků."
 
 #: C/fantasdic.xml:303(para)
 msgid ""
 "For further details, see the <link linkend=\"fantasdic-dictionaries"
 "\">dictionaries section</link>."
 msgstr ""
+"Další podrobnosti viz <link linkend=\"fantasdic-dictionaries\">oddíl "
+"slovníky</link>."
 
 #: C/fantasdic.xml:309(title)
 msgid "Startup"
-msgstr ""
+msgstr "Spuštění"
 
 #: C/fantasdic.xml:312(title)
 msgid "Startup tab"
-msgstr ""
+msgstr "Karta Spuštění"
 
 #: C/fantasdic.xml:321(phrase)
 msgid "Shows the Startup tab"
-msgstr ""
+msgstr "Ukazuje kartu Spuštění"
 
 #: C/fantasdic.xml:329(title)
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: C/fantasdic.xml:332(title)
 msgid "Proxy tab"
-msgstr ""
+msgstr "Karta Proxy"
 
 #: C/fantasdic.xml:341(phrase)
 msgid "Shows the Proxy tab"
-msgstr ""
+msgstr "Ukazuje kartu Proxy"
 
 #: C/fantasdic.xml:347(para)
 msgid "To configure a proxy:"
-msgstr ""
+msgstr "Pro nastavení proxy:"
 
 #: C/fantasdic.xml:350(para)
 msgid "Choose the type of proxy."
-msgstr ""
+msgstr "Zvolte typ proxy."
 
 #: C/fantasdic.xml:351(para)
 msgid "Enable the proxy checkbutton."
-msgstr ""
+msgstr "Zaškrtněte povolovací políčko"
 
 #: C/fantasdic.xml:352(para)
 msgid "Define the required fields."
-msgstr ""
+msgstr "Vyplňte požadovaná pole."
 
 #: C/fantasdic.xml:364(title) C/fantasdic.xml:401(para)
 msgid "Source"
-msgstr ""
+msgstr "Zdroj"
 
 #: C/fantasdic.xml:367(title)
 msgid "Source tab"
-msgstr ""
+msgstr "Karta Zdroj"
 
 #: C/fantasdic.xml:375(phrase)
 msgid "Shows the Source tab"
-msgstr ""
+msgstr "Ukazuje kartu Zdroj"
 
 #: C/fantasdic.xml:381(para)
 msgid "To add a dictionary:"
-msgstr ""
+msgstr "Pro přidání slovníku:"
 
 #: C/fantasdic.xml:384(para)
 msgid "Edit the <guilabel>Name</guilabel> entry."
-msgstr ""
+msgstr "Upravte položku <guilabel>Název</guilabel>."
 
 #: C/fantasdic.xml:386(para)
 msgid "Choose the source type using the <guilabel>source</guilabel> combobox."
-msgstr ""
+msgstr "Ve výběrovém seznamu <guilabel>zdroj</guilabel> zvolte typ zdroje."
 
 #: C/fantasdic.xml:388(para)
 msgid ""
 "Choose between <guilabel>Search all databases</guilabel> and "
 "<guilabel>Search selected databases</guilabel>."
 msgstr ""
+"Zvolte, zda se mají <guilabel>Prohledávat všechny databáze</guilabel> nebo "
+"<guilabel>Prohledávat vybrané databáze</guilabel>."
 
 #: C/fantasdic.xml:390(para)
 msgid "Edit the attributes of the selected source."
-msgstr ""
+msgstr "Upravte vlastnosti vybraného zdroje."
 
 #: C/fantasdic.xml:394(para)
 msgid ""
 "Different source types use different attributes. This is the list of "
 "available attributes per source type:"
 msgstr ""
+"Různé typy zdrojů používají různé vlastnosti. Zde je seznam dostupných "
+"vlastností podle typů zdrojů:"
 
 #: C/fantasdic.xml:402(para)
 msgid "Attributes"
-msgstr ""
+msgstr "Vlastnosti"
 
 #: C/fantasdic.xml:403(para)
 msgid "Related links"
-msgstr ""
+msgstr "Související odkazy"
 
 #: C/fantasdic.xml:408(para)
 msgid "DICT dictionary server"
-msgstr ""
+msgstr "Slovníkový server DICT"
 
 #: C/fantasdic.xml:410(para)
 msgid "Hostname: the hostname of the dictionary server"
-msgstr ""
+msgstr "Server: název počítače se slovníkovým serverem"
 
 #: C/fantasdic.xml:412(para)
 msgid "Port: the port of the dictionary server"
-msgstr ""
+msgstr "Port: port na slovníkovém serveru"
 
 #: C/fantasdic.xml:413(para)
 msgid "Username: an optional username"
-msgstr ""
+msgstr "Uživatelské jméno: nepovinné uživatelské jméno"
 
 #: C/fantasdic.xml:414(para)
 msgid "Password: an optional password"
-msgstr ""
+msgstr "Heslo: nepovinné heslo"
 
 #: C/fantasdic.xml:417(ulink)
 msgid "dict.org"
-msgstr ""
+msgstr "dict.org"
 
 #: C/fantasdic.xml:420(para)
 msgid "EDICT file"
-msgstr ""
+msgstr "Soubor EDICT"
 
 #: C/fantasdic.xml:422(para)
 msgid "File: the path of the EDICT file"
-msgstr ""
+msgstr "Soubor: cesta k souboru EDICT"
 
 #: C/fantasdic.xml:423(para)
 msgid "Encoding: the encoding of the EDICT file"
-msgstr ""
+msgstr "Kódování: kódování souboru EDICT"
 
 #: C/fantasdic.xml:427(ulink)
 msgid "EDICT"
-msgstr ""
+msgstr "EDICT"
 
 #: C/fantasdic.xml:430(para)
 msgid "Google Translate"
-msgstr ""
+msgstr "Překladač Google"
 
 #: C/fantasdic.xml:431(para)
 msgid "none"
-msgstr ""
+msgstr "žádné"
 
 #: C/fantasdic.xml:440(title) C/fantasdic.xml:443(title)
 msgid "Databases"
-msgstr ""
+msgstr "Databáze"
 
 #: C/fantasdic.xml:452(phrase)
 msgid "Shows the Databases tab"
-msgstr ""
+msgstr "Ukazuje kartu Databáze"
 
 #: C/fantasdic.xml:458(para)
 msgid ""
 "It is possible to select the databases to use when a word is looked up using "
 "the dictionary."
 msgstr ""
+"Je možné vybrat databáze, které se mají použít, když je slovo ve slovníku "
+"vyhledáváno."
 
 #: C/fantasdic.xml:462(para)
 msgid ""
 "Select one or more databases in <guilabel>Available databases</guilabel>."
 msgstr ""
+"Vyberte jednu nebo více databází v <guilabel>Dostupné databáze</guilabel>."
 
 #: C/fantasdic.xml:464(para)
 msgid "Move them to <guilabel>Selected databases</guilabel>."
-msgstr ""
+msgstr "Přesuňte je do <guilabel>Vybrané databáze</guilabel>."
 
 #: C/fantasdic.xml:471(title)
 msgid "Fonts"
-msgstr ""
+msgstr "Písma"
 
 #: C/fantasdic.xml:474(title)
 msgid "Fonts tab"
-msgstr ""
+msgstr "Karta písma"
 
 #: C/fantasdic.xml:483(phrase)
 msgid "Shows the Fonts tab"
-msgstr ""
+msgstr "Ukazuje kartu Písma"
 
 #: C/fantasdic.xml:489(para)
 msgid ""
 "To change the font name and size used for displaying the results and for "
 "printing, perform the following steps:"
 msgstr ""
+"Když chcete změnit název a velikost písma používaného pro zobrazování "
+"výsledků a pro tisk, proveďte následující kroky:"
 
 #: C/fantasdic.xml:493(para)
 msgid "Click on the <guilabel>Font</guilabel> button."
-msgstr ""
+msgstr "Klikněte na tlačítko <guilabel>Písmo</guilabel>."
 
 #: C/fantasdic.xml:495(para)
 msgid "Select the desired font and size."
-msgstr ""
+msgstr "Vyberte požadované písmo a velikost."
 
 #: C/fantasdic.xml:496(para)
 msgid "Click <guibutton>Ok</guibutton>."
-msgstr ""
+msgstr "Klikněte na <guibutton>OK</guibutton>."
 
 #: C/fantasdic.xml:503(title)
 msgid "About <application>Fantasdic</application>"
-msgstr ""
+msgstr "O aplikaci <application>Fantasdic</application>"
 
 #: C/fantasdic.xml:504(para)
 msgid ""
@@ -600,6 +662,10 @@ msgid ""
 "www.gnome.org/projects/fantasdic/\" type=\"http\"><application>Fantasdic</"
 "application> Home Page</ulink>."
 msgstr ""
+"Aplikaci <application>Fantasdic</application> napsal Mathieu Blondel "
+"(<email>mblondel@svn.gnome.org</email>). Více informací o ní najdete na "
+"<ulink url=\"http://www.gnome.org/projects/fantasdic/\" type=\"http"
+"\">domovské stránce <application>Fantasdic</application></ulink>."
 
 #: C/fantasdic.xml:511(para)
 msgid ""
@@ -609,8 +675,12 @@ msgid ""
 "can be found in the file COPYING included with the source code of this "
 "program."
 msgstr ""
+"Tento program je šířen za podmínek licence GNU General Public license, jak "
+"ji vydala Free Software Foundation, a to buď ve verzi 2 této licence nebo "
+"(dle vaší volby) novější. Kopii této licence můžete najít v souboru COPYING, "
+"který je součástí zdrojových kódů tohoto programu."
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/fantasdic.xml:0(None)
 msgid "translator-credits"
-msgstr ""
+msgstr "Marek Černocký <marek@manet.cz>"
