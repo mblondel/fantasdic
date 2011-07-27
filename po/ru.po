@@ -1,0 +1,672 @@
+# Russian translation for fantasdic.
+# Copyright (C) 2011 fantasdic's COPYRIGHT HOLDER
+# This file is distributed under the same license as the fantasdic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fantasdic master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=fantasdic&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2011-05-11 07:19+0000\n"
+"PO-Revision-Date: 2011-07-22 13:24+0300\n"
+"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
+"Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:1
+msgid "<b>Print</b>"
+msgstr "<b>Печать</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:2
+msgid "<b>Results</b>"
+msgstr "<b>Результаты</b>"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:3
+msgid "Add dictionary"
+msgstr "Добавить словарь"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:4
+msgid "Available databases"
+msgstr "Доступные базы данных"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:5
+msgid "Databases"
+msgstr "Базы данных"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:6
+msgid "Fonts"
+msgstr "Шрифты"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:7
+msgid "Move database to selected databases"
+msgstr "Переместить БД в выбранные БД"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:8
+msgid "Remove database from selected databases"
+msgstr "Удалить БД из выбранных БД"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:9
+msgid "Restore default fonts"
+msgstr "Вернуть шрифт по умолчанию"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:10
+msgid "Search _all databases"
+msgstr "Поиск по _всем БД"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:11
+msgid "Search selected _databases"
+msgstr "Поиск по в_ыбранным БД"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:12
+msgid "Select a font"
+msgstr "Выберите шрифт"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:13
+msgid "Selected databases"
+msgstr "Выбранные БД"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:14
+msgid "Source"
+msgstr "Источник"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:15
+msgid "This name will identify your dictionary uniquely and will appear in the application menu."
+msgstr "Это имя однозначно определяет словарь и появится в меню приложений."
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:16
+msgid "_Name:"
+msgstr "_Название:"
+
+#: ../data/fantasdic/glade/add_dictionary_dialog.glade.h:17
+msgid "_Source:"
+msgstr "_Источник:"
+
+#: ../data/fantasdic/glade/main_app.glade.h:1
+msgid "<i>Not found</i>"
+msgstr "<i>Не найдено</i>"
+
+#: ../data/fantasdic/glade/main_app.glade.h:2
+msgid "Fantasdic"
+msgstr "Fantasdic"
+
+#: ../data/fantasdic/glade/main_app.glade.h:3
+msgid "Find: "
+msgstr "Найти:"
+
+#: ../data/fantasdic/glade/main_app.glade.h:4
+#: ../lib/fantasdic/ui/main_app.rb:325
+msgid "Matches"
+msgstr "Совпадения"
+
+#: ../data/fantasdic/glade/main_app.glade.h:5
+msgid "_Next"
+msgstr "_Далее"
+
+#: ../data/fantasdic/glade/main_app.glade.h:6
+msgid "_Previous"
+msgstr "_Назад"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:1
+msgid "<b>Startup</b>"
+msgstr "<b>Запуск</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:2
+msgid "<b>System tray</b>"
+msgstr "<b>Системный лоток</b>"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:3
+msgid "Dictionaries"
+msgstr "Словари"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:4
+msgid "Do _not quit when main window is closed"
+msgstr "_Не выходить из программы при закрытии главного окна"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:5
+msgid "Do not show main window at startup"
+msgstr "Не показывать главное окно после запуска"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:6
+msgid "Enable HTTP proxy"
+msgstr "Включить прокси HTTP"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:7
+msgid "Enable SOCKS 5 proxy"
+msgstr "Включить прокси SOCKS 5"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:8
+msgid "Fantasdic will stay in the system tray even if the window is closed."
+msgstr "Fantasdic останется в системном лотке, даже если закроется главное окно."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:9
+msgid "Host:"
+msgstr "Узел:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:10
+msgid "Password:"
+msgstr "Пароль:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:11
+msgid "Port:"
+msgstr "Порт:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:12
+msgid "Preferences"
+msgstr "Настройки"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:13
+msgid "Proxy"
+msgstr "Прокси"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:14
+msgid "Startup"
+msgstr "Запуск"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:15
+msgid "This option should be enabled if Fantasdic is started when the computer boots."
+msgstr "Этот параметр нужно включить, если Fantasdic запускается при загрузке компьютера."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:16
+msgid "This proxy can for example be used to traverse firewalls."
+msgstr "Этот прокси может использоваться, например, для обхода файерволлов."
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:17
+msgid "Username:"
+msgstr "Имя пользователя:"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:18
+msgid "_Look up last word at startup"
+msgstr "_Искать последнее слово при запуске"
+
+#: ../data/fantasdic/glade/preferences_dialog.glade.h:19
+msgid "_Show Fantasdic in system tray"
+msgstr "_Показывать Fantasdic в системном лотке"
+
+#: ../data/fantasdic/glade/server_infos_dialog.glade.h:1
+msgid "Server informations"
+msgstr "Информация о сервере"
+
+#: ../lib/fantasdic/command_line.rb:34
+msgid "Usage: fantasdic [options] [dictionary] [word]"
+msgstr "Использование: fantasdic [параметр] [словарь] [слово]"
+
+#: ../lib/fantasdic/command_line.rb:37
+msgid "Print results to stdout"
+msgstr "Вывести результаты в стандартный поток вывода"
+
+#: ../lib/fantasdic/command_line.rb:42
+msgid "List dictionaries in settings"
+msgstr "Вывести список словарей, хранящихся в параметрах"
+
+#: ../lib/fantasdic/command_line.rb:47
+msgid "List strategies available for dictionary"
+msgstr "Вывести список стратегий, доступных для словаря"
+
+#: ../lib/fantasdic/command_line.rb:52
+msgid "Use strategy to match words"
+msgstr "Использовать стратегию для поиска совпадающих слов"
+
+#: ../lib/fantasdic/command_line.rb:56
+msgid "Show this message"
+msgstr "Показать это сообщение"
+
+#: ../lib/fantasdic/command_line.rb:61
+msgid "Show version"
+msgstr "Показать номер версии"
+
+#: ../lib/fantasdic/command_line.rb:67
+msgid "Enable debug mode"
+msgstr "Включить режим отладки"
+
+#: ../lib/fantasdic/command_line.rb:90
+msgid "Error: Dictionary does not exist in the settings"
+msgstr "Ошибка: словарь не существует в параметрах"
+
+#: ../lib/fantasdic/command_line.rb:107
+#: ../lib/fantasdic/command_line.rb:153
+#: ../lib/fantasdic/ui/main_app.rb:324
+msgid "No match found."
+msgstr "Нет совпадений."
+
+#: ../lib/fantasdic/command_line.rb:109
+#, c-format
+msgid "One match found."
+msgid_plural "Matches found: %d."
+msgstr[0] "Найдено %d совпадение."
+msgstr[1] "Найдено %d совпадения."
+msgstr[2] "Найдено %d совпадений."
+
+#: ../lib/fantasdic/file_source.rb:131
+msgid "Select a file"
+msgstr "Выберите файл"
+
+#: ../lib/fantasdic/file_source.rb:136
+msgid "A file must be selected!"
+msgstr "Необходимо выбрать файл!"
+
+#: ../lib/fantasdic/file_source.rb:170
+msgid "All files"
+msgstr "Все файлы"
+
+#: ../lib/fantasdic/file_source.rb:174
+msgid "_File:"
+msgstr "_Файл:"
+
+#: ../lib/fantasdic/file_source.rb:192
+msgid "_Encoding:"
+msgstr "_Кодировка:"
+
+#: ../lib/fantasdic/source_base.rb:198
+msgid "Connecting to source..."
+msgstr "Подключение к источнику..."
+
+#: ../lib/fantasdic/source_base.rb:202
+msgid "Transferring data from source ..."
+msgstr "Передача данных от источника..."
+
+#: ../lib/fantasdic/source_base.rb:259
+#: ../lib/fantasdic/source_base.rb:267
+msgid "Can't convert encodings."
+msgstr "Не удалось преобразовать кодировки."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:143
+msgid "Dictd file"
+msgstr "Файл dictd"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:144
+msgid "Look up words in files aimed for the dictd server."
+msgstr "Искать слова в файлах, предназначенных для сервера dictd."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:172
+#: ../lib/fantasdic/sources/stardict_file.rb:181
+msgid "Select a dictd file"
+msgstr "Выберите файл dictd"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:173
+msgid "Index files"
+msgstr "Файлы index"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:207
+msgid "This file is not a valid index file!"
+msgstr "Этот файл не является допустимым индексным файлом!"
+
+#: ../lib/fantasdic/sources/dictd_file.rb:270
+#: ../lib/fantasdic/sources/edict_file.rb:174
+#: ../lib/fantasdic/sources/stardict_file.rb:258
+#, c-format
+msgid "Cannot open file %s."
+msgstr "Не удалось открыть файл %s."
+
+#: ../lib/fantasdic/sources/dictd_file.rb:278
+#: ../lib/fantasdic/sources/stardict_file.rb:264
+msgid "Couldn't find .dict or .dict.dz dictionary file."
+msgstr "Не удалось найти файл словаря .dict или .dict.dz."
+
+#: ../lib/fantasdic/sources/dict_server.rb:23
+msgid "DICT dictionary server"
+msgstr "Сервер словаря DICT"
+
+#: ../lib/fantasdic/sources/dict_server.rb:24
+msgid "Look up words using a DICT dictionary server."
+msgstr "Искать слова с помощью сервера словаря DICT."
+
+#: ../lib/fantasdic/sources/dict_server.rb:34
+msgid "Server details"
+msgstr "Подробности о сервере"
+
+#: ../lib/fantasdic/sources/dict_server.rb:60
+#: ../lib/fantasdic/sources/dict_server.rb:268
+#: ../lib/fantasdic/sources/dict_server.rb:278
+#: ../lib/fantasdic/sources/dict_server.rb:293
+#: ../lib/fantasdic/sources/dict_server.rb:304
+#, c-format
+msgid "Could not connect to %s"
+msgstr "Не удалось подключиться к %s"
+
+#: ../lib/fantasdic/sources/dict_server.rb:76
+#: ../lib/fantasdic/sources/dict_server.rb:205
+msgid "Server missing."
+msgstr "Не указан сервер."
+
+#: ../lib/fantasdic/sources/dict_server.rb:77
+#: ../lib/fantasdic/sources/dict_server.rb:210
+msgid "Port missing."
+msgstr "Не указан порт."
+
+#: ../lib/fantasdic/sources/dict_server.rb:80
+msgid "Username missing."
+msgstr "Не указано имя пользователя."
+
+#: ../lib/fantasdic/sources/dict_server.rb:82
+msgid "Password missing."
+msgstr "Не указан пароль."
+
+#: ../lib/fantasdic/sources/dict_server.rb:103
+msgid "_Server:"
+msgstr "_Сервер:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:115
+msgid "_Port:"
+msgstr "_Порт:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:135
+msgid "Server _requires authentication"
+msgstr "Сервер _требует аутентификацию"
+
+#: ../lib/fantasdic/sources/dict_server.rb:140
+msgid "_Username:"
+msgstr "_Имя пользователя:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:144
+msgid "Pass_word:"
+msgstr "Па_роль:"
+
+#: ../lib/fantasdic/sources/dict_server.rb:313
+#: ../lib/fantasdic/sources/dict_server.rb:322
+msgid "Connection with server lost."
+msgstr "Соединение с сервером разорвано."
+
+#: ../lib/fantasdic/sources/dict_server.rb:327
+#, c-format
+msgid "Waiting for %s..."
+msgstr "Ожидание %s..."
+
+#: ../lib/fantasdic/sources/dict_server.rb:331
+#, c-format
+msgid "Transferring data from %s..."
+msgstr "Передача данных из %s..."
+
+#: ../lib/fantasdic/sources/edict_file.rb:47
+msgid "Select an EDICT file"
+msgstr "Выберите файл EDICT"
+
+#: ../lib/fantasdic/sources/edict_file.rb:48
+msgid "Gzip-compressed files"
+msgstr "Файлы, сжатые gzip"
+
+#: ../lib/fantasdic/sources/edict_file.rb:79
+#: ../lib/fantasdic/sources/edict_file.rb:84
+#: ../lib/fantasdic/sources/edict_file.rb:181
+msgid "This file is not a valid EDICT file!"
+msgstr "Этот файл не является допустимым файлом EDICT!"
+
+#: ../lib/fantasdic/sources/edict_file.rb:256
+msgid "Encoding not supported."
+msgstr "Кодировка не поддерживается."
+
+#: ../lib/fantasdic/sources/edict_file.rb:271
+msgid "EDICT file"
+msgstr "Файл EDICT"
+
+#: ../lib/fantasdic/sources/edict_file.rb:272
+msgid "Look up words in an EDICT file."
+msgstr "Искать слова в файле EDICT."
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:30
+msgid "EPWING dictionary"
+msgstr "Словарь EPWING"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:31
+msgid "Look up words in EPWING dictionaries."
+msgstr "Искать слова в словарях EPWING."
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:40
+msgid "Select a CATALOGS file"
+msgstr "Выберите файл CATALOGS"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:55
+msgid "You're missing rubyeb (libeb for Ruby)!"
+msgstr "Отсутствует rubyeb (libeb для Ruby)!"
+
+#: ../lib/fantasdic/sources/epwing_dictionary.rb:168
+msgid "Not an EPWING dictionary!"
+msgstr "Не является словарём EPWING!"
+
+#: ../lib/fantasdic/sources/google_translate.rb:26
+msgid "Google Translate"
+msgstr "Google Translate"
+
+#: ../lib/fantasdic/sources/google_translate.rb:27
+msgid "Translate words using Google Translate."
+msgstr "Переводить слова с помощью Google Translate."
+
+#: ../lib/fantasdic/sources/stardict_file.rb:152
+msgid "Stardict file"
+msgstr "Файлы stardict"
+
+#: ../lib/fantasdic/sources/stardict_file.rb:153
+msgid "Look up words in Stardict files."
+msgstr "Искать слова в файлах Stardict."
+
+#: ../lib/fantasdic/sources/stardict_file.rb:182
+msgid "Ifo files"
+msgstr "Файлы ifo"
+
+#: ../lib/fantasdic/sources/stardict_file.rb:199
+msgid "Wrong .ifo or .idx file!"
+msgstr "Неверный файл в формате .ifo или .idx!"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:101
+#: ../lib/fantasdic/ui/main_app.rb:120
+#, c-format
+msgid "Dictionary \"%s\" does not exist anymore"
+msgstr "Словарь «%s» больше не существует"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:119
+msgid "Virtual dictionary"
+msgstr "Виртуальный словарь"
+
+#: ../lib/fantasdic/sources/virtual_dictionary.rb:120
+msgid "Look up words in several dictionaries at once."
+msgstr "Искать слова одновременно в нескольких словарях."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:27
+#, c-format
+msgid "About database %s"
+msgstr "О БД %s"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:267
+msgid "Name missing."
+msgstr "Не указано имя."
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:270
+msgid "No database selected!"
+msgstr "Не выбрана БД!"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:284
+#, c-format
+msgid "Dictionary %s exists already!"
+msgstr "Словарь %s уже существует!"
+
+#: ../lib/fantasdic/ui/add_dictionary_dialog.rb:381
+msgid "Fetching databases information..."
+msgstr "Получение информации о БД..."
+
+#: ../lib/fantasdic/ui/browser.rb:38
+msgid "Could not open browser."
+msgstr "Не удалось открыть браузер."
+
+#: ../lib/fantasdic/ui/browser.rb:43
+msgid "Could not find documentation."
+msgstr "Не удалось найти документацию."
+
+#: ../lib/fantasdic/ui/main_app.rb:87
+msgid "No dictionary configured"
+msgstr "Словари не настроены"
+
+#: ../lib/fantasdic/ui/main_app.rb:130
+#, c-format
+msgid "Dictionary source \"%s\" does not exist anymore"
+msgstr "Источник словаря «%s» больше не существует"
+
+#: ../lib/fantasdic/ui/main_app.rb:248
+msgid "Source error"
+msgstr "Ошибка источника"
+
+#: ../lib/fantasdic/ui/main_app.rb:279
+msgid "No definition found."
+msgstr "Определение не найдено."
+
+#: ../lib/fantasdic/ui/main_app.rb:283
+#, c-format
+msgid "One definition found."
+msgid_plural "Definitions found: %d."
+msgstr[0] "Найдено определение: %d."
+msgstr[1] "Найдено определений: %d."
+msgstr[2] "Найдено определений: %d."
+
+#: ../lib/fantasdic/ui/main_app.rb:320
+#, c-format
+msgid "1 match"
+msgid_plural "%d matches"
+msgstr[0] "%d совпадение"
+msgstr[1] "%d совпадения"
+msgstr[2] "%d совпадений"
+
+#: ../lib/fantasdic/ui/main_app.rb:626
+#, c-format
+msgid "Search %s"
+msgstr "Поиск %s"
+
+#: ../lib/fantasdic/ui/main_app.rb:650
+msgid "Zoom over character"
+msgstr ""
+
+#: ../lib/fantasdic/ui/main_app.rb:665
+#: ../lib/fantasdic/ui/main_app.rb:1044
+msgid "Select _All"
+msgstr "_Выделить всё"
+
+#: ../lib/fantasdic/ui/main_app.rb:835
+msgid "Save definition"
+msgstr "Сохранить определение"
+
+#: ../lib/fantasdic/ui/main_app.rb:1034
+msgid "Print Set_up"
+msgstr "_Настройки печати"
+
+#: ../lib/fantasdic/ui/main_app.rb:1042
+msgid "_Edit"
+msgstr "_Правка"
+
+#: ../lib/fantasdic/ui/main_app.rb:1046
+msgid "Clear History"
+msgstr "Очистить журнал"
+
+#: ../lib/fantasdic/ui/main_app.rb:1049
+msgid "Find N_ext"
+msgstr "Найти _следующее"
+
+#: ../lib/fantasdic/ui/main_app.rb:1051
+msgid "Find Pre_vious"
+msgstr "Найти _предыдущее"
+
+#: ../lib/fantasdic/ui/main_app.rb:1057
+msgid "_View"
+msgstr "_Вид"
+
+#: ../lib/fantasdic/ui/main_app.rb:1058
+msgid "_Text size"
+msgstr "_Размер текста"
+
+#: ../lib/fantasdic/ui/main_app.rb:1063
+msgid "Zoom normal"
+msgstr "Обычный масштаб"
+
+#: ../lib/fantasdic/ui/main_app.rb:1068
+msgid "_Go"
+msgstr "_Переход"
+
+#: ../lib/fantasdic/ui/main_app.rb:1073
+msgid "_Previous Definition"
+msgstr "_Предыдущее определение"
+
+#: ../lib/fantasdic/ui/main_app.rb:1075
+msgid "_Next Definition"
+msgstr "_Следующее определение"
+
+#: ../lib/fantasdic/ui/main_app.rb:1077
+msgid "_First Definition"
+msgstr "_Первое определение"
+
+#: ../lib/fantasdic/ui/main_app.rb:1079
+msgid "_Last Definition"
+msgstr "_Последнее определение"
+
+#: ../lib/fantasdic/ui/main_app.rb:1081
+msgid "Previous Database"
+msgstr "Предыдущая БД"
+
+#: ../lib/fantasdic/ui/main_app.rb:1083
+msgid "Next Database"
+msgstr "Следующая БД"
+
+#: ../lib/fantasdic/ui/main_app.rb:1085
+msgid "First Database"
+msgstr "Первая БД"
+
+#: ../lib/fantasdic/ui/main_app.rb:1087
+msgid "Last Database"
+msgstr "Последняя БД"
+
+#: ../lib/fantasdic/ui/main_app.rb:1091
+msgid "_Help"
+msgstr "_Справка"
+
+#: ../lib/fantasdic/ui/main_app.rb:1092
+msgid "_Contents"
+msgstr "_Содержимое"
+
+#: ../lib/fantasdic/ui/main_app.rb:1093
+msgid "Submit _Bug Report"
+msgstr "С_ообщить об ошибке"
+
+#: ../lib/fantasdic/ui/main_app.rb:1095
+msgid "About"
+msgstr "О программе"
+
+#: ../lib/fantasdic/ui/main_app.rb:1135
+msgid "Scan clipboard"
+msgstr "Следить за буфером обмена"
+
+#: ../lib/fantasdic/ui/main_app.rb:1137
+msgid "_Matches"
+msgstr "_Совпадения"
+
+#: ../lib/fantasdic/ui/main_app.rb:1139
+msgid "_Statusbar"
+msgstr "Панель _состояния"
+
+#: ../lib/fantasdic/ui/main_app.rb:1141
+msgid "_Toolbar"
+msgstr "Панель _управления"
+
+#: ../lib/fantasdic/ui/main_app.rb:1143
+msgid "_Keep above"
+msgstr ""
+
+#: ../lib/fantasdic/ui/preferences_dialog.rb:207
+msgid "SOCKS 5 proxy"
+msgstr "Прокси SOCKS 5"
+
+#: ../lib/fantasdic/ui/preferences_dialog.rb:207
+msgid "HTTP proxy"
+msgstr "Прокси HTTP"
+
+#: ../lib/fantasdic/ui/print.rb:195
+#, c-format
+msgid "Definitions for %s"
+msgstr "Определения для %s"
+
+#: ../lib/fantasdic/ui/print.rb:196
+#, c-format
+msgid "Page %d/%d"
+msgstr "Страница %d/%d"
+
+#: ../lib/fantasdic/ui/print.rb:207
+msgid "Printed by Fantasdic on %Y/%m/%d at %H:%M"
+msgstr "Напечатано с помощью Fantasdic %d.%m.%Y в %H:%M"
+
